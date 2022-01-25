@@ -185,7 +185,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('profile/data_profile') }}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -221,9 +221,14 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-     
-      </li><!-- End Blank Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/data_user') }}">
+          <i class="bi bi-person"></i>
+          <span>Data User</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
+     
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>

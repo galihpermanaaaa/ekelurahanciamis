@@ -36,6 +36,13 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::get('profile/data_profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile/data_profile');
+Route::post('update_profile', [App\Http\Controllers\ProfileController::class, 'update_profile'])->name('update_profile');
+Route::post('update_password', [App\Http\Controllers\ProfileController::class, 'update_password'])->name('update_password');
+
+
+Route::get('user/data_user', [App\Http\Controllers\UserController::class, 'index'])->name('user/data_user');
+Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])->name('save_user');
 
 Auth::routes([
     'register' => false
