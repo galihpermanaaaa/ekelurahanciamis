@@ -15,6 +15,8 @@ class CreateTableRw extends Migration
     {
         Schema::create('rw', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('subdis_id');
+            $table->string('nama_rw');
             $table->timestamps();
         });
     }
