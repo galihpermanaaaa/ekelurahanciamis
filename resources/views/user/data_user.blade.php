@@ -51,11 +51,26 @@
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
                       <td>{{$item->phone_number}}</td>
-                      <td>{{$item->role_name}}</td>
+                      <td>
+
+                      @if($item->role_name =='Lurah')
+                      <span  class="btn btn-success" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      @endif 
+
+                           
+                      @if($item->role_name =='Verifikator')
+                      <span  class="btn btn-primary" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      @endif 
+
+                      @if($item->role_name =='RW')
+                      <span  class="btn btn-secondary" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      @endif 
+
+                      </td>
                       <td class="text-right">
-						<button type="button" class="btn btn-warning" href="#" data-target="#edit_user" data-id="{{$item->id}}" data-namabarang="{{$item->nama_barang}}" data-volumee="{{$item->volume}}" data-hargasatuan="{{$item->harga_satuan}}" data-satuann="{{$item->satuan}}" data-jumlahh="{{$item->jumlah}}"  data-totall="{{$item->total}}" data-toggle="modal"><i class="bi bi-pencil-square"></i> Edit</button>
-                        <button type="button" class="btn btn-danger" href="#" data-target="#hapus_user" data-id="{{$item->id}}" data-namabarang="{{$item->nama_barang}}" data-volumee="{{$item->volume}}" data-hargasatuan="{{$item->harga_satuan}}" data-satuann="{{$item->satuan}}" data-jumlahh="{{$item->jumlah}}"  data-totall="{{$item->total}}" data-toggle="modal"><i class="bi bi-trash-fill"></i> Hapus</button>
-					</td>
+						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-pencil-square"></i> Edit</button>
+                        <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
+                      	</td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -178,4 +193,168 @@
             </div>
         </div>
     </div>
+
+    <div id="edit_user" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Edit User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="{{ route('update_user') }}" method="POST" enctype="multipart/form-data">
+                              @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                
+                                            <div class="">
+                                                <div class="form-group">
+                                                    <label>Nama User</label>
+                                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
+                                                    <input type="hidden" name="id" class="form-control" id="id" placeholder="id" required>
+                                                    @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                             <div class="">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" name="email" class="form-control" placeholder="contoh@gmail.com" id="email" required>
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="">
+                                                <div class="form-group">
+                                                    <label>Nomor telepon</label>
+                                                    <input type="number" name="phone_number" id="phone_number" class="form-control" placeholder="Masukkan Nomor Telepon" id="phone_number" required>
+                                                    @error('phone_number')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="">
+                                                <div class="form-group">
+                                                    <label>Role Name User</label>
+                                                    <select class="form-control" name="role_name" id="role_name" required>
+                                                    <option selected disabled>--Pilih Role Name Pengguna--</option>
+                                                    <option value="Lurah">Lurah</option>
+                                                    <option value="Verifikator">Verifikator</option>
+                                                    <option value="RW">RW</option>
+                                                </select>
+                                                @error('role_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn" type="submit" >Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hapus_user" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Hapus User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="{{ route('hapus_user') }}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE')}}
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                
+                                            <div class="">
+                                                <div class="form-group">
+                                                <p>Apakah kamu yakin akan menghapus user tersebut?</p>
+                                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required readonly>
+                                                    <input type="hidden" name="id" class="form-control" id="id" placeholder="id" required readonly>
+
+                                                    
+                                                </div>
+                                                <br>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn" type="submit" >Delete</button>
+                                   
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @include('layouts.footer')
+
+<script type="text/javascript">
+
+$('#edit_user').on('show.bs.modal', function (event) {
+
+
+var button = $(event.relatedTarget)
+var ID = button.data('id')
+var Name = button.data('name') 
+var Email = button.data('emaill') 
+var Phone = button.data('phone')
+var Role = button.data('role')
+
+
+var modal = $(this)
+modal.find('.modal-body #id').val(ID)
+modal.find('.modal-body #name').val(Name)
+modal.find('.modal-body #email').val(Email)
+modal.find('.modal-body #phone_number').val(Phone)
+modal.find('.modal-body #role_name').val(Role)
+
+})
+
+$('#hapus_user').on('show.bs.modal', function (event) {
+
+
+var button = $(event.relatedTarget)
+var ID = button.data('id')
+var Name = button.data('name') 
+
+var modal = $(this)
+modal.find('.modal-body #id').val(ID)
+modal.find('.modal-body #name').val(Name)
+})
+
+</script>

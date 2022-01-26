@@ -94,9 +94,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id           = $request->id;
+        $email        = $request->email;
+        $name         = $request->name;
+        $phone_number = $request->phone_number;
+        $role_name    = $request->role_name;
+
+        $update = [
+
+            'id'           => $id,
+            'email'        => $email,
+            'name'         => $name,
+            'phone_number' => $phone_number,
+            'role_name'    => $role_name,
+
+        ];
+        User::where('id',$request->id)->update($update);
+        Toastr::success('User Berhasil diupdate :)','Success');
+        return redirect()->route('user/data_user');
+
+
     }
 
     /**
@@ -105,8 +124,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function delete(Request $request)
+   {
+    $user = User::findOrFail($request->id);
+    $user->delete();
+    Toastr::success('User berhasil dihapus :)','Success');
+    return redirect()->route('user/data_user');
+   }
 }

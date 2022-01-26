@@ -43,6 +43,9 @@ Route::post('update_password', [App\Http\Controllers\ProfileController::class, '
 
 Route::get('user/data_user', [App\Http\Controllers\UserController::class, 'index'])->name('user/data_user');
 Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])->name('save_user');
+Route::post('update_user', [App\Http\Controllers\UserController::class, 'update'])->name('update_user');
+Route::delete('hapus_user', [App\Http\Controllers\UserController::class, 'delete'])->name('hapus_user');
+
 
 Auth::routes([
     'register' => false
