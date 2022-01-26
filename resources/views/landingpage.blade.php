@@ -5,29 +5,29 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Arsha Bootstrap Template - Index</title>
+  <title>E-Kelurahan - Ciamis</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ URL::to('Arsha/img/favicon.png') }}" rel="icon">
+  <link href="{{ URL::to('Arsha/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::to('Arsha/vendor/aos/aos.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
+  <link href="{{ URL::to('Arsha/css/style.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
   <!-- =======================================================
   * Template Name: Arsha - v2.3.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -42,40 +42,13 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Arsha</a></h1>
+      <h1 class="logo mr-auto modal-title"><a href="index.html">E-Kelurahan</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
 
-        </ul>
-      </nav><!-- .nav-menu -->
 
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+
 
     </div>
   </header><!-- End Header -->
@@ -86,15 +59,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Better Solutions For Your Business</h1>
-          <h2>We are team of talented designers making websites with Bootstrap</h2>
+          <h1> E-Kelurahan Ciamis</h1>
+          <h2>E-Kelurahan Adalah Aplikasi untuk mempermudah pelayanan surat berbasis online</h2>
           <div class="d-lg-flex">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#services" class="btn-get-started scrollto">Pelayanan Surat</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="{{ URL::to('Arsha/img/bupati-wakil-2.png') }}" class="img-fluid animated" alt="" >
         </div>
       </div>
     </div>
@@ -103,41 +76,60 @@
 
   <main id="main">
 
-    <!-- ======= Cliens Section ======= -->
-    <section id="cliens" class="cliens section-bg">
-      <div class="container">
+    <br>
 
-        <div class="row" data-aos="zoom-in">
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Pelayanan Surat</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU">Surat Keterangan Usaha</a></h4>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><center><i class="bx bx-file"></i></div>
+                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalForm">Surat Domisili</a> </h4>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           </div>
+        </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="">Magni Dolores</a></h4>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
           </div>
+        </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-layer"></i></div>
+            <h4><a href="">Nemo Enim</a></h4>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
           </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
-
         </div>
 
       </div>
-    </section><!-- End Cliens Section -->
 
+    </div>
+  </section><!-- End Services Section -->
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -279,52 +271,7 @@
       </div>
     </section><!-- End Skills Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
@@ -723,7 +670,7 @@
                 <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
                 <div class="validate"></div>
               </div>
-              <div class="mb-3">
+              <div class="col-md-6">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
@@ -823,22 +770,143 @@
     </div>
   </footer><!-- End Footer -->
 
+  <!-- Modal SKU -->
+<div class="modal fade" id="modalSKU" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="container col-md-12">
+                        <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">NIK</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                    </div>
+                </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal Lahir" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pet-select">Pilih Jenis Kelamin:</label>
+                    <select  class="form-control" name="jk" id="jk-select">
+                        <option value="">--Please choose an option--</option>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
+
+                        </select>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Status Perkawinan</label>
+                        <input type="text" class="form-control" id="status" name="status" placeholder="Status Perkawinan" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Kewarganegaraan</label>
+                        <input type="text" class="form-control" id="kwn" name="kwn" placeholder="Kewarganegaraan" />
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Agama</label>
+                        <input type="text" class="form-control" id="agama" name="agama" placeholder="Agama" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Pekerjaan</label>
+                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan" />
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RT</label>
+                        <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RW</label>
+                        <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" />
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Nomor</label>
+                        <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Nomor" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Bidang Usaha</label>
+                        <input type="text" class="form-control" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha" />
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Keperluan</label>
+                        <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan" />
+                    </div>
+            </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Upload KTP</label>
+                        <input type="file" class="form-control" id="ktp" name="ktp" placeholder="KTP" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Upload KK</label>
+                        <input type="file" class="form-control" id="kk" name="kk" placeholder="KK" />
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Surat Pengantar</label>
+                        <input type="file" class="form-control" id="surat_pengantar" name="surat_pengantar" placeholder="KTP" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Keterangan Domisili</label>
+                        <input type="file" class="form-control" id="surat_pengantar" name="surat_pengantar" placeholder="KTP" />
+                    </div>
+                    <p >*jika alamat KTP di luar Kelurahan Ciamis Silahkan Upload Surat Keterangan Domisili</p>
+                    </div>
+                    <div class="modal-footer d-block">
+
+                        <button type="submit" class="btn btn-warning float-end">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal SKU -->
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{{ URL::to('Arsha/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ URL::to('Arsha/vendor/aos/aos.js') }}"></script>
 
+  <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ URL::to('Arsha/js/main.js') }}"></script>
 
 </body>
 
