@@ -784,26 +784,26 @@
                         <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Anda" />
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">NIK</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                        <input type="number" class="form-control" id="nik" name="nik" placeholder="Password" />
                     </div>
                 </div>
 
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal Lahir" />
+                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" />
                     </div>
                     <div class="col-md-6">
                         <label for="pet-select">Pilih Jenis Kelamin:</label>
-                    <select  class="form-control" name="jk" id="jk-select">
-                        <option value="">--Please choose an option--</option>
-                        <option value="L">Laki-Laki</option>
-                        <option value="P">Perempuan</option>
+                        <select  class="form-control" name="jk" id="jk-select">
+                        <option value="">--Pilih Jenis Kelamin Anda--</option>
+                        <option value="Laki-laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
 
                         </select>
                     </div>
@@ -811,37 +811,98 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Status Perkawinan</label>
-                        <input type="text" class="form-control" id="status" name="status" placeholder="Status Perkawinan" />
+                        <select  class="form-control" name="status_perkawinan" id="jk-select">
+                        <option value="">--Pilih Status Perkawinan Anda--</option>
+                        <option value="Belum Menikah">Belum Menikah</option>
+                        <option value="Kawin">Kawin</option>
+                        <option value="Duda">Duda</option>
+                        <option value="Janda">Janda</option>
+                        </select>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Kewarganegaraan</label>
-                        <input type="text" class="form-control" id="kwn" name="kwn" placeholder="Kewarganegaraan" />
+                        <select  class="form-control" name="status_kewarganegaraan" id="">
+                        <option value="">--Pilih Status Kewarganegaraan Anda--</option>
+                        <option value="WNI">WNI</option>
+                        <option value="WNA">WNA</option>
+
+                        </select>
                     </div>
             </div>
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Agama</label>
-                        <input type="text" class="form-control" id="agama" name="agama" placeholder="Agama" />
+                        <select  class="form-control" name="agama" id="agama">
+                        <option value="">--Pilih Agama Anda--</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                        <option value="Konghuchu">Konghuchu</option>
+                        </select>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Pekerjaan</label>
-                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan" />
+                        <select  class="form-control" name="pekerjaan" id="pekerjaan">
+                        <option value="">--Pilih Pekerjaan Anda--</option>
+                        <option value="PNS">PNS</option>
+                        <option value="Wiraswasta">Wiraswasta</option>
+                        <option value="Wirausaha">Wirausaha</option>
+                        <option value="Buruh">Buruh</option>
+                        <option value="Dokter">Dokter</option>
+                        <option value="Bidan">Bidan</option>
+                        <option value="TNI">TNI</option>
+                        <option value="Polisi">Polisi</option>
+                        <option value="Petani">Petani</option>
+                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                        <option value="Karyawan Honorer">Karyawan Honorer</option>
+                        <option value="Karyawan BUMN">Karyawan BUMN</option>
+                        <option value="Karyawan BUMD">Karyawan BUMD</option>
+                        <option value="Anggota DPRD">Anggota DPRD</option>
+                        <option value="Belum Bekerja">Belum Bekerja</option>
+                        </select>
                     </div>
             </div>
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Alamat</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" />
+                        <label class="form-label">Provinsi</label>
+                        <  <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi">
+                                                    <option selected>---Pilih Provinsi---</option>
+                                                    @foreach ($provinsi as $prov)
+                                                        <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('prov_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">RT</label>
+                        <label class="form-label">Kabupaten</label>
                         <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" />
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">RW</label>
+                        <label class="form-label">Kecamatan</label>
                         <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" />
                     </div>
             </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Kelurahan</label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RW</label>
+                        <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RT</label>
+                        <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" />
+                    </div>
+            </div>
+
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Nomor</label>
