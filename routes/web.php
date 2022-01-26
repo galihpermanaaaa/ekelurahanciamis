@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-    Route::get('/', [App\Http\Controllers\landigpageController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\landigpageController::class, 'index'])->name('index');
+Route::get('/getKota', [App\Http\Controllers\landigpageController::class, 'getKota'])->name('getKota');
+Route::get('/getKecamatan', [App\Http\Controllers\landigpageController::class, 'getKecamatan'])->name('getKecamatan');
+Route::get('/getDesa', [App\Http\Controllers\landigpageController::class, 'getDesa'])->name('getDesa');
+Route::get('/getRw', [App\Http\Controllers\landigpageController::class, 'getRw'])->name('getRw');
+Route::post('save_sku', [App\Http\Controllers\landigpageController::class, 'saveSku'])->name('save_sku');
 
 
 Route::group(['middleware'=>'auth'],function()
@@ -45,6 +50,9 @@ Route::get('user/data_user', [App\Http\Controllers\UserController::class, 'index
 Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])->name('save_user');
 Route::post('update_user', [App\Http\Controllers\UserController::class, 'update'])->name('update_user');
 Route::delete('hapus_user', [App\Http\Controllers\UserController::class, 'delete'])->name('hapus_user');
+
+
+
 
 
 Auth::routes([

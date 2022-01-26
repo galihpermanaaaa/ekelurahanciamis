@@ -14,10 +14,18 @@ class CreateTableRw extends Migration
     public function up()
     {
         Schema::create('rw', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_rw');
             $table->unsignedBigInteger('subdis_id');
             $table->string('nama_rw');
             $table->timestamps();
+        });
+
+        Schema::table('surat_sku', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -28,6 +36,10 @@ class CreateTableRw extends Migration
      */
     public function down()
     {
+        Schema::table('surat_sku', function(Blueprint $table) {
+            $table->dropforeign('surat_sku_id_rw_foreign');
+        });
+
         Schema::dropIfExists('rw');
     }
 }

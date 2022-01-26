@@ -14,16 +14,16 @@ class Desa extends Model
 
     public function districts()
     {
-    	return $this->belongsTo('App\Models\Desa', 'dis_id');
+    	return $this->belongsTo('App\Models\Kecamatan', 'dis_id');
     }
 
-    public function information_forms()
+    public function rw()
     {
-    	return $this->hasMany('App\Models\InformationForms', 'subdis_id');
+    	return $this->hasMany('App\Models\RW', 'subdis_id');
     }
 
-    public function data_orang()
+    public function surat_sku()
     {
-    	return $this->hasMany('App\Models\DataOrang', 'subdis_id');
+    	return $this->hasMany('App\Models\SKU', 'subdis_id');
     }
 }

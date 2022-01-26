@@ -16,7 +16,7 @@ class CreateTableSku extends Migration
         Schema::create('surat_sku', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
+            $table->enum('jk', ['Pria', 'Wanita']);
             $table->date('tanggal_lahir');
             $table->enum('status_perkawinan', ['Belum Menikah', 'Kawin', 'Duda', 'Janda']);
             $table->enum('status_kewarganegaraan', ['WNI', 'WNA']);
@@ -28,10 +28,18 @@ class CreateTableSku extends Migration
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
             $table->enum('rt', ['1','2','3','4','5','6','7','8']);
-    
+            $table->string('nomor_surat_pengantar_rw_rt');
+            $table->string('keperluan');
+            $table->string('bidang_usaha');
+            $table->string('ktp');
+            $table->string('kk');
+            $table->string('surat_pengantar');
+            $table->string('keterangan_domisili')->nullable();
+            $table->string('token');
             $table->unsignedBigInteger('id_users')->nullable();
             $table->enum('verifikasi', ['Terverifikasi', 'Belum Diverifikasi'])->nullable();
             $table->string('email')->nullable();
+            $table->date('tanggal_buat_surat')->nullable();
             $table->timestamps();
         });
     }

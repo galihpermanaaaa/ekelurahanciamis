@@ -31,6 +31,14 @@ class CreateTableDistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_sku', function (Blueprint $table) {
+            $table->foreign('dis_id')
+            ->references('dis_id')
+            ->on('districts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -42,6 +50,10 @@ class CreateTableDistricts extends Migration
     {
         Schema::table('subdistricts', function(Blueprint $table) {
             $table->dropforeign('subdistricts_dis_id_foreign');
+        });
+
+        Schema::table('surat_sku', function(Blueprint $table) {
+            $table->dropforeign('surat_sku_dis_id_foreign');
         });
         
         Schema::dropIfExists('districts');

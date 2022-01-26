@@ -17,24 +17,15 @@ class Kota extends Model
     	return $this->belongsTo('App\Models\Provinsi', 'prov_id');
     }
 
-    public function information_forms()
-    {
-    	return $this->hasMany('App\Models\InformationForms', 'city_id');
-    }
-
     public function districts()
     {
     	return $this->hasMany('App\Models\Kecamatan', 'city_id');
     }
-
-    public function data_orang()
+    public function surat_sku()
     {
-    	return $this->hasMany('App\Models\DataOrang', 'city_id');
+    	return $this->hasMany('App\Models\SKU', 'city_id');
     }
 
-    public function wilayah_kerja()
-    {
-    	return $this->hasMany('App\Models\WilayahKesmas', 'city_id');
-    }
+  
 
 }

@@ -6,6 +6,8 @@ use App\Models\Provinsi;
 use App\Models\Kota;
 use App\Models\Kecamatan;
 use App\Models\Desa;
+use App\Models\RW;
+use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 
 class landigpageController extends Controller
@@ -21,6 +23,96 @@ class landigpageController extends Controller
         $provinsi = Provinsi::all();
         return view('landingpage', compact('provinsi'));
 
+    }
+    
+    public function getKota(Request $request){
+        $kota = Kota::where("prov_id",$request->prov_id)->pluck('city_id','city_name');
+        return response()->json($kota);
+    }
+
+    public function getKecamatan(Request $request){
+        $kecamatan = Kecamatan::where("city_id",$request->city_id)->pluck('dis_id','dis_name');
+        return response()->json($kecamatan);
+    }
+
+    public function getDesa(Request $request){
+        $desa = Desa::where("dis_id",$request->dis_id)->pluck('subdis_id','subdis_name');
+        return response()->json($desa);
+    }
+    public function getRw(Request $request){
+        $rw = RW::where("subdis_id",$request->subdis_id)->pluck('id_rw','nama_rw');
+        return response()->json($rw);
+    }
+
+    public function saveSku( Request $request)
+    {
+        $request->validate([
+            'nik'                   => 'required|min:16|numeric',
+            'nama'                  => 'required|string|max:30',
+            'jk'                    => 'required',
+            'tanggal_lahir'         => 'required|date',
+            'status_perkawinan'     => 'required',
+            'status_kewarganegaraan' => 'required',
+            'agama'                 => 'required',
+            'pekerjaan'             => 'required',
+            'prov_id'                => 'required',
+            'city_id'                => 'required',
+            'dis_id'                  => 'required',
+            'subdis_id'             => 'required',
+            'id_rw'                 => 'required',
+            'rt'                     => 'required',
+            'nomor_surat_pengantar_rw_rt' => 'required',
+            'keperluan'                     => 'required',
+            'bidang_usaha'                   => 'required',
+            'ktp'                           => 'required',
+            'kk'                            => 'required', 
+            'surat_pengantar'                => 'required',
+            'keterangan_domisili'               => 'required',
+            'token'                         => 'required',
+            'verifikasi'                    => 'required',
+            'email'                          => 'required',
+            'tanggal_buat_surat'                => 'required|date',
+        ]);
+
+        $image = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $image);
+
+        $form = new DataOrang;
+        $form->nik                          = $request->nik;
+        $form->nama                         = $request->nama;
+        $form->jk                           = $request->jk;
+        $form->tanggal_lahir                = $request->tanggal_lahir;
+        $form->status_perkawinan            = $request->status_perkawinan;
+        $form->status_kewarganegaraan       = $request->status_kewarganegaraan;
+        $form->agama                        = $request->agama;
+        $form->pekerjaan                    = $request->pekerjaan;
+        $form->prov_id                      = $request->prov_id;
+        $form->city_id                      = $request->city_id;
+        $form->id_rw                        = $request->id_rw;
+        $form->rt                           = $request->rt;
+
+        $form->nomor_surat_pengantar_rw_rt     = $request->nomor_surat_pengantar_rw_rt;
+        $form->keperluan                       = $request->keperluan;
+        $form->bidang_usaha                    = $bidang_usaha;
+
+        $form->ktp                              = $request->ktp;
+        $form->kk                               = $request->kk;
+        $form->surat_pengantar                  = $request->surat_pengantar;
+        $form->keterangan_domisili              = $request->keterangan_domisili;
+
+        $form->token                            = $request->token;
+        $form->verifikasi                        = $request->verifikasi;
+        $form->email                            = $request->email;
+        $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
+
+
+
+        Mail::to($request->email)->send(new \App\Mail\MailSilacak($form));
+       
+        $form->save();
+       
+        Toastr::success('Insert data successfully :)','Success');
+        return redirect()->route('dinkes/data_orang/show');
     }
 
     /**

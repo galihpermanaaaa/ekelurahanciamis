@@ -29,6 +29,14 @@ class CreateTableCities extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_sku', function (Blueprint $table) {
+            $table->foreign('city_id')
+            ->references('city_id')
+            ->on('cities')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -41,6 +49,10 @@ class CreateTableCities extends Migration
        
         Schema::table('districts', function(Blueprint $table) {
             $table->dropforeign('districts_city_id_foreign');
+        });
+
+        Schema::table('surat_sku', function(Blueprint $table) {
+            $table->dropforeign('surat_sku_city_id_foreign');
         });
 
         Schema::dropIfExists('cities');

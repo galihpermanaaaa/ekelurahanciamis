@@ -26,6 +26,16 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
+        Schema::table('surat_sku', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
+       
+
     }
     
     /**
@@ -35,6 +45,10 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('surat_sku', function(Blueprint $table) {
+            $table->dropforeign('surat_sku_id_users_foreign');
+        });
+
         
         Schema::dropIfExists('users');
     }

@@ -17,30 +17,14 @@ class Kecamatan extends Model
     	return $this->belongsTo('App\Models\Kota', 'city_id');
     }
 
-    public function information_forms()
-    {
-    	return $this->hasMany('App\Models\InformationForms', 'dis_id');
-    }
-
     public function subdistricts()
     {
     	return $this->hasMany('App\Models\Desa', 'dis_id');
     }
 
-    public function data_orang()
+    public function surat_sku()
     {
-    	return $this->hasMany('App\Models\DataOrang', 'dis_id');
+    	return $this->hasMany('App\Models\SKU', 'dis_id');
     }
-
-    public function peta_kordinasi()
-    {
-    	return $this->hasMany('App\Models\PetaKordinasi', 'dis_id');
-    }
-
-    public function wilayah_kerja()
-    {
-    	return $this->hasMany('App\Models\WilayahKesmas', 'dis_id');
-    }
-
 
 }

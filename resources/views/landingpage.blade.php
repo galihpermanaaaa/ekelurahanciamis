@@ -28,6 +28,8 @@
   <!-- Template Main CSS File -->
   <link href="{{ URL::to('Arsha/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
+  
+  
   <!-- =======================================================
   * Template Name: Arsha - v2.3.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -779,17 +781,28 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+            <form action="{{ route('save_sku') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                     <div class="container col-md-12">
                         <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Anda" />
+                        @error('nama')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">NIK</label>
-                        <input type="number" class="form-control" id="nik" name="nik" placeholder="Password" />
+                        <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor Induk Kependudukan Anda" />
+                        @error('nik')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                 </div>
 
@@ -797,6 +810,11 @@
                     <div class="col-md-6">
                         <label class="form-label">Tanggal Lahir</label>
                         <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" />
+                        @error('tanggal_lahir')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-6">
                         <label for="pet-select">Pilih Jenis Kelamin:</label>
@@ -806,6 +824,13 @@
                         <option value="Perempuan">Perempuan</option>
 
                         </select>
+
+                        @error('jk')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                     </div>
             </div>
             <div class="row">
@@ -818,6 +843,11 @@
                         <option value="Duda">Duda</option>
                         <option value="Janda">Janda</option>
                         </select>
+                        @error('status_perkawinan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Kewarganegaraan</label>
@@ -827,6 +857,12 @@
                         <option value="WNA">WNA</option>
 
                         </select>
+                        @error('status_kewarganegaraan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                     </div>
             </div>
             <div class="row">
@@ -840,6 +876,11 @@
                         <option value="Budha">Budha</option>
                         <option value="Konghuchu">Konghuchu</option>
                         </select>
+                        @error('agama')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Pekerjaan</label>
@@ -861,12 +902,17 @@
                         <option value="Anggota DPRD">Anggota DPRD</option>
                         <option value="Belum Bekerja">Belum Bekerja</option>
                         </select>
+                        @error('pekerjaan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
             </div>
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi</label>
-                        <  <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi">
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi">
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -879,68 +925,154 @@
                                                 @enderror
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">Kabupaten</label>
-                        <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" />
+                        <label class="form-label">Kabupaten/Kota</label>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota">
+                                                        <option selected>---Pilih Kabupaten/Kota---</option>
+                                                </select>
+                                                @error('city_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" />
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan">
+                                                    <option selected>---Pilih Kecamatan---</option>
+                                                </select>
+                                                @error('dis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
             </div>
 
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Kelurahan</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" />
+                        <label class="form-label">Desa/Kelurahan</label>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa">
+                                                    <option selected>---Pilih Desa/Kelurahan---</option>
+                                                </select>
+                                                @error('subdis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" />
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw">
+                                                    <option selected>--Pilih RW--</option>
+                                                </select>
+                                                @error('id_rw')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RT</label>
-                        <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" />
+                        <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt">
+                        <option selected disabled>--Pilih RT--</option>
+                        <option value="1">1</option>
+                         <option value="2">2</option>
+                          <option value="3">3</option>
+                            <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                        </select>
+                        @error('rt')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
             </div>
 
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Nomor</label>
-                        <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Nomor" />
+                        <label class="form-label">Nomor Surat Pengantar RW/RT</label>
+                        <input type="text" class="form-control" id="nomor_surat_pengantar_rw_rt" name="nomor_surat_pengantar_rw_rt" placeholder="Nomor Pengantar Yang Anda Dapat" />
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Bidang Usaha</label>
-                        <input type="text" class="form-control" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha" />
+                        <input type="text" class="form-control" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha Anda" />
+                        @error('bidang_usaha')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
             </div>
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Keperluan</label>
-                        <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan" />
+                        <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan Anda" />
+                        @error('keperluan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                        <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly />
+                        <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Anda" />
+                        @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
             </div>
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
                         <input type="file" class="form-control" id="ktp" name="ktp" placeholder="KTP" />
+                        @error('ktp')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Upload KK</label>
                         <input type="file" class="form-control" id="kk" name="kk" placeholder="KK" />
+                        @error('kk')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control" id="surat_pengantar" name="surat_pengantar" placeholder="KTP" />
+                        <input type="file" class="form-control" id="surat_pengantar" name="surat_pengantar" placeholder="Surat Pengantar" />
+                        @error('surat_pengantar')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">Upload Keterangan Domisili</label>
-                        <input type="file" class="form-control" id="surat_pengantar" name="surat_pengantar" placeholder="KTP" />
+                        <input type="file" class="form-control" id="keterangan_domisili" name="keterangan_domisili" placeholder="Keterangan Domisili" />
+                        @error('keterangan_domisili')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
                     <p >*jika alamat KTP di luar Kelurahan Ciamis Silahkan Upload Surat Keterangan Domisili</p>
                     </div>
+
+                    
                     <div class="modal-footer d-block">
 
                         <button type="submit" class="btn btn-warning float-end">Submit</button>
@@ -968,6 +1100,115 @@
   <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
   <script src="{{ URL::to('Arsha/js/main.js') }}"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  
+
+  <script>
+    $('#provinsi').change(function(){
+    var prov_id = $(this).val();    
+    if(prov_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKota?prov_id="+prov_id,
+           dataType: 'JSON',
+           success:function(res){               
+            if(res){
+                $("#kota").empty();
+                $("#kecamatan").empty();
+                $("#kota").append('<option>---Pilih Kabupaten/Kota---</option>');
+                $("#kecamatan").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kota").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kota").empty();
+               $("#kecamatan").empty();
+            }
+           }
+        });
+    }else{
+        $("#kota").empty();
+        $("#kecamatan").empty();
+    }      
+   });
+
+   $('#kota').change(function(){
+    var city_id = $(this).val();    
+    if(city_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKecamatan?city_id="+city_id,
+           dataType: 'JSON',
+           success:function(res){               
+            if(res){
+                $("#kecamatan").empty();
+                $("#kecamatan").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kecamatan").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kecamatan").empty();
+            }
+           }
+        });
+    }else{
+        $("#kecamatan").empty();
+    }      
+   });
+
+   $('#kecamatan').change(function(){
+    var dis_id = $(this).val();    
+    if(dis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getDesa?dis_id="+dis_id,
+           dataType: 'JSON',
+           success:function(res){               
+            if(res){
+                $("#desa").empty();
+                $("#desa").append('<option>---Pilih Desa---</option>');
+                $.each(res,function(nama,kode){
+                    $("#desa").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#desa").empty();
+            }
+           }
+        });
+    }else{
+        $("#desa").empty();
+    }      
+   });
+
+   $('#desa').change(function(){
+    var subdis_id = $(this).val();    
+    if(subdis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getRw?subdis_id="+subdis_id,
+           dataType: 'JSON',
+           success:function(res){               
+            if(res){
+                $("#rw").empty();
+                $("#rw").append('<option>---Pilih RW---</option>');
+                $.each(res,function(nama,kode){
+                    $("#rw").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#rw").empty();
+            }
+           }
+        });
+    }else{
+        $("#rw").empty();
+    }      
+   });
+
+  
+</script>
+
+
+
 
 </body>
 
