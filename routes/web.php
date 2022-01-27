@@ -51,6 +51,8 @@ Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])-
 Route::post('update_user', [App\Http\Controllers\UserController::class, 'update'])->name('update_user');
 Route::delete('hapus_user', [App\Http\Controllers\UserController::class, 'delete'])->name('hapus_user');
 
+Route::get('user/sku/data_sku', [App\Http\Controllers\PembuatSKUController::class, 'index'])->name('user/sku/data_sku');
+
 
 
 

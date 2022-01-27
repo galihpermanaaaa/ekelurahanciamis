@@ -16,7 +16,8 @@ class CreateTableSku extends Migration
         Schema::create('surat_sku', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->enum('jk', ['Pria', 'Wanita']);
+            $table->string('nik');
+            $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->date('tanggal_lahir');
             $table->enum('status_perkawinan', ['Belum Menikah', 'Kawin', 'Duda', 'Janda']);
             $table->enum('status_kewarganegaraan', ['WNI', 'WNA']);

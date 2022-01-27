@@ -144,6 +144,101 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'nama' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+        'jk' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'tanggal_lahir' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        
+        'status_perkawinan' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'status_kewarganegaraan' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'agama' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'pekerjaan' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'prov_id' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'city_id' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'dis_id' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'subdis_id' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'id_rw' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'rt' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'nomor_surat_pengantar_rw_rt' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'keperluan' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'bidang_usaha' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'ktp' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'kk' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'surat_pengantar' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'keterangan_domisili' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'token' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'verifikasi' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'email' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
+
+        'tanggal_buat_surat' => [
+            'required' => 'The :attribute field can not be blank value.',
+        ],
     ],
 
     /*

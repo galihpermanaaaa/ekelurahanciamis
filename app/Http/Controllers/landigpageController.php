@@ -8,7 +8,11 @@ use App\Models\Kecamatan;
 use App\Models\Desa;
 use App\Models\RW;
 use Carbon\Carbon;
+use App\Models\SKU;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Str;
+use Hash;
+use DB;
 
 class landigpageController extends Controller
 {
@@ -44,40 +48,53 @@ class landigpageController extends Controller
         return response()->json($rw);
     }
 
-    public function saveSku( Request $request)
+    public function saveSku(Request $request)
     {
+        $token=null;
+        $token = Str::random(11);
+      
+
         $request->validate([
-            'nik'                   => 'required|min:16|numeric',
-            'nama'                  => 'required|string|max:30',
-            'jk'                    => 'required',
-            'tanggal_lahir'         => 'required|date',
-            'status_perkawinan'     => 'required',
-            'status_kewarganegaraan' => 'required',
-            'agama'                 => 'required',
-            'pekerjaan'             => 'required',
-            'prov_id'                => 'required',
-            'city_id'                => 'required',
-            'dis_id'                  => 'required',
-            'subdis_id'             => 'required',
-            'id_rw'                 => 'required',
-            'rt'                     => 'required',
-            'nomor_surat_pengantar_rw_rt' => 'required',
+            'nik'                           => 'required|min:16|numeric',
+            'nama'                          => 'required|string|max:30',
+            'jk'                            => 'required',
+            'tanggal_lahir'                 => 'required|date',
+            'status_perkawinan'             => 'required',
+            'status_kewarganegaraan'        => 'required',
+            'agama'                         => 'required',
+            'pekerjaan'                     => 'required',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
+            'nomor_surat_pengantar_rw_rt'   => 'required',
             'keperluan'                     => 'required',
-            'bidang_usaha'                   => 'required',
-            'ktp'                           => 'required',
-            'kk'                            => 'required', 
-            'surat_pengantar'                => 'required',
-            'keterangan_domisili'               => 'required',
-            'token'                         => 'required',
+            'bidang_usaha'                  => 'required',
+            'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:2048', 
+            'surat_pengantar'               => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'keterangan_domisili'           => 'image|mimes:jpeg,jpg,png|max:2048',
+      
             'verifikasi'                    => 'required',
-            'email'                          => 'required',
-            'tanggal_buat_surat'                => 'required|date',
+            'email'                         => 'required',
+            'tanggal_buat_surat'            => 'required|date',
         ]);
 
-        $image = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('images'), $image);
+        $file1 = time().'.'.$request->ktp->extension();  
+        $request->ktp->move(public_path('ktp'), $file1);
 
-        $form = new DataOrang;
+        $file2 = time().'.'.$request->kk->extension();  
+        $request->kk->move(public_path('kk'), $file2);
+
+        $file3 = time().'.'.$request->surat_pengantar->extension();  
+        $request->surat_pengantar->move(public_path('surat_pengantar'), $file3);
+
+        $file4 = time().'.'.$request->keterangan_domisili->extension();  
+        $request->keterangan_domisili->move(public_path('keterangan_domisili'), $file4);
+
+        $form = new SKU;
         $form->nik                          = $request->nik;
         $form->nama                         = $request->nama;
         $form->jk                           = $request->jk;
@@ -88,31 +105,29 @@ class landigpageController extends Controller
         $form->pekerjaan                    = $request->pekerjaan;
         $form->prov_id                      = $request->prov_id;
         $form->city_id                      = $request->city_id;
+        $form->dis_id                      = $request->dis_id;
+        $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
 
         $form->nomor_surat_pengantar_rw_rt     = $request->nomor_surat_pengantar_rw_rt;
         $form->keperluan                       = $request->keperluan;
-        $form->bidang_usaha                    = $bidang_usaha;
+        $form->bidang_usaha                    = $request->bidang_usaha;
 
-        $form->ktp                              = $request->ktp;
-        $form->kk                               = $request->kk;
-        $form->surat_pengantar                  = $request->surat_pengantar;
-        $form->keterangan_domisili              = $request->keterangan_domisili;
+        $form->ktp                              = $file1;
+        $form->kk                               = $file2;
+        $form->surat_pengantar                  = $file3;
+        $form->keterangan_domisili              = $file4;
 
-        $form->token                            = $request->token;
+        $form->token                            = $token;
         $form->verifikasi                        = $request->verifikasi;
         $form->email                            = $request->email;
         $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
 
-
-
-        Mail::to($request->email)->send(new \App\Mail\MailSilacak($form));
        
         $form->save();
-       
-        Toastr::success('Insert data successfully :)','Success');
-        return redirect()->route('dinkes/data_orang/show');
+        Toastr::success('Surat Anda Berhasil Dibuat :)','Success');
+        return redirect()->route('landingpage');
     }
 
     /**

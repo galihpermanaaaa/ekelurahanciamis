@@ -221,12 +221,23 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/data_user') }}">
           <i class="bi bi-person"></i>
           <span>Data User</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      @endif
+
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/sku/data_sku') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Pembuat SKU</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
 
      
       <li class="nav-item">
