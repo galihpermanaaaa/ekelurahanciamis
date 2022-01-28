@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\Models\SKU;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
+use Codedge\Fpdf\Fpdf\Fpdf;
 use Hash;
 use DB;
 use Auth;
@@ -129,6 +130,22 @@ class PembuatSKUController extends Controller
         Toastr::success('Data Tersebut Berhasil Diverifikasi :)','Success');
         return redirect()->route('user/sku/data_sku');
 
+    }
+
+
+    public function surat_sku($id)
+    {
+        $data = SKU::where('id',$id)->get();
+        foreach ($data as $p) {
+          
+        $this->fpdf = new Fpdf;
+        $this->fpdf->SetFont('Arial', 'B', 15);
+        $this->fpdf->AddPage("L", ['100', '100']);
+        $this->fpdf->Text(10, 10, $p->nama);       
+        $this->fpdf->Output();
+       
+        exit;
+        }
     }
 
     /**

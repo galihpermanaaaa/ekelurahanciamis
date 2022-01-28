@@ -40,6 +40,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Verifikasi</th>
                     <th scope="col">Options</th>
+                    <th scope="col">Surat</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -65,7 +66,19 @@
                       <td class="text-right">
 						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-pencil-square"></i> Edit</button>
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
-                      	</td>
+                    </td>
+
+                    <td>
+                        
+                      @if($item->verifikasi =='Belum Diverifikasi')
+                      <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
+					  @elseif($item->verifikasi =='Terverifikasi')
+                      <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      @else($item->verifikasi =='Ditolak')
+					  <p class="text-danger" style="font-size: 14px;"></p>Tidak Ada</span>
+					  @endif
+                    </td>
+                    
                   </tr>
                   @endforeach
                 </tbody>
