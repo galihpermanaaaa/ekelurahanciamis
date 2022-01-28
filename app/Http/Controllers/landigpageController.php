@@ -13,7 +13,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
 use DB;
-
+use Alert;
 class landigpageController extends Controller
 {
     /**
@@ -28,7 +28,7 @@ class landigpageController extends Controller
         return view('landingpage', compact('provinsi'));
 
     }
-    
+
     public function getKota(Request $request){
         $kota = Kota::where("prov_id",$request->prov_id)->pluck('city_id','city_name');
         return response()->json($kota);
@@ -52,7 +52,7 @@ class landigpageController extends Controller
     {
         $token=null;
         $token = Str::random(11);
-      
+
 
         $request->validate([
             'nik'                           => 'required|min:16|numeric',
@@ -73,25 +73,25 @@ class landigpageController extends Controller
             'keperluan'                     => 'required',
             'bidang_usaha'                  => 'required',
             'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:2048', 
+            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'surat_pengantar'               => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'keterangan_domisili'           => 'image|mimes:jpeg,jpg,png|max:2048',
-      
+
             'verifikasi'                    => 'required',
             'email'                         => 'required',
             'tanggal_buat_surat'            => 'required|date',
         ]);
 
-        $file1 = time().'.'.$request->ktp->extension();  
+        $file1 = time().'.'.$request->ktp->extension();
         $request->ktp->move(public_path('ktp'), $file1);
 
-        $file2 = time().'.'.$request->kk->extension();  
+        $file2 = time().'.'.$request->kk->extension();
         $request->kk->move(public_path('kk'), $file2);
 
-        $file3 = time().'.'.$request->surat_pengantar->extension();  
+        $file3 = time().'.'.$request->surat_pengantar->extension();
         $request->surat_pengantar->move(public_path('surat_pengantar'), $file3);
 
-        $file4 = time().'.'.$request->keterangan_domisili->extension();  
+        $file4 = time().'.'.$request->keterangan_domisili->extension();
         $request->keterangan_domisili->move(public_path('keterangan_domisili'), $file4);
 
         $form = new SKU;
@@ -124,9 +124,9 @@ class landigpageController extends Controller
         $form->email                            = $request->email;
         $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
 
-       
+
         $form->save();
-        Toastr::success('Surat Anda Berhasil Dibuat :)','Success'. $token);
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 

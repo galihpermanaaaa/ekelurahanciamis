@@ -20,7 +20,8 @@ Route::get('/getKecamatan', [App\Http\Controllers\landigpageController::class, '
 Route::get('/getDesa', [App\Http\Controllers\landigpageController::class, 'getDesa'])->name('getDesa');
 Route::get('/getRw', [App\Http\Controllers\landigpageController::class, 'getRw'])->name('getRw');
 Route::post('save_sku', [App\Http\Controllers\landigpageController::class, 'saveSku'])->name('save_sku');
-
+Route::get('/pesan', 'FlashMessageController@index');
+Route::get('/get-pesan', 'FlashMessageController@pesan');
 
 Route::group(['middleware'=>'auth'],function()
 {
@@ -62,3 +63,7 @@ Route::post('user/sku/verifikasi_sku', [App\Http\Controllers\PembuatSKUControlle
 Auth::routes([
     'register' => false
 ]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

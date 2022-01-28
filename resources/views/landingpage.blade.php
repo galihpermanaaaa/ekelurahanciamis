@@ -24,12 +24,12 @@
   <link href="{{ URL::to('Arsha/vendor/venobox/venobox.css') }}" rel="stylesheet">
   <link href="{{ URL::to('Arsha/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ URL::to('Arsha/vendor/aos/aos.css') }}" rel="stylesheet">
-
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   <!-- Template Main CSS File -->
   <link href="{{ URL::to('Arsha/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
-  
-  
+
+
   <!-- =======================================================
   * Template Name: Arsha - v2.3.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -64,12 +64,26 @@
           <h1> E-Kelurahan Ciamis</h1>
           <h2>E-Kelurahan Adalah Aplikasi untuk mempermudah pelayanan surat berbasis online</h2>
           <div class="d-lg-flex">
+
             <a href="#services" class="btn-get-started scrollto">Pelayanan Surat</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
+
         </div>
+
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ URL::to('Arsha/img/bupati-wakil-2.png') }}" class="img-fluid animated" alt="" >
+            
+           <form action="" method="GET">
+            <h3 class="h4 text-white mb-4">Check Surat</h3>
+            <div class="form-group">
+                <input type="text"  id="cari" name="cari" value=""
+                       class="form-control" placeholder="Inputkan Token Surat"
+                       data-toggle="modal" data-target="#Viewpengaduan">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-pill" value="Cari Aduan">
+            </div>
+        </form>
         </div>
       </div>
     </div>
@@ -80,7 +94,7 @@
 
     <br>
 
-   
+
 
 
 
@@ -94,7 +108,7 @@
       </div>
 
       {{-- message --}}
-    {!! Toastr::message() !!}
+
 
     <script>
     @if(count($errors) > 0)
@@ -178,7 +192,7 @@
       </div>
     </section><!-- End About Us Section -->
 
-    
+
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
@@ -1029,7 +1043,7 @@
                                                 @enderror
                         <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
                         <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
-                       
+
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Email</label>
@@ -1084,10 +1098,10 @@
                     <p >*jika alamat KTP di luar Kelurahan Ciamis Silahkan Upload Surat Keterangan Domisili</p>
                     </div>
 
-                    
+
                     <div class="modal-footer d-block">
 
-                        <button type="submit" class="btn btn-warning float-end">Submit</button>
+                        <button type="submit" class="btn btn-warning float-end" data-target="#contohModal">Submit</button>
                     </div>
                 </form>
             </div>
@@ -1095,10 +1109,13 @@
     </div>
 </div>
 <!-- Modal SKU -->
+
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
   <script src="{{ URL::to('Arsha/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
@@ -1113,17 +1130,17 @@
   <!-- Template Main JS File -->
   <script src="{{ URL::to('Arsha/js/main.js') }}"></script>
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-  
+
 
   <script>
     $('#provinsi').change(function(){
-    var prov_id = $(this).val();    
+    var prov_id = $(this).val();
     if(prov_id){
         $.ajax({
            type:"GET",
            url:"/getKota?prov_id="+prov_id,
            dataType: 'JSON',
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#kota").empty();
                 $("#kecamatan").empty();
@@ -1141,17 +1158,17 @@
     }else{
         $("#kota").empty();
         $("#kecamatan").empty();
-    }      
+    }
    });
 
    $('#kota').change(function(){
-    var city_id = $(this).val();    
+    var city_id = $(this).val();
     if(city_id){
         $.ajax({
            type:"GET",
            url:"/getKecamatan?city_id="+city_id,
            dataType: 'JSON',
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#kecamatan").empty();
                 $("#kecamatan").append('<option>---Pilih Kecamatan---</option>');
@@ -1165,17 +1182,17 @@
         });
     }else{
         $("#kecamatan").empty();
-    }      
+    }
    });
 
    $('#kecamatan').change(function(){
-    var dis_id = $(this).val();    
+    var dis_id = $(this).val();
     if(dis_id ){
         $.ajax({
            type:"GET",
            url:"/getDesa?dis_id="+dis_id,
            dataType: 'JSON',
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#desa").empty();
                 $("#desa").append('<option>---Pilih Desa---</option>');
@@ -1189,17 +1206,17 @@
         });
     }else{
         $("#desa").empty();
-    }      
+    }
    });
 
    $('#desa').change(function(){
-    var subdis_id = $(this).val();    
+    var subdis_id = $(this).val();
     if(subdis_id ){
         $.ajax({
            type:"GET",
            url:"/getRw?subdis_id="+subdis_id,
            dataType: 'JSON',
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#rw").empty();
                 $("#rw").append('<option>---Pilih RW---</option>');
@@ -1213,14 +1230,14 @@
         });
     }else{
         $("#rw").empty();
-    }      
+    }
    });
 
-  
+
 </script>
 
 
-
+@include('sweetalert::alert')
 
 </body>
 
