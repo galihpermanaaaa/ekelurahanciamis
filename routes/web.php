@@ -39,24 +39,25 @@ Route::group(['middleware'=>'auth'],function()
 Auth::routes(['register' => false]);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+   
 
 // -----------------------------login----------------------------------------//
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+
 Route::get('profile/data_profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile/data_profile');
 Route::post('update_profile', [App\Http\Controllers\ProfileController::class, 'update_profile'])->name('update_profile');
 Route::post('update_password', [App\Http\Controllers\ProfileController::class, 'update_password'])->name('update_password');
-
 
 Route::get('user/data_user', [App\Http\Controllers\UserController::class, 'index'])->name('user/data_user');
 Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])->name('save_user');
 Route::post('update_user', [App\Http\Controllers\UserController::class, 'update'])->name('update_user');
 Route::delete('hapus_user', [App\Http\Controllers\UserController::class, 'delete'])->name('hapus_user');
 
+// -----------------------------sku----------------------------------------//
 Route::get('user/sku/data_sku', [App\Http\Controllers\PembuatSKUController::class, 'index'])->name('user/sku/data_sku');
 Route::get('user/sku/verifikasi/{id}', [App\Http\Controllers\PembuatSKUController::class, 'verifikasi']);
 Route::post('user/sku/verifikasi_sku', [App\Http\Controllers\PembuatSKUController::class, 'verifikasi_sku'])->name('verifikasi_sku');

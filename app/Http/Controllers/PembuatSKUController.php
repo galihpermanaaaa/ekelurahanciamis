@@ -144,7 +144,7 @@ class PembuatSKUController extends Controller
         $this->fpdf->Text(10, 10, $p->nama);       
         $this->fpdf->Output();
        
-        exit;
+        exit; 
         }
     }
 

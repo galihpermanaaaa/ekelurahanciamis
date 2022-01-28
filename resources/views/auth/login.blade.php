@@ -13,7 +13,7 @@
                   <img src="assets/img/logocms.png" alt="">
                   <span class="d-none d-lg-block">E-Kelurahan Ciamis</span>
                 </a>
-              </div><!-- End Logo -->
+              </div>
 
               <div class="card mb-3">
 
