@@ -20,9 +20,17 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->role_name=='Verifikator')
+        {
+
         $halaman = "data_user";
         $user = User::all();
         return view('user.data_user', compact('halaman', 'user'));
+        }
+        else
+        {
+            return redirect()->route('dashboard');
+        }
     }
 
     /**

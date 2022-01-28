@@ -38,9 +38,10 @@ class CreateTableSku extends Migration
             $table->string('keterangan_domisili')->nullable();
             $table->string('token');
             $table->unsignedBigInteger('id_users')->nullable();
-            $table->enum('verifikasi', ['Terverifikasi', 'Belum Diverifikasi'])->nullable();
+            $table->enum('verifikasi', ['Terverifikasi', 'Belum Diverifikasi', 'Ditolak'])->nullable();
             $table->string('email')->nullable();
             $table->date('tanggal_buat_surat')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

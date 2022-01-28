@@ -80,16 +80,7 @@
 
     <br>
 
-    {{-- message --}}
-    {!! Toastr::message() !!}
-
-    <script>
-    @if(count($errors) > 0)
-        @foreach($errors->all() as $error)
-            toastr.error("{{ $error }}");
-        @endforeach
-    @endif
-</script>
+   
 
 
 
@@ -101,6 +92,17 @@
         <h2>Pelayanan Surat</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
+
+      {{-- message --}}
+    {!! Toastr::message() !!}
+
+    <script>
+    @if(count($errors) > 0)
+        @foreach($errors->all() as $error)
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+    </script>
 
       <div class="row">
 
@@ -175,6 +177,8 @@
 
       </div>
     </section><!-- End About Us Section -->
+
+    
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">

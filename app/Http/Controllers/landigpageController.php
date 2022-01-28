@@ -126,8 +126,8 @@ class landigpageController extends Controller
 
        
         $form->save();
-        Toastr::success('Surat Anda Berhasil Dibuat :)','Success');
-        return redirect()->route('landingpage');
+        Toastr::success('Surat Anda Berhasil Dibuat :)','Success'. $token);
+        return redirect()->route('index');
     }
 
     /**

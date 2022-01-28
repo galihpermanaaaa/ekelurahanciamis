@@ -13,7 +13,7 @@ class SKU extends Model
     protected $fillable = ['nama', 'jk', 'tanggal_lahir', 'status_perkawinan', 'status_kewarganegaraan', 'agama', 'pekerjaan', 
                             'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 'nomor_surat_pengantar_rw_rt', 
                             'keperluan', 'bidang_usaha', 'ktp', 'kk', 'surat_pengantar', 'keterangan_domisili', 'token', 'id_users', 
-                            'verifikasi', 'email', 'tanggal_buat_surat'];
+                            'verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi'];
 
                             public function provinces()
                             {
