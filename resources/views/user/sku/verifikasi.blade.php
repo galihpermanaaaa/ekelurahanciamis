@@ -186,6 +186,7 @@
                   <label>Nama User Yang Akan Verifikasi</label>
                   <input type="text" class="form-control" value="{{Auth::user()->name}}" required readonly>
                   <input type="hidden" name="id_users" class="form-control" value="{{Auth::user()->id}}" required readonly>
+                  <input type="hidden" class="form-control" id="tanggal_verifikasi" name="tanggal_verifikasi" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
                 </div>
 
                 <div class="col-md-12">

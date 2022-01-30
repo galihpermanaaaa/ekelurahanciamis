@@ -41,6 +41,7 @@ class CreateTableSku extends Migration
             $table->enum('verifikasi', ['Terverifikasi', 'Belum Diverifikasi', 'Ditolak'])->nullable();
             $table->string('email')->nullable();
             $table->date('tanggal_buat_surat')->nullable();
+            $table->date('tanggal_verifikasi')->nullable();
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });

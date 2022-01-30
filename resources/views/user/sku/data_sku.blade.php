@@ -73,9 +73,9 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px;"></p>Tidak Ada</span>
+					  <p class="text-danger" style="font-size: 14px;"></p>Ditolak</span>
 					  @endif
                     </td>
                     

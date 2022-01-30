@@ -73,15 +73,13 @@
 
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
             
-           <form action="" method="GET">
+        <form class="form" method="get" action="{{ route('layanan/sku') }}">
             <h3 class="h4 text-white mb-4">Check Surat</h3>
             <div class="form-group">
-                <input type="text"  id="cari" name="cari" value=""
-                       class="form-control" placeholder="Inputkan Token Surat"
-                       data-toggle="modal" data-target="#Viewpengaduan">
+              <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-pill" value="Cari Aduan">
+                <input type="submit" class="btn btn-primary btn-pill" value="Lihat Surat">
             </div>
         </form>
         </div>
