@@ -9,6 +9,7 @@ use Hash;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
+Use Alert;
 
 
 class UserController extends Controller
@@ -67,7 +68,7 @@ class UserController extends Controller
         $user->role_name    = $request->role_name;
         $user->password     = Hash::make($request->password);
         $user->save();
-        Toastr::success('Data User Berhasil Disimpan :)','Success');
+        Alert::success('Data User Berhasil Disimpan :)','Success');
         return redirect()->route('user/data_user');
     }
 

@@ -15,6 +15,9 @@ use Hash;
 use DB;
 use Alert;
 use Codedge\Fpdf\Fpdf\Fpdf;
+use App\Mail\SKUMail;
+use Illuminate\Support\Facades\Mail;
+
 class landigpageController extends Controller
 {
     /**
@@ -129,6 +132,7 @@ class landigpageController extends Controller
 
         
         $form->save();
+        Mail::to($request->email)->send(new \App\Mail\SKUMail($form));
         Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }

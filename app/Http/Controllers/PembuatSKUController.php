@@ -17,6 +17,9 @@ use Codedge\Fpdf\Fpdf\Fpdf;
 use Hash;
 use DB;
 use Auth;
+use Alert;
+use App\Mail\SKUMail;
+use Illuminate\Support\Facades\Mail;
 
 class PembuatSKUController extends Controller
 {
@@ -31,7 +34,7 @@ class PembuatSKUController extends Controller
         {
 
         $halaman = "data_sku";
-        $sku = SKU::all();
+        $sku = SKU::orderBy('id', 'DESC')->get();
         return view('user.sku.data_sku', compact('halaman', 'sku'));
         }
         else
@@ -113,25 +116,51 @@ class PembuatSKUController extends Controller
      */
     public function verifikasi_sku(Request $request)
     {
-        $id           = $request->id;
-        $id_users     = $request->id_users;
-        $verifikasi   = $request->verifikasi;
-        $deskripsi    = $request->deskripsi;
-        $tanggal_verifikasi    = $request->tanggal_verifikasi; 
+        $id                     = $request->id;
+        $nama                   = $request->nama;
+        $tanggal_lahir          = $request->tanggal_lahir;
+        $jk                     = $request->jk;
+        $id_users               = $request->id_users;
+        $verifikasi             = $request->verifikasi;
+        $deskripsi              = $request->deskripsi;
+        $email                  = $request->email;
+        $tanggal_verifikasi     = $request->tanggal_verifikasi; 
+
+        $city_id                      = $request->city_id;
+        $dis_id                       = $request->dis_id;
+        $subdis_id                    = $request->subdis_id;
+        $id_rw                        = $request->id_rw;
+        $rt                           = $request->rt;
+        $keperluan                    = $request->keperluan;
+        $token                        = $request->token;
+        $tanggal_buat_surat           = $request->tanggal_buat_surat;
 
         
 
-        $update = [
+        $form = [
 
             'id'                 => $id,
+            'nama'               => $nama,
+            'tanggal_lahir'      => $tanggal_lahir,
+            'jk'                 => $jk,
             'id_users'           => $id_users,
             'verifikasi'         => $verifikasi,
             'deskripsi'          => $deskripsi,
+            'email'              => $email,
             'tanggal_verifikasi' => $tanggal_verifikasi,
+            'city_id'            => $city_id,
+            'dis_id'             => $dis_id,
+            'subdis_id'          => $subdis_id,
+            'id_rw'              => $id_rw,
+            'rt'                 => $rt,
+            'keperluan'          => $keperluan,
+            'token'              => $token, 
+            'tanggal_buat_surat' => $tanggal_buat_surat,
 
         ];
-        SKU::where('id',$request->id)->update($update);
-        Toastr::success('Data Tersebut Berhasil Diverifikasi :)','Success');
+        SKU::where('id',$request->id)->update($form);
+        Mail::to($request->email)->send(new \App\Mail\VerifikasiSKU($form));
+        Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
         return redirect()->route('user/sku/data_sku');
 
     }
@@ -262,24 +291,6 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
-       
-       
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $this->fpdf->Output();
        
         exit; 
@@ -297,8 +308,11 @@ class PembuatSKUController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function destroy_sku(Request $request)
+   {
+    $sku = SKU::findOrFail($request->id);
+    $sku->delete();
+    Alert::success('SKU tersebut berhasil dihapus :)','Success');
+    return redirect()->route('user/sku/data_sku');
+   }
 }

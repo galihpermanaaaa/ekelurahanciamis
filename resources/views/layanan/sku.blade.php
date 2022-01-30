@@ -69,11 +69,6 @@
                     <div class="col-lg-9 col-md-8">{{tanggal_indonesia($item->tanggal_buat_surat) }}</div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Tanggal Surat Diverifikasi</div>
-                    <div class="col-lg-9 col-md-8">{{tanggal_indonesia($item->tanggal_verifikasi) }}</div>
-                  </div>
-
                   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Status Verifikasi</div>
@@ -84,12 +79,14 @@
                     <div class="col-lg-3 col-md-4 label">Surat Anda</div>
                     <div class="col-lg-9 col-md-8">
                     @if($item->verifikasi =='Belum Diverifikasi')
-                      <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
-					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('layanan/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Silahkan Download</a>	
+                      <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi Oleh Admin Kelurahan Ciamis Harap Tunggu dan Periksa Email Anda</span>
+					          @elseif($item->verifikasi =='Terverifikasi')
+                      <a href="{{ url('layanan/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Silahkan Download</a>
+                      <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>Tanggal Diverifikasi: {{tanggal_indonesia($item->tanggal_buat_surat) }}</span>	
                       @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>{{ $item->deskripsi }}</span>
-					  @endif
+					        <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>{{ $item->deskripsi }}</span>
+                  <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>Tanggal Diverifikasi: {{tanggal_indonesia($item->tanggal_buat_surat) }}</span>
+					        @endif
                   @endforeach
                     </div>
                   </div>

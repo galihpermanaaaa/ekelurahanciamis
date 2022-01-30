@@ -84,13 +84,14 @@
 
                 <div class="col-md-6">
                   <label>Nama</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->nama }}"  required readonly>
+                  <input type="text" name="nama" class="form-control" value="{{ $data[0]->nama }}"  required readonly>
                   <input type="hidden" name="id" class="form-control" value="{{ $data[0]->id }}"  required readonly>
+                  <input type="hidden" name="token" class="form-control" value="{{ $data[0]->token }}"  required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>Jenis Kelamin</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->jk}}" required readonly>
+                  <input type="text" name="jk" class="form-control" value="{{ $data[0]->jk}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -101,6 +102,7 @@
                 <div class="col-md-6">
                   <label>Tanggal Lahir</label>
                   <input type="text" class="form-control" value="{{tanggal_indonesia($data[0]->tanggal_lahir)}}" required readonly>
+                  <input type="hidden" class="form-control" name="tanggal_lahir" value="{{$data[0]->tanggal_lahir}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -127,27 +129,31 @@
 
                 <div class="col-md-6">
                   <label>RT</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->rt}}" required readonly>
+                  <input type="text" class="form-control" name="rt" value="{{ $data[0]->rt}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>RW</label>
                   <input type="text" class="form-control" value="{{ $data[0]->rw->nama_rw}}" required readonly>
+                  <input type="hidden" name="id_rw" class="form-control" value="{{ $data[0]->id_rw}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>Kelurahan/Desa</label>
                   <input type="text" class="form-control" value="{{ $data[0]->subdistricts->subdis_name}}" required readonly>
+                  <input type="hidden" name="subdis_id" class="form-control" value="{{ $data[0]->subdis_id}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>Kecamatan</label>
                   <input type="text" class="form-control" value="{{ $data[0]->districts->dis_name}}" required readonly>
+                  <input type="hidden" name="dis_id" class="form-control" value="{{ $data[0]->dis_id}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>Kabupaten/Kota</label>
                   <input type="text" class="form-control" value="{{ $data[0]->cities->city_name}}" required readonly>
+                  <input type="hidden" name="city_id" class="form-control" value="{{ $data[0]->city_id}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -164,7 +170,7 @@
 
                 <div class="col-md-6">
                   <label>Keperluan</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->keperluan}}" required readonly>
+                  <input type="text" name="keperluan" class="form-control" value="{{ $data[0]->keperluan}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -174,12 +180,13 @@
 
                 <div class="col-md-6">
                   <label>Email</label>
-                  <input type="email" class="form-control" value="{{ $data[0]->email}}" required readonly>
+                  <input type="email" name="email" class="form-control" value="{{ $data[0]->email}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
                   <label>Tanggal Membuat Surat</label>
                   <input type="text" class="form-control" value="{{ tanggal_indonesia($data[0]->tanggal_buat_surat)}}" required readonly>
+                  <input type="hidden" name="tanggal_buat_surat" class="form-control" value="{{$data[0]->tanggal_buat_surat}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -206,8 +213,8 @@
                 </div>
 
             <br>
-                <div class="col-md-12"  id="no1" style="display:none">
-                    <label>Deskripsi "Isi Keterangan Jika Laporan Ditolak"</label>
+                <div class="col-md-12">
+                    <label>Deskripsi/Keterangan</label>
                    <textarea name="deskripsi" class="form-control"></textarea>
                         @error('deskripsi')
                          <span class="invalid-feedback" role="alert">
@@ -335,12 +342,3 @@ span.onclick = function() {
 </script>
 
 
-<script type="text/javascript">
-$("#select-item-item").click(function () {
-    if($(this).val() == 'Ditolak'){
-        $('#no1').show()
-    } else {
-        $('#no1').hide()
-    }
-});
-</script>

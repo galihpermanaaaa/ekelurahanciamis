@@ -68,7 +68,7 @@
 
                       </td>
                       <td class="text-right">
-						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-pencil-square"></i> Edit</button>
+						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}"><i class="bi bi-pencil-square"></i> Edit</button>
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
                       	</td>
                   </tr>
@@ -320,10 +320,9 @@
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
 
-@include('layouts.footer')
-
-<script type="text/javascript">
+    <script type="text/javascript">
 
 $('#edit_user').on('show.bs.modal', function (event) {
 
@@ -343,9 +342,14 @@ modal.find('.modal-body #email').val(Email)
 modal.find('.modal-body #phone_number').val(Phone)
 modal.find('.modal-body #role_name').val(Role)
 
-})
+});
+
+</script>
+
+<script type="text/javascript">
 
 $('#hapus_user').on('show.bs.modal', function (event) {
+    
 
 
 var button = $(event.relatedTarget)
@@ -358,3 +362,8 @@ modal.find('.modal-body #name').val(Name)
 })
 
 </script>
+@include('sweetalert::alert')
+
+
+@include('layouts.footer')
+
