@@ -10,6 +10,11 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 Use Alert;
+use App\Models\Provinsi;
+use App\Models\Kota;
+use App\Models\Kecamatan;
+use App\Models\Desa;
+use App\Models\RW;
 
 
 class UserController extends Controller
@@ -25,13 +30,33 @@ class UserController extends Controller
         {
 
         $halaman = "data_user";
+        $provinsi = Provinsi::all();
         $user = User::all();
-        return view('user.data_user', compact('halaman', 'user'));
+        return view('user.data_user', compact('halaman', 'user', 'provinsi'));
         }
         else
         {
             return redirect()->route('dashboard');
         }
+    }
+
+    public function getKota(Request $request){
+        $kota = Kota::where("prov_id",$request->prov_id)->pluck('city_id','city_name');
+        return response()->json($kota);
+    }
+
+    public function getKecamatan(Request $request){
+        $kecamatan = Kecamatan::where("city_id",$request->city_id)->pluck('dis_id','dis_name');
+        return response()->json($kecamatan);
+    }
+
+    public function getDesa(Request $request){
+        $desa = Desa::where("dis_id",$request->dis_id)->pluck('subdis_id','subdis_name');
+        return response()->json($desa);
+    }
+    public function getRw(Request $request){
+        $rw = RW::where("subdis_id",$request->subdis_id)->pluck('id_rw','nama_rw');
+        return response()->json($rw);
     }
 
     /**
@@ -57,6 +82,12 @@ class UserController extends Controller
             'email'     => 'required|string|email|max:255|unique:users',
             'phone_number'     => 'required|min:11|numeric',
             'role_name' => 'required|string|max:255',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
             'password'  => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
         ]);
@@ -66,6 +97,12 @@ class UserController extends Controller
         $user->email        = $request->email;
         $user->phone_number = $request->phone_number;
         $user->role_name    = $request->role_name;
+        $user->prov_id                      = $request->prov_id;
+        $user->city_id                      = $request->city_id;
+        $user->dis_id                      = $request->dis_id;
+        $user->subdis_id                   = $request->subdis_id;
+        $user->id_rw                        = $request->id_rw;
+        $user->rt                           = $request->rt;
         $user->password     = Hash::make($request->password);
         $user->save();
         Alert::success('Data User Berhasil Disimpan :)','Success');

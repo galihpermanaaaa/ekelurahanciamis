@@ -27,6 +27,14 @@ class CreateTableRw extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
     }
 
     /**
@@ -38,6 +46,10 @@ class CreateTableRw extends Migration
     {
         Schema::table('surat_sku', function(Blueprint $table) {
             $table->dropforeign('surat_sku_id_rw_foreign');
+        });
+
+        Schema::table('users', function(Blueprint $table) {
+            $table->dropforeign('users_id_rw_foreign');
         });
 
         Schema::dropIfExists('rw');

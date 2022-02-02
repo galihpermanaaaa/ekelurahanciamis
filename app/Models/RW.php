@@ -21,4 +21,9 @@ class RW extends Model
     {
     	return $this->hasMany('App\Models\SKU', 'id_rw');
     }
+
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User', 'id_rw');
+    }
 }

@@ -20,6 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('role_name')->nullable();
             $table->string('avatar')->nullable();
+            $table->unsignedBigInteger('prov_id');
+            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('dis_id');
+            $table->unsignedBigInteger('subdis_id');
+            $table->unsignedBigInteger('id_rw');
+            $table->string('rt');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

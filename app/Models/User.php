@@ -50,4 +50,24 @@ class User extends Authenticatable
     {
     	return $this->hasMany('App\Models\User', 'id_users');
     }
+
+    public function provinces()
+    {
+    	return $this->belongsTo('App\Models\Provinsi', 'prov_id');
+    }
+
+    public function cities()
+    {
+    	return $this->belongsTo('App\Models\Kota', 'city_id');
+    }
+
+    public function subdistricts()
+    {
+    	return $this->belongsTo('App\Models\Desa', 'subdis_id');
+    }
+
+    public function districts()
+    {
+    	return $this->belongsTo('App\Models\Kecamatan', 'dis_id');
+    }
 }

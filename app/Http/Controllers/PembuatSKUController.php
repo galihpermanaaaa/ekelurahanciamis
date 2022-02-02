@@ -43,6 +43,23 @@ class PembuatSKUController extends Controller
         }
     }
 
+    public function indexRW()
+    {
+        if (Auth::user()->role_name=='RW')
+        {
+
+        $halaman = "data_sku";
+            $sku = SKU::orderBy('id', 'DESC')
+            ->where('id_rw',auth()->user()->id_rw)
+            ->get();
+        return view('user.sku.data_sku_rw', compact('halaman', 'sku'));
+        }
+        else
+        {
+            return redirect()->route('dashboard');
+        }
+    }
+
     public function verifikasi($id)
     {
         if (Auth::user()->role_name=='Verifikator')

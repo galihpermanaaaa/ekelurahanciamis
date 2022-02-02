@@ -27,4 +27,9 @@ class Kecamatan extends Model
     	return $this->hasMany('App\Models\SKU', 'dis_id');
     }
 
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User', 'dis_id');
+    }
+
 }

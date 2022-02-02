@@ -67,4 +67,7 @@ Route::get('user/sku/surat_sku/{id}', [App\Http\Controllers\PembuatSKUController
 Route::delete('delete_sku', [App\Http\Controllers\PembuatSKUController::class, 'destroy_sku'])->name('delete_sku');
 
 
+Route::get('user/sku/data_sku_rw', [App\Http\Controllers\PembuatSKUController::class, 'indexRW'])->name('user/sku/data_sku_rw');
+
+
 Auth::routes(['register' => false]);

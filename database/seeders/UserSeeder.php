@@ -19,6 +19,11 @@ class UserSeeder extends Seeder
         $user->email = "verifikator@mail.com";
         $user->password = bcrypt('123456789'); 
         $user->role_name = "Verifikator";
+        $user->prov_id = "12";
+        $user->city_id  = "168";
+        $user->dis_id = "2160";
+        $user->subdis_id ="25821";
+        $user->id_rw ="1";
         $user->save();
     }
 }

@@ -22,4 +22,9 @@ class Provinsi extends Model
     	return $this->hasMany('App\Models\SKU', 'prov_id');
     }
 
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User', 'prov_id');
+    }
+
 }

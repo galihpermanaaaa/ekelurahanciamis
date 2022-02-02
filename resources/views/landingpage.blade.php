@@ -1089,7 +1089,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" />
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
                         @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -1100,7 +1100,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
-                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" />
+                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
                         @error('ktp')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -1109,7 +1109,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Upload KK</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" />
+                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
                         @error('kk')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -1120,7 +1120,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" />
+                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" required />
                         @error('surat_pengantar')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -1130,7 +1130,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Upload Keterangan Domisili</label>
-                        <input type="file" class="form-control @error('keterangan_domisili') is-invalid @enderror" id="keterangan_domisili" name="keterangan_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="Keterangan Domisili" />
+                        <input type="file" class="form-control @error('keterangan_domisili') is-invalid @enderror" id="keterangan_domisili" name="keterangan_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="Keterangan Domisili"/>
                         @error('keterangan_domisili')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

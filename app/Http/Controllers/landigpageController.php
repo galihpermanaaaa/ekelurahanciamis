@@ -76,10 +76,10 @@ class landigpageController extends Controller
             'nomor_surat_pengantar_rw_rt'   => 'required',
             'keperluan'                     => 'required',
             'bidang_usaha'                  => 'required',
-            'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'surat_pengantar'               => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'keterangan_domisili'           => 'image|mimes:jpeg,jpg,png|max:2048',
+            'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pengantar'               => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'keterangan_domisili'           => 'image|mimes:jpeg,jpg,png|max:5000',
 
             'verifikasi'                    => 'required',
             'email'                         => 'required',
@@ -188,7 +188,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:140/         /Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor:140/'.$p->id.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
 
         $this->fpdf->Ln();
 

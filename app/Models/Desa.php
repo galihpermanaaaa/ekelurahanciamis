@@ -26,4 +26,9 @@ class Desa extends Model
     {
     	return $this->hasMany('App\Models\SKU', 'subdis_id');
     }
+
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User', 'subdis_id');
+    }
 }

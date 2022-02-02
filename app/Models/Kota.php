@@ -26,6 +26,11 @@ class Kota extends Model
     	return $this->hasMany('App\Models\SKU', 'city_id');
     }
 
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User', 'city_id');
+    }
+
   
 
 }
