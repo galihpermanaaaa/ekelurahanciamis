@@ -817,6 +817,7 @@
             </div>
         </div>
     </div>
+  </div>
     <!-- Modal SKU Menu -->
      <!-- Modal SKU Cek -->
   <div class="modal fade" id="modalSKU_cek" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -840,6 +841,7 @@
             </div>
         </div>
     </div>
+  </div>
     <!-- Modal SKU Cek -->
   <!-- Modal SKU Buat -->
 <div class="modal fade" id="modalSKU_buat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
