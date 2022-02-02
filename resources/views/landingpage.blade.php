@@ -72,8 +72,10 @@
         </div>
 
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-            
-        <form class="form" method="get" action="{{ route('layanan/sku') }}">
+
+                <img src="{{ URL::to('Arsha/img/bupati-wakil-2.png') }}" class="img-fluid animated" alt="">
+
+        {{-- <form class="form" method="get" action="{{ route('layanan/sku') }}">
             <h3 class="h4 text-white mb-4">Check Surat</h3>
             <div class="form-group">
               <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
@@ -81,7 +83,7 @@
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-pill" value="Lihat Surat">
             </div>
-        </form>
+        </form> --}}
         </div>
       </div>
     </div>
@@ -105,7 +107,7 @@
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
 
-      {{-- message --}} 
+      {{-- message --}}
 
 
     <script>
@@ -121,7 +123,7 @@
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-building"></i></div>
-                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU">Surat Keterangan Usaha</a></h4>
+                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div>
@@ -798,9 +800,49 @@
       </div>
     </div>
   </footer><!-- End Footer -->
+  <!-- Modal SKU Menu -->
+  <div class="modal fade" id="modalSKU_menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-  <!-- Modal SKU -->
-<div class="modal fade" id="modalSKU" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalSKU_cek">Cek Surat Keterangan Usaha</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalSKU_buat">Buat Surat Keterangan Usaha</button>
+  </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal SKU Menu -->
+     <!-- Modal SKU Cek -->
+  <div class="modal fade" id="modalSKU_cek" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form class="form" method="get" action="{{ route('layanan/sku') }}">
+                    <h3 class="h4 text-white mb-4">Check Surat</h3>
+                    <div class="form-group">
+                      <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-pill" value="Lihat Surat">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal SKU Cek -->
+  <!-- Modal SKU Buat -->
+<div class="modal fade" id="modalSKU_buat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
