@@ -418,6 +418,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 
     <script type="text/javascript">
 
@@ -459,9 +460,6 @@ modal.find('.modal-body #name').val(Name)
 })
 
 </script>
-
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-
 
 <script>
   $('#provinsi').change(function(){
@@ -568,7 +566,5 @@ modal.find('.modal-body #name').val(Name)
 </script>
 
 @include('sweetalert::alert')
-
-
 @include('layouts.footer')
 

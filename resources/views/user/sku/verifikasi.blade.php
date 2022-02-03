@@ -214,7 +214,7 @@
 
             <br>
                 <div class="col-md-12">
-                    <label>Deskripsi/Keterangan</label>
+                    <label>Keterangan(alasan Ditolak/Diterima)</label>
                    <textarea name="deskripsi" class="form-control"></textarea>
                         @error('deskripsi')
                          <span class="invalid-feedback" role="alert">
