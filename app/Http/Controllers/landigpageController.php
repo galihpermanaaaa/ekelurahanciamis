@@ -9,6 +9,8 @@ use App\Models\Desa;
 use App\Models\RW;
 use Carbon\Carbon;
 use App\Models\SKU;
+use App\Models\SKUDiterima;
+use App\Models\SKUDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -128,9 +130,10 @@ class landigpageController extends Controller
         $form->verifikasi                        = $request->verifikasi;
         $form->email                            = $request->email;
         $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
+
+
       
 
-        
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\SKUMail($form));
         Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
@@ -154,7 +157,8 @@ class landigpageController extends Controller
 
     public function layanan_surat_sku($id)
     {
-        $data = SKU::where('id',$id)->get();
+        $data = SKU::join('sku_diterima', 'sku_diterima.id_sku', '=', 'surat_sku.id')
+        ->where('id',$id)->get();
         foreach ($data as $p) {
           
         $this->fpdf = new Fpdf;
@@ -188,7 +192,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:140/'.$p->id.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
 
         $this->fpdf->Ln();
 

@@ -45,5 +45,15 @@ class SKU extends Model
                                 return $this->belongsTo('App\Models\User', 'id_users');
                             }
 
+                            public function sku_diterima()
+                            {
+                                return $this->hasMany('App\Models\SKUDiterima', 'id_sku');
+                            }
+
+                            public function sku_ditolak()
+                            {
+                                return $this->hasMany('App\Models\SKUDitolak', 'id_sku');
+                            }
+
 
 }

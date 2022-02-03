@@ -431,7 +431,7 @@
 
                           <tr align="left">
                             <th>Alamat: </th>
-                            <td>Kota {{ $kota['city_name'] }}, Kecamatan {{ $kecamatan['dis_name'] }},  Desa. {{ $desa['subdis_name'] }},  RW. {{ $rw['nama_rw'] }}, RT. {{ $form['rt'] }}</td>
+                            <td>Kabupaten {{ $kota['city_name'] }}, Kecamatan {{ $kecamatan['dis_name'] }},  Desa. {{ $desa['subdis_name'] }},  RW. {{ $rw['nama_rw'] }}, RT. {{ $form['rt'] }}</td>
                           </tr>
                       
                           <tbody>

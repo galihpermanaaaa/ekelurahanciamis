@@ -4,7 +4,9 @@
 
 
     <div class="pagetitle">
-      <h1>Daftar Surat Keterangan Usaha</h1>
+    @foreach($user as $key => $items)
+    <h1>Daftar Surat Keterangan Usaha RW : {{$items->nama_rw}}</h1>
+    @endforeach
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -38,8 +40,7 @@
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Verifikasi</th>
-                    <th scope="col">Options</th>
+                    <th scope="col">Detail</th>
                     <th scope="col">Surat</th>
                   </tr>
                 </thead>
@@ -50,22 +51,8 @@
                       <td>{{$item->nik}}</td>
                       <td>{{$item->nama}}</td>
                       <td>{{$item->email}}</td>
-                    
-                     
-                      <td>
-
-                      @if($item->verifikasi =='Belum Diverifikasi')
-					  <a href="{{ url('user/sku/verifikasi/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
-					  @elseif($item->verifikasi =='Terverifikasi')
-					  <p class="text-success"></p>{{$item->verifikasi}}</span>
-                      @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->verifikasi}}</span>
-					  @endif
-
-                      </td>
-                      <td class="text-right">
-                      <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_sku" data-id="{{$item->id}}" data-nikk="{{$item->nik}}"><i class="bi bi-trash"></i> Hapus</button>
-                    </td>
+                <td>  <a href="{{ url('user/sku/lihat_data_sku/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                   </td>
 
                     <td>
                         
@@ -74,8 +61,9 @@
 					  @elseif($item->verifikasi =='Terverifikasi')
                       <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px;"></p>Ditolak</span>
+					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif
+
                     </td>
                     
                   </tr>
@@ -93,64 +81,6 @@
 
   </main><!-- End #main -->
 
-    <div id="hapus_sku" class="modal custom-modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                            <h5 class="modal-title">Hapus Pembuat Surat Keterangan Usaha</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <form action="{{ route('delete_sku') }}" method="POST" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE')}}
-
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                
-                                            <div class="">
-                                                <div class="form-group">
-                                                <p>Apakah kamu yakin akan menghapus SKU tersebut?</p>
-                                                    <input type="number" name="nik" class="form-control" id="nik" placeholder="NIK" required readonly>
-                                                    <input type="hidden" name="id" class="form-control" id="id" placeholder="id" required readonly>
-
-                                                    
-                                                </div>
-                                                <br>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn" type="submit" >Delete</button>
-                                   
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+@include('sweetalert::alert')
 
 @include('layouts.footer')
-
-<script type="text/javascript">
-
-$('#hapus_sku').on('show.bs.modal', function (event) {
-
-
-var button = $(event.relatedTarget)
-var ID = button.data('id')
-var Nik = button.data('nikk') 
-
-var modal = $(this)
-modal.find('.modal-body #id').val(ID)
-modal.find('.modal-body #nik').val(Nik)
-})
-
-</script>
-
-@include('sweetalert::alert')

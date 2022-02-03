@@ -11,6 +11,8 @@ use App\Models\RW;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Models\SKU;
+use App\Models\SKUDiterima;
+use App\Models\SKUDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Codedge\Fpdf\Fpdf\Fpdf;
@@ -39,7 +41,7 @@ class PembuatSKUController extends Controller
         }
         else
         {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
     }
 
@@ -52,11 +54,13 @@ class PembuatSKUController extends Controller
             $sku = SKU::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();
-        return view('user.sku.data_sku_rw', compact('halaman', 'sku'));
+
+            $user = RW::where('id_rw',auth()->user()->id_rw)->get();
+        return view('user.sku.data_sku_rw', compact('halaman', 'sku', 'user'));
         }
         else
         {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
     }
 
@@ -74,8 +78,22 @@ class PembuatSKUController extends Controller
         }
         else
         {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
+    }
+
+
+    public function lihat_data_sku($id)
+    {
+       
+        $data = SKU::where('id',$id)->get();
+        $provinsi =Provinsi::all();
+        $kota = Kota::all();
+        $kecamatan = Kecamatan::all();
+        $desa = Desa::all();
+        $rw = RW::all();
+        return view('user.sku.lihat_data_sku',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
+       
     }
 
 
@@ -150,9 +168,7 @@ class PembuatSKUController extends Controller
         $rt                           = $request->rt;
         $keperluan                    = $request->keperluan;
         $token                        = $request->token;
-        $tanggal_buat_surat           = $request->tanggal_buat_surat;
-
-        
+        $tanggal_buat_surat           = $request->tanggal_buat_surat;        
 
         $form = [
 
@@ -175,6 +191,16 @@ class PembuatSKUController extends Controller
             'tanggal_buat_surat' => $tanggal_buat_surat,
 
         ];
+
+        if($verifikasi=='Terverifikasi'){
+            $form1 = new SKUDiterima;
+            $form1->id_sku = $request->id;
+            $form1->save();
+        }elseif($verifikasi=='Ditolak'){
+            $form2 = new SKUDitolak;
+            $form2->id_sku = $request->id;
+            $form2->save();
+        }
         SKU::where('id',$request->id)->update($form);
         Mail::to($request->email)->send(new \App\Mail\VerifikasiSKU($form));
         Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
@@ -185,7 +211,9 @@ class PembuatSKUController extends Controller
 
     public function surat_sku($id)
     {
-        $data = SKU::where('id',$id)->get();
+        $data = SKU::join('sku_diterima', 'sku_diterima.id_sku', '=', 'surat_sku.id')
+        ->where('id',$id)->get();
+
         foreach ($data as $p) {
           
         $this->fpdf = new Fpdf;
@@ -219,8 +247,7 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:140/         /Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
-
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);

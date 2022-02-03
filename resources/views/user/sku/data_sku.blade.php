@@ -39,7 +39,8 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
                     <th scope="col">Verifikasi</th>
-                    <th scope="col">Options</th>
+                    <th scope="col">Hapus</th>
+                    <th scope="col">Detail</th>
                     <th scope="col">Surat</th>
                   </tr>
                 </thead>
@@ -55,17 +56,26 @@
                       <td>
 
                       @if($item->verifikasi =='Belum Diverifikasi')
-					  <a href="{{ url('user/sku/verifikasi/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
-					  @elseif($item->verifikasi =='Terverifikasi')
-					  <p class="text-success"></p>{{$item->verifikasi}}</span>
-                      @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->verifikasi}}</span>
-					  @endif
+                      <a href="{{ url('user/sku/verifikasi/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
+                      @elseif($item->verifikasi =='Terverifikasi')
+                      <p class="text-success"></p>{{$item->verifikasi}}</span>
+                                @else($item->verifikasi =='Ditolak')
+                      <p class="text-danger" style="font-size: 14px;"></p>{{$item->verifikasi}}</span>
+                      @endif
 
                       </td>
                       <td class="text-right">
+                      @if($item->verifikasi =='Belum Diverifikasi')
                       <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_sku" data-id="{{$item->id}}" data-nikk="{{$item->nik}}"><i class="bi bi-trash"></i> Hapus</button>
+                      @elseif($item->verifikasi =='Terverifikasi')
+                      <p class="text-success"></p>Tidak Bisa dihapus Karena Sudah Diverifikasi</span>
+                      @else($item->verifikasi =='Ditolak')
+                      <p class="text-danger" style="font-size: 14px;"></p>Tidak Bisa dihapus Karena Sudah Diverifikasi</span>
+                      @endif
                     </td>
+
+                    <td>  <a href="{{ url('user/sku/lihat_data_sku/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                   </td>
 
                     <td>
                         
@@ -74,7 +84,7 @@
 					  @elseif($item->verifikasi =='Terverifikasi')
                       <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
-					  <p class="text-danger" style="font-size: 14px;"></p>Ditolak</span>
+					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif
                     </td>
                     

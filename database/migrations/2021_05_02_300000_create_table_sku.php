@@ -45,6 +45,22 @@ class CreateTableSku extends Migration
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('sku_ditolak', function (Blueprint $table) {
+            $table->foreign('id_sku')
+            ->references('id')
+            ->on('surat_sku')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
+        Schema::table('sku_diterima', function (Blueprint $table) {
+            $table->foreign('id_sku')
+            ->references('id')
+            ->on('surat_sku')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
     }
 
     /**
@@ -54,6 +70,14 @@ class CreateTableSku extends Migration
      */
     public function down()
     {
+        Schema::table('sku_diterima', function(Blueprint $table) {
+            $table->dropforeign('sku_diterima_id_sku_foreign');
+        });
+
+        Schema::table('sku_ditolak', function(Blueprint $table) {
+            $table->dropforeign('sku_ditolak_id_sku_foreign');
+        });
+
         Schema::dropIfExists('surat_sku');
     }
 }
