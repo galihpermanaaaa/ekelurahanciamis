@@ -1318,7 +1318,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi</label>
-                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi" required>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi1" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -1332,7 +1332,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kabupaten/Kota</label>
-                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota" required>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota1" required>
                                                         <option selected>---Pilih Kabupaten/Kota---</option>
                                                 </select>
                                                 @error('city_id')
@@ -1343,7 +1343,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan" required>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan1" required>
                                                     <option selected>---Pilih Kecamatan---</option>
                                                 </select>
                                                 @error('dis_id')
@@ -1357,7 +1357,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Desa/Kelurahan</label>
-                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa" required>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa1" required>
                                                     <option selected>---Pilih Desa/Kelurahan---</option>
                                                 </select>
                                                 @error('subdis_id')
@@ -1368,7 +1368,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw" required>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw1" required>
                                                     <option selected>--Pilih RW--</option>
                                                 </select>
                                                 @error('id_rw')
@@ -1617,6 +1617,112 @@
         });
     }else{
         $("#rw").empty();
+    }
+   });
+
+
+</script>
+
+
+
+<script>
+    $('#provinsi1').change(function(){
+    var prov_id = $(this).val();
+    if(prov_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKota?prov_id="+prov_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kota1").empty();
+                $("#kecamatan1").empty();
+                $("#kota1").append('<option>---Pilih Kabupaten/Kota---</option>');
+                $("#kecamatan1").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kota1").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kota1").empty();
+               $("#kecamatan1").empty();
+            }
+           }
+        });
+    }else{
+        $("#kota1").empty();
+        $("#kecamatan1").empty();
+    }
+   });
+
+   $('#kota1').change(function(){
+    var city_id = $(this).val();
+    if(city_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKecamatan?city_id="+city_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kecamatan1").empty();
+                $("#kecamatan1").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kecamatan1").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kecamatan1").empty();
+            }
+           }
+        });
+    }else{
+        $("#kecamatan1").empty();
+    }
+   });
+
+   $('#kecamatan1').change(function(){
+    var dis_id = $(this).val();
+    if(dis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getDesa?dis_id="+dis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#desa1").empty();
+                $("#desa1").append('<option>---Pilih Desa---</option>');
+                $.each(res,function(nama,kode){
+                    $("#desa1").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#desa1").empty();
+            }
+           }
+        });
+    }else{
+        $("#desa1").empty();
+    }
+   });
+
+   $('#desa1').change(function(){
+    var subdis_id = $(this).val();
+    if(subdis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getRw?subdis_id="+subdis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#rw1").empty();
+                $("#rw1").append('<option>---Pilih RW---</option>');
+                $.each(res,function(nama,kode){
+                    $("#rw1").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#rw1").empty();
+            }
+           }
+        });
+    }else{
+        $("#rw1").empty();
     }
    });
 
