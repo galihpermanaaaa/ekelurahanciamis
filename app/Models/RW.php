@@ -26,4 +26,9 @@ class RW extends Model
     {
     	return $this->hasMany('App\Models\User', 'id_rw');
     }
+
+    public function surat_tdk_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'id_rw');
+    }
 }

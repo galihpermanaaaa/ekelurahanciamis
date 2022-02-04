@@ -21,6 +21,7 @@ class CreateTakmampuTables extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
            
+            $table->unsignedBigInteger('prov_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('dis_id');
             $table->unsignedBigInteger('subdis_id');

@@ -31,4 +31,9 @@ class Desa extends Model
     {
     	return $this->hasMany('App\Models\User', 'subdis_id');
     }
+
+    public function surat_tdk_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'subdis_id');
+    }
 }

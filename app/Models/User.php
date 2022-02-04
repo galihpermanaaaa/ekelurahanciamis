@@ -46,9 +46,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function users()
+    public function surat_sku()
     {
-    	return $this->hasMany('App\Models\User', 'id_users');
+    	return $this->hasMany('App\Models\SKU', 'id_users');
+    }
+
+    public function surat_tdk_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'id_users');
     }
 
     public function provinces()
@@ -70,4 +75,5 @@ class User extends Authenticatable
     {
     	return $this->belongsTo('App\Models\Kecamatan', 'dis_id');
     }
+    
 }

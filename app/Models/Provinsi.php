@@ -27,4 +27,9 @@ class Provinsi extends Model
     	return $this->hasMany('App\Models\User', 'prov_id');
     }
 
+    public function surat_tdk_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'prov_id');
+    }
+
 }

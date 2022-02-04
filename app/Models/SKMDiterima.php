@@ -15,4 +15,6 @@ class SKMDiterima extends Model
     {
     	return $this->belongsTo('App\Models\SKM', 'id_skm');
     }
+
+    
 }

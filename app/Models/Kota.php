@@ -31,6 +31,11 @@ class Kota extends Model
     	return $this->hasMany('App\Models\User', 'city_id');
     }
 
+    public function surat_tdik_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'city_id');
+    }
+
   
 
 }

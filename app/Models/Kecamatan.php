@@ -32,4 +32,9 @@ class Kecamatan extends Model
     	return $this->hasMany('App\Models\User', 'dis_id');
     }
 
+    public function surat_tdk_mampu()
+    {
+    	return $this->hasMany('App\Models\SKM', 'dis_id');
+    }
+
 }
