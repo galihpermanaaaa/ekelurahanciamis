@@ -70,8 +70,8 @@ Route::get('user/sku/data_sku_rw', [App\Http\Controllers\PembuatSKUController::c
 
 // -----------------------------skm----------------------------------------//
 Route::get('user/skm/data_skm', [App\Http\Controllers\PembuatSKMController::class, 'index'])->name('user/skm/data_skm');
-Route::get('user/skm/verifikasi/{id}', [App\Http\Controllers\PembuatSKMController::class, 'verifikasi_skm']);
-Route::post('user/skm/verifikasi_skm', [App\Http\Controllers\PembuatSKMController::class, 'verifikasi_skm_skm'])->name('verifikasi_skm');
+Route::get('user/skm/verifikasi_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'verifikasi_skm']);
+Route::post('user/skm/verifikasi_skm_skm', [App\Http\Controllers\PembuatSKMController::class, 'verifikasi_skm_skm'])->name('verifikasi_skm_skm');
 Route::get('user/skm/surat_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'surat_skm']);
 Route::delete('delete_skm', [App\Http\Controllers\PembuatSKMController::class, 'destroy_skm'])->name('delete_skm');
 Route::get('user/skm/lihat_data_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'lihat_data_skm']);

@@ -18,7 +18,10 @@ use DB;
 use Alert;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use App\Mail\SKUMail;
+use App\Mail\PembuatanSuratSKMKelurahanCiamis;
 use Illuminate\Support\Facades\Mail;
+use App\Helpers;
+use App\tgl_indo;
 
 class landigpageController extends Controller
 {

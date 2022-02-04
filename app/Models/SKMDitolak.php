@@ -11,8 +11,8 @@ class SKMDitolak extends Model
     protected $primaryKey='id_skm_ditolak';
     protected $fillable = ['id_skm'];
 
-    public function surat_keterangan_tdk_mampu()
+    public function surat_tdk_mampu()
     {
-    	return $this->belongsTo('App\Models\SKM', 'id_skm');
+    	return $this->belongsTo('App\Models\SKM', 'id');
     }
 }

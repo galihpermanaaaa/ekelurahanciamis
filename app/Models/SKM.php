@@ -43,7 +43,7 @@ class SKM extends Model
 
                             public function users()
                             {
-                                return $this->belongsTo('App\Models\User', 'id_users');
+                                return $this->belongsTo('App\Models\User', 'id');
                             }
 
                             public function surat_tdk_mampu_terima()

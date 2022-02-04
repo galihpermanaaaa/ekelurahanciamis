@@ -56,7 +56,7 @@
                       <td>
 
                       @if($item->verifikasi =='Belum Diverifikasi')
-                      <a href="{{ url('user/sku/verifikasi/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
+                      <a href="{{ url('user/skm/verifikasi_skm/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
                       @elseif($item->verifikasi =='Terverifikasi')
                       <p class="text-success"></p>{{$item->verifikasi}}</span>
                                 @else($item->verifikasi =='Ditolak')

@@ -21,6 +21,8 @@ use DB;
 use Auth;
 use Alert;
 use App\Mail\SKUMail;
+use App\Helpers;
+use App\tgl_indo;
 use Illuminate\Support\Facades\Mail;
 
 class PembuatSKUController extends Controller

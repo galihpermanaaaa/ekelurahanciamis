@@ -87,7 +87,7 @@
 
                 <div class="col-md-6">
                   <label>Tempat Lahir</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->	tempat_lahir}}" required readonly>
+                  <input type="text" name="tempat_lahir" class="form-control" value="{{ $data[0]->tempat_lahir}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -162,7 +162,7 @@
 
                 <div class="col-md-12">
                     <label>Alamat Keluarga</label>
-                   <textarea class="form-control">{{ $data[0]->alamat_kel}}</textarea>
+                   <textarea class="form-control" readonly>{{ $data[0]->alamat}}</textarea>
                         @error('alamat')
                          <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

@@ -20,7 +20,10 @@ use Hash;
 use DB;
 use Auth;
 use Alert;
-use App\Mail\SKUMail;
+use App\Mail\SKMMail;
+use App\Mail\VerifikasiSKMKelurahanCiamis;
+use App\Helpers;
+use App\tgl_indo;
 use Illuminate\Support\Facades\Mail;
 
 class PembuatSKMController extends Controller
@@ -149,7 +152,7 @@ class PembuatSKMController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function verifikasi_sku(Request $request)
+    public function verifikasi_skm_skm(Request $request)
     {
         $id                     = $request->id;
         $nama                   = $request->nama;
@@ -175,7 +178,7 @@ class PembuatSKMController extends Controller
             'id'                 => $id,
             'nama'               => $nama,
             'tanggal_lahir'      => $tanggal_lahir,
-            'tempat_lahir '      => $tempat_lahir,
+            'tempat_lahir'      => $tempat_lahir,
             'nomor_bdt'          => $nomor_bdt,
             'id_users'           => $id_users,
             'verifikasi'         => $verifikasi,
@@ -202,7 +205,7 @@ class PembuatSKMController extends Controller
             $form2->save();
         }
         SKM::where('id',$request->id)->update($form);
-        Mail::to($request->email)->send(new \App\Mail\VerifikasiSKM($form));
+        Mail::to($request->email)->send(new \App\Mail\VerifikasiSKMKelurahanCiamis($form));
         Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
         return redirect()->route('user/skm/data_skm');
 
@@ -211,7 +214,7 @@ class PembuatSKMController extends Controller
 
     public function surat_skm($id)
     {
-        $data = SKM::join('skm_diterima', 'skm_diterima.id_skm', '=', 'surat_skm.id')
+        $data = SKM::join('surat_tdk_mampu_terima', 'surat_tdk_mampu_terima.id_skm', '=', 'surat_tdk_mampu.id')
         ->where('id',$id)->get();
 
         foreach ($data as $p) {

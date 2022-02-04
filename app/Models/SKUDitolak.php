@@ -14,6 +14,6 @@ class SKUDitolak extends Model
 
     public function surat_sku()
     {
-    	return $this->belongsTo('App\Models\SKU', 'id_sku');
+    	return $this->belongsTo('App\Models\SKU', 'id');
     }
 }

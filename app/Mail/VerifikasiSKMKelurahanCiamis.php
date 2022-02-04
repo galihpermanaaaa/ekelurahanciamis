@@ -12,7 +12,7 @@ use App\Models\RW;
 use App\Models\Kota;
 use App\Models\User;
 
-class VerifikasiSKU extends Mailable
+class VerifikasiSKMKelurahanCiamis extends Mailable
 {
     use Queueable, SerializesModels;
     protected $form;
@@ -50,3 +50,5 @@ class VerifikasiSKU extends Mailable
         ]);
     }
 }
+
+
