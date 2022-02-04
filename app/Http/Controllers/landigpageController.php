@@ -291,6 +291,92 @@ class landigpageController extends Controller
         }
     }
 
+    public function saveSkm(Request $request)
+    {
+        $token=null;
+        $token = Str::random(11);
+
+
+        $request->validate([
+            'nik'                           => 'required|min:16|numeric',
+            'nama'                          => 'required|string|max:30',
+            'tempat_lahir'                  => 'required',
+            'nomor_bdt'                     => '',
+            'tanggal_lahir'                 => 'required|date',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
+
+            'hubungan_keluarga'             => 'required',
+            'nama_kel'                      => 'required',
+            'nik_kel'                       => 'required',
+            'tempat_kel'                    => 'tempat_kel',
+            'tanggal_lahir_kel'             => 'required',
+            'alamat'                        => 'required',
+
+
+            'surat_pengantar_rt_rw'         => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pernyataan_miskin'       => 'required|image|mimes:jpeg,jpg,png|max:5000',
+
+            'verifikasi'                    => 'required',
+            'email'                         => 'required',
+            'tanggal_buat_surat'            => 'required|date',
+            
+        ]);
+
+
+        $file2 = time().'.'.$request->kk->extension();
+        $request->kk->move(public_path('kk_skm'), $file2);
+
+        $file3 = time().'.'.$request->surat_pengantar_rt_rw->extension();
+        $request->surat_pengantar_rt_rw->move(public_path('surat_pengantar_rt_rw'), $file3);
+
+        $file4 = time().'.'.$request->surat_pernyataan_miskin->extension();
+        $request->surat_pernyataan_miskin->move(public_path('surat_pernyataan_miskin'), $file4);
+
+        $form = new SKM;
+        $form->nik                          = $request->nik;
+        $form->nama                         = $request->nama;
+        $form->tempat_lahir                 = $request->tempat_lahir;
+        $form->tanggal_lahir                = $request->tanggal_lahir;
+        $form->nomor_bdt                    = $request->nomor_bdt;
+
+        $form->prov_id                      = $request->prov_id;
+        $form->city_id                      = $request->city_id;
+        $form->dis_id                      = $request->dis_id;
+        $form->subdis_id                   = $request->subdis_id;
+        $form->id_rw                        = $request->id_rw;
+        $form->rt                           = $request->rt;
+
+        $form->nik_kel                          = $request->nik;
+        $form->nama_kel                         = $request->nama;
+        $form->tempat_kel                       = $request->tempat_kel;
+        $form->tanggal_lahir_kel                = $request->tanggal_lahir_kel;
+        $form->alamat                            = $request->alamat;
+        $form->hubungan_keluarga                = $request->hubungan_keluarga;
+
+        $form->kk                                   = $file2;
+        $form->surat_pengantar_rt_rw                = $file3;
+        $form->surat_pernyataan_miskin              = $file4;
+
+        $form->token                            = $token;
+        $form->verifikasi                        = $request->verifikasi;
+        $form->email                            = $request->email;
+        $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
+
+
+      
+
+        $form->save();
+        Mail::to($request->email)->send(new \App\Mail\PembuatanSuratSKMKelurahanCiamis($form));
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        return redirect()->route('index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

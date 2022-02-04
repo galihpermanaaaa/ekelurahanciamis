@@ -17,7 +17,7 @@ class CreateTakmampuTables extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nik');
-            $table->string('nomor_bdt');
+            $table->string('nomor_bdt')->nullable();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
            

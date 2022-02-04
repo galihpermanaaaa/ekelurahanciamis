@@ -20,6 +20,7 @@ Route::get('/getKecamatan', [App\Http\Controllers\landigpageController::class, '
 Route::get('/getDesa', [App\Http\Controllers\landigpageController::class, 'getDesa'])->name('getDesa');
 Route::get('/getRw', [App\Http\Controllers\landigpageController::class, 'getRw'])->name('getRw');
 Route::post('save_sku', [App\Http\Controllers\landigpageController::class, 'saveSku'])->name('save_sku');
+Route::post('save_skm', [App\Http\Controllers\landigpageController::class, 'saveSkm'])->name('save_skm');
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('/pesan', 'FlashMessageController@index');
