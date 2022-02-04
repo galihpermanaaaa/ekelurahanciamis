@@ -47,6 +47,14 @@ class CreateTableDistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_tdk_mampu', function (Blueprint $table) {
+            $table->foreign('dis_id')
+            ->references('dis_id')
+            ->on('districts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -66,6 +74,10 @@ class CreateTableDistricts extends Migration
 
         Schema::table('users', function(Blueprint $table) {
             $table->dropforeign('users_dis_id_foreign');
+        });
+
+        Schema::table('surat_tdk_mampu', function(Blueprint $table) {
+            $table->dropforeign('surat_tdk_mampu_dis_id_foreign');
         });
         
         Schema::dropIfExists('districts');

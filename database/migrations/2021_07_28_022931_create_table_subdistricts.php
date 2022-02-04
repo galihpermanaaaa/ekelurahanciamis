@@ -44,6 +44,14 @@ class CreateTableSubdistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_tdk_mampu', function (Blueprint $table) {
+            $table->foreign('subdis_id')
+            ->references('subdis_id')
+            ->on('subdistricts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -63,6 +71,10 @@ class CreateTableSubdistricts extends Migration
 
         Schema::table('users', function(Blueprint $table) {
             $table->dropforeign('users_subdis_id_foreign');
+        });
+
+        Schema::table('surat_tdk_mampu', function(Blueprint $table) {
+            $table->dropforeign('surat_tdk_mampu_subdis_id_foreign');
         });
         
       
