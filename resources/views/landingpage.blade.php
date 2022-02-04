@@ -131,7 +131,7 @@
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-file"></i></div>
-                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalForm">Surat Domisili</a> </h4>
+                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKTM_menu">Surat Keterangan Tidak Mampu</a> </h4>
 
             <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           </div>
@@ -800,6 +800,363 @@
       </div>
     </div>
   </footer><!-- End Footer -->
+
+
+
+  <!-- Modal SKTM Menu -->
+<div class="modal fade" id="modalSKTM_menu" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalSKTM_cek">Cek Surat Keterangan Tidak Mampu</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalSKTM_buat">Buat Surat Keterangan Tidak Mampu</button>
+  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- Modal SKTM Menu -->
+
+
+  <!-- Modal SKTM Cek -->
+  <div class="modal fade" id="modalSKTM_cek" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form class="form" method="get" action="{{ route('layanan/sku') }}">
+                    <h3 class="h4 text-white mb-4">Check Surat</h3>
+                    <div class="form-group">
+                      <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-pill" value="Lihat Surat">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- Modal SKTM Cek -->
+
+
+  <!-- Modal SKTM Buat -->
+<div class="modal fade" id="modalSKTM_buat" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+            <form action="{{ route('save_sku') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                    <div class="container col-md-12">
+                        <h5><u> Identitas Yang Bersangkutan</u></h5>
+                        <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
+                        @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">NIK</label>
+                        <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" placeholder="Nomor Induk Kependudukan Anda" required />
+                        @error('nik')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Tempat Lahir</label>
+                    <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" required />
+                    @error('tempat_lahir')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                     @enderror
+                </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" required />
+                        @error('tanggal_lahir')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                         @enderror
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Nomor BDT</label>
+                    <input type="text" class="form-control @error('nomor_bdt') is-invalid @enderror" id="nomor_bdt" name="nomor_bdt" placeholder="Nomor BDT" required />
+                    @error('nomor_bdt')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                     @enderror
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Alamat</label>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat" required />
+                    @error('alamat')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                     @enderror
+                </div>
+
+            </div>
+        </br>
+
+            <h5><u> Identitas Keluarga</u></h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Hubungan Keluarga</label>
+                    <input type="text" class="form-control @error('hubungan_keluarga') is-invalid @enderror" id="hubungan_keluarga" name="hubungan_keluarga" placeholder="Hubungan Keluarga" required/>
+                    @error('hubungan_keluarga')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Nama</label>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
+                    @error('nama')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+
+            </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">NIK</label>
+                <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" placeholder="Nomor Induk Kependudukan Anda" required />
+                @error('nik')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Tempat Lahir</label>
+                <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" required />
+                @error('tempat_lahir')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+                 @enderror
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" required />
+                @error('tanggal_lahir')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+                 @enderror
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Alamat</label>
+                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat" required />
+                @error('alamat')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+                 @enderror
+            </div>
+
+        </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Provinsi</label>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi" required>
+                                                    <option selected>---Pilih Provinsi---</option>
+                                                    @foreach ($provinsi as $prov)
+                                                        <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('prov_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Kabupaten/Kota</label>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota" required>
+                                                        <option selected>---Pilih Kabupaten/Kota---</option>
+                                                </select>
+                                                @error('city_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Kecamatan</label>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan" required>
+                                                    <option selected>---Pilih Kecamatan---</option>
+                                                </select>
+                                                @error('dis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Desa/Kelurahan</label>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa" required>
+                                                    <option selected>---Pilih Desa/Kelurahan---</option>
+                                                </select>
+                                                @error('subdis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RW</label>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw" required>
+                                                    <option selected>--Pilih RW--</option>
+                                                </select>
+                                                @error('id_rw')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">RT</label>
+                        <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt" required>
+                        <option selected disabled>--Pilih RT--</option>
+                        <option value="1">1</option>
+                         <option value="2">2</option>
+                          <option value="3">3</option>
+                            <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                        </select>
+                        @error('rt')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+            </div>
+
+
+
+
+            <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Keperluan</label>
+                        <input type="text" class="form-control @error('keperluan') is-invalid @enderror" id="keperluan" name="keperluan" placeholder="Keperluan Anda" required />
+                        @error('keperluan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                        <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
+                        <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
+
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
+                        @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+            </div>
+        </br>
+    <hr>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Surat Pernyataan Miskin bermaterai 10.000 ditandatangani: RT, RW Dan Yang Bersangkutan</label>
+                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
+                        @error('ktp')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Kartu Keluarga</label>
+                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        @error('kk')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Surat Pengantar RT/RW</label>
+                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" required />
+                        @error('surat_pengantar')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+
+
+                    </div>
+
+
+                    <div class="modal-footer d-block">
+
+                        <button type="submit" class="btn btn-warning float-end" data-target="#contohModal">Submit</button>
+                    </div>
+             </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal SKTM -->
+
+
+
+
   <!-- Modal SKU Menu -->
   <div class="modal fade" id="modalSKU_menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1145,12 +1502,18 @@
 
                         <button type="submit" class="btn btn-warning float-end" data-target="#contohModal">Submit</button>
                     </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
 <!-- Modal SKU -->
+
+
+
+
+
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
