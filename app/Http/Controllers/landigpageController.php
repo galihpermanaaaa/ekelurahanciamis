@@ -11,6 +11,9 @@ use Carbon\Carbon;
 use App\Models\SKU;
 use App\Models\SKUDiterima;
 use App\Models\SKUDitolak;
+use App\Models\SKM;
+use App\Models\SKMDiterima;
+use App\Models\SKMDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -93,16 +96,16 @@ class landigpageController extends Controller
         ]);
 
         $file1 = time().'.'.$request->ktp->extension();
-        $request->ktp->move(public_path('ktp'), $file1);
+        $request->ktp->move(public_path('sku/ktp'), $file1);
 
         $file2 = time().'.'.$request->kk->extension();
-        $request->kk->move(public_path('kk'), $file2);
+        $request->kk->move(public_path('sku/kk'), $file2);
 
         $file3 = time().'.'.$request->surat_pengantar->extension();
-        $request->surat_pengantar->move(public_path('surat_pengantar'), $file3);
+        $request->surat_pengantar->move(public_path('sku/surat_pengantar'), $file3);
 
         $file4 = time().'.'.$request->keterangan_domisili->extension();
-        $request->keterangan_domisili->move(public_path('keterangan_domisili'), $file4);
+        $request->keterangan_domisili->move(public_path('sku/keterangan_domisili'), $file4);
 
         $form = new SKU;
         $form->nik                          = $request->nik;
@@ -302,6 +305,7 @@ class landigpageController extends Controller
             'nama'                          => 'required|string|max:30',
             'tempat_lahir'                  => 'required',
             'nomor_bdt'                     => '',
+            'untuk_persyaratan'             => 'required',
             'tanggal_lahir'                 => 'required|date',
             'prov_id'                       => 'required',
             'city_id'                       => 'required',
@@ -313,7 +317,7 @@ class landigpageController extends Controller
             'hubungan_keluarga'             => 'required',
             'nama_kel'                      => 'required',
             'nik_kel'                       => 'required',
-            'tempat_kel'                    => 'tempat_kel',
+            'tempat_kel'                    => 'required',
             'tanggal_lahir_kel'             => 'required',
             'alamat'                        => 'required',
 
@@ -330,13 +334,13 @@ class landigpageController extends Controller
 
 
         $file2 = time().'.'.$request->kk->extension();
-        $request->kk->move(public_path('kk_skm'), $file2);
+        $request->kk->move(public_path('skm/kk_skm'), $file2);
 
         $file3 = time().'.'.$request->surat_pengantar_rt_rw->extension();
-        $request->surat_pengantar_rt_rw->move(public_path('surat_pengantar_rt_rw'), $file3);
+        $request->surat_pengantar_rt_rw->move(public_path('skm/surat_pengantar_rt_rw_skm'), $file3);
 
         $file4 = time().'.'.$request->surat_pernyataan_miskin->extension();
-        $request->surat_pernyataan_miskin->move(public_path('surat_pernyataan_miskin'), $file4);
+        $request->surat_pernyataan_miskin->move(public_path('skm/surat_pernyataan_miskin_skm'), $file4);
 
         $form = new SKM;
         $form->nik                          = $request->nik;
@@ -344,6 +348,7 @@ class landigpageController extends Controller
         $form->tempat_lahir                 = $request->tempat_lahir;
         $form->tanggal_lahir                = $request->tanggal_lahir;
         $form->nomor_bdt                    = $request->nomor_bdt;
+        $form->untuk_persyaratan            = $request->untuk_persyaratan;
 
         $form->prov_id                      = $request->prov_id;
         $form->city_id                      = $request->city_id;
@@ -368,14 +373,183 @@ class landigpageController extends Controller
         $form->email                            = $request->email;
         $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
 
-
-      
-
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatanSuratSKMKelurahanCiamis($form));
         Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
+
+    public function filterskm(Request $request)
+    {
+
+        $token = $request->token;
+        
+        if(!empty($token)){
+            $skm = SKM::where('token', 'like', "%" . $token . "%")->get();
+        }else{
+            Alert::error('Maaf', 'token tersebut tidak ditemukan, silahkan lakukan pembuatan surat untuk mendapatkan token ')->persistent('Close');
+            return redirect()->route('index');
+        }
+        return view('layanan.skm', compact('skm'));
+    }
+
+    public function layanan_surat_skm($id)
+    {
+        $data = SKM::join('surat_tdk_mampu_terima', 'surat_tdk_mampu_terima.id_skm', '=', 'surat_tdk_mampu.id')
+        ->where('id',$id)->get();
+
+        foreach ($data as $p) {
+          
+        $this->fpdf = new Fpdf;
+        $this->fpdf->SetFont('times', 'B', 15);
+        $this->fpdf->AddPage();
+        $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
+        // $this->fpdf->Text(10, 10, $p->nama);
+        
+        $this->fpdf->SetFont('times','B',20);
+
+        // Membuat string
+        $this->fpdf->Cell(200,6,'PEMERINTAH KABUPATEN CIAMIS',0,1,'C');
+        $this->fpdf->Cell(200,7,'KECAMATAN CIAMIS',0,1,'C');
+        $this->fpdf->Cell(200,8,'KELURAHAN CIAMIS',0,1,'C');
+
+        $this->fpdf->SetFont('times','B',10);
+        $this->fpdf->Cell(200,9,'Jalan Pemuda Nomor 1 Telp.(0265)771045 Ciamis 46211',0,1,'C');
+        $this->fpdf->SetFont('times','B',9);
+        // $this->fpdf->Cell(200,5,'',0,1,'C');
+
+
+        // Setting spasi kebawah supaya tidak rapat
+        $this->fpdf->Cell(10,5,'',0,1);
+        $this->fpdf->SetLineWidth(1);
+        $this->fpdf->Line(10,39,200,39);
+        $this->fpdf->SetLineWidth(0);
+        $this->fpdf->Line(10,40,200,40);
+
+        $this->fpdf->SetFont('times','BU',14);
+
+
+        $this->fpdf->Cell(190,6,'SURAT KETERANGAN TIDAK MAMPU',0,1,'C');
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_skm_diterima.'/'.$p->id_skm_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Ln();
+
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->write(8,'Yang bertanda tangan di bawah ini:',0,1);
+
+        $this->fpdf->Ln();
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Nama',0,0);
+        $this->fpdf->Cell(50,6,': WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
+
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Jabatan',0,0);
+        $this->fpdf->Cell(50,6,': Lurah Ciamis',0,1);
+
+        $this->fpdf->Ln(3);
+
+        $this->fpdf->write(8,'Dengan ini menerangkan bahwa:',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Nama',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nama,0,1);
+
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'NIK',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Nomor BDT',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nomor_bdt,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tempat Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->tempat_lahir,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Alamat',0,0);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
+        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        
+        $this->fpdf->Ln(3);
+        $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
+        $this->fpdf->Ln();
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Nama',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nama_kel,0,1);
+
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'NIK',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nik_kel,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tempat Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->tempat_kel,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir_kel)),0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Alamat',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->alamat,0,1);
+        
+
+
+        $this->fpdf->Ln(3);
+        $this->fpdf->Cell(10,0.5,'',0,0);
+        $this->fpdf->write(8,'Berdasarkan keterangan pribadi dan Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. ' (Optional 1/Mengikuti yg atas).',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,0.5,'',0,0);
+        $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan,0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,0.5,'',0,0);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->Ln(3);
+        $this->fpdf->Ln();
+
+
+        
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(110,6,'',0,0,'C');
+        $this->fpdf->Cell(5,6,'',0,0);
+        $this->fpdf->Cell(14,6,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+
+        
+        $this->fpdf->Cell(22,8,'',0,0);
+        $this->fpdf->SetFont('times','B',12);
+        $this->fpdf->Cell(101,6,'Camat Ciamis',0,0);
+        $this->fpdf->Cell(10,6,'Lurah Ciamis',0,1);
+   
+
+        $this->fpdf->Cell(5,25,'',0,0, 'C');
+        $this->fpdf->Cell(1,30,'',0,0);
+        $this->fpdf->SetFont('times','Bu',12);
+        $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
+        $this->fpdf->SetFont('times','BU',12);
+        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
+        $this->fpdf->SetFont('times','',11);
+        $this->fpdf->Cell(10,-20,'',0,0);
+        $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001.',0,0);
+        $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001.',0,1);
+        $this->fpdf->Output();
+        exit; 
+        }
+        
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.

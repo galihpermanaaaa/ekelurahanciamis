@@ -13,6 +13,6 @@ class SKMDitolak extends Model
 
     public function surat_tdk_mampu()
     {
-    	return $this->belongsTo('App\Models\SKM', 'id');
+    	return $this->belongsTo('App\Models\SKM', 'id_skm');
     }
 }

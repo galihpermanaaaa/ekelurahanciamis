@@ -10,6 +10,7 @@ use App\Models\Kecamatan;
 use App\Models\Desa;
 use App\Models\RW;
 use App\Models\Kota;
+use App\Models\User;
 
 class PembuatanSuratSKMKelurahanCiamis extends Mailable
 {
@@ -44,7 +45,7 @@ class PembuatanSuratSKMKelurahanCiamis extends Mailable
         $this->kecamatan = Kecamatan::where('dis_id', $this->form['dis_id'])->first();
         $this->desa = Desa::where('subdis_id', $this->form['subdis_id'])->first();
         $this->rw = RW::where('id_rw', $this->form['id_rw'])->first();
-        return $this->view('emails.hasil_skm')->with([
+        return $this->view('emails.laporan_pembuatan_skm.')->with([
             'form' => $this->form,
         ]);
     }

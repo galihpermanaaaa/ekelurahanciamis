@@ -74,7 +74,15 @@
                       @endif
                     </td>
 
-                    <td>  <a href="{{ url('user/skm/lihat_data_skm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                    <td> 
+                     @if($item->verifikasi =='Belum Diverifikasi')
+                     <p>Harus Diverifikasi terlebih dahulu</p>
+                      @elseif($item->verifikasi =='Terverifikasi')
+                      <a href="{{ url('user/skm/lihat_data_skm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                      @else($item->verifikasi =='Ditolak')
+                      <a href="{{ url('user/skm/lihat_data_skm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                      @endif
+                      
                    </td>
 
                     <td>

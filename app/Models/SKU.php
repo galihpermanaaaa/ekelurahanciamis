@@ -42,7 +42,7 @@ class SKU extends Model
 
                             public function users()
                             {
-                                return $this->belongsTo('App\Models\User', 'id');
+                                return $this->belongsTo('App\Models\User', 'id_users');
                             }
 
                             public function sku_diterima()

@@ -23,7 +23,7 @@
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Tanda Penduduk</h3>
                 <p>
-                <img id="myImg" src="{{ URL::to('/ktp/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
+                <img id="myImg" src="{{ URL::to('/sku/ktp/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal" class="modal">
                                         <span class="close">&times;</span>
@@ -37,7 +37,7 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Keluarga</h3>
-                <p><img id="myImg2" src="{{ URL::to('/kk/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg2" src="{{ URL::to('/sku/kk/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal2" class="modal">
                                         <span class="close">&times;</span>
@@ -50,7 +50,7 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Surat Pengantar RT/RW</h3>
-                <p><img id="myImg3" src="{{ URL::to('/surat_pengantar/'. $data[0]->surat_pengantar) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg3" src="{{ URL::to('/sku/surat_pengantar/'. $data[0]->surat_pengantar) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal3" class="modal">
                                         <span class="close">&times;</span>
@@ -63,7 +63,7 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Surat Keterangan Domisili</h3>
-                <p><img id="myImg4" src="{{ URL::to('/keterangan_domisili/'. $data[0]->keterangan_domisili) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg4" src="{{ URL::to('/sku/keterangan_domisili/'. $data[0]->keterangan_domisili) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal4" class="modal">
                                         <span class="close">&times;</span>

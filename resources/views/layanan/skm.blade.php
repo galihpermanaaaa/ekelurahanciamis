@@ -23,11 +23,11 @@
     <ul class="nav nav-tabs nav-tabs-bordered">
 
       <li class="nav-item">
-       <h3>Surat Keterangan Usaha</h3>
+       <h3>Surat Keterangan Tidak Mampu</h3>
       </li>
     </ul>
 
-              @foreach ($sku as $key => $item)
+              @foreach ($skm as $key => $item)
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -45,11 +45,6 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Jenis Kelamin</div>
-                    <div class="col-lg-9 col-md-8">{{ $item->jk }}</div>
-                  </div>
-
-                  <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Tanggal Lahir</div>
                     <div class="col-lg-9 col-md-8">{{tanggal_indonesia($item->tanggal_lahir) }}</div>
                   </div>
@@ -60,8 +55,8 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Keperluan</div>
-                    <div class="col-lg-9 col-md-8">{{ $item->keperluan }}</div>
+                    <div class="col-lg-3 col-md-4 label">Untuk Persyaratan</div>
+                    <div class="col-lg-9 col-md-8">{{ $item->untuk_persyaratan }}</div>
                   </div>
 
                   <div class="row">
@@ -81,7 +76,7 @@
                     @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi Oleh Admin Kelurahan Ciamis Harap Tunggu dan Periksa Email Anda</span>
 					          @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('layanan/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Silahkan Download</a>
+                      <a href="{{ url('layanan/surat_skm/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Silahkan Download</a>
                       <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>Tanggal Diverifikasi: {{tanggal_indonesia($item->tanggal_buat_surat) }}</span>	
                       @else($item->verifikasi =='Ditolak')
 					        <p class="text-danger" style="font-size: 14px; background-color:powderblue;"></p>{{ $item->deskripsi }}</span>

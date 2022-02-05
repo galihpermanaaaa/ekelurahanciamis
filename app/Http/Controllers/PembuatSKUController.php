@@ -38,6 +38,7 @@ class PembuatSKUController extends Controller
         {
 
         $halaman = "data_sku";
+        $user = User::all();
         $sku = SKU::orderBy('id', 'DESC')->get();
         return view('user.sku.data_sku', compact('halaman', 'sku'));
         }
@@ -270,7 +271,7 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.(tanggal_indonesia($p->tanggal_buat_surat)),0,1);
+        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);

@@ -20,6 +20,7 @@ class CreateTakmampuTables extends Migration
             $table->string('nomor_bdt')->nullable();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
+            $table->string('untuk_persyaratan');
            
             $table->unsignedBigInteger('prov_id');
             $table->unsignedBigInteger('city_id');
