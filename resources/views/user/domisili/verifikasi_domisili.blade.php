@@ -1,11 +1,11 @@
 @include('layouts.header')
 @include('layouts.sidebar')
-@include('user.skm.image')
+@include('user.sku.image')
 
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Verifikasi Pembuatan Surat keterangan Tidak Mampu</h1>
+      <h1>Verifikasi Pembuatan Surat Domisili</h1>
       <nav>
         
       </nav>
@@ -21,21 +21,23 @@
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
-                <h3>Kartu Keluarga</h3>
-                <p><img id="myImg" src="{{ URL::to('/skm/kk_skm/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
+                <h3>Kartu Tanda Penduduk</h3>
+                <p>
+                <img id="myImg" src="{{ URL::to('/domisili/ktp/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal1" class="modal">
+										<div id="myModal" class="modal">
                                         <span class="close">&times;</span>
                                         <img class="modal-content" id="img01">
-                                        <div id="caption1"></div>
-                                        </div></p>
+                                        <div id="caption"></div>
+                                        </div>
+                </p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
-                <h3>Surat Pengantar RT/RW</h3>
-                <p><img id="myImg2" src="{{ URL::to('/skm/surat_pengantar_rt_rw_skm/'. $data[0]->surat_pengantar_rt_rw) }}" alt="" width="20%" height="30%">
+                <h3>Kartu Keluarga</h3>
+                <p><img id="myImg2" src="{{ URL::to('/domisili/kk/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal2" class="modal">
                                         <span class="close">&times;</span>
@@ -47,8 +49,8 @@
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
-                <h3>Surat Pernyataan Miskin</h3>
-                <p><img id="myImg3" src="{{ URL::to('/skm/surat_pernyataan_miskin_skm/'. $data[0]->surat_pernyataan_miskin) }}" alt="" width="20%" height="30%">
+                <h3>Surat Pengantar RT/RW</h3>
+                <p><img id="myImg3" src="{{ URL::to('/domisili/surat_pengantar_rt_rw/'. $data[0]->surat_pengantar_rt_rw) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal3" class="modal">
                                         <span class="close">&times;</span>
@@ -63,7 +65,7 @@
 
         <div class="col-xl-6">
           <div class="card p-4">
-          <form action="{{ route('verifikasi_skm_skm') }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('verifikasi_domisili_domisili') }}" method="POST" enctype="multipart/form-data">
              @csrf
               <div class="row gy-4">
 
@@ -75,19 +77,13 @@
                 </div>
 
                 <div class="col-md-6">
+                  <label>Jenis Kelamin</label>
+                  <input type="text" name="jk" class="form-control" value="{{ $data[0]->jk}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
                   <label>Nomor Induk Kependudukan</label>
                   <input type="number" class="form-control" value="{{ $data[0]->nik}}" required readonly>
-                </div>
-
-                <div class="col-md-6">
-                  <label>Nomor BDT</label>
-                  <input type="number" class="form-control" value="{{ $data[0]->nomor_bdt}}" required readonly>
-                  <input type="hidden" name="nomor_bdt" class="form-control" value="{{ $data[0]->nomor_bdt}}" required readonly>
-                </div>
-
-                <div class="col-md-6">
-                  <label>Tempat Lahir</label>
-                  <input type="text" name="tempat_lahir" class="form-control" value="{{ $data[0]->tempat_lahir}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -96,11 +92,33 @@
                   <input type="hidden" class="form-control" name="tanggal_lahir" value="{{$data[0]->tanggal_lahir}}" required readonly>
                 </div>
 
+                <div class="col-md-6">
+                  <label>Status Perkawinan</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->status_perkawinan}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Status Kewarganegaraan</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->status_kewarganegaraan}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Agama</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->agama}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Pekerjaan</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->pekerjaan}}" required readonly>
+                </div>
+
                 <hr>
 
+                <P>Alamat Sekarang</p>
                 <div class="col-md-6">
                   <label>RT</label>
                   <input type="text" class="form-control" name="rt" value="{{ $data[0]->rt}}" required readonly>
+                  
                 </div>
 
                 <div class="col-md-6">
@@ -133,62 +151,49 @@
                 </div>
 
                 <hr>
+                <P>Alamat Asal</p>
 
                 <div class="col-md-6">
-                  <label>Hubungan Keluarga</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->hubungan_keluarga}}" required readonly>
+                  <label>RT</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->rt_asal}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Nama Keluarga</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->nama_kel}}" required readonly>
+                  <label>RW</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->rw_asal}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>NIK Keluarga</label>
-                  <input type="number" class="form-control" value="{{ $data[0]->nik_kel}}" required readonly>
-                </div>
-
-
-                <div class="col-md-6">
-                  <label>Tempat Lahir Keluarga</label>
-                  <input type="text"  class="form-control" value="{{ $data[0]->tempat_kel}}" required readonly>
+                  <label>Kelurahan/Desa</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->desa_asal}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Tanggal Lahir Keluarga</label>
-                  <input type="date" class="form-control" value="{{ $data[0]->tanggal_lahir_kel}}" required readonly>
+                  <label>Kecamatan</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->kecamatan_asal}}" required readonly>
                 </div>
 
-                <div class="col-md-12">
-                    <label>Alamat Keluarga</label>
-                   <textarea class="form-control" readonly>{{ $data[0]->alamat}}</textarea>
-                        @error('alamat')
-                         <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                         </span>
-                        @enderror
+                <div class="col-md-6">
+                  <label>Kabupaten/Kota</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->kab_asal}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Provinsi</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->prov_asal}}" required readonly>
                 </div>
 
                 <hr>
-
-
 
                 <div class="col-md-6">
                   <label>Email</label>
                   <input type="email" name="email" class="form-control" value="{{ $data[0]->email}}" required readonly>
                 </div>
-                
 
                 <div class="col-md-6">
                   <label>Tanggal Membuat Surat</label>
                   <input type="text" class="form-control" value="{{ tanggal_indonesia($data[0]->tanggal_buat_surat)}}" required readonly>
                   <input type="hidden" name="tanggal_buat_surat" class="form-control" value="{{$data[0]->tanggal_buat_surat}}" required readonly>
-                </div>
-
-                <div class="col-md-6">
-                  <label>Untuk Persyaratan</label>
-                  <input type="text" class="form-control" value="{{$data[0]->untuk_persyaratan}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
@@ -319,5 +324,28 @@ span.onclick = function() {
 </script>
 
 
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal4");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg4");
+var modalImg = document.getElementById("img04");
+var captionText = document.getElementById("caption4");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[3];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
 
 

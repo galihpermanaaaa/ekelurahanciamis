@@ -12,7 +12,7 @@ use App\Models\RW;
 use App\Models\Kota;
 use App\Models\User;
 
-class PembuatanSuratSKMKelurahanCiamis extends Mailable
+class VerifikasiSuratDomisili extends Mailable
 {
     use Queueable, SerializesModels;
     protected $form;
@@ -45,7 +45,7 @@ class PembuatanSuratSKMKelurahanCiamis extends Mailable
         $this->kecamatan = Kecamatan::where('dis_id', $this->form['dis_id'])->first();
         $this->desa = Desa::where('subdis_id', $this->form['subdis_id'])->first();
         $this->rw = RW::where('id_rw', $this->form['id_rw'])->first();
-        return $this->view('emails.laporan_pembuatan_skm')->with([
+        return $this->view('emails.hasil_domisili')->with([
             'form' => $this->form,
         ]);
     }

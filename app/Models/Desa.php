@@ -36,4 +36,9 @@ class Desa extends Model
     {
     	return $this->hasMany('App\Models\SKM', 'subdis_id');
     }
+
+    public function surat_domisili()
+    {
+    	return $this->hasMany('App\Models\SuratDomisili', 'subdis_id');
+    }
 }

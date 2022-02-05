@@ -10,9 +10,9 @@ use App\Models\Desa;
 use App\Models\RW;
 use App\Models\User;
 use Carbon\Carbon;
-use App\Models\SKM;
-use App\Models\SKMDiterima;
-use App\Models\SKMDitolak;
+use App\Models\SuratDomisili;
+use App\Models\SuratDomisiliTerima;
+use App\Models\SuratDomisiliTolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Codedge\Fpdf\Fpdf\Fpdf;
@@ -20,13 +20,12 @@ use Hash;
 use DB;
 use Auth;
 use Alert;
-use App\Mail\SKMMail;
-use App\Mail\VerifikasiSKMKelurahanCiamis;
+use App\Mail\PembuatSuratDomisili;
 use App\Helpers;
 use App\tgl_indo;
 use Illuminate\Support\Facades\Mail;
 
-class PembuatSKMController extends Controller
+class PembuatDomisiliController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,9 +37,10 @@ class PembuatSKMController extends Controller
         if (Auth::user()->role_name=='Verifikator')
         {
 
-        $halaman = "data_skm";
-        $skm = SKM::orderBy('id', 'DESC')->get();
-        return view('user.skm.data_skm', compact('halaman', 'skm'));
+        $halaman = "data_domisili";
+        $user = User::all();
+        $skd = SuratDomisili::orderBy('id', 'DESC')->get();
+        return view('user.domisili.data_domisili', compact('halaman', 'skd'));
         }
         else
         {
@@ -53,13 +53,13 @@ class PembuatSKMController extends Controller
         if (Auth::user()->role_name=='RW')
         {
 
-        $halaman = "data_skm";
-            $skm = SKM::orderBy('id', 'DESC')
+        $halaman = "data_sku";
+            $sku = SKU::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();
 
             $user = RW::where('id_rw',auth()->user()->id_rw)->get();
-        return view('user.skm.data_skm_rw', compact('halaman', 'sku', 'user'));
+        return view('user.sku.data_sku_rw', compact('halaman', 'sku', 'user'));
         }
         else
         {
@@ -67,17 +67,17 @@ class PembuatSKMController extends Controller
         }
     }
 
-    public function verifikasi_skm($id)
+    public function verifikasi_domisili($id)
     {
         if (Auth::user()->role_name=='Verifikator')
         {
-        $data = SKM::where('id',$id)->get();
+        $data = SuratDomisili::where('id',$id)->get();
         $provinsi =Provinsi::all();
         $kota = Kota::all();
         $kecamatan = Kecamatan::all();
         $desa = Desa::all();
         $rw = RW::all();
-        return view('user.skm.verifikasi_skm',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
+        return view('user.domisili.verifikasi_domisili',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
         }
         else
         {
@@ -86,16 +86,16 @@ class PembuatSKMController extends Controller
     }
 
 
-    public function lihat_data_skm($id)
+    public function lihat_data_sku($id)
     {
        
-        $data = SKM::where('id',$id)->get();
+        $data = SKU::where('id',$id)->get();
         $provinsi =Provinsi::all();
         $kota = Kota::all();
         $kecamatan = Kecamatan::all();
         $desa = Desa::all();
         $rw = RW::all();
-        return view('user.skm.lihat_data_skm',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
+        return view('user.sku.lihat_data_sku',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
        
     }
 
@@ -152,36 +152,33 @@ class PembuatSKMController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function verifikasi_skm_skm(Request $request)
+    public function verifikasi_domisili_domisili(Request $request)
     {
         $id                     = $request->id;
         $nama                   = $request->nama;
         $tanggal_lahir          = $request->tanggal_lahir;
-        $tempat_lahir           = $request->tempat_lahir;
-        $nomor_bdt              = $request->nomor_bdt;
+        $jk                     = $request->jk;
         $id_users               = $request->id_users;
         $verifikasi             = $request->verifikasi;
         $deskripsi              = $request->deskripsi;
         $email                  = $request->email;
         $tanggal_verifikasi     = $request->tanggal_verifikasi; 
-        $id_users               = $request->id_users;
 
         $city_id                      = $request->city_id;
         $dis_id                       = $request->dis_id;
         $subdis_id                    = $request->subdis_id;
         $id_rw                        = $request->id_rw;
         $rt                           = $request->rt;
+
         $token                        = $request->token;
-        $tanggal_buat_surat           = $request->tanggal_buat_surat;
-             
+        $tanggal_buat_surat           = $request->tanggal_buat_surat;        
 
         $form = [
 
             'id'                 => $id,
             'nama'               => $nama,
             'tanggal_lahir'      => $tanggal_lahir,
-            'tempat_lahir'      => $tempat_lahir,
-            'nomor_bdt'          => $nomor_bdt,
+            'jk'                 => $jk,
             'id_users'           => $id_users,
             'verifikasi'         => $verifikasi,
             'deskripsi'          => $deskripsi,
@@ -194,38 +191,37 @@ class PembuatSKMController extends Controller
             'rt'                 => $rt,
             'token'              => $token, 
             'tanggal_buat_surat' => $tanggal_buat_surat,
-            'id_users'           => $id_users,
-            
 
         ];
 
-        SKM::where('id',$request->id)->update($form);
+       
+        SuratDomisili::where('id',$request->id)->update($form);
         if($verifikasi=='Terverifikasi'){
-            $form1 = new SKMDiterima;
-            $form1->id_skm = $request->id;
+            $form1 = new SuratDomisiliTerima;
+            $form1->id_domisili = $request->id;
             $form1->save();
         }elseif($verifikasi=='Ditolak'){
-            $form2 = new SKMDitolak;
-            $form2->id_skm = $request->id;
+            $form2 = new SuratDomisiliTolak;
+            $form2->id_domisili = $request->id;
             $form2->save();
         }
-        Mail::to($request->email)->send(new \App\Mail\VerifikasiSKMKelurahanCiamis($form));
+        Mail::to($request->email)->send(new \App\Mail\VerifikasiSuratDomisili($form));
         Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
-        return redirect()->route('user/skm/data_skm');
+        return redirect()->route('user/domisili/data_domisili');
 
     }
 
 
-    public function surat_skm($id)
+    public function surat_sku($id)
     {
-        $data = SKM::join('surat_tdk_mampu_terima', 'surat_tdk_mampu_terima.id_skm', '=', 'surat_tdk_mampu.id')
+        $data = SKU::join('sku_diterima', 'sku_diterima.id_sku', '=', 'surat_sku.id')
         ->where('id',$id)->get();
 
         foreach ($data as $p) {
           
         $this->fpdf = new Fpdf;
         $this->fpdf->SetFont('times', 'B', 15);
-        $this->fpdf->AddPage();
+        $this->fpdf->AddPage(['P','mm','a4']);
         $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
         // $this->fpdf->Text(10, 10, $p->nama);
         
@@ -252,30 +248,17 @@ class PembuatSKMController extends Controller
         $this->fpdf->SetFont('times','BU',14);
 
 
-        $this->fpdf->Cell(190,6,'SURAT KETERANGAN TIDAK MAMPU',0,1,'C');
+        $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_skm_diterima.'/'.$p->id_skm_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
         $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'Yang bertanda tangan di bawah ini:',0,1);
+        $this->fpdf->write(8,'Yang bertanda tangan di bawah ini Lurah Ciamis Kecamatan Ciamis Kabupaten Ciamis menerangkan:',0,1);
 
         $this->fpdf->Ln();
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nama',0,0);
-        $this->fpdf->Cell(50,6,': WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
-
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Jabatan',0,0);
-        $this->fpdf->Cell(50,6,': Lurah Ciamis',0,1);
-
-        $this->fpdf->Ln(3);
-
-        $this->fpdf->write(8,'Dengan ini menerangkan bahwa:',0,1);
-        $this->fpdf->Ln();
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Nama',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->nama,0,1);
@@ -285,91 +268,76 @@ class PembuatSKMController extends Controller
         $this->fpdf->Cell(35,6,'NIK',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nomor BDT',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nomor_bdt,0,1);
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Tempat Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->tempat_lahir,0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
         $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->jk,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Status Perkawinan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->status_perkawinan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Kewarganegaraan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->status_kewarganegaraan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Agama',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->agama,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Pekerjaan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->pekerjaan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
         $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
         $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->write(8,'Dengan Nomor: .'. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha',0,1);
+        $this->fpdf->write(8,'dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk: '. $p->keperluan.'.',0,1);
         
-        $this->fpdf->Ln(3);
-        $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
         $this->fpdf->Ln();
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nama',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nama_kel,0,1);
-
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'NIK',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nik_kel,0,1);
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Tempat Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->tempat_kel,0,1);
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir_kel)),0,1);
-
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->alamat,0,1);
-        
-
-
-        $this->fpdf->Ln(3);
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan keterangan pribadi dan Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. ' (Optional 1/Mengikuti yg atas).',0,1);
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum',0,1);
         $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan,0,1);
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->write(8,'dan dapat dipergunakan sebagaimana mestinya.',0,1);
         $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,1);
-        $this->fpdf->Ln(3);
         $this->fpdf->Ln();
 
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(110,6,'',0,0,'C');
-        $this->fpdf->Cell(5,6,'',0,0);
+        $this->fpdf->Cell(35,6,'',0,0,'C');
+        $this->fpdf->Cell(80,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
         $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
-        
-        $this->fpdf->Cell(22,8,'',0,0);
+
+
+
+        $this->fpdf->Cell(40,6,'',0,0,'C');
+        $this->fpdf->Cell(75,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(101,6,'Camat Ciamis',0,0);
-        $this->fpdf->Cell(10,6,'Lurah Ciamis',0,1);
-   
+        $this->fpdf->Cell(45,6,'Lurah Ciamis',0,1, 'C');
+        
 
-        $this->fpdf->Cell(5,25,'',0,0, 'C');
-        $this->fpdf->Cell(1,30,'',0,0);
-        $this->fpdf->SetFont('times','Bu',12);
-        $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
+        $this->fpdf->Cell(40,20,'',0,0, 'C');
+        $this->fpdf->Cell(100,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
-        $this->fpdf->SetFont('times','',11);
-        $this->fpdf->Cell(10,-20,'',0,0);
-        $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001.',0,0);
-        $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001.',0,1);
+        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
 
-
-
-     
+        $this->fpdf->SetFont('times','B',12);
+        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 
@@ -387,12 +355,11 @@ class PembuatSKMController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy_skm(Request $request)
+    public function destroy_domisili(Request $request)
    {
-    $skm = SKM::findOrFail($request->id);
-    $skm->delete();
-    Alert::success('SKM tersebut berhasil dihapus :)','Success');
-    return redirect()->route('user/skm/data_skm');
+    $skd = SuratDomisili::findOrFail($request->id);
+    $skd->delete();
+    Alert::success('Surat Domisili tersebut berhasil dihapus :)','Success');
+    return redirect()->route('user/domisili/data_domisili');
    }
-
 }

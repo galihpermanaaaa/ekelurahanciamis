@@ -215,7 +215,7 @@
             <br>
                 <div class="col-md-12">
                     <label>Keterangan(alasan Ditolak/Diterima)</label>
-                   <textarea name="deskripsi" class="form-control"></textarea>
+                   <textarea name="deskripsi" class="form-control" required></textarea>
                         @error('deskripsi')
                          <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

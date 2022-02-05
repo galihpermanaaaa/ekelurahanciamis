@@ -38,7 +38,7 @@ class UserController extends Controller
         }
         else
         {
-            return redirect()->route('dashboard');
+            return redirect()->route('login');
         }
     }
 

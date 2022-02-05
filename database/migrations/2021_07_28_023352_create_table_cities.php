@@ -53,6 +53,14 @@ class CreateTableCities extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_domisili', function (Blueprint $table) {
+            $table->foreign('city_id')
+            ->references('city_id')
+            ->on('cities')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -78,6 +86,12 @@ class CreateTableCities extends Migration
         Schema::table('surat_tdk_mampu', function(Blueprint $table) {
             $table->dropforeign('surat_tdk_mampu_city_id_foreign');
         });
+
+        Schema::table('surat_domisili', function(Blueprint $table) {
+            $table->dropforeign('surat_domisili_city_id_foreign');
+        });
+
+        
 
         Schema::dropIfExists('cities');
     }

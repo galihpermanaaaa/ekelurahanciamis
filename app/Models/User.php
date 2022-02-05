@@ -56,6 +56,11 @@ class User extends Authenticatable
     	return $this->hasMany('App\Models\SKM', 'id_users');
     }
 
+    public function surat_domisili()
+    {
+    	return $this->hasMany('App\Models\SuratDomisili', 'id_users');
+    }
+
     public function provinces()
     {
     	return $this->belongsTo('App\Models\Provinsi', 'prov_id');

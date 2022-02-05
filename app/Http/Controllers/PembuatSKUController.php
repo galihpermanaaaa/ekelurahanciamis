@@ -44,7 +44,7 @@ class PembuatSKUController extends Controller
         }
         else
         {
-            return redirect()->route('home');
+            return redirect()->route('login');
         }
     }
 
@@ -63,7 +63,7 @@ class PembuatSKUController extends Controller
         }
         else
         {
-            return redirect()->route('home');
+            return redirect()->route('login');
         }
     }
 
@@ -81,7 +81,7 @@ class PembuatSKUController extends Controller
         }
         else
         {
-            return redirect()->route('home');
+            return redirect()->route('login');
         }
     }
 
@@ -195,6 +195,8 @@ class PembuatSKUController extends Controller
 
         ];
 
+       
+        SKU::where('id',$request->id)->update($form);
         if($verifikasi=='Terverifikasi'){
             $form1 = new SKUDiterima;
             $form1->id_sku = $request->id;
@@ -204,7 +206,6 @@ class PembuatSKUController extends Controller
             $form2->id_sku = $request->id;
             $form2->save();
         }
-        SKU::where('id',$request->id)->update($form);
         Mail::to($request->email)->send(new \App\Mail\VerifikasiSKU($form));
         Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
         return redirect()->route('user/sku/data_sku');

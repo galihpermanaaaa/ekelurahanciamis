@@ -23,8 +23,10 @@ Route::post('save_sku', [App\Http\Controllers\landigpageController::class, 'save
 Route::post('save_skm', [App\Http\Controllers\landigpageController::class, 'saveSkm'])->name('save_skm');
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
 Route::get('layanan/skm',  [App\Http\Controllers\landigpageController::class, 'filterskm'])->name('layanan/skm');
+Route::get('layanan/domisili',  [App\Http\Controllers\landigpageController::class, 'filterdomisili'])->name('layanan/domisili');
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('layanan/surat_skm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skm']);
+Route::get('layanan/surat_domisili/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_domisili']);
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');
 
@@ -79,6 +81,15 @@ Route::get('user/skm/surat_skm/{id}', [App\Http\Controllers\PembuatSKMController
 Route::delete('delete_skm', [App\Http\Controllers\PembuatSKMController::class, 'destroy_skm'])->name('delete_skm');
 Route::get('user/skm/lihat_data_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'lihat_data_skm']);
 Route::get('user/skm/data_skm_rw', [App\Http\Controllers\PembuatSKMController::class, 'indexRW'])->name('user/skm/data_skm_rw');
+
+// -----------------------------domisili----------------------------------------//
+Route::get('user/domisili/data_domisili', [App\Http\Controllers\PembuatDomisiliController::class, 'index'])->name('user/domisili/data_domisili');
+Route::get('user/domisili/verifikasi_domisili/{id}', [App\Http\Controllers\PembuatDomisiliController::class, 'verifikasi_domisili']);
+Route::post('user/domisili/verifikasi_domisili_domisili', [App\Http\Controllers\PembuatDomisiliController::class, 'verifikasi_domisili_domisili'])->name('verifikasi_domisili_domisili');
+Route::get('user/domisili/surat_domisili/{id}', [App\Http\Controllers\PembuatDomisiliController::class, 'surat_domisili']);
+Route::delete('delete_domisili', [App\Http\Controllers\PembuatDomisiliController::class, 'destroy_domisili'])->name('delete_domisili');
+Route::get('user/domisili/lihat_data_domisili/{id}', [App\Http\Controllers\PembuatDomisiliController::class, 'lihat_data_domisili']);
+Route::get('user/domisili/data_domisili_rw', [App\Http\Controllers\PembuatDomisiliController::class, 'indexRW'])->name('user/skm/data_domisili_rw');
 
 
 Auth::routes(['register' => false]);
