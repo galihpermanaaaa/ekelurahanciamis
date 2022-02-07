@@ -1767,105 +1767,33 @@
             </div>
 
             <hr>
-            <h6> Alamat Sekarang</h6>
+            <h6> Alamat Asal</h6>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label class="form-label">Provinsi</label>
-                    <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi" required>
-                                                <option selected>---Pilih Provinsi---</option>
-                                                @foreach ($provinsi as $prov)
-                                                    <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('prov_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                    <label class="form-label">Alamat Asal</label>
+                    <textarea class="form-control @error('alamat_asal') is-invalid @enderror" id="alamat_asal" name="alamat_asal" placeholder="Alamat Asal" required ></textarea>
+                    @error('alamat_asal')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
-                <div class="col-md-3">
-                    <label class="form-label">Kabupaten/Kota</label>
-                    <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota" required>
-                                                    <option selected>---Pilih Kabupaten/Kota---</option>
-                                            </select>
-                                            @error('city_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Kecamatan</label>
-                    <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan" required>
-                                                <option selected>---Pilih Kecamatan---</option>
-                                            </select>
-                                            @error('dis_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                </div>
-        </div>
-
-        <div class="row">
                 <div class="col-md-6">
-                    <label class="form-label">Desa/Kelurahan</label>
-                    <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa" required>
-                                                <option selected>---Pilih Desa/Kelurahan---</option>
-                                            </select>
-                                            @error('subdis_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">RW</label>
-                    <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw" required>
-                                                <option selected>--Pilih RW--</option>
-                                            </select>
-                                            @error('id_rw')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">RT</label>
-                    <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt" required>
-                    <option selected disabled>--Pilih RT--</option>
-                    <script>
-                        var rt = 1;
-                        for(i=1;i<=132;i++){
-                            document.write("<option>" + i + "</option>");
-                        }
-                    </script>
-                    </select>
-
-
-
-                    @error('rt')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                </div>
-        </div>
-
-
-            <div class="row">
-
-                    <div class="col-md-6">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
-                        @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                    </div>
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
+                @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
             </div>
+        </div>
+
+
+
+
+           
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
