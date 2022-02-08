@@ -21,6 +21,7 @@ use DB;
 use Auth;
 use Alert;
 use App\Mail\PembuatSuratDomisili;
+use App\Mail\VerifikasiSuratDomisili;
 use App\Helpers;
 use App\tgl_indo;
 use Illuminate\Support\Facades\Mail;
@@ -48,18 +49,18 @@ class PembuatDomisiliController extends Controller
         }
     }
 
-    public function indexRW()
+    public function indexRWDomisili()
     {
         if (Auth::user()->role_name=='RW')
         {
 
-        $halaman = "data_sku";
-            $sku = SKU::orderBy('id', 'DESC')
+        $halaman = "data_domisili_rw";
+            $domisili = SuratDomisili::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();
 
             $user = RW::where('id_rw',auth()->user()->id_rw)->get();
-        return view('user.sku.data_sku_rw', compact('halaman', 'sku', 'user'));
+        return view('user.domisili.data_domisili_rw', compact('halaman', 'domisili', 'user'));
         }
         else
         {
@@ -86,16 +87,16 @@ class PembuatDomisiliController extends Controller
     }
 
 
-    public function lihat_data_sku($id)
+    public function lihat_data_domisili($id)
     {
        
-        $data = SKU::where('id',$id)->get();
+        $data = SuratDomisili::where('id',$id)->get();
         $provinsi =Provinsi::all();
         $kota = Kota::all();
         $kecamatan = Kecamatan::all();
         $desa = Desa::all();
         $rw = RW::all();
-        return view('user.sku.lihat_data_sku',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
+        return view('user.domisili.lihat_data_domisili',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
        
     }
 
@@ -212,9 +213,9 @@ class PembuatDomisiliController extends Controller
     }
 
 
-    public function surat_sku($id)
+    public function surat_domisili($id)
     {
-        $data = SKU::join('sku_diterima', 'sku_diterima.id_sku', '=', 'surat_sku.id')
+        $data = SuratDomisili::join('surat_domisili_diterima', 'surat_domisili_diterima.id_domisili', '=', 'surat_domisili.id')
         ->where('id',$id)->get();
 
         foreach ($data as $p) {
@@ -248,9 +249,9 @@ class PembuatDomisiliController extends Controller
         $this->fpdf->SetFont('times','BU',14);
 
 
-        $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
+        $this->fpdf->Cell(190,6,'SURAT KETERANGAN DOMISILI',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_domisili_diterima.'/'.$p->id_domisili_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -294,41 +295,38 @@ class PembuatDomisiliController extends Controller
         $this->fpdf->Cell(50,6,':  '.$p->pekerjaan,0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Alamat',0,0);
+        $this->fpdf->Cell(35,6,'Alamat Asal',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->alamat_asal,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Alamat Sekarang',0,0);
         $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
         $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'Dengan Nomor: .'. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha',0,1);
-        $this->fpdf->write(8,'dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk: '. $p->keperluan.'.',0,1);
-        
+        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis'. ','. ' benar bahwa orang tersebut di atas adalah warga yang saat ini berdomisili pada alamat di atas'. '.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'dan dapat dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya'. '.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
 
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(35,6,'',0,0,'C');
-        $this->fpdf->Cell(80,6,'',0,0);
+        $this->fpdf->Cell(37,6,'',0,0,'C');
+        $this->fpdf->Cell(82,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
         $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
 
-        $this->fpdf->Cell(40,6,'',0,0,'C');
-        $this->fpdf->Cell(75,6,'',0,0);
+        $this->fpdf->Cell(42,6,'',0,0,'C');
+        $this->fpdf->Cell(77,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'Lurah Ciamis',0,1, 'C');
+        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');

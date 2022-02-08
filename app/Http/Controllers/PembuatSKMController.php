@@ -48,7 +48,7 @@ class PembuatSKMController extends Controller
         }
     }
 
-    public function indexRW()
+    public function indexRWSkm()
     {
         if (Auth::user()->role_name=='RW')
         {
@@ -59,7 +59,7 @@ class PembuatSKMController extends Controller
             ->get();
 
             $user = RW::where('id_rw',auth()->user()->id_rw)->get();
-        return view('user.skm.data_skm_rw', compact('halaman', 'sku', 'user'));
+        return view('user.skm.data_skm_rw', compact('halaman', 'skm', 'user'));
         }
         else
         {

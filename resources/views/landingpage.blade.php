@@ -1508,6 +1508,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              
 
  <div class="d-grid gap-2">
     <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modaldomisili_cek">Cek Surat Keterangan Domisili</button>
@@ -1517,6 +1518,8 @@
         </div>
     </div>
   </div>
+
+
     <!-- Modal Domisili Menu -->
      <!-- Modal Domisili Cek -->
   <div class="modal fade" id="modaldomisili_cek" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1528,7 +1531,7 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" method="get" action="{{ route('layanan/sku') }}">
+                <form class="form" method="get" action="{{ route('layanan/domisili') }}">
                     <h3 class="h4 text-white mb-4">Check Surat</h3>
                     <div class="form-group">
                       <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
@@ -1558,13 +1561,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ route('save_sku') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save_domisili') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="container col-md-12">
                         <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Nama</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
+                        <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
+                        <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
                         @error('nama')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -1685,7 +1690,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi</label>
-                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi" required>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi2" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -1699,7 +1704,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kabupaten/Kota</label>
-                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota" required>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota2" required>
                                                         <option selected>---Pilih Kabupaten/Kota---</option>
                                                 </select>
                                                 @error('city_id')
@@ -1710,7 +1715,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan_asal" required>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan2" required>
                                                     <option selected>---Pilih Kecamatan---</option>
                                                 </select>
                                                 @error('dis_id')
@@ -1724,7 +1729,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Desa/Kelurahan</label>
-                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa" required>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa2" required>
                                                     <option selected>---Pilih Desa/Kelurahan---</option>
                                                 </select>
                                                 @error('subdis_id')
@@ -1735,7 +1740,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw_asal" required>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw2" required>
                                                     <option selected>--Pilih RW--</option>
                                                 </select>
                                                 @error('id_rw')
@@ -1767,38 +1772,33 @@
             </div>
 
             <hr>
-            <h6> Alamat Asal</h6>
+           <div class="row">
 
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="form-label">Alamat Asal</label>
-                    <textarea class="form-control @error('alamat_asal') is-invalid @enderror" id="alamat_asal" name="alamat_asal" placeholder="Alamat Asal" required ></textarea>
-                    @error('alamat_asal')
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
-                @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+            <div class="col-md-6">
+                        <label class="form-label">Alamat Asal</label>
+                        <textarea class="form-control @error('email') is-invalid @enderror" id="alamat_asal" name="alamat_asal" placeholder="Alamat Asal Anda" required></textarea>
+                        @error('alamat_asal')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
+                        @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
             </div>
-        </div>
-
-
-
-
-           
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
-                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
-                        @error('ktp')
+                        <input type="file" class="form-control @error('ktp_domisili') is-invalid @enderror" id="ktp_domisili" name="ktp_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
+                        @error('ktp_domisili')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -1806,7 +1806,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Upload KK</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        <input type="file" class="form-control @error('kk_domisili') is-invalid @enderror" id="kk_domisili" name="kk_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
                         @error('kk')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -1817,8 +1817,8 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" required />
-                        @error('surat_pengantar')
+                        <input type="file" class="form-control @error('surat_pengantar_rt_rw_domisili') is-invalid @enderror" id="surat_pengantar_rt_rw_domisili" name="surat_pengantar_rt_rw_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
+                        @error('surat_pengantar_rt_rw_domisili')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>

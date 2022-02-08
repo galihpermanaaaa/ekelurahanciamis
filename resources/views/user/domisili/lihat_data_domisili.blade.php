@@ -1,11 +1,11 @@
 @include('layouts.header')
 @include('layouts.sidebar')
-@include('user.sku.image')
+@include('user.domisili.image')
 
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Verifikasi Pembuatan Surat SKU</h1>
+      <h1>Verifikasi Pembuatan Surat Domisili</h1>
       <nav>
         
       </nav>
@@ -23,7 +23,7 @@
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Tanda Penduduk</h3>
                 <p>
-                <img id="myImg" src="{{ URL::to('/sku/ktp/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
+                <img id="myImg" src="{{ URL::to('/skd/ktp_domisili/'. $data[0]->ktp_domisili) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal" class="modal">
                                         <span class="close">&times;</span>
@@ -37,7 +37,7 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Keluarga</h3>
-                <p><img id="myImg2" src="{{ URL::to('/sku/kk/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg2" src="{{ URL::to('/skd/kk_domisili/'. $data[0]->kk_domisili) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal2" class="modal">
                                         <span class="close">&times;</span>
@@ -50,7 +50,7 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Surat Pengantar RT/RW</h3>
-                <p><img id="myImg3" src="{{ URL::to('/sku/surat_pengantar/'. $data[0]->surat_pengantar) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg3" src="{{ URL::to('/skd/pengantar_domisili/'. $data[0]->surat_pengantar_rt_rw_domisili) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal3" class="modal">
                                         <span class="close">&times;</span>
@@ -59,21 +59,7 @@
                                         </div></p>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>Surat Keterangan Domisili</h3>
-                <p><img id="myImg4" src="{{ URL::to('/sku/keterangan_domisili/'. $data[0]->keterangan_domisili) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal4" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img04">
-                                        <div id="caption4"></div>
-                                        </div></p>
-              </div>
-            </div>
-          </div>
-
+        </div>
         </div>
 
         <div class="col-xl-6">
@@ -166,21 +152,11 @@
 
                 <hr>
 
+              
                 <div class="col-md-6">
-                  <label>Nomor Surat Pengantar RT/RW</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->nomor_surat_pengantar_rw_rt}}" required readonly>
+                  <label>Alamat Asal</label>
+                  <textarea name="alamat_asal" class="form-control" readonly>{{ $data[0]->alamat_asal}}</textarea>
                 </div>
-
-                <div class="col-md-6">
-                  <label>Keperluan</label>
-                  <input type="text" name="keperluan" class="form-control" value="{{ $data[0]->keperluan}}" required readonly>
-                </div>
-
-                <div class="col-md-6">
-                  <label>Bidang Usaha</label>
-                  <input type="text" class="form-control" value="{{ $data[0]->bidang_usaha}}" required readonly>
-                </div>
-
                 <div class="col-md-6">
                   <label>Email</label>
                   <input type="email" name="email" class="form-control" value="{{ $data[0]->email}}" required readonly>
@@ -216,7 +192,7 @@
               
 
                 <div class="submit-section text-center">
-                <a href="{{ route('user/sku/data_sku') }}" class="btn btn-danger btn-sm">Kembali</a>
+                <a href="{{ route('user/domisili/data_domisili') }}" class="btn btn-danger btn-sm">Kembali</a>
                 </div>
 
               </div>
@@ -298,31 +274,6 @@ img.onclick = function(){
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[2];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-</script>
-
-
-
-<script type="text/javascript">
-// Get the modal
-var modal = document.getElementById("myModal4");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg4");
-var modalImg = document.getElementById("img04");
-var captionText = document.getElementById("caption4");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[3];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 

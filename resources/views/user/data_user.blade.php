@@ -565,6 +565,7 @@ modal.find('.modal-body #name').val(Name)
 
 </script>
 
+
 @include('sweetalert::alert')
 @include('layouts.footer')
 

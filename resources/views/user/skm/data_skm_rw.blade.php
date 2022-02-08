@@ -29,7 +29,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Daftar Pembuat SKU</h5>
+              <h5 class="card-title">Daftar Pembuat Surat Tidak Mampu</h5>
               
 
               <!-- Table with stripped rows -->
@@ -45,13 +45,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($sku as $key => $item)
+                    @foreach($skm as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
                       <td>{{$item->nik}}</td>
                       <td>{{$item->nama}}</td>
                       <td>{{$item->email}}</td>
-                <td>  <a href="{{ url('user/sku/lihat_data_sku/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                <td>  <a href="{{ url('user/skm/lihat_data_skm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
                    </td>
 
                     <td>
@@ -59,7 +59,7 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/sku/surat_sku/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/skm/surat_skm/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
 					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif

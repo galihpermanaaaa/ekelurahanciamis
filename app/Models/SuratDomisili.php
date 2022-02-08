@@ -12,8 +12,8 @@ class SuratDomisili extends Model
     protected $primaryKey='id';
     protected $fillable = ['nama', 'nik', 'jk', 'tanggal_lahir', 'status_perkawinan', 'status_kewarganegaraan', 'agama', 'pekerjaan', 
                             'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 
-                            'rt_asal', 'rw_asal', 'desa_asal', 'kecamatan_asal', 'kab_asal', 'prov_asal',
-                            'ktp', 'kk', 'surat_pengantar_rt_rw', 
+                            'alamat_asal',
+                            'ktp_domisili', 'kk_domisili', 'surat_pengantar_rt_rw_domisili', 
                             'token', 'id_users','verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi', 'tanggal_verifikasi'];
 
                             public function provinces()

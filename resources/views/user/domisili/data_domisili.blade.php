@@ -131,7 +131,7 @@
                                 
                                             <div class="">
                                                 <div class="form-group">
-                                                <p>Apakah kamu yakin akan menghapus SKD tersebut?</p>
+                                                <p>Apakah kamu yakin akan menghapus Surat Keterangan Domisili tersebut?</p>
                                                     <input type="number" name="nik" class="form-control" id="nik" placeholder="NIK" required readonly>
                                                     <input type="hidden" name="id" class="form-control" id="id" placeholder="id" required readonly>
 
