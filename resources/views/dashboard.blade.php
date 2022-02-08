@@ -263,7 +263,7 @@
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">NO</th>
+                       
                         <th scope="col">RW</th>
                         <th scope="col">SKU</th>
                         <th scope="col">SKTM</th>
@@ -272,40 +272,218 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
                         <td>RW 01</td>
                         <td>{{$jumlah_sku_01}}</td>
                         <td>$64</td>
                         <td><span class="badge bg-success">Approved</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                        <td>RW 02</td>
+                        <td>{{$jumlah_sku_02}}</td>
                         <td>$47</td>
                         <td><span class="badge bg-warning">Pending</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                        <td>RW 03</td>
+                        <td>{{$jumlah_sku_03}}</td>
                         <td>$147</td>
                         <td><span class="badge bg-success">Approved</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
+                        <td>RW 04</td>
+                        <td>{{$jumlah_sku_04}}</td>
                         <td>$67</td>
                         <td><span class="badge bg-danger">Rejected</span></td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                      <tr> 
+                        <td>RW 05</td>
+                        <td>{{$jumlah_sku_05}}</td>
                         <td>$165</td>
                         <td><span class="badge bg-success">Approved</span></td>
                       </tr>
+                      <tr> 
+                        <td>RW 06</td>
+                        <td>{{$jumlah_sku_06}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 07</td>
+                        <td>{{$jumlah_sku_07}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 08</td>
+                        <td>{{$jumlah_sku_08}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 09</td>
+                        <td>{{$jumlah_sku_09}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 10</td>
+                        <td>{{$jumlah_sku_10}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 11</td>
+                        <td>{{$jumlah_sku_11}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr> 
+                        <td>RW 12</td>
+                        <td>{{$jumlah_sku_12}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 13</td>
+                        <td>{{$jumlah_sku_13}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 14</td>
+                        <td>{{$jumlah_sku_14}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 15</td>
+                        <td>{{$jumlah_sku_15}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 16</td>
+                        <td>{{$jumlah_sku_16}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 17</td>
+                        <td>{{$jumlah_sku_17}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 18</td>
+                        <td>{{$jumlah_sku_18}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 19</td>
+                        <td>{{$jumlah_sku_19}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 20</td>
+                        <td>{{$jumlah_sku_20}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 21</td>
+                        <td>{{$jumlah_sku_21}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 22</td>
+                        <td>{{$jumlah_sku_22}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 23</td>
+                        <td>{{$jumlah_sku_23}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 24</td>
+                        <td>{{$jumlah_sku_24}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 25</td>
+                        <td>{{$jumlah_sku_25}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 26</td>
+                        <td>{{$jumlah_sku_26}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 27</td>
+                        <td>{{$jumlah_sku_27}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 28</td>
+                        <td>{{$jumlah_sku_28}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 29</td>
+                        <td>{{$jumlah_sku_29}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 30</td>
+                        <td>{{$jumlah_sku_30}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 31</td>
+                        <td>{{$jumlah_sku_31}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
+                      <tr> 
+                        <td>RW 32</td>
+                        <td>{{$jumlah_sku_32}}</td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+
                     </tbody>
                   </table>
 
