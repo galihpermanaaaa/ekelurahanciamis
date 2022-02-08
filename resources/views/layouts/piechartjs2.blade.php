@@ -3,13 +3,11 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<figure class="highcharts-figure">
-  <p class="highcharts-description">
-  </p>
+<figure class="highcharts-figure1">
 </figure>
 
 <style>
-  .highcharts-figure,
+    .highcharts-figure1,
 .highcharts-data-table table {
   min-width: 320px;
   max-width: 660px;
@@ -51,31 +49,16 @@
 .highcharts-data-table tr:hover {
   background: #f1f7ff;
 }
+
 </style>
 
 <script>
-  // Radialize the colors
-Highcharts.setOptions({
-  colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-    return {
-      radialGradient: {
-        cx: 0.5,
-        cy: 0.3,
-        r: 0.7
-      },
-      stops: [
-        [0, color],
-        [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-      ]
-    };
-  })
-});
 
 // Build the chart
-var sku_jk_lk = <?php echo json_encode($sku_jk_lk)?>;
-var sku_jk_pr = <?php echo json_encode($sku_jk_pr)?>;
+var skd_jk_lk = <?php echo json_encode($skd_jk_lk)?>;
+var skd_jk_pr = <?php echo json_encode($skd_jk_pr)?>;
 
-Highcharts.chart('vv2', {
+Highcharts.chart('vv1', {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
@@ -105,10 +88,10 @@ Highcharts.chart('vv2', {
     }
   },
   series: [{
-    name: 'Surat Keterangan Umum',
+    name: 'Surat Keterangan Domisili',
     data: [
-      { name: 'Laki-laki', y:sku_jk_lk },
-      { name: 'Perempuan', y:sku_jk_pr }
+      { name: 'Laki-laki', y: skd_jk_lk },
+      { name: 'Perempuan', y: skd_jk_pr },
     ]
   }]
 });

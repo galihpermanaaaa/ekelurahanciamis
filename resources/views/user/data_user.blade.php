@@ -54,16 +54,16 @@
                       <td>
 
                       @if($item->role_name =='Lurah')
-                      <span  class="btn btn-success" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      <span class="badge bg-warning">{{ $item->role_name }}</span>
                       @endif 
 
                            
                       @if($item->role_name =='Verifikator')
-                      <span  class="btn btn-primary" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      <span class="badge bg-success">{{ $item->role_name }}</span>
                       @endif 
 
                       @if($item->role_name =='RW')
-                      <span  class="btn btn-secondary" style="font-size: 14px;">{{ $item->role_name }}</span>
+                      <span class="badge bg-secondary">{{ $item->role_name }}</span>
                       @endif 
 
                       </td>

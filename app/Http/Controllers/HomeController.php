@@ -306,9 +306,146 @@ class HomeController extends Controller
         ->where('id_rw', '32')
         ->get();
         $jumlah_sku_32 = $sku_rep_32->count();
+        
+
+        $skm_rep_1 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $skm_rep_2 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $skm_rep_3 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $skm_rep_4 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $skm_rep_5 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $skm_rep_6 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $skm_rep_7 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $skm_rep_8 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $skm_rep_9 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $skm_rep_10 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $skm_rep_11 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $skm_rep_12 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $skm_rep_13 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $skm_rep_14 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $skm_rep_15 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $skm_rep_16 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $skm_rep_17 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $skm_rep_18 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $skm_rep_19 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $skm_rep_20 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $skm_rep_21 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $skm_rep_22 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $skm_rep_23 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $skm_rep_24 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $skm_rep_25 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $skm_rep_26 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $skm_rep_27 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $skm_rep_28 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $skm_rep_29 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $skm_rep_30 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $skm_rep_31 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $skm_rep_32 = SKM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+        $domi_rep_1 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $domi_rep_2 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $domi_rep_3 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $domi_rep_4 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $domi_rep_5 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $domi_rep_6 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $domi_rep_7 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $domi_rep_8 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $domi_rep_9 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $domi_rep_10 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $domi_rep_11 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $domi_rep_12 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $domi_rep_13 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $domi_rep_14 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $domi_rep_15 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $domi_rep_16 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $domi_rep_17 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $domi_rep_18 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $domi_rep_19 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $domi_rep_20 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $domi_rep_21 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $domi_rep_22 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $domi_rep_23 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $domi_rep_24 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $domi_rep_25 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $domi_rep_26 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $domi_rep_27 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $domi_rep_28 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $domi_rep_29 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $domi_rep_30 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $domi_rep_31 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $domi_rep_32 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+        $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
+        $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
+
+        $skd_jk_lk = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
+        $skd_jk_pr = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
 
-
+ 
         return view('dashboard', compact('sku', 'sku_count', 'skm', 'skm_count', 'skd', 'skd_count', 'sku_verifikasi', 'sku_count_verifikasi', 
         'skm_verifikasi', 'skm_count_verifikasi', 'skd_verifikasi', 'skd_count_verifikasi', 'user_rw', 'skd_verifikasi_rw_terverifikasi',
         'skd_count_verifikasi_rw_terverifikasi', 'skd_verifikasi_rw_ditolak', 'skd_count_verifikasi_rw_ditolak', 'skd_verifikasi_rw_belum', 'skd_count_verifikasi_rw_belum', 
@@ -322,7 +459,13 @@ class HomeController extends Controller
     'jumlah_sku_03', 'jumlah_sku_04', 'jumlah_sku_05', 'jumlah_sku_06', 'jumlah_sku_07', 'jumlah_sku_08', 'jumlah_sku_09', 'jumlah_sku_10', 'jumlah_sku_11',
         'jumlah_sku_12', 'jumlah_sku_13', 'jumlah_sku_14', 'jumlah_sku_15', 'jumlah_sku_16', 'jumlah_sku_17', 'jumlah_sku_18', 'jumlah_sku_19', 'jumlah_sku_20',
         'jumlah_sku_21', 'jumlah_sku_22', 'jumlah_sku_23', 'jumlah_sku_24', 'jumlah_sku_25', 'jumlah_sku_26', 'jumlah_sku_27', 'jumlah_sku_28', 'jumlah_sku_29',
-        'jumlah_sku_30', 'jumlah_sku_31', 'jumlah_sku_32'));
+        'jumlah_sku_30', 'jumlah_sku_31', 'jumlah_sku_32', 'skm_rep_1','skm_rep_2', 'skm_rep_3', 'skm_rep_4', 'skm_rep_5', 'skm_rep_6', 'skm_rep_7', 'skm_rep_8',
+        'skm_rep_9', 'skm_rep_10', 'skm_rep_11', 'skm_rep_12', 'skm_rep_13', 'skm_rep_14', 'skm_rep_15', 'skm_rep_16', 'skm_rep_17', 'skm_rep_18', 'skm_rep_19', 'skm_rep_20', 
+    'skm_rep_21', 'skm_rep_22', 'skm_rep_23', 'skm_rep_24', 'skm_rep_25', 'skm_rep_26', 'skm_rep_27', 'skm_rep_28', 'skm_rep_29', 'skm_rep_30', 'skm_rep_31', 'skm_rep_32', 
+    'domi_rep_1', 'domi_rep_2', 'domi_rep_3', 'domi_rep_4', 'domi_rep_5', 'domi_rep_5', 'domi_rep_6', 'domi_rep_7', 'domi_rep_8', 'domi_rep_9', 'domi_rep_10', 
+    'domi_rep_11', 'domi_rep_12', 'domi_rep_13', 'domi_rep_14', 'domi_rep_15', 'domi_rep_16', 'domi_rep_17', 'domi_rep_18', 'domi_rep_19', 'domi_rep_20',
+    'domi_rep_21', 'domi_rep_21', 'domi_rep_22', 'domi_rep_23', 'domi_rep_24', 'domi_rep_25', 'domi_rep_26', 'domi_rep_27', 'domi_rep_28', 'domi_rep_29', 'domi_rep_30', 'domi_rep_31','domi_rep_32', 
+    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr'));
     }
 
 
