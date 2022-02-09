@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Helpers;
 use App\tgl_indo;
 
+
+
 class HomeController extends Controller
 {
     /**
@@ -444,6 +446,12 @@ class HomeController extends Controller
         $skd_jk_lk = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $skd_jk_pr = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
+        $log_skd = SuratDomisili::orderBy('id', 'DESC')->take(3)->get();
+        $log_skm = SKM::orderBy('id', 'DESC')->take(3)->get();
+        $log_sku = SKU::orderBy('id', 'DESC')->take(3)->get();
+
+
+
 
  
         return view('dashboard', compact('sku', 'sku_count', 'skm', 'skm_count', 'skd', 'skd_count', 'sku_verifikasi', 'sku_count_verifikasi', 
@@ -465,7 +473,7 @@ class HomeController extends Controller
     'domi_rep_1', 'domi_rep_2', 'domi_rep_3', 'domi_rep_4', 'domi_rep_5', 'domi_rep_5', 'domi_rep_6', 'domi_rep_7', 'domi_rep_8', 'domi_rep_9', 'domi_rep_10', 
     'domi_rep_11', 'domi_rep_12', 'domi_rep_13', 'domi_rep_14', 'domi_rep_15', 'domi_rep_16', 'domi_rep_17', 'domi_rep_18', 'domi_rep_19', 'domi_rep_20',
     'domi_rep_21', 'domi_rep_21', 'domi_rep_22', 'domi_rep_23', 'domi_rep_24', 'domi_rep_25', 'domi_rep_26', 'domi_rep_27', 'domi_rep_28', 'domi_rep_29', 'domi_rep_30', 'domi_rep_31','domi_rep_32', 
-    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr'));
+    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm'));
     }
 
 

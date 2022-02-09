@@ -80,5 +80,10 @@ class User extends Authenticatable
     {
     	return $this->belongsTo('App\Models\Kecamatan', 'dis_id');
     }
+
+    public function rw()
+    {
+    	return $this->belongsTo('App\Models\RW', 'id_rw');
+    }
     
 }

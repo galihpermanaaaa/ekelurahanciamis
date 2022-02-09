@@ -63,7 +63,7 @@
                       @endif 
 
                       @if($item->role_name =='RW')
-                      <span class="badge bg-secondary">{{ $item->role_name }}</span>
+                      <span class="badge bg-secondary">{{ $item->role_name }}  {{$item->rw->nama_rw}}</span>
                       @endif 
 
                       </td>
