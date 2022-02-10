@@ -18,6 +18,9 @@ use App\Models\SKMDitolak;
 use App\Models\SuratDomisili;
 use App\Models\SuratDomisiliTerima;
 use App\Models\SuratDomisiliTolak;
+use App\Models\SuratDuda;
+use App\Models\SuratDudaDiterima;
+use App\Models\SuratDudaDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -62,6 +65,9 @@ class HomeController extends Controller
         $skd = SuratDomisili::where('verifikasi', 'Belum Diverifikasi')->get();
         $skd_count = $skd->count();
 
+        $duda = SuratDuda::where('verifikasi', 'Belum Diverifikasi')->get();
+        $duda_count = $duda->count();
+
 
         $sku_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
         $sku_count_verifikasi = $sku_verifikasi->count();
@@ -71,6 +77,9 @@ class HomeController extends Controller
 
         $skd_verifikasi = SuratDomisili::where('verifikasi', 'Terverifikasi')->get();
         $skd_count_verifikasi = $skd_verifikasi->count();
+
+        $duda_verifikasi = SuratDuda::where('verifikasi', 'Terverifikasi')->get();
+        $duda_count_verifikasi = $duda_verifikasi->count();
 
         $user_rw = RW::where('id_rw',auth()->user()->id_rw)->get();
 
@@ -110,6 +119,7 @@ class HomeController extends Controller
         $sku_tab = SKU::all()->count();
         $skm_tab = SKM::all()->count();
         $skd_tab = SuratDomisili::all()->count();
+        $duda_tab = SuratDuda::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -440,6 +450,73 @@ class HomeController extends Controller
         $domi_rep_32 = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '32')->count();
 
+
+        $duda_rep_1 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $duda_rep_2 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $duda_rep_3 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $duda_rep_4 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $duda_rep_5 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $duda_rep_6 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $duda_rep_7 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $duda_rep_8 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $duda_rep_9 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $duda_rep_10 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $duda_rep_11 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $duda_rep_12 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $duda_rep_13 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $duda_rep_14 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $duda_rep_15 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $duda_rep_16 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $duda_rep_17 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $duda_rep_18 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $duda_rep_19 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $duda_rep_20 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $duda_rep_21 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $duda_rep_22 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $duda_rep_23 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $duda_rep_24 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $duda_rep_25 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $duda_rep_26 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $duda_rep_27 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $duda_rep_28 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $duda_rep_29 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $duda_rep_30 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $duda_rep_31 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $duda_rep_32 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
@@ -449,6 +526,7 @@ class HomeController extends Controller
         $log_skd = SuratDomisili::orderBy('id', 'DESC')->take(3)->get();
         $log_skm = SKM::orderBy('id', 'DESC')->take(3)->get();
         $log_sku = SKU::orderBy('id', 'DESC')->take(3)->get();
+        $log_duda = SuratDuda::orderBy('id', 'DESC')->take(3)->get();
 
 
 
@@ -473,7 +551,7 @@ class HomeController extends Controller
     'domi_rep_1', 'domi_rep_2', 'domi_rep_3', 'domi_rep_4', 'domi_rep_5', 'domi_rep_5', 'domi_rep_6', 'domi_rep_7', 'domi_rep_8', 'domi_rep_9', 'domi_rep_10', 
     'domi_rep_11', 'domi_rep_12', 'domi_rep_13', 'domi_rep_14', 'domi_rep_15', 'domi_rep_16', 'domi_rep_17', 'domi_rep_18', 'domi_rep_19', 'domi_rep_20',
     'domi_rep_21', 'domi_rep_21', 'domi_rep_22', 'domi_rep_23', 'domi_rep_24', 'domi_rep_25', 'domi_rep_26', 'domi_rep_27', 'domi_rep_28', 'domi_rep_29', 'domi_rep_30', 'domi_rep_31','domi_rep_32', 
-    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm'));
+    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm', 'duda', 'duda_count', 'duda_count_verifikasi', 'duda_tab', 'log_duda'));
     }
 
 

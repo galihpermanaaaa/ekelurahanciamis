@@ -67,6 +67,29 @@
               </div>
             </div><!-- End Revenue Card -->
 
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Surat Duda Belum Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$duda_count}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
               <!-- Revenue Card -->
               <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
@@ -110,6 +133,7 @@
                 </div>
 
               </div>
+              
             </div><!-- End Sales Card -->
 
             <!-- Revenue Card -->
@@ -125,6 +149,28 @@
                     </div>
                     <div class="ps-3">
                       <h6>{{$skm_count_verifikasi}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+             <!-- Revenue Card -->
+             <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Surat Duda Sudah Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$duda_count_verifikasi}}</h6>
                       <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -550,10 +596,20 @@
 
                 @foreach($log_skm as $key => $itemsss)
                 <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
+                  <div class="activite-label">{{ Carbon\Carbon::parse($itemsss->created_at)->diffForHumans() }}</div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
                   {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat SKTM
+                  </div>
+                </div><!-- End activity item-->
+                @endforeach
+
+                @foreach($log_duda as $key => $itemssss)
+                <div class="activity-item d-flex">
+                  <div class="activite-label"> {{ Carbon\Carbon::parse($itemssss->created_at)->diffForHumans() }}</div>
+                  <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
+                  <div class="activity-content">
+                  {{$itemssss->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat Surat Duda
                   </div>
                 </div><!-- End activity item-->
                 @endforeach

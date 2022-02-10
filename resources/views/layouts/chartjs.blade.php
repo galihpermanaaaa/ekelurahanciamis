@@ -59,6 +59,7 @@
   var sku_tab = <?php echo json_encode($sku_tab)?>;
   var skm_tab = <?php echo json_encode($skm_tab)?>;
   var skd_tab = <?php echo json_encode($skd_tab)?>;
+  var duda_tab = <?php echo json_encode($duda_tab)?>;
 
 Highcharts.chart('container', {
   chart: {
@@ -119,6 +120,10 @@ Highcharts.chart('container', {
         {
           name: "Surat Keterangan Domisili",
           y: skd_tab,
+        },
+        {
+          name: "Surat Keterangan Duda",
+          y: duda_tab,
         },
       ]
     }
