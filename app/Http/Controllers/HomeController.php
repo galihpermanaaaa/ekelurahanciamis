@@ -551,7 +551,10 @@ class HomeController extends Controller
     'domi_rep_1', 'domi_rep_2', 'domi_rep_3', 'domi_rep_4', 'domi_rep_5', 'domi_rep_5', 'domi_rep_6', 'domi_rep_7', 'domi_rep_8', 'domi_rep_9', 'domi_rep_10', 
     'domi_rep_11', 'domi_rep_12', 'domi_rep_13', 'domi_rep_14', 'domi_rep_15', 'domi_rep_16', 'domi_rep_17', 'domi_rep_18', 'domi_rep_19', 'domi_rep_20',
     'domi_rep_21', 'domi_rep_21', 'domi_rep_22', 'domi_rep_23', 'domi_rep_24', 'domi_rep_25', 'domi_rep_26', 'domi_rep_27', 'domi_rep_28', 'domi_rep_29', 'domi_rep_30', 'domi_rep_31','domi_rep_32', 
-    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm', 'duda', 'duda_count', 'duda_count_verifikasi', 'duda_tab', 'log_duda'));
+    'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm', 'duda', 'duda_count', 'duda_count_verifikasi', 'duda_tab', 'log_duda', 'duda_rep_1', 'duda_rep_2', 'duda_rep_3', 
+    'duda_rep_4', 'duda_rep_5', 'duda_rep_6', 'duda_rep_7', 'duda_rep_8', 'duda_rep_9', 'duda_rep_10', 'duda_rep_11', 'duda_rep_12', 'duda_rep_13', 'duda_rep_14',
+    'duda_rep_15', 'duda_rep_16', 'duda_rep_17', 'duda_rep_18', 'duda_rep_19', 'duda_rep_20', 'duda_rep_21', 'duda_rep_22', 'duda_rep_23', 'duda_rep_24', 'duda_rep_25', 'duda_rep_26', 'duda_rep_27', 'duda_rep_28',
+    'duda_rep_29', 'duda_rep_30', 'duda_rep_31', 'duda_rep_32'));
     }
 
 

@@ -317,6 +317,7 @@
                         <th scope="col">SKU</th>
                         <th scope="col">SKTM</th>
                         <th scope="col">Domisili</th>
+                        <th scope="col">Surat Ket Duda</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -325,72 +326,84 @@
                         <td>{{$jumlah_sku_01}}</td>
                         <td>{{$skm_rep_1}}</td>
                         <td>{{$domi_rep_1}}</td>
+                        <td>{{$duda_rep_1}}</td>
                       </tr>
                       <tr>
                         <td>RW 02</td>
                         <td>{{$jumlah_sku_02}}</td>
                         <td>{{$skm_rep_2}}</td>
                         <td>{{$domi_rep_2}}</td>
+                        <td>{{$duda_rep_2}}</td>
                       </tr>
                       <tr>
                         <td>RW 03</td>
                         <td>{{$jumlah_sku_03}}</td>
                         <td>{{$skm_rep_3}}</td>
                         <td>{{$domi_rep_3}}</td>
+                        <td>{{$duda_rep_3}}</td>
                       </tr>
                       <tr>
                         <td>RW 04</td>
                         <td>{{$jumlah_sku_04}}</td>
                         <td>{{$skm_rep_4}}</td>
                         <td>{{$domi_rep_4}}</td>
+                        <td>{{$duda_rep_4}}</td>
                       </tr>
                       <tr> 
                         <td>RW 05</td>
                         <td>{{$jumlah_sku_05}}</td>
                         <td>{{$skm_rep_5}}</td>
                         <td>{{$domi_rep_5}}</td>
+                        <td>{{$duda_rep_5}}</td>
                       </tr>
                       <tr> 
                         <td>RW 06</td>
                         <td>{{$jumlah_sku_06}}</td>
                         <td>{{$skm_rep_6}}</td>
                         <td>{{$domi_rep_6}}</td>
+                        <td>{{$duda_rep_6}}</td>
                       </tr>
                       <tr> 
                         <td>RW 07</td>
                         <td>{{$jumlah_sku_07}}</td>
                         <td>{{$skm_rep_7}}</td>
                         <td>{{$domi_rep_7}}</td>
+                        <td>{{$duda_rep_7}}</td>
                       </tr>
                       <tr> 
                         <td>RW 08</td>
                         <td>{{$jumlah_sku_08}}</td>
                         <td>{{$skm_rep_8}}</td>
                         <td>{{$domi_rep_8}}</td>
+                        <td>{{$duda_rep_8}}</td>
                       </tr>
                       <tr> 
                         <td>RW 09</td>
                         <td>{{$jumlah_sku_09}}</td>
                         <td>{{$skm_rep_9}}</td>
                         <td>{{$domi_rep_9}}</td>
+                        <td>{{$duda_rep_9}}</td>
                       </tr>
                       <tr> 
                         <td>RW 10</td>
                         <td>{{$jumlah_sku_10}}</td>
                         <td>{{$skm_rep_10}}</td>
                         <td>{{$domi_rep_10}}</td>
+                        <td>{{$duda_rep_10}}</td>
                       </tr>
                       <tr> 
                         <td>RW 11</td>
                         <td>{{$jumlah_sku_11}}</td>
                         <td>{{$skm_rep_11}}</td>
                         <td>{{$domi_rep_11}}</td>
+                        <td>{{$duda_rep_11}}</td>
                       </tr>
                       <tr> 
                         <td>RW 12</td>
                         <td>{{$jumlah_sku_12}}</td>
                         <td>{{$skm_rep_12}}</td>
                         <td>{{$domi_rep_12}}</td>
+                        <td>{{$duda_rep_12}}</td>
                       </tr>
 
                       <tr> 
@@ -398,6 +411,7 @@
                         <td>{{$jumlah_sku_13}}</td>
                         <td>{{$skm_rep_13}}</td>
                         <td>{{$domi_rep_13}}</td>
+                        <td>{{$duda_rep_13}}</td>
                       </tr>
 
                       <tr> 
@@ -405,6 +419,7 @@
                         <td>{{$jumlah_sku_14}}</td>
                         <td>{{$skm_rep_14}}</td>
                         <td>{{$domi_rep_14}}</td>
+                        <td>{{$duda_rep_14}}</td>
                       </tr>
 
                       <tr> 
@@ -412,6 +427,7 @@
                         <td>{{$jumlah_sku_15}}</td>
                         <td>{{$skm_rep_15}}</td>
                         <td>{{$domi_rep_15}}</td>
+                        <td>{{$duda_rep_15}}</td>
                       </tr>
 
                       <tr> 
@@ -419,6 +435,7 @@
                         <td>{{$jumlah_sku_16}}</td>
                         <td>{{$skm_rep_16}}</td>
                         <td>{{$domi_rep_16}}</td>
+                        <td>{{$duda_rep_16}}</td>
                       </tr>
 
                       <tr> 
@@ -426,6 +443,7 @@
                         <td>{{$jumlah_sku_17}}</td>
                         <td>{{$skm_rep_17}}</td>
                         <td>{{$domi_rep_17}}</td>
+                        <td>{{$duda_rep_17}}</td>
                       </tr>
 
                       <tr> 
@@ -433,6 +451,7 @@
                         <td>{{$jumlah_sku_18}}</td>
                         <td>{{$skm_rep_18}}</td>
                         <td>{{$domi_rep_18}}</td>
+                        <td>{{$duda_rep_18}}</td>
                       </tr>
 
                       <tr> 
@@ -440,6 +459,7 @@
                         <td>{{$jumlah_sku_19}}</td>
                         <td>{{$skm_rep_19}}</td>
                         <td>{{$domi_rep_19}}</td>
+                        <td>{{$duda_rep_19}}</td>
                       </tr>
 
                       <tr> 
@@ -447,6 +467,7 @@
                         <td>{{$jumlah_sku_20}}</td>
                         <td>{{$skm_rep_20}}</td>
                         <td>{{$domi_rep_20}}</td>
+                        <td>{{$duda_rep_20}}</td>
                       </tr>
 
                       <tr> 
@@ -454,6 +475,7 @@
                         <td>{{$jumlah_sku_21}}</td>
                         <td>{{$skm_rep_21}}</td>
                         <td>{{$domi_rep_21}}</td>
+                        <td>{{$duda_rep_21}}</td>
                       </tr>
 
                       <tr> 
@@ -461,6 +483,7 @@
                         <td>{{$jumlah_sku_22}}</td>
                         <td>{{$skm_rep_22}}</td>
                         <td>{{$domi_rep_22}}</td>
+                        <td>{{$duda_rep_22}}</td>
                       </tr>
 
                       <tr> 
@@ -468,6 +491,7 @@
                         <td>{{$jumlah_sku_23}}</td>
                         <td>{{$skm_rep_23}}</td>
                         <td>{{$domi_rep_23}}</td>
+                        <td>{{$duda_rep_23}}</td>
                       </tr>
 
                       <tr> 
@@ -475,6 +499,7 @@
                         <td>{{$jumlah_sku_24}}</td>
                         <td>{{$skm_rep_24}}</td>
                         <td>{{$domi_rep_24}}</td>
+                        <td>{{$duda_rep_24}}</td>
                       </tr>
 
                       <tr> 
@@ -482,6 +507,7 @@
                         <td>{{$jumlah_sku_25}}</td>
                         <td>{{$skm_rep_25}}</td>
                         <td>{{$domi_rep_25}}</td>
+                        <td>{{$duda_rep_25}}</td>
                       </tr>
 
                       <tr> 
@@ -489,6 +515,7 @@
                         <td>{{$jumlah_sku_26}}</td>
                         <td>{{$skm_rep_26}}</td>
                         <td>{{$domi_rep_26}}</td>
+                        <td>{{$duda_rep_26}}</td>
                       </tr>
 
                       <tr> 
@@ -496,6 +523,7 @@
                         <td>{{$jumlah_sku_27}}</td>
                         <td>{{$skm_rep_27}}</td>
                         <td>{{$domi_rep_27}}</td>
+                        <td>{{$duda_rep_27}}</td>
                       </tr>
 
                       <tr> 
@@ -503,6 +531,7 @@
                         <td>{{$jumlah_sku_28}}</td>
                         <td>{{$skm_rep_28}}</td>
                         <td>{{$domi_rep_28}}</td>
+                        <td>{{$duda_rep_28}}</td>
                       </tr>
 
                       <tr> 
@@ -510,6 +539,7 @@
                         <td>{{$jumlah_sku_29}}</td>
                         <td>{{$skm_rep_29}}</td>
                         <td>{{$domi_rep_29}}</td>
+                        <td>{{$duda_rep_29}}</td>
                       </tr>
 
                       <tr> 
@@ -517,6 +547,7 @@
                         <td>{{$jumlah_sku_30}}</td>
                         <td>{{$skm_rep_30}}</td>
                         <td>{{$domi_rep_30}}</td>
+                        <td>{{$duda_rep_30}}</td>
                       </tr>
 
                       <tr> 
@@ -524,6 +555,7 @@
                         <td>{{$jumlah_sku_31}}</td>
                         <td>{{$skm_rep_31}}</td>
                         <td>{{$domi_rep_31}}</td>
+                        <td>{{$duda_rep_31}}</td>
                       </tr>
 
                       <tr> 
@@ -531,6 +563,7 @@
                         <td>{{$jumlah_sku_32}}</td>
                         <td>{{$skm_rep_32}}</td>
                         <td>{{$domi_rep_32}}</td>
+                        <td>{{$duda_rep_32}}</td>
                       </tr>
 
                     </tbody>
