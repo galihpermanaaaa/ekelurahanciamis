@@ -56,6 +56,22 @@ class CreateUsersTable extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_duda', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
+        Schema::table('surat_janda', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
        
 
     }
@@ -77,6 +93,14 @@ class CreateUsersTable extends Migration
 
         Schema::table('surat_domisili', function(Blueprint $table) {
             $table->dropforeign('surat_domisili_id_users_foreign');
+        });
+
+        Schema::table('surat_duda', function(Blueprint $table) {
+            $table->dropforeign('surat_duda_id_users_foreign');
+        });
+
+        Schema::table('surat_janda', function(Blueprint $table) {
+            $table->dropforeign('surat_janda_id_users_foreign');
         });
 
         

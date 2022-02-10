@@ -19,7 +19,7 @@
             }else{
                $("#kota").empty();
                $("#kecamatan").empty();
-            }
+            } 
            }
         });
     }else{
@@ -310,6 +310,227 @@
         });
     }else{
         $("#rw2").empty();
+    }
+   });
+
+
+   
+
+
+</script>
+
+
+
+<script>
+    $('#provinsi3').change(function(){
+    var prov_id = $(this).val();
+    if(prov_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKota?prov_id="+prov_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kota3").empty();
+                $("#kecamatan3").empty();
+                $("#kota3").append('<option>---Pilih Kabupaten/Kota---</option>');
+                $("#kecamatan3").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kota3").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kota3").empty();
+               $("#kecamatan3").empty();
+            }
+           }
+        });
+    }else{
+        $("#kota3").empty();
+        $("#kecamatan3").empty();
+    }
+   });
+
+   $('#kota3').change(function(){
+    var city_id = $(this).val();
+    if(city_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKecamatan?city_id="+city_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kecamatan3").empty();
+                $("#kecamatan3").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kecamatan3").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kecamatan3").empty();
+            }
+           }
+        });
+    }else{
+        $("#kecamatan3").empty();
+    }
+   });
+
+   $('#kecamatan3').change(function(){
+    var dis_id = $(this).val();
+    if(dis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getDesa?dis_id="+dis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#desa3").empty();
+                $("#desa3").append('<option>---Pilih Desa---</option>');
+                $.each(res,function(nama,kode){
+                    $("#desa3").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#desa3").empty();
+            }
+           }
+        });
+    }else{
+        $("#desa3").empty();
+    }
+   });
+
+   $('#desa3').change(function(){
+    var subdis_id = $(this).val();
+    if(subdis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getRw?subdis_id="+subdis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#rw3").empty();
+                $("#rw3").append('<option>---Pilih RW---</option>');
+                $.each(res,function(nama,kode){
+                    $("#rw3").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#rw3").empty();
+            }
+           }
+        });
+    }else{
+        $("#rw3").empty();
+    }
+   });
+
+
+   
+
+
+</script>
+
+
+
+
+
+
+<script>
+    $('#provinsi4').change(function(){
+    var prov_id = $(this).val();
+    if(prov_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKota?prov_id="+prov_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kota4").empty();
+                $("#kecamatan4").empty();
+                $("#kota4").append('<option>---Pilih Kabupaten/Kota---</option>');
+                $("#kecamatan4").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kota4").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kota4").empty();
+               $("#kecamatan4").empty();
+            }
+           }
+        });
+    }else{
+        $("#kota4").empty();
+        $("#kecamatan4").empty();
+    }
+   });
+
+   $('#kota4').change(function(){
+    var city_id = $(this).val();
+    if(city_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKecamatan?city_id="+city_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kecamatan4").empty();
+                $("#kecamatan4").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kecamatan4").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kecamatan4").empty();
+            }
+           }
+        });
+    }else{
+        $("#kecamatan4").empty();
+    }
+   });
+
+   $('#kecamatan4').change(function(){
+    var dis_id = $(this).val();
+    if(dis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getDesa?dis_id="+dis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#desa4").empty();
+                $("#desa4").append('<option>---Pilih Desa---</option>');
+                $.each(res,function(nama,kode){
+                    $("#desa4").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#desa4").empty();
+            }
+           }
+        });
+    }else{
+        $("#desa4").empty();
+    }
+   });
+
+   $('#desa4').change(function(){
+    var subdis_id = $(this).val();
+    if(subdis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getRw?subdis_id="+subdis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#rw4").empty();
+                $("#rw4").append('<option>---Pilih RW---</option>');
+                $.each(res,function(nama,kode){
+                    $("#rw4").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#rw4").empty();
+            }
+           }
+        });
+    }else{
+        $("#rw4").empty();
     }
    });
 

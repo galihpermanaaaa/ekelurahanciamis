@@ -62,6 +62,22 @@ class CreateTableProvinces extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_duda', function (Blueprint $table) {
+            $table->foreign('prov_id')
+            ->references('prov_id')
+            ->on('provinces')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
+        Schema::table('surat_janda', function (Blueprint $table) {
+            $table->foreign('prov_id')
+            ->references('prov_id')
+            ->on('provinces')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -90,6 +106,14 @@ class CreateTableProvinces extends Migration
 
         Schema::table('surat_domisili', function(Blueprint $table) {
             $table->dropforeign('surat_domisili_prov_id_foreign');
+        });
+
+        Schema::table('surat_duda', function(Blueprint $table) {
+            $table->dropforeign('surat_duda_prov_id_foreign');
+        });
+
+        Schema::table('surat_janda', function(Blueprint $table) {
+            $table->dropforeign('surat_janda_prov_id_foreign');
         });
 
 

@@ -51,6 +51,22 @@ class CreateTableRw extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
+
+        Schema::table('surat_duda', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
+        Schema::table('surat_janda', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
     }
 
     /**
@@ -74,6 +90,14 @@ class CreateTableRw extends Migration
 
         Schema::table('surat_domisili', function(Blueprint $table) {
             $table->dropforeign('surat_tdk_mampu_id_rw_foreign');
+        });
+
+        Schema::table('surat_duda', function(Blueprint $table) {
+            $table->dropforeign('surat_duda_id_rw_foreign');
+        });
+
+        Schema::table('surat_janda', function(Blueprint $table) {
+            $table->dropforeign('surat_janda_id_rw_foreign');
         });
 
         Schema::dropIfExists('rw');

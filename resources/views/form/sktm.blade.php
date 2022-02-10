@@ -295,7 +295,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Upload Kartu Keluarga</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk_sktm" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
                         @error('kk')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -307,7 +307,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar RT/RW</label>
-                        <input type="file" class="form-control @error('surat_pengantar_rt_rw') is-invalid @enderror" id="surat_pengantar_rt_rw" name="surat_pengantar_rt_rw" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar dari RT/RW" required />
+                        <input type="file" class="form-control @error('surat_pengantar_rt_rw') is-invalid @enderror" id="surat_pengantar_rt_rw_sktm" name="surat_pengantar_rt_rw" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar dari RT/RW" required />
                         @error('surat_pengantar_rt_rw')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -317,7 +317,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pernyataan Miskin</label>
-                        <input type="file" class="form-control @error('surat_pernyataan_miskin') is-invalid @enderror" id="surat_pernyataan_miskin" name="surat_pernyataan_miskin" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pernyataan Miskin" required />
+                        <input type="file" class="form-control @error('surat_pernyataan_miskin') is-invalid @enderror" id="surat_pernyataan_miskin_sktm" name="surat_pernyataan_miskin" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pernyataan Miskin" required />
                         <p>**Untuk Upload Surat Pernyataan Miskin harus bermaterai 10.000 ditandatangani: RT, RW Dan Yang Bersangkutan</p>
                         @error('surat_pernyataan_miskin')
                                                     <span class="invalid-feedback" role="alert">
@@ -340,3 +340,66 @@
     </div>
 </div>
 <!-- Modal SKTM -->
+
+
+<script>
+ $(document).ready(function(){
+        $('#kk_sktm').change(function(){
+               var memberImgfl = $("#kk_sktm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#kk_sktm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_rt_rw_sktm').change(function(){
+               var memberImgfl = $("#surat_pengantar_rt_rw_sktm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_rt_rw_sktm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pernyataan_miskin_sktm').change(function(){
+               var memberImgfl = $("#surat_pernyataan_miskin_sktm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pernyataan_miskin_sktm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+

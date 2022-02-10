@@ -189,7 +189,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi</label>
-                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi2" required>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi3" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -203,7 +203,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kabupaten/Kota</label>
-                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota2" required>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota3" required>
                                                         <option selected>---Pilih Kabupaten/Kota---</option>
                                                 </select>
                                                 @error('city_id')
@@ -214,7 +214,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan2" required>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan3" required>
                                                     <option selected>---Pilih Kecamatan---</option>
                                                 </select>
                                                 @error('dis_id')
@@ -228,7 +228,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Desa/Kelurahan</label>
-                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa2" required>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa3" required>
                                                     <option selected>---Pilih Desa/Kelurahan---</option>
                                                 </select>
                                                 @error('subdis_id')
@@ -239,7 +239,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw2" required>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw3" required>
                                                     <option selected>--Pilih RW--</option>
                                                 </select>
                                                 @error('id_rw')

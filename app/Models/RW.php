@@ -36,4 +36,9 @@ class RW extends Model
     {
     	return $this->hasMany('App\Models\SuratDomisili', 'id_rw');
     }
+
+    public function surat_duda()
+    {
+    	return $this->hasMany('App\Models\SuratDuda', 'id_rw');
+    }
 }

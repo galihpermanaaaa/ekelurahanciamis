@@ -303,7 +303,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
-                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
+                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp_sku" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
                         @error('ktp')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -312,7 +312,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Upload KK</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk_sku" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
                         @error('kk')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -323,7 +323,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" required />
+                        <input type="file" class="form-control @error('surat_pengantar') is-invalid @enderror" id="surat_pengantar_sku" name="surat_pengantar" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar" required />
                         @error('surat_pengantar')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -333,7 +333,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Upload Keterangan Domisili</label>
-                        <input type="file" class="form-control @error('keterangan_domisili') is-invalid @enderror" id="keterangan_domisili" name="keterangan_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="Keterangan Domisili"/>
+                        <input type="file" class="form-control @error('keterangan_domisili') is-invalid @enderror" id="keterangan_domisili_sku" name="keterangan_domisili" accept="image/png, image/jpg, image/jpeg" placeholder="Keterangan Domisili"/>
                         @error('keterangan_domisili')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -355,3 +355,104 @@
     </div>
 </div>
 <!-- Modal SKU -->
+
+<script>
+ $(document).ready(function(){
+        $('#ktp_sku').change(function(){
+               var memberImgfl = $("#ktp_sku");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#ktp_sku').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#kk_sku').change(function(){
+               var memberImgfl = $("#kk_sku");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#kk_sku').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_sku').change(function(){
+               var memberImgfl = $("#surat_pengantar_sku");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_sku').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_sku').change(function(){
+               var memberImgfl = $("#surat_pengantar_sku");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_sku').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#keterangan_domisili_sku').change(function(){
+               var memberImgfl = $("#keterangan_domisili_sku");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#keterangan_domisili_sku').val('');
+               }
+           }
+        });
+    });
+</script>
+

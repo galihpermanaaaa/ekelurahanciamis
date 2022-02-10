@@ -564,6 +564,8 @@
           </div><!-- End Recent Activity -->
 
           @endif
+  </div>
+  </div>
 
           <!-- Budget Report -->
           @if (Auth::check() && Auth::user()->role_name == 'Verifikator')

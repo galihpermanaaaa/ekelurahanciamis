@@ -41,4 +41,9 @@ class Desa extends Model
     {
     	return $this->hasMany('App\Models\SuratDomisili', 'subdis_id');
     }
+
+    public function surat_duda()
+    {
+    	return $this->hasMany('App\Models\SuratDuda', 'subdis_id');
+    }
 }

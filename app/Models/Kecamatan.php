@@ -42,4 +42,9 @@ class Kecamatan extends Model
     	return $this->hasMany('App\Models\SuratDomisili', 'dis_id');
     }
 
+    public function surat_duda()
+    {
+    	return $this->hasMany('App\Models\SuratDuda', 'dis_id');
+    }
+
 }
