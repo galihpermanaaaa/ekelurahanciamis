@@ -71,6 +71,14 @@ class CreateTableDistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_janda', function (Blueprint $table) {
+            $table->foreign('dis_id')
+            ->references('dis_id')
+            ->on('districts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**

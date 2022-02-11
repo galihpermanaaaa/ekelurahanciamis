@@ -85,5 +85,17 @@ class User extends Authenticatable
     {
     	return $this->belongsTo('App\Models\RW', 'id_rw');
     }
+
+    public function surat_duda()
+    {
+    	return $this->hasMany('App\Models\SuratDuda', 'id_users');
+    }
+
+    public function surat_janda()
+    {
+    	return $this->hasMany('App\Models\SuratJanda', 'id_users');
+    }
+
+    
     
 }

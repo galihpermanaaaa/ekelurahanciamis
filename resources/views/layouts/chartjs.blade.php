@@ -60,6 +60,7 @@
   var skm_tab = <?php echo json_encode($skm_tab)?>;
   var skd_tab = <?php echo json_encode($skd_tab)?>;
   var duda_tab = <?php echo json_encode($duda_tab)?>;
+  var janda_tab = <?php echo json_encode($janda_tab)?>;
 
 Highcharts.chart('container', {
   chart: {
@@ -124,6 +125,10 @@ Highcharts.chart('container', {
         {
           name: "Surat Keterangan Duda",
           y: duda_tab,
+        },
+        {
+          name: "Surat Keterangan Janda",
+          y: janda_tab,
         },
       ]
     }

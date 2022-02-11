@@ -25,7 +25,7 @@
             <!-- Sales Card -->
             @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card customers-card">
 
                 <div class="card-body">
                   <h5 class="card-title">SKU Yang Belum Diverifikasi <span></span></h5>
@@ -47,7 +47,7 @@
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card customers-card">
 
                 <div class="card-body">
                   <h5 class="card-title">SKTM Yang Belum Diverifikasi</span></h5>
@@ -70,7 +70,7 @@
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card customers-card">
 
                 <div class="card-body">
                   <h5 class="card-title">Surat Duda Belum Diverifikasi</span></h5>
@@ -92,7 +92,29 @@
 
               <!-- Revenue Card -->
               <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Surat Janda Belum Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$janda_count}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card customers-card">
 
                 <div class="card-body">
                   <h5 class="card-title">SKD Yang Belum Diverifikasi</span></h5>
@@ -112,7 +134,7 @@
               </div>
             </div><!-- End Revenue Card -->
 
-
+            
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
@@ -171,6 +193,28 @@
                     </div>
                     <div class="ps-3">
                       <h6>{{$duda_count_verifikasi}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+              <!-- Revenue Card -->
+              <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Surat Janda Sudah Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$janda_count_verifikasi}}</h6>
                       <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -587,15 +631,7 @@
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
+            
             </div>
 
             <div class="card-body">
@@ -606,7 +642,7 @@
               <div class="activity">
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">{{ Carbon\Carbon::parse($items->created_at)->diffForHumans() }}</div>
+                  <div class="activite-label">{{ Carbon\Carbon::parse($items->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
                     {{$items->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat Surat Domisili
@@ -618,7 +654,7 @@
                 @foreach($log_sku as $key => $itemss)
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">{{ Carbon\Carbon::parse($itemss->created_at)->diffForHumans() }}</div>
+                  <div class="activite-label">{{ Carbon\Carbon::parse($itemss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                   <div class="activity-content">
                   {{$itemss->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat SKU
@@ -629,7 +665,7 @@
 
                 @foreach($log_skm as $key => $itemsss)
                 <div class="activity-item d-flex">
-                  <div class="activite-label">{{ Carbon\Carbon::parse($itemsss->created_at)->diffForHumans() }}</div>
+                  <div class="activite-label">{{ Carbon\Carbon::parse($itemsss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
                   {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat SKTM
@@ -639,7 +675,7 @@
 
                 @foreach($log_duda as $key => $itemssss)
                 <div class="activity-item d-flex">
-                  <div class="activite-label"> {{ Carbon\Carbon::parse($itemssss->created_at)->diffForHumans() }}</div>
+                  <div class="activite-label"> {{ Carbon\Carbon::parse($itemssss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
                   <div class="activity-content">
                   {{$itemssss->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat Surat Duda
@@ -647,29 +683,32 @@
                 </div><!-- End activity item-->
                 @endforeach
 
+                @foreach($log_janda as $key => $item)
+                <div class="activity-item d-flex">
+                  <div class="activite-label"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }} </div>
+                  <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
+                  <div class="activity-content">
+                  {{$item->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat Surat Janda
+                  </div>
+                </div><!-- End activity item-->
+                @endforeach
+
               </div>
 
-            </div>
-          </div><!-- End Recent Activity -->
+          
+          </div>
 
           @endif
-  </div>
-  </div>
+
+  
+ 
 
           <!-- Budget Report -->
           @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
+            
             </div>
 
             <div class="card-body pb-0">
@@ -680,6 +719,7 @@
 
               
             </div>
+            
 
             
           </div><!-- End Budget Report -->

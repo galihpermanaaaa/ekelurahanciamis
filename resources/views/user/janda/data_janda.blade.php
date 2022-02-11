@@ -4,7 +4,7 @@
 
 
     <div class="pagetitle">
-      <h1>Daftar Surat Keterangan Duda</h1>
+      <h1>Daftar Surat Keterangan janda</h1>
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -27,7 +27,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Daftar Pembuat Surat Keterangan Duda</h5>
+              <h5 class="card-title">Daftar Pembuat Surat Keterangan Janda</h5>
               
 
               <!-- Table with stripped rows -->
@@ -45,7 +45,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($duda as $key => $item)
+                    @foreach($janda as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
                       <td>{{$item->nik}}</td>
@@ -56,7 +56,7 @@
                       <td>
 
                       @if($item->verifikasi =='Belum Diverifikasi')
-                      <a href="{{ url('user/duda/verifikasi_duda/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
+                      <a href="{{ url('user/janda/verifikasi_janda/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
                       @elseif($item->verifikasi =='Terverifikasi')
                       <p class="text-success"></p>{{$item->verifikasi}}</span>
                                 @else($item->verifikasi =='Ditolak')
@@ -79,9 +79,9 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p>Harus Diverifikasi terlebih dahulu</p>
                       @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/duda/lihat_data_duda/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                      <a href="{{ url('user/janda/lihat_data_janda/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
                       @else($item->verifikasi =='Ditolak')
-                      <a href="{{ url('user/duda/lihat_data_duda/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
+                      <a href="{{ url('user/janda/lihat_data_janda/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
                       @endif
                       
                     
@@ -92,7 +92,7 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/duda/surat_duda/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/janda/surat_janda/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
 					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif
@@ -117,11 +117,11 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Hapus Pembuat Surat Keterangan Duda</h5>
+                            <h5 class="modal-title">Hapus Pembuat Surat Keterangan Janda</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('delete_duda') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('delete_janda') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('DELETE')}}
 

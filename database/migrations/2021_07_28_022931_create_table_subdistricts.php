@@ -68,6 +68,14 @@ class CreateTableSubdistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('surat_janda', function (Blueprint $table) {
+            $table->foreign('subdis_id')
+            ->references('subdis_id')
+            ->on('subdistricts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**

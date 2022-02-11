@@ -46,5 +46,10 @@ class Kota extends Model
     	return $this->hasMany('App\Models\SuratDuda', 'city_id');
     }
 
+    public function surat_janda()
+    {
+    	return $this->hasMany('App\Models\SuratJanda', 'city_id');
+    }
+
   
 }

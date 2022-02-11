@@ -21,6 +21,9 @@ use App\Models\SuratDomisiliTolak;
 use App\Models\SuratDuda;
 use App\Models\SuratDudaDiterima;
 use App\Models\SuratDudaDitolak;
+use App\Models\SuratJanda;
+use App\Models\SuratJandaDiterima;
+use App\Models\SuratJandaDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -68,6 +71,9 @@ class HomeController extends Controller
         $duda = SuratDuda::where('verifikasi', 'Belum Diverifikasi')->get();
         $duda_count = $duda->count();
 
+        $janda = SuratJanda::where('verifikasi', 'Belum Diverifikasi')->get();
+        $janda_count = $janda->count();
+
 
         $sku_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
         $sku_count_verifikasi = $sku_verifikasi->count();
@@ -80,6 +86,11 @@ class HomeController extends Controller
 
         $duda_verifikasi = SuratDuda::where('verifikasi', 'Terverifikasi')->get();
         $duda_count_verifikasi = $duda_verifikasi->count();
+
+        $janda_verifikasi = SuratJanda::where('verifikasi', 'Terverifikasi')->get();
+        $janda_count_verifikasi = $janda_verifikasi->count();
+
+       
 
         $user_rw = RW::where('id_rw',auth()->user()->id_rw)->get();
 
@@ -120,6 +131,7 @@ class HomeController extends Controller
         $skm_tab = SKM::all()->count();
         $skd_tab = SuratDomisili::all()->count();
         $duda_tab = SuratDuda::all()->count();
+        $janda_tab = SuratJanda::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -527,6 +539,7 @@ class HomeController extends Controller
         $log_skm = SKM::orderBy('id', 'DESC')->take(3)->get();
         $log_sku = SKU::orderBy('id', 'DESC')->take(3)->get();
         $log_duda = SuratDuda::orderBy('id', 'DESC')->take(3)->get();
+        $log_janda = SuratJanda::orderBy('id', 'DESC')->take(3)->get();
 
 
 
@@ -554,7 +567,7 @@ class HomeController extends Controller
     'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm', 'duda', 'duda_count', 'duda_count_verifikasi', 'duda_tab', 'log_duda', 'duda_rep_1', 'duda_rep_2', 'duda_rep_3', 
     'duda_rep_4', 'duda_rep_5', 'duda_rep_6', 'duda_rep_7', 'duda_rep_8', 'duda_rep_9', 'duda_rep_10', 'duda_rep_11', 'duda_rep_12', 'duda_rep_13', 'duda_rep_14',
     'duda_rep_15', 'duda_rep_16', 'duda_rep_17', 'duda_rep_18', 'duda_rep_19', 'duda_rep_20', 'duda_rep_21', 'duda_rep_22', 'duda_rep_23', 'duda_rep_24', 'duda_rep_25', 'duda_rep_26', 'duda_rep_27', 'duda_rep_28',
-    'duda_rep_29', 'duda_rep_30', 'duda_rep_31', 'duda_rep_32'));
+    'duda_rep_29', 'duda_rep_30', 'duda_rep_31', 'duda_rep_32','janda_count_verifikasi', 'janda_verifikasi','janda','janda_count', 'janda_tab', 'log_janda'));
     }
 
 

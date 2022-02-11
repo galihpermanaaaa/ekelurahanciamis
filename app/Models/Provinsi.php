@@ -42,4 +42,9 @@ class Provinsi extends Model
     	return $this->hasMany('App\Models\SuratDuda', 'prov_id');
     }
 
+    public function surat_janda()
+    {
+    	return $this->hasMany('App\Models\SuratJanda', 'prov_id');
+    }
+
 }
