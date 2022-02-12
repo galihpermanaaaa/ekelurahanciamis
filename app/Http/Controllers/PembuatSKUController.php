@@ -40,7 +40,8 @@ class PembuatSKUController extends Controller
         $halaman = "data_sku";
         $user = User::all();
         $sku = SKU::orderBy('id', 'DESC')->get();
-        return view('user.sku.data_sku', compact('halaman', 'sku'));
+        $rw = RW::all();
+        return view('user.sku.data_sku', compact('halaman', 'sku', 'rw'));
         }
         else
         {
@@ -98,6 +99,24 @@ class PembuatSKUController extends Controller
         return view('user.sku.lihat_data_sku',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
        
     }
+
+    public function filterskurw(Request $request)
+    {
+
+        $id_rw = $request->id_rw;
+        
+        if(!empty($id_rw)){
+            $user = User::all();
+            $sku = SKU::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $rw = RW::all();
+        }else{
+            Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
+            return redirect()->route('dashboard');
+        }
+        return view('user.sku.data_sku', compact('sku', 'rw', 'user'));
+    }
+
+    
 
 
     

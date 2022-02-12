@@ -84,6 +84,7 @@ Route::post('user/sku/verifikasi_sku', [App\Http\Controllers\PembuatSKUControlle
 Route::get('user/sku/surat_sku/{id}', [App\Http\Controllers\PembuatSKUController::class, 'surat_sku']);
 Route::delete('delete_sku', [App\Http\Controllers\PembuatSKUController::class, 'destroy_sku'])->name('delete_sku');
 Route::get('user/sku/lihat_data_sku/{id}', [App\Http\Controllers\PembuatSKUController::class, 'lihat_data_sku']);
+Route::get('user/sku/data_sku/cari_sku',  [App\Http\Controllers\PembuatSKUController::class, 'filterskurw'])->name('user/sku/data_sku/cari_sku');
 Route::get('user/sku/data_sku_rw', [App\Http\Controllers\PembuatSKUController::class, 'indexRW'])->name('user/sku/data_sku_rw');
 
 // -----------------------------skm----------------------------------------//
