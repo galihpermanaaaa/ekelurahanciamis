@@ -104,7 +104,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skm/data_skm') }}">
           <i class="bi bi-person"></i>
-          <span>Data Pembuat SKM</span>
+          <span>Data Pembuat SKTM</span>
         </a>
       </li><!-- End Dashboard Nav -->
       @endif
@@ -160,6 +160,25 @@
         <a class="nav-link collapsed" href="{{ route('user/domisili/data_domisili_rw') }}">
           <i class="bi bi-person"></i>
           <span>Data Pembuat Domisili</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
+
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/duda/data_duda_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Pembuat Surat Duda</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/janda/data_janda_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Pembuat Surat Janda</span>
         </a>
       </li><!-- End Dashboard Nav -->
       @endif

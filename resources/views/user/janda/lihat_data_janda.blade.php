@@ -5,7 +5,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Detail Surat Keterangan Duda</h1>
+      <h1>Detail Surat Keterangan Janda</h1>
       <nav>
         
       </nav>
@@ -13,68 +13,68 @@
 
     <section class="section contact">
 
-      <div class="row gy-4">
+<div class="row gy-4">
 
-        <div class="col-xl-6">
+  <div class="col-xl-6">
 
-        <div class="row">
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>Kartu Tanda Penduduk</h3>
-                <p>
-                <img id="myImg" src="{{ URL::to('/suratjanda/ktp_janda/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img01">
-                                        <div id="caption"></div>
-                                        </div>
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>Kartu Keluarga</h3>
-                <p><img id="myImg2" src="{{ URL::to('/suratjanda/kk_janda/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal2" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img02">
-                                        <div id="caption2"></div>
-                                        </div></p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>Surat Pengantar RT/RW</h3>
-                <p><img id="myImg3" src="{{ URL::to('/suratjanda/surat_pengantar_rt_janda/'. $data[0]->surat_pengantar_rt) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal3" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img03">
-                                        <div id="caption3"></div>
-                                        </div></p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>Surat Keterangan Domisili</h3>
-                <p><img id="myImg4" src="{{ URL::to('/suratjanda/kematian_akta_cerai/'. $data[0]->kematian_akta_cerai) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal4" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img04">
-                                        <div id="caption4"></div>
-                                        </div></p>
-              </div>
-            </div>
-          </div>
-
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="info-box card">
+          <i class="bi bi-wallet"></i>
+          <h3>Kartu Tanda Penduduk</h3>
+          <p>
+          <img id="myImg" src="{{ URL::to('/suratjanda/ktp_janda/'. $data[0]->ktp) }}" alt="" width="20%" height="30%">
+              <P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
+              <div id="myModal" class="modal">
+                                  <span class="close">&times;</span>
+                                  <img class="modal-content" id="img01">
+                                  <div id="caption"></div>
+                                  </div>
+          </p>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="info-box card">
+          <i class="bi bi-wallet"></i>
+          <h3>Kartu Keluarga</h3>
+          <p><img id="myImg2" src="{{ URL::to('/suratjanda/kk_janda/'. $data[0]->kk) }}" alt="" width="20%" height="30%">
+              <P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
+              <div id="myModal2" class="modal">
+                                  <span class="close">&times;</span>
+                                  <img class="modal-content" id="img02">
+                                  <div id="caption2"></div>
+                                  </div></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="info-box card">
+          <i class="bi bi-wallet"></i>
+          <h3>Surat Pengantar RT/RW</h3>
+          <p><img id="myImg3" src="{{ URL::to('/suratjanda/surat_pengantar_rt_janda/'. $data[0]->surat_pengantar_rt) }}" alt="" width="20%" height="30%">
+              <P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
+              <div id="myModal3" class="modal">
+                                  <span class="close">&times;</span>
+                                  <img class="modal-content" id="img03">
+                                  <div id="caption3"></div>
+                                  </div></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="info-box card">
+          <i class="bi bi-wallet"></i>
+          <h3>Surat Keterangan Domisili</h3>
+          <p><img id="myImg4" src="{{ URL::to('/suratjanda/kematian_akta_cerai/'. $data[0]->kematian_akta_cerai) }}" alt="" width="20%" height="30%">
+              <P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
+              <div id="myModal4" class="modal">
+                                  <span class="close">&times;</span>
+                                  <img class="modal-content" id="img04">
+                                  <div id="caption4"></div>
+                                  </div></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
         <div class="col-xl-6">
           <div class="card p-4">
@@ -187,10 +187,12 @@
                   <input type="text" class="form-control" value="{{ tanggal_indonesia($data[0]->tanggal_buat_surat)}}" required readonly>
                 </div>
 
+                @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
                 <div class="col-md-6">
                   <label>Nama User Yang Memverifikasi</label>
                   <input type="text" class="form-control" value="{{ $data[0]->users->name}}" required readonly>
                 </div>
+                @endif
 
                 <div class="col-md-6">
                   <label>Tanggal Diverifikasi</label>

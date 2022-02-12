@@ -68,9 +68,16 @@
 
                       </td>
                       <td class="text-right">
-						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}"><i class="bi bi-pencil-square"></i> Edit</button>
+						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-prov="{{$item->prov_id}}"  data-city="{{$item->city_id}}" data-dis="{{$item->dis_id}}"  data-sub="{{$item->subdis_id}}"  data-rw="{{$item->id_rw}}"  data-rtt="{{$item->rt}}"><i class="bi bi-pencil-square"></i> Edit</button>
+                        @if($item->role_name =='RW')
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
-                      	</td>
+                        @endif 
+
+                        @if($item->role_name =='Lurah')
+                        <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
+                        @endif
+
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -362,6 +369,106 @@
                                             </div>
                                             <br>
 
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Provinsi</label>
+                                                    <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi1" required>
+                                                    <option selected>---Pilih Provinsi---</option>
+                                                    @foreach ($provinsi as $prov)
+                                                        <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('prov_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Kabupaten</label>
+                                                <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota1" required>
+                                                        <option selected>---Pilih Kabupaten/Kota---</option>
+                                                </select>
+                                                @error('city_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+                   
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Kecamatan</label>
+                                                <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan1" required>
+                                                    <option selected>---Pilih Kecamatan---</option>
+                                                </select>
+                                                @error('dis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                    </div>
+                                            </div>
+
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Kelurahan/Desa</label>
+                                                <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa1" required>
+                                                    <option selected>---Pilih Desa/Kelurahan---</option>
+                                                </select>
+                                                @error('subdis_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                </div>
+                                            </div>
+
+                  
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Rukun Warga</label>
+                                                <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw1" required>
+                                                    <option selected>--Pilih RW--</option>
+                                                </select>
+                                                @error('id_rw')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            </div>
+
+                                            <div class="">
+                                                <div class="form-group">
+                                                <label>Rukun Tetangga</label>
+                                                <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt" required>
+                                                <option selected disabled>--Pilih RT--</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+                                                    @error('rt')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                        </div>
+                                                </div>
+
+                                          
+
+
                                             
                                     </div>
                                 </div>
@@ -431,6 +538,12 @@ var Name = button.data('name')
 var Email = button.data('emaill') 
 var Phone = button.data('phone')
 var Role = button.data('role')
+var Prov = button.data('prov')
+var City = button.data('city')
+var Dis = button.data('dis')
+var Sub = button.data('sub')
+var Rw = button.data('rw')
+var Rt = button.data('rtt')
 
 
 var modal = $(this)
@@ -439,6 +552,12 @@ modal.find('.modal-body #name').val(Name)
 modal.find('.modal-body #email').val(Email)
 modal.find('.modal-body #phone_number').val(Phone)
 modal.find('.modal-body #role_name').val(Role)
+modal.find('.modal-body #provinsi1').val(Prov)
+modal.find('.modal-body #kota1').val(City)
+modal.find('.modal-body #kecamatan1').val(Dis)
+modal.find('.modal-body #desa1').val(Sub)
+modal.find('.modal-body #rw1').val(Rw)
+modal.find('.modal-body #rt').val(Rt)
 
 });
 
@@ -559,6 +678,113 @@ modal.find('.modal-body #name').val(Name)
       });
   }else{
       $("#rw").empty();
+  }
+ });
+
+
+</script>
+
+
+
+
+<script>
+  $('#provinsi1').change(function(){
+  var prov_id = $(this).val();
+  if(prov_id){
+      $.ajax({
+         type:"GET",
+         url:"/getKota?prov_id="+prov_id,
+         dataType: 'JSON',
+         success:function(res){
+          if(res){
+              $("#kota1").empty();
+              $("#kecamatan1").empty();
+              $("#kota1").append('<option>---Pilih Kabupaten/Kota---</option>');
+              $("#kecamatan1").append('<option>---Pilih Kecamatan---</option>');
+              $.each(res,function(nama,kode){
+                  $("#kota1").append('<option value="'+kode+'">'+nama+'</option>');
+              });
+          }else{
+             $("#kota1").empty();
+             $("#kecamatan1").empty();
+          }
+         }
+      });
+  }else{
+      $("#kota1").empty();
+      $("#kecamatan1").empty();
+  }
+ });
+
+ $('#kota1').change(function(){
+  var city_id = $(this).val();
+  if(city_id){
+      $.ajax({
+         type:"GET",
+         url:"/getKecamatan?city_id="+city_id,
+         dataType: 'JSON',
+         success:function(res){
+          if(res){
+              $("#kecamatan1").empty();
+              $("#kecamatan1").append('<option>---Pilih Kecamatan---</option>');
+              $.each(res,function(nama,kode){
+                  $("#kecamatan1").append('<option value="'+kode+'">'+nama+'</option>');
+              });
+          }else{
+             $("#kecamatan1").empty();
+          }
+         }
+      });
+  }else{
+      $("#kecamatan1").empty();
+  }
+ });
+
+ $('#kecamatan1').change(function(){
+  var dis_id = $(this).val();
+  if(dis_id ){
+      $.ajax({
+         type:"GET",
+         url:"/getDesa?dis_id="+dis_id,
+         dataType: 'JSON',
+         success:function(res){
+          if(res){
+              $("#desa1").empty();
+              $("#desa1").append('<option>---Pilih Desa---</option>');
+              $.each(res,function(nama,kode){
+                  $("#desa1").append('<option value="'+kode+'">'+nama+'</option>');
+              });
+          }else{
+             $("#desa1").empty();
+          }
+         }
+      });
+  }else{
+      $("#desa1").empty();
+  }
+ });
+
+ $('#desa1').change(function(){
+  var subdis_id = $(this).val();
+  if(subdis_id ){
+      $.ajax({
+         type:"GET",
+         url:"/getRw?subdis_id="+subdis_id,
+         dataType: 'JSON',
+         success:function(res){
+          if(res){
+              $("#rw1").empty();
+              $("#rw1").append('<option>---Pilih RW---</option>');
+              $.each(res,function(nama,kode){
+                  $("#rw1").append('<option value="'+kode+'">'+nama+'</option>');
+              });
+          }else{
+             $("#rw1").empty();
+          }
+         }
+      });
+  }else{
+      $("#rw1").empty();
   }
  });
 

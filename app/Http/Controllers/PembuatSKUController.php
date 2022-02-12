@@ -359,10 +359,10 @@ class PembuatSKUController extends Controller
     public function destroy_sku(Request $request)
    {
     $sku = SKU::findOrFail($request->id);
-    $image_path = public_path().'/sku/ktp/'.$duda->ktp;
-    $image_path1 = public_path().'/sku/kk/'.$duda->kk;
-    $image_path2 = public_path().'/sku/keterangan_domisili/'.$duda->keterangan_domisili;
-    $image_path3 = public_path().'/sku/surat_pengantar/'.$duda->surat_pengantar;
+    $image_path = public_path().'/sku/ktp/'.$sku->ktp;
+    $image_path1 = public_path().'/sku/kk/'.$sku->kk;
+    $image_path2 = public_path().'/sku/keterangan_domisili/'.$sku->keterangan_domisili;
+    $image_path3 = public_path().'/sku/surat_pengantar/'.$sku->surat_pengantar;
     unlink($image_path);
     unlink($image_path1);
     unlink($image_path2);

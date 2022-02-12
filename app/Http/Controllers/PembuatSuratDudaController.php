@@ -48,18 +48,18 @@ class PembuatSuratDudaController extends Controller
         }
     }
 
-    public function indexRW()
+    public function indexRWDuda()
     {
         if (Auth::user()->role_name=='RW')
         {
 
-        $halaman = "data_sku";
-            $sku = SKU::orderBy('id', 'DESC')
+        $halaman = "data_duda_rw";
+            $duda = SuratDuda::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();
 
             $user = RW::where('id_rw',auth()->user()->id_rw)->get();
-        return view('user.sku.data_sku_rw', compact('halaman', 'sku', 'user'));
+        return view('user.duda.data_duda_rw', compact('halaman', 'duda', 'user'));
         }
         else
         {

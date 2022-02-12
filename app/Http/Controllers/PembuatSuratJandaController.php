@@ -48,12 +48,12 @@ class PembuatSuratJandaController extends Controller
         }
     }
 
-    public function indexRW()
+    public function indexRWJanda()
     {
         if (Auth::user()->role_name=='RW')
         {
 
-        $halaman = "data_janda";
+        $halaman = "data_janda_rw";
             $janda = SuratJanda::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();

@@ -356,9 +356,9 @@ class PembuatDomisiliController extends Controller
     public function destroy_domisili(Request $request)
    {
     $skd = SuratDomisili::findOrFail($request->id);
-    $image_path = public_path().'/skd/kk_domisili/'.$duda->kk_domisili;
-    $image_path1 = public_path().'/skd/ktp_domisili/'.$duda->ktp_domisili;
-    $image_path2 = public_path().'/skd/pengantar_domisili/'.$duda->surat_pengantar_rt_rw_domisili;
+    $image_path = public_path().'/skd/kk_domisili/'.$skd->kk_domisili;
+    $image_path1 = public_path().'/skd/ktp_domisili/'.$skd->ktp_domisili;
+    $image_path2 = public_path().'/skd/pengantar_domisili/'.$skd->surat_pengantar_rt_rw_domisili;
     unlink($image_path);
     unlink($image_path1);
     unlink($image_path2);

@@ -390,9 +390,9 @@ class PembuatSKMController extends Controller
     public function destroy_skm(Request $request)
    {
     $skm = SKM::findOrFail($request->id);
-    $image_path = public_path().'/skm/surat_pengantar_rt_rw_skm/'.$duda->surat_pengantar_rt_rw;
-    $image_path1 = public_path().'/skm/kk_skm/'.$duda->kk;
-    $image_path2 = public_path().'/skm/surat_pernyataan_miskin_skm/'.$duda->surat_pernyataan_miskin;
+    $image_path = public_path().'/skm/surat_pengantar_rt_rw_skm/'.$skm->surat_pengantar_rt_rw;
+    $image_path1 = public_path().'/skm/kk_skm/'.$skm->kk;
+    $image_path2 = public_path().'/skm/surat_pernyataan_miskin_skm/'.$skm->surat_pernyataan_miskin;
     unlink($image_path);
     unlink($image_path1);
     unlink($image_path2);

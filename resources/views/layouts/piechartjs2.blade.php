@@ -82,7 +82,7 @@ Highcharts.chart('vv1', {
       cursor: 'pointer',
       dataLabels: {
         enabled: true,
-        format: '',
+        format: '{point.y:.1f}%',
         connectorColor: 'silver'
       }
     }

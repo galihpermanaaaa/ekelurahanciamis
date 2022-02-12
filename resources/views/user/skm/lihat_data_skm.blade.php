@@ -183,10 +183,12 @@
                   <input type="text" class="form-control" value="{{ tanggal_indonesia($data[0]->tanggal_buat_surat)}}" required readonly>
                 </div>
 
+                @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
                 <div class="col-md-6">
-                  <label>Nama User Yang Akan Verifikasi</label>
+                  <label>Nama User Yang Memverifikasi</label>
                   <input type="text" class="form-control" value="{{ $data[0]->users->name}}" required readonly>
                 </div>
+                @endif
 
                 <div class="col-md-6">
                   <label>Untuk Persyaratan</label>

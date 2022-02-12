@@ -33,8 +33,9 @@ class UserController extends Controller
 
         $halaman = "data_user";
         $provinsi = Provinsi::all();
+        $rw = RW::all();
         $user = User::all();
-        return view('user.data_user', compact('halaman', 'user', 'provinsi'));
+        return view('user.data_user', compact('halaman', 'user', 'provinsi', 'rw'));
         }
         else
         {
@@ -149,6 +150,13 @@ class UserController extends Controller
         $name         = $request->name;
         $phone_number = $request->phone_number;
         $role_name    = $request->role_name;
+        $prov_id    = $request->prov_id;
+        $city_id    = $request->city_id;
+        $dis_id    = $request->dis_id;
+        $subdis_id    = $request->subdis_id;
+        $id_rw    = $request->id_rw;
+        $rt   = $request->rt;
+
 
         $update = [
 
@@ -157,6 +165,12 @@ class UserController extends Controller
             'name'         => $name,
             'phone_number' => $phone_number,
             'role_name'    => $role_name,
+            'prov_id'       => $prov_id,
+            'city_id'       => $city_id,
+            'dis_id'        => $dis_id,
+            'subdis_id'     => $subdis_id,
+            'id_rw'         => $id_rw,
+            'rt'            => $rt,
 
         ];
         User::where('id',$request->id)->update($update);

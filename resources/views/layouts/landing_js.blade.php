@@ -541,3 +541,115 @@
 </script>
 
 
+
+<script>
+    $('#provinsi5').change(function(){
+    var prov_id = $(this).val();
+    if(prov_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKota?prov_id="+prov_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kota5").empty();
+                $("#kecamatan5").empty();
+                $("#kota5").append('<option>---Pilih Kabupaten/Kota---</option>');
+                $("#kecamatan5").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kota5").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kota5").empty();
+               $("#kecamatan5").empty();
+            }
+           }
+        });
+    }else{
+        $("#kota5").empty();
+        $("#kecamatan5").empty();
+    }
+   });
+
+   $('#kota5').change(function(){
+    var city_id = $(this).val();
+    if(city_id){
+        $.ajax({
+           type:"GET",
+           url:"/getKecamatan?city_id="+city_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#kecamatan5").empty();
+                $("#kecamatan5").append('<option>---Pilih Kecamatan---</option>');
+                $.each(res,function(nama,kode){
+                    $("#kecamatan5").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#kecamatan5").empty();
+            }
+           }
+        });
+    }else{
+        $("#kecamatan5").empty();
+    }
+   });
+
+   $('#kecamatan5').change(function(){
+    var dis_id = $(this).val();
+    if(dis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getDesa?dis_id="+dis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#desa5").empty();
+                $("#desa5").append('<option>---Pilih Desa---</option>');
+                $.each(res,function(nama,kode){
+                    $("#desa5").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#desa5").empty();
+            }
+           }
+        });
+    }else{
+        $("#desa5").empty();
+    }
+   });
+
+   $('#desa5').change(function(){
+    var subdis_id = $(this).val();
+    if(subdis_id ){
+        $.ajax({
+           type:"GET",
+           url:"/getRw?subdis_id="+subdis_id,
+           dataType: 'JSON',
+           success:function(res){
+            if(res){
+                $("#rw5").empty();
+                $("#rw5").append('<option>---Pilih RW---</option>');
+                $.each(res,function(nama,kode){
+                    $("#rw5").append('<option value="'+kode+'">'+nama+'</option>');
+                });
+            }else{
+               $("#rw5").empty();
+            }
+           }
+        });
+    }else{
+        $("#rw5").empty();
+    }
+   });
+
+
+   
+
+
+</script>
+
+
+
+
+

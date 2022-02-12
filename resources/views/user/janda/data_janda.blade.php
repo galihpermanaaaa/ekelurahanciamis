@@ -4,7 +4,7 @@
 
 
     <div class="pagetitle">
-      <h1>Daftar Surat Keterangan janda</h1>
+      <h1>Daftar Surat Keterangan Janda</h1>
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -38,6 +38,7 @@
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
+                    <th scope="col">RW</th>
                     <th scope="col">Verifikasi</th>
                     <th scope="col">Hapus</th>
                     <th scope="col">Detail</th>
@@ -51,6 +52,7 @@
                       <td>{{$item->nik}}</td>
                       <td>{{$item->nama}}</td>
                       <td>{{$item->email}}</td>
+                      <td>{{$item->rw->nama_rw}}</td>
                     
                      
                       <td>

@@ -263,7 +263,7 @@
                         <th scope="col">Surat</th>
                         <th scope="col">Terverifikasi</th>
                         <th scope="col">Ditolak</th>
-                        <th scope="col">Belum Diverifikasi</th>
+                        <th scope="col">Belum Diverifikasi</th> 
                       </tr>
                     </thead>
                     <tbody>
@@ -286,6 +286,20 @@
                         <td>{{$skd_count_verifikasi_rw_terverifikasi}}</td>
                         <td class="fw-bold">{{$skd_count_verifikasi_rw_ditolak}}</td>
                         <td>{{$skd_count_verifikasi_rw_belum}}</td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="{{ route('user/duda/data_duda_rw') }}" class="text-primary fw-bold">Surat Keterangan Duda</a></td>
+                        <td>{{$duda_count_verifikasi_rw_terverifikasi}}</td>
+                        <td class="fw-bold">{{$duda_count_verifikasi_rw_ditolak}}</td>
+                        <td>{{$duda_count_verifikasi_rw_belum}}</td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="{{ route('user/janda/data_janda_rw') }}" class="text-primary fw-bold">Surat Keterangan Janda</a></td>
+                        <td>{{$janda_count_verifikasi_rw_terverifikasi}}</td>
+                        <td class="fw-bold">{{$janda_count_verifikasi_rw_ditolak}}</td>
+                        <td>{{$janda_count_verifikasi_rw_belum}}</td>
                       </tr>
                      
                     </tbody>
@@ -362,6 +376,7 @@
                         <th scope="col">SKTM</th>
                         <th scope="col">Domisili</th>
                         <th scope="col">Surat Ket Duda</th>
+                        <th scope="col">Surat Ket Janda</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -371,6 +386,7 @@
                         <td>{{$skm_rep_1}}</td>
                         <td>{{$domi_rep_1}}</td>
                         <td>{{$duda_rep_1}}</td>
+                        <td>{{$janda_rep_1}}</td>
                       </tr>
                       <tr>
                         <td>RW 02</td>
@@ -378,6 +394,7 @@
                         <td>{{$skm_rep_2}}</td>
                         <td>{{$domi_rep_2}}</td>
                         <td>{{$duda_rep_2}}</td>
+                        <td>{{$janda_rep_2}}</td>
                       </tr>
                       <tr>
                         <td>RW 03</td>
@@ -385,6 +402,7 @@
                         <td>{{$skm_rep_3}}</td>
                         <td>{{$domi_rep_3}}</td>
                         <td>{{$duda_rep_3}}</td>
+                        <td>{{$janda_rep_3}}</td>
                       </tr>
                       <tr>
                         <td>RW 04</td>
@@ -392,6 +410,7 @@
                         <td>{{$skm_rep_4}}</td>
                         <td>{{$domi_rep_4}}</td>
                         <td>{{$duda_rep_4}}</td>
+                        <td>{{$janda_rep_4}}</td>
                       </tr>
                       <tr> 
                         <td>RW 05</td>
@@ -399,6 +418,7 @@
                         <td>{{$skm_rep_5}}</td>
                         <td>{{$domi_rep_5}}</td>
                         <td>{{$duda_rep_5}}</td>
+                        <td>{{$janda_rep_5}}</td>
                       </tr>
                       <tr> 
                         <td>RW 06</td>
@@ -406,6 +426,7 @@
                         <td>{{$skm_rep_6}}</td>
                         <td>{{$domi_rep_6}}</td>
                         <td>{{$duda_rep_6}}</td>
+                        <td>{{$janda_rep_6}}</td>
                       </tr>
                       <tr> 
                         <td>RW 07</td>
@@ -413,6 +434,7 @@
                         <td>{{$skm_rep_7}}</td>
                         <td>{{$domi_rep_7}}</td>
                         <td>{{$duda_rep_7}}</td>
+                        <td>{{$janda_rep_7}}</td>
                       </tr>
                       <tr> 
                         <td>RW 08</td>
@@ -420,6 +442,7 @@
                         <td>{{$skm_rep_8}}</td>
                         <td>{{$domi_rep_8}}</td>
                         <td>{{$duda_rep_8}}</td>
+                        <td>{{$janda_rep_8}}</td>
                       </tr>
                       <tr> 
                         <td>RW 09</td>
@@ -427,6 +450,7 @@
                         <td>{{$skm_rep_9}}</td>
                         <td>{{$domi_rep_9}}</td>
                         <td>{{$duda_rep_9}}</td>
+                        <td>{{$janda_rep_9}}</td>
                       </tr>
                       <tr> 
                         <td>RW 10</td>
@@ -434,6 +458,7 @@
                         <td>{{$skm_rep_10}}</td>
                         <td>{{$domi_rep_10}}</td>
                         <td>{{$duda_rep_10}}</td>
+                        <td>{{$janda_rep_10}}</td>
                       </tr>
                       <tr> 
                         <td>RW 11</td>
@@ -441,6 +466,7 @@
                         <td>{{$skm_rep_11}}</td>
                         <td>{{$domi_rep_11}}</td>
                         <td>{{$duda_rep_11}}</td>
+                        <td>{{$janda_rep_11}}</td>
                       </tr>
                       <tr> 
                         <td>RW 12</td>
@@ -448,6 +474,7 @@
                         <td>{{$skm_rep_12}}</td>
                         <td>{{$domi_rep_12}}</td>
                         <td>{{$duda_rep_12}}</td>
+                        <td>{{$janda_rep_12}}</td>
                       </tr>
 
                       <tr> 
@@ -456,6 +483,7 @@
                         <td>{{$skm_rep_13}}</td>
                         <td>{{$domi_rep_13}}</td>
                         <td>{{$duda_rep_13}}</td>
+                        <td>{{$janda_rep_13}}</td>
                       </tr>
 
                       <tr> 
@@ -464,6 +492,7 @@
                         <td>{{$skm_rep_14}}</td>
                         <td>{{$domi_rep_14}}</td>
                         <td>{{$duda_rep_14}}</td>
+                        <td>{{$janda_rep_14}}</td>
                       </tr>
 
                       <tr> 
@@ -472,6 +501,7 @@
                         <td>{{$skm_rep_15}}</td>
                         <td>{{$domi_rep_15}}</td>
                         <td>{{$duda_rep_15}}</td>
+                        <td>{{$janda_rep_15}}</td>
                       </tr>
 
                       <tr> 
@@ -480,6 +510,7 @@
                         <td>{{$skm_rep_16}}</td>
                         <td>{{$domi_rep_16}}</td>
                         <td>{{$duda_rep_16}}</td>
+                        <td>{{$janda_rep_16}}</td>
                       </tr>
 
                       <tr> 
@@ -488,6 +519,7 @@
                         <td>{{$skm_rep_17}}</td>
                         <td>{{$domi_rep_17}}</td>
                         <td>{{$duda_rep_17}}</td>
+                        <td>{{$janda_rep_17}}</td>
                       </tr>
 
                       <tr> 
@@ -496,6 +528,7 @@
                         <td>{{$skm_rep_18}}</td>
                         <td>{{$domi_rep_18}}</td>
                         <td>{{$duda_rep_18}}</td>
+                        <td>{{$janda_rep_18}}</td>
                       </tr>
 
                       <tr> 
@@ -504,6 +537,7 @@
                         <td>{{$skm_rep_19}}</td>
                         <td>{{$domi_rep_19}}</td>
                         <td>{{$duda_rep_19}}</td>
+                        <td>{{$janda_rep_19}}</td>
                       </tr>
 
                       <tr> 
@@ -512,6 +546,7 @@
                         <td>{{$skm_rep_20}}</td>
                         <td>{{$domi_rep_20}}</td>
                         <td>{{$duda_rep_20}}</td>
+                        <td>{{$janda_rep_20}}</td>
                       </tr>
 
                       <tr> 
@@ -520,6 +555,7 @@
                         <td>{{$skm_rep_21}}</td>
                         <td>{{$domi_rep_21}}</td>
                         <td>{{$duda_rep_21}}</td>
+                        <td>{{$janda_rep_21}}</td>
                       </tr>
 
                       <tr> 
@@ -528,6 +564,7 @@
                         <td>{{$skm_rep_22}}</td>
                         <td>{{$domi_rep_22}}</td>
                         <td>{{$duda_rep_22}}</td>
+                        <td>{{$janda_rep_22}}</td>
                       </tr>
 
                       <tr> 
@@ -536,6 +573,7 @@
                         <td>{{$skm_rep_23}}</td>
                         <td>{{$domi_rep_23}}</td>
                         <td>{{$duda_rep_23}}</td>
+                        <td>{{$janda_rep_23}}</td>
                       </tr>
 
                       <tr> 
@@ -544,6 +582,7 @@
                         <td>{{$skm_rep_24}}</td>
                         <td>{{$domi_rep_24}}</td>
                         <td>{{$duda_rep_24}}</td>
+                        <td>{{$janda_rep_24}}</td>
                       </tr>
 
                       <tr> 
@@ -552,6 +591,7 @@
                         <td>{{$skm_rep_25}}</td>
                         <td>{{$domi_rep_25}}</td>
                         <td>{{$duda_rep_25}}</td>
+                        <td>{{$janda_rep_25}}</td>
                       </tr>
 
                       <tr> 
@@ -560,6 +600,7 @@
                         <td>{{$skm_rep_26}}</td>
                         <td>{{$domi_rep_26}}</td>
                         <td>{{$duda_rep_26}}</td>
+                        <td>{{$janda_rep_26}}</td>
                       </tr>
 
                       <tr> 
@@ -568,6 +609,7 @@
                         <td>{{$skm_rep_27}}</td>
                         <td>{{$domi_rep_27}}</td>
                         <td>{{$duda_rep_27}}</td>
+                        <td>{{$janda_rep_27}}</td>
                       </tr>
 
                       <tr> 
@@ -576,6 +618,7 @@
                         <td>{{$skm_rep_28}}</td>
                         <td>{{$domi_rep_28}}</td>
                         <td>{{$duda_rep_28}}</td>
+                        <td>{{$janda_rep_28}}</td>
                       </tr>
 
                       <tr> 
@@ -584,6 +627,7 @@
                         <td>{{$skm_rep_29}}</td>
                         <td>{{$domi_rep_29}}</td>
                         <td>{{$duda_rep_29}}</td>
+                        <td>{{$janda_rep_29}}</td>
                       </tr>
 
                       <tr> 
@@ -592,6 +636,7 @@
                         <td>{{$skm_rep_30}}</td>
                         <td>{{$domi_rep_30}}</td>
                         <td>{{$duda_rep_30}}</td>
+                        <td>{{$janda_rep_30}}</td>
                       </tr>
 
                       <tr> 
@@ -600,6 +645,7 @@
                         <td>{{$skm_rep_31}}</td>
                         <td>{{$domi_rep_31}}</td>
                         <td>{{$duda_rep_31}}</td>
+                        <td>{{$janda_rep_31}}</td>
                       </tr>
 
                       <tr> 
@@ -608,6 +654,7 @@
                         <td>{{$skm_rep_32}}</td>
                         <td>{{$domi_rep_32}}</td>
                         <td>{{$duda_rep_32}}</td>
+                        <td>{{$janda_rep_32}}</td>
                       </tr>
 
                     </tbody>
@@ -749,9 +796,8 @@
 
             
           </div><!-- End Budget Report -->
-          @endif
+         
 
-          <!-- Website Traffic -->
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -767,13 +813,20 @@
             </div>
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+              <h5 class="card-title">Report Surat Keterangan Duda dan Janda <span></span></h5>
 
-              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+              <div id="vv3" style="min-height: 200px;" class="echart"></div>
+             
+
+              
             </div>
-          </div><!-- End Website Traffic -->
+
+            
+          </div><!-- End Budget Report -->
+          
 
         </div><!-- End Right side columns -->
+        @endif
 
       </div>
     </section>
@@ -786,3 +839,4 @@
 @include('layouts.chartjs')
 @include('layouts.piechartjs')
 @include('layouts.piechartjs2')
+@include('layouts.piechartsjs3')

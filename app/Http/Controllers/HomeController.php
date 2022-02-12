@@ -127,6 +127,30 @@ class HomeController extends Controller
         $sku_count_verifikasi_rw_belum = $sku_verifikasi_rw_belum->count();
 
 
+
+        $duda_verifikasi_rw_terverifikasi = SuratDuda::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $duda_count_verifikasi_rw_terverifikasi = $duda_verifikasi_rw_terverifikasi->count();
+
+        $duda_verifikasi_rw_ditolak = SuratDuda::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $duda_count_verifikasi_rw_ditolak = $duda_verifikasi_rw_ditolak->count();
+
+        $duda_verifikasi_rw_belum = SuratDuda::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $duda_count_verifikasi_rw_belum = $duda_verifikasi_rw_belum->count();
+
+        
+
+        $janda_verifikasi_rw_terverifikasi = SuratJanda::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $janda_count_verifikasi_rw_terverifikasi = $janda_verifikasi_rw_terverifikasi->count();
+
+        $janda_verifikasi_rw_ditolak = SuratJanda::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $janda_count_verifikasi_rw_ditolak = $janda_verifikasi_rw_ditolak->count();
+
+        $janda_verifikasi_rw_belum = SuratJanda::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $janda_count_verifikasi_rw_belum = $janda_verifikasi_rw_belum->count();
+
+        
+
+
         $sku_tab = SKU::all()->count();
         $skm_tab = SKM::all()->count();
         $skd_tab = SuratDomisili::all()->count();
@@ -528,6 +552,71 @@ class HomeController extends Controller
         $duda_rep_32 = SuratDuda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '32')->count();
 
+        $janda_rep_1 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $janda_rep_2 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $janda_rep_3 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $janda_rep_4 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $janda_rep_5 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $janda_rep_6 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $janda_rep_7 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $janda_rep_8 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $janda_rep_9 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $janda_rep_10 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $janda_rep_11 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $janda_rep_12 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $janda_rep_13 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $janda_rep_14 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $janda_rep_15 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $janda_rep_16 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $janda_rep_17 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $janda_rep_18 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $janda_rep_19 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $janda_rep_20 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $janda_rep_21 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $janda_rep_22 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $janda_rep_23 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $janda_rep_24 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $janda_rep_25 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $janda_rep_26 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $janda_rep_27 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $janda_rep_28 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $janda_rep_29 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $janda_rep_30 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $janda_rep_31 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $janda_rep_32 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
 
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
@@ -567,7 +656,12 @@ class HomeController extends Controller
     'sku_jk_lk', 'sku_jk_pr', 'skd_jk_lk', 'skd_jk_pr', 'log_skd', 'log_sku', 'log_skm', 'duda', 'duda_count', 'duda_count_verifikasi', 'duda_tab', 'log_duda', 'duda_rep_1', 'duda_rep_2', 'duda_rep_3', 
     'duda_rep_4', 'duda_rep_5', 'duda_rep_6', 'duda_rep_7', 'duda_rep_8', 'duda_rep_9', 'duda_rep_10', 'duda_rep_11', 'duda_rep_12', 'duda_rep_13', 'duda_rep_14',
     'duda_rep_15', 'duda_rep_16', 'duda_rep_17', 'duda_rep_18', 'duda_rep_19', 'duda_rep_20', 'duda_rep_21', 'duda_rep_22', 'duda_rep_23', 'duda_rep_24', 'duda_rep_25', 'duda_rep_26', 'duda_rep_27', 'duda_rep_28',
-    'duda_rep_29', 'duda_rep_30', 'duda_rep_31', 'duda_rep_32','janda_count_verifikasi', 'janda_verifikasi','janda','janda_count', 'janda_tab', 'log_janda'));
+    'duda_rep_29', 'duda_rep_30', 'duda_rep_31', 'duda_rep_32','janda_count_verifikasi', 'janda_verifikasi','janda','janda_count', 'janda_tab', 'log_janda', 'janda_rep_1', 'janda_rep_2', 'janda_rep_3','janda_rep_4',
+    'janda_rep_5','janda_rep_6','janda_rep_7','janda_rep_8','janda_rep_9','janda_rep_10','janda_rep_11','janda_rep_12','janda_rep_13','janda_rep_14','janda_rep_15',
+    'janda_rep_16','janda_rep_17','janda_rep_18','janda_rep_19','janda_rep_20','janda_rep_21','janda_rep_22','janda_rep_23','janda_rep_24','janda_rep_25','janda_rep_26','janda_rep_27','janda_rep_28','janda_rep_29',
+    'janda_rep_30','janda_rep_31','janda_rep_32','duda_verifikasi_rw_terverifikasi', 'duda_count_verifikasi_rw_terverifikasi', 'duda_verifikasi_rw_ditolak', 'duda_count_verifikasi_rw_ditolak', 'duda_verifikasi_rw_belum',
+    'duda_count_verifikasi_rw_belum', 'janda_verifikasi_rw_terverifikasi', 'janda_count_verifikasi_rw_terverifikasi', 'janda_verifikasi_rw_ditolak',
+    'janda_count_verifikasi_rw_ditolak', 'janda_verifikasi_rw_belum', 'janda_count_verifikasi_rw_belum'));
     }
 
 
