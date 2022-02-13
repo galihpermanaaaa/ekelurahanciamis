@@ -18,8 +18,21 @@
     @endif
 </script>
 
-   
+<br>
     <br>
+    <div class="search-bar col-md-3">
+      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/skm/data_skm/cari_skm') }}">
+      <select class="form-control" name="id_rw" id="id_rw" required>
+         <option selected>---Cari Berdasarkan RW---</option>
+            @foreach ($rw as $rww)
+            <option  value="{{$rww->id_rw}}">{{$rww->nama_rw}}</option>
+            @endforeach
+        </select>
+        <button type="submit" title="Search" class="btn btn-primary btn-sm" ><i class="bi bi-search"></i></button>&nbsp;&nbsp;
+        <a href="{{ route('user/skm/data_skm') }}" class="btn btn-success btn-sm">Refresh</a>
+      </form>
+      
+    </div><!-- End Search Bar -->
     <br>
     <section class="section">
       <div class="row">

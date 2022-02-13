@@ -40,12 +40,29 @@ class PembuatSKMController extends Controller
 
         $halaman = "data_skm";
         $skm = SKM::orderBy('id', 'DESC')->get();
-        return view('user.skm.data_skm', compact('halaman', 'skm'));
+        $rw = RW::all();
+        return view('user.skm.data_skm', compact('halaman', 'skm', 'rw'));
         }
         else
         {
             return redirect()->route('login');
         }
+    }
+
+    public function filterskmrw(Request $request)
+    {
+
+        $id_rw = $request->id_rw;
+        
+        if(!empty($id_rw)){
+            $user = User::all();
+            $skm = SKM::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $rw = RW::all();
+        }else{
+            Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
+            return redirect()->route('dashboard');
+        }
+        return view('user.skm.data_skm', compact('skm', 'rw', 'user'));
     }
 
     public function indexRWSkm()

@@ -40,13 +40,31 @@ class PembuatSuratJandaController extends Controller
         $halaman = "data_janda";
         $user = User::all();
         $janda = SuratJanda::orderBy('id', 'DESC')->get();
-        return view('user.janda.data_janda', compact('halaman', 'janda'));
+        $rw = RW::all();
+        return view('user.janda.data_janda', compact('halaman', 'janda', 'rw'));
         }
         else
         {
             return redirect()->route('login');
         }
     }
+
+    public function filterjandarw(Request $request)
+    {
+
+        $id_rw = $request->id_rw;
+        
+        if(!empty($id_rw)){
+            $user = User::all();
+            $janda = SuratJanda::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $rw = RW::all();
+        }else{
+            Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
+            return redirect()->route('dashboard');
+        }
+        return view('user.janda.data_janda', compact('janda', 'rw', 'user'));
+    }
+
 
     public function indexRWJanda()
     {
@@ -67,6 +85,7 @@ class PembuatSuratJandaController extends Controller
         }
     }
 
+    
     public function verifikasi_janda($id)
     {
         if (Auth::user()->role_name=='Verifikator')

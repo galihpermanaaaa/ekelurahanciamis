@@ -41,12 +41,29 @@ class PembuatDomisiliController extends Controller
         $halaman = "data_domisili";
         $user = User::all();
         $skd = SuratDomisili::orderBy('id', 'DESC')->get();
-        return view('user.domisili.data_domisili', compact('halaman', 'skd'));
+        $rw = RW::all();
+        return view('user.domisili.data_domisili', compact('halaman', 'skd', 'rw'));
         }
         else
         {
             return redirect()->route('login');
         }
+    }
+
+    public function filterdomisilirw(Request $request)
+    {
+
+        $id_rw = $request->id_rw;
+        
+        if(!empty($id_rw)){
+            $user = User::all();
+            $skd = SuratDomisili::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $rw = RW::all();
+        }else{
+            Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
+            return redirect()->route('dashboard');
+        }
+        return view('user.domisili.data_domisili', compact('skd', 'rw', 'user'));
     }
 
     public function indexRWDomisili()
@@ -67,6 +84,8 @@ class PembuatDomisiliController extends Controller
             return redirect()->route('login');
         }
     }
+
+    
 
     public function verifikasi_domisili($id)
     {

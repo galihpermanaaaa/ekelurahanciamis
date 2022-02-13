@@ -40,12 +40,29 @@ class PembuatSuratDudaController extends Controller
         $halaman = "data_duda";
         $user = User::all();
         $duda = SuratDuda::orderBy('id', 'DESC')->get();
-        return view('user.duda.data_duda', compact('halaman', 'duda'));
+        $rw = RW::all();
+        return view('user.duda.data_duda', compact('halaman', 'duda', 'rw'));
         }
         else
         {
             return redirect()->route('login');
         }
+    }
+
+    public function filterdudarw(Request $request)
+    {
+
+        $id_rw = $request->id_rw;
+        
+        if(!empty($id_rw)){
+            $user = User::all();
+            $duda = SuratDuda::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $rw = RW::all();
+        }else{
+            Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
+            return redirect()->route('dashboard');
+        }
+        return view('user.duda.data_duda', compact('duda', 'rw', 'user'));
     }
 
     public function indexRWDuda()

@@ -94,6 +94,7 @@ Route::post('user/skm/verifikasi_skm_skm', [App\Http\Controllers\PembuatSKMContr
 Route::get('user/skm/surat_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'surat_skm']);
 Route::delete('delete_skm', [App\Http\Controllers\PembuatSKMController::class, 'destroy_skm'])->name('delete_skm');
 Route::get('user/skm/lihat_data_skm/{id}', [App\Http\Controllers\PembuatSKMController::class, 'lihat_data_skm']);
+Route::get('user/skm/data_skm/cari_skm',  [App\Http\Controllers\PembuatSKMController::class, 'filterskmrw'])->name('user/skm/data_skm/cari_skm');
 Route::get('user/skm/data_skm_rw', [App\Http\Controllers\PembuatSKMController::class, 'indexRWSkm'])->name('user/skm/data_skm_rw');
 
 // -----------------------------domisili----------------------------------------//
@@ -103,6 +104,7 @@ Route::post('user/domisili/verifikasi_domisili_domisili', [App\Http\Controllers\
 Route::get('user/domisili/surat_domisili/{id}', [App\Http\Controllers\PembuatDomisiliController::class, 'surat_domisili']);
 Route::delete('delete_domisili', [App\Http\Controllers\PembuatDomisiliController::class, 'destroy_domisili'])->name('delete_domisili');
 Route::get('user/domisili/lihat_data_domisili/{id}', [App\Http\Controllers\PembuatDomisiliController::class, 'lihat_data_domisili']);
+Route::get('user/domisili/data_domisili/cari_domisili',  [App\Http\Controllers\PembuatDomisiliController::class, 'filterdomisilirw'])->name('user/domisili/data_domisili/cari_domisili');
 Route::get('user/domisili/data_domisili_rw', [App\Http\Controllers\PembuatDomisiliController::class, 'indexRWDomisili'])->name('user/domisili/data_domisili_rw');
 
 
@@ -113,6 +115,7 @@ Route::post('user/duda/verifikasi_duda_duda', [App\Http\Controllers\PembuatSurat
 Route::get('user/duda/surat_duda/{id}', [App\Http\Controllers\PembuatSuratDudaController::class, 'surat_duda']);
 Route::delete('delete_duda', [App\Http\Controllers\PembuatSuratDudaController::class, 'destroy_duda'])->name('delete_duda');
 Route::get('user/duda/lihat_data_duda/{id}', [App\Http\Controllers\PembuatSuratDudaController::class, 'lihat_data_duda']);
+Route::get('user/duda/data_duda/cari_duda',  [App\Http\Controllers\PembuatSuratDudaController::class, 'filterdudarw'])->name('user/duda/data_duda/cari_duda');
 Route::get('user/duda/data_duda_rw', [App\Http\Controllers\PembuatSuratDudaController::class, 'indexRWDuda'])->name('user/duda/data_duda_rw');
 
 // -----------------------------janda----------------------------------------//
@@ -122,6 +125,7 @@ Route::post('user/janda/verifikasi_janda_janda', [App\Http\Controllers\PembuatSu
 Route::get('user/janda/surat_janda/{id}', [App\Http\Controllers\PembuatSuratJandaController::class, 'surat_janda']);
 Route::delete('delete_janda', [App\Http\Controllers\PembuatSuratJandaController::class, 'destroy_janda'])->name('delete_janda');
 Route::get('user/janda/lihat_data_janda/{id}', [App\Http\Controllers\PembuatSuratJandaController::class, 'lihat_data_janda']);
+Route::get('user/janda/data_janda/cari_janda',  [App\Http\Controllers\PembuatSuratJandaController::class, 'filterjandarw'])->name('user/janda/data_janda/cari_janda');
 Route::get('user/janda/data_janda_rw', [App\Http\Controllers\PembuatSuratJandaController::class, 'indexRWJanda'])->name('user/janda/data_janda_rw');
 
 
