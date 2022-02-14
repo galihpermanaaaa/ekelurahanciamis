@@ -696,22 +696,23 @@
               <div class="address">
                 <i class="icofont-google-map"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p> Jl. Pemuda No.1, Ciamis, Kec. Ciamis, Kabupaten Ciamis</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p></p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p></p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.227842377521!2d108.35231901537874!3d-7.328287574107113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5ebe4f68a843%3A0x6f7a94a8c5144039!2sKantor%20Kelurahan%20Ciamis!5e0!3m2!1sid!2sid!4v1644815168951!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+
             </div>
 
           </div>
@@ -762,12 +763,9 @@
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+          <div class="col-lg-12">
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-5faf80c6-00fb-4002-be94-b2f482f37b3f"></div>
           </div>
         </div>
       </div>
@@ -778,13 +776,13 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Arsha</h3>
+            <h3>Kelurahan Ciamis</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+            Jl. Pemuda No.1, Ciamis<br>
+            Kec. Ciamis, Kabupaten Ciamis<br>
+            Jawa Barat 46211 <br><br>
+              {{-- <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br> --}}
             </p>
           </div>
 
@@ -837,8 +835,8 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        <a href='https://www.symptoma.it/'>https://www.symptoma.it</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=3d9cc6802c15cb8c020bda6a24897e6a426a89d2'></script>
-      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/919118/t/0"></script>
+        {{-- <a href='https://www.symptoma.it/'>https://www.symptoma.it</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=3d9cc6802c15cb8c020bda6a24897e6a426a89d2'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/919118/t/0"></script> --}}
       </div>
     </div>
   </footer><!-- End Footer -->
