@@ -24,6 +24,9 @@ use App\Models\SuratDudaDitolak;
 use App\Models\SuratJanda;
 use App\Models\SuratJandaDiterima;
 use App\Models\SuratJandaDitolak;
+use App\Models\SBM;
+use App\Models\SBM_Diterima;
+use App\Models\SBM_Ditolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -74,6 +77,9 @@ class HomeController extends Controller
         $janda = SuratJanda::where('verifikasi', 'Belum Diverifikasi')->get();
         $janda_count = $janda->count();
 
+        $skbm = SBM::where('verifikasi', 'Belum Diverifikasi')->get();
+        $skbm_count = $skbm->count();
+
 
         $sku_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
         $sku_count_verifikasi = $sku_verifikasi->count();
@@ -89,6 +95,9 @@ class HomeController extends Controller
 
         $janda_verifikasi = SuratJanda::where('verifikasi', 'Terverifikasi')->get();
         $janda_count_verifikasi = $janda_verifikasi->count();
+
+        $skbm_verifikasi = SBM::where('verifikasi', 'Terverifikasi')->get();
+        $skbm_count_verifikasi = $skbm_verifikasi->count();
 
        
 
@@ -156,6 +165,7 @@ class HomeController extends Controller
         $skd_tab = SuratDomisili::all()->count();
         $duda_tab = SuratDuda::all()->count();
         $janda_tab = SuratJanda::all()->count();
+        $skbm_tab = SBM::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -624,11 +634,15 @@ class HomeController extends Controller
         $skd_jk_lk = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $skd_jk_pr = SuratDomisili::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
+        $skbm_jk_lk = SBM::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
+        $skbm_jk_pr = SBM::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
+
         $log_skd = SuratDomisili::orderBy('id', 'DESC')->take(3)->get();
         $log_skm = SKM::orderBy('id', 'DESC')->take(3)->get();
         $log_sku = SKU::orderBy('id', 'DESC')->take(3)->get();
         $log_duda = SuratDuda::orderBy('id', 'DESC')->take(3)->get();
         $log_janda = SuratJanda::orderBy('id', 'DESC')->take(3)->get();
+        $log_skbm = SBM::orderBy('id', 'DESC')->take(3)->get();
 
 
 
@@ -661,7 +675,7 @@ class HomeController extends Controller
     'janda_rep_16','janda_rep_17','janda_rep_18','janda_rep_19','janda_rep_20','janda_rep_21','janda_rep_22','janda_rep_23','janda_rep_24','janda_rep_25','janda_rep_26','janda_rep_27','janda_rep_28','janda_rep_29',
     'janda_rep_30','janda_rep_31','janda_rep_32','duda_verifikasi_rw_terverifikasi', 'duda_count_verifikasi_rw_terverifikasi', 'duda_verifikasi_rw_ditolak', 'duda_count_verifikasi_rw_ditolak', 'duda_verifikasi_rw_belum',
     'duda_count_verifikasi_rw_belum', 'janda_verifikasi_rw_terverifikasi', 'janda_count_verifikasi_rw_terverifikasi', 'janda_verifikasi_rw_ditolak',
-    'janda_count_verifikasi_rw_ditolak', 'janda_verifikasi_rw_belum', 'janda_count_verifikasi_rw_belum'));
+    'janda_count_verifikasi_rw_ditolak', 'janda_verifikasi_rw_belum', 'janda_count_verifikasi_rw_belum', 'skbm_tab', 'log_skbm', 'skbm', 'skbm_count', 'skbm_count_verifikasi', 'skbm_verifikasi', 'skbm_jk_lk', 'skbm_jk_pr'));
     }
 
 
