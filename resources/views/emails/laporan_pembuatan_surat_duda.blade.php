@@ -418,7 +418,7 @@
                         </table>
                         <br>
                         <p>Admin Kelurahan Ciamis</p>
-                          <p>Surat Keterangan Duda Anda Belum diverifikasi oleh pihak verifikator kelurahan ciamis,  jadi mohon ditunggu sampai Surat SKM anda diverifikasi sehingga anda bisa mendapatkan surat keterangan tidak mampu</i><p>
+                          <p>Surat Keterangan Duda Anda Belum diverifikasi oleh pihak verifikator kelurahan ciamis,  jadi mohon ditunggu sampai Surat keterangan duda anda diverifikasi sehingga anda bisa mendapatkan surat keterangan duda</i><p>
                           <p>Untuk melihat status surat anda silahkan cek surat anda dengan menginputkan TOKEN yang anda dapatkan dikolom Check Surat E-Kelurahan Ciamis</i><p>
 
                         <p>Mohon untuk tidak menyebarluaskan data anda tersebut dan harap cek email secara berkala untuk mengetahui hasil verifikasi pembuatan surat anda, terima kasih.</p>

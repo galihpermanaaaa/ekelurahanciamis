@@ -46,4 +46,9 @@ class RW extends Model
     {
     	return $this->hasMany('App\Models\SuratJanda', 'id_rw');
     }
+
+    public function sbm()
+    {
+    	return $this->hasMany('App\Models\SBM', 'id_rw');
+    }
 }

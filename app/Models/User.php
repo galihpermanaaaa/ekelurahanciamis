@@ -96,6 +96,11 @@ class User extends Authenticatable
     	return $this->hasMany('App\Models\SuratJanda', 'id_users');
     }
 
+    public function sbm()
+    {
+    	return $this->hasMany('App\Models\SBM', 'id_users');
+    }
+
     
     
 }

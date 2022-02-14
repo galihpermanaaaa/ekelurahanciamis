@@ -51,4 +51,9 @@ class Desa extends Model
     {
     	return $this->hasMany('App\Models\SuratJanda', 'subdis_id');
     }
+
+    public function sbm()
+    {
+    	return $this->hasMany('App\Models\SBM', 'subdis_id');
+    }
 }

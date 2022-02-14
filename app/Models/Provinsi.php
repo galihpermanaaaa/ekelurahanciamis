@@ -47,4 +47,9 @@ class Provinsi extends Model
     	return $this->hasMany('App\Models\SuratJanda', 'prov_id');
     }
 
+    public function sbm()
+    {
+    	return $this->hasMany('App\Models\SBM', 'prov_id');
+    }
+
 }

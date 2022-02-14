@@ -78,6 +78,14 @@ class CreateTableProvinces extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('sbm', function (Blueprint $table) {
+            $table->foreign('prov_id')
+            ->references('prov_id')
+            ->on('provinces')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -114,6 +122,10 @@ class CreateTableProvinces extends Migration
 
         Schema::table('surat_janda', function(Blueprint $table) {
             $table->dropforeign('surat_janda_prov_id_foreign');
+        });
+
+        Schema::table('sbm', function(Blueprint $table) {
+            $table->dropforeign('sbm_prov_id_foreign');
         });
 
 

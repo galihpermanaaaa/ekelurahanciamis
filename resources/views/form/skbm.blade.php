@@ -30,7 +30,7 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" method="get" action="{{ route('layanan/janda') }}">
+                <form class="form" method="get" action="{{ route('layanan/skbm') }}">
                     <h3 class="h4 text-white mb-4">Check Surat</h3>
                     <div class="form-group">
                       <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
@@ -49,7 +49,7 @@
 
 
 
-
+ 
     <!-- Modal Janda Cek -->
   <!-- Modal Janda Buat -->
 <div class="modal fade" id="modalbm_buat" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
@@ -60,7 +60,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ route('save_janda') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save_sbm') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="container col-md-12">
                         <div class="row">
@@ -69,8 +69,7 @@
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
                         <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
                         <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
-                        <input type="hidden" value="Perempuan" name="jk" required>
-                        <input type="hidden" value="Janda" name="status_perkawinan"  required>
+                        <input type="hidden" value="Belum Menikah" name="status_perkawinan"  required>
                         @error('nama')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -100,22 +99,18 @@
                          @enderror
                     </div>
 
+
                     <div class="col-md-6">
-                        <label class="form-label">Status Perkawinan</label>
-                        <select  class="form-control @error('status_perkawinan') is-invalid @enderror" name="status_perkawinan" id="status_perkawinan" required>
-                        <option value="">--Pilih Status Perkawinan Anda--</option>
-                        <option value="Belum Menikah">Belum Menikah</option>
-                        <option value="Kawin">Kawin</option>
-                        <option value="Duda">Duda</option>
-                        <option value="Janda">Janda</option>
-                        </select>
-                        @error('status_perkawinan')
-                        <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Aktif" required />
+                        @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                     </div>
 
+                  
 
 
 
@@ -201,7 +196,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi</label>
-                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi4" required>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi6" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -215,7 +210,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kabupaten/Kota</label>
-                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota4" required>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota6" required>
                                                         <option selected>---Pilih Kabupaten/Kota---</option>
                                                 </select>
                                                 @error('city_id')
@@ -226,7 +221,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan4" required>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan6" required>
                                                     <option selected>---Pilih Kecamatan---</option>
                                                 </select>
                                                 @error('dis_id')
@@ -240,7 +235,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Desa/Kelurahan</label>
-                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa4" required>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa6" required>
                                                     <option selected>---Pilih Desa/Kelurahan---</option>
                                                 </select>
                                                 @error('subdis_id')
@@ -251,7 +246,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw4" required>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw6" required>
                                                     <option selected>--Pilih RW--</option>
                                                 </select>
                                                 @error('id_rw')
@@ -282,21 +277,7 @@
                     </div>
             </div>
 
-            <hr>
-           <div class="row">
-
-
-
-                    <div class="col-md-6">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
-                        @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                    </div>
-            </div>
+        
            
 
             <hr>
@@ -331,15 +312,7 @@
                                                 @enderror
                     </div>
 
-                    <div class="col-md-6">
-                        <label class="form-label">Upload Surat Kematian/Cerai</label>
-                        <input type="file" class="form-control @error('kematian_akta_cerai') is-invalid @enderror" id="kematian_akta_cerai_duda" name="kematian_akta_cerai" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
-                        @error('kematian_akta_cerai')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                    </div>
+                    
 
 
                     </div>

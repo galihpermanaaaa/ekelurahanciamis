@@ -26,6 +26,7 @@ Route::post('save_skm', [App\Http\Controllers\landigpageController::class, 'save
 Route::post('save_domisili', [App\Http\Controllers\landigpageController::class, 'saveDomisili'])->name('save_domisili');
 Route::post('save_duda', [App\Http\Controllers\landigpageController::class, 'saveDuda'])->name('save_duda');
 Route::post('save_janda', [App\Http\Controllers\landigpageController::class, 'saveJanda'])->name('save_janda');
+Route::post('save_sbm', [App\Http\Controllers\landigpageController::class, 'saveSBM'])->name('save_sbm');
 
 
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
@@ -33,12 +34,14 @@ Route::get('layanan/skm',  [App\Http\Controllers\landigpageController::class, 'f
 Route::get('layanan/domisili',  [App\Http\Controllers\landigpageController::class, 'filterdomisili'])->name('layanan/domisili');
 Route::get('layanan/duda',  [App\Http\Controllers\landigpageController::class, 'filterduda'])->name('layanan/duda');
 Route::get('layanan/janda',  [App\Http\Controllers\landigpageController::class, 'filterjanda'])->name('layanan/janda');
+Route::get('layanan/skbm',  [App\Http\Controllers\landigpageController::class, 'filterskbm'])->name('layanan/skbm');
 
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('layanan/surat_skm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skm']);
 Route::get('layanan/surat_domisili/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_domisili']);
 Route::get('layanan/surat_duda/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_duda']);
 Route::get('layanan/surat_janda/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_janda']);
+Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skbm']);
 
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');
@@ -127,6 +130,19 @@ Route::delete('delete_janda', [App\Http\Controllers\PembuatSuratJandaController:
 Route::get('user/janda/lihat_data_janda/{id}', [App\Http\Controllers\PembuatSuratJandaController::class, 'lihat_data_janda']);
 Route::get('user/janda/data_janda/cari_janda',  [App\Http\Controllers\PembuatSuratJandaController::class, 'filterjandarw'])->name('user/janda/data_janda/cari_janda');
 Route::get('user/janda/data_janda_rw', [App\Http\Controllers\PembuatSuratJandaController::class, 'indexRWJanda'])->name('user/janda/data_janda_rw');
+
+
+
+// -----------------------------sbm----------------------------------------//
+Route::get('user/skbm/data_skbm', [App\Http\Controllers\PembuatSuratSBMController::class, 'index'])->name('user/skbm/data_skbm');
+Route::get('user/skbm/verifikasi_skbm/{id}', [App\Http\Controllers\PembuatSuratSBMController::class, 'verifikasi_skbm']);
+Route::post('user/skbm/verifikasi_skbm_skbm', [App\Http\Controllers\PembuatSuratSBMController::class, 'verifikasi_skbm_skbm'])->name('verifikasi_skbm_skbm');
+Route::get('user/skbm/surat_skbm/{id}', [App\Http\Controllers\PembuatSuratSBMController::class, 'surat_skbm']);
+Route::delete('delete_skbm', [App\Http\Controllers\PembuatSuratSBMController::class, 'destroy_skbm'])->name('delete_skbm');
+Route::get('user/skbm/lihat_data_skbm/{id}', [App\Http\Controllers\PembuatSuratSBMController::class, 'lihat_data_skbm']);
+Route::get('user/skbm/data_skbm/cari_skbm',  [App\Http\Controllers\PembuatSuratSBMController::class, 'filterskbmrw'])->name('user/skbm/data_skbm/cari_skbm');
+Route::get('user/skbm/data_skbm_rw', [App\Http\Controllers\PembuatSuratSBMController::class, 'indexRWSkbm'])->name('user/skbm/data_skbm_rw');
+
 
 
 

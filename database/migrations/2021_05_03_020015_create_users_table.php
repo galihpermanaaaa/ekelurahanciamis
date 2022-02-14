@@ -72,6 +72,14 @@ class CreateUsersTable extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('sbm', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
        
 
     }
@@ -101,6 +109,10 @@ class CreateUsersTable extends Migration
 
         Schema::table('surat_janda', function(Blueprint $table) {
             $table->dropforeign('surat_janda_id_users_foreign');
+        });
+
+        Schema::table('sbm', function(Blueprint $table) {
+            $table->dropforeign('sbm_id_users_foreign');
         });
 
         

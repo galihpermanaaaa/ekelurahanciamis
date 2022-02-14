@@ -131,6 +131,16 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
+
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Pembuat Belum Nikah</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/sku/data_sku_rw') }}">
