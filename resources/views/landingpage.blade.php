@@ -104,7 +104,9 @@
     @include('form.skdomisili')
     @include('form.sku')
     @include('form.sktm')
-
+    @include('form.skbm')
+    @include('form.skbmr')
+    @include('form.skk')
 
 <!-- ======= Services Section ======= -->
 <section id="services" class="services section-bg">
@@ -180,7 +182,7 @@
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-file"></i></div>
-                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKTM_menu">Surat Keterangan Tidak Mampu</a> </h4>
+                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a> </h4>
 
             <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           </div>
@@ -191,18 +193,18 @@
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-tachometer"></i></div>
-            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaldomisili_menu">Surat Keterangan Domisili</a></h4>
+            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-layer"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+              <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
           </div>
-        </div>
 
       </div>
 
