@@ -209,7 +209,7 @@
     </div>
   </section><!-- End Services Section -->
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about ">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -227,7 +227,7 @@
 
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us section-bg">
+    {{-- <section id="why-us" class="why-us section-bg">
       <div class="container-fluid" data-aos="fade-up">
 
         <div class="row">
@@ -279,10 +279,10 @@
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+    </section><!-- End Why Us Section --> --}}
 
     <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -344,7 +344,7 @@
 
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+    {{-- <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
@@ -358,10 +358,10 @@
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section><!-- End Cta Section --> --}}
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    {{-- <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -471,10 +471,10 @@
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Portfolio Section --> --}}
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    {{-- <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -555,10 +555,10 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section><!-- End Team Section --> --}}
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    {{-- <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -616,10 +616,10 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section><!-- End Pricing Section --> --}}
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
+    {{-- <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -678,7 +678,7 @@
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section><!-- End Frequently Asked Questions Section --> --}}
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
