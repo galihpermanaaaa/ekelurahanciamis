@@ -346,6 +346,13 @@
                         <td class="fw-bold">{{$janda_count_verifikasi_rw_ditolak}}</td>
                         <td>{{$janda_count_verifikasi_rw_belum}}</td>
                       </tr>
+
+                      <tr>
+                        <td><a href="{{ route('user/skbm/data_skbm_rw') }}" class="text-primary fw-bold">Surat Keterangan Belum Menikah</a></td>
+                        <td>{{$skbm_count_verifikasi_rw_terverifikasi}}</td>
+                        <td class="fw-bold">{{$skbm_count_verifikasi_rw_ditolak}}</td>
+                        <td>{{$skbm_count_verifikasi_rw_belum}}</td>
+                      </tr>
                      
                     </tbody>
                   </table>
@@ -422,6 +429,7 @@
                         <th scope="col">Domisili</th>
                         <th scope="col">Surat Ket Duda</th>
                         <th scope="col">Surat Ket Janda</th>
+                        <th scope="col">Surat Ket Belum Nikah</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -432,6 +440,7 @@
                         <td>{{$domi_rep_1}}</td>
                         <td>{{$duda_rep_1}}</td>
                         <td>{{$janda_rep_1}}</td>
+                        <td>{{$sbm_rep_1}}</td>
                       </tr>
                       <tr>
                         <td>RW 02</td>
@@ -440,6 +449,7 @@
                         <td>{{$domi_rep_2}}</td>
                         <td>{{$duda_rep_2}}</td>
                         <td>{{$janda_rep_2}}</td>
+                        <td>{{$sbm_rep_2}}</td>
                       </tr>
                       <tr>
                         <td>RW 03</td>
@@ -448,6 +458,7 @@
                         <td>{{$domi_rep_3}}</td>
                         <td>{{$duda_rep_3}}</td>
                         <td>{{$janda_rep_3}}</td>
+                        <td>{{$sbm_rep_3}}</td>
                       </tr>
                       <tr>
                         <td>RW 04</td>
@@ -456,6 +467,7 @@
                         <td>{{$domi_rep_4}}</td>
                         <td>{{$duda_rep_4}}</td>
                         <td>{{$janda_rep_4}}</td>
+                        <td>{{$sbm_rep_4}}</td>
                       </tr>
                       <tr> 
                         <td>RW 05</td>
@@ -464,6 +476,7 @@
                         <td>{{$domi_rep_5}}</td>
                         <td>{{$duda_rep_5}}</td>
                         <td>{{$janda_rep_5}}</td>
+                        <td>{{$sbm_rep_5}}</td>
                       </tr>
                       <tr> 
                         <td>RW 06</td>
@@ -472,6 +485,7 @@
                         <td>{{$domi_rep_6}}</td>
                         <td>{{$duda_rep_6}}</td>
                         <td>{{$janda_rep_6}}</td>
+                        <td>{{$sbm_rep_6}}</td>
                       </tr>
                       <tr> 
                         <td>RW 07</td>
@@ -480,6 +494,7 @@
                         <td>{{$domi_rep_7}}</td>
                         <td>{{$duda_rep_7}}</td>
                         <td>{{$janda_rep_7}}</td>
+                        <td>{{$sbm_rep_7}}</td>
                       </tr>
                       <tr> 
                         <td>RW 08</td>
@@ -488,6 +503,7 @@
                         <td>{{$domi_rep_8}}</td>
                         <td>{{$duda_rep_8}}</td>
                         <td>{{$janda_rep_8}}</td>
+                        <td>{{$sbm_rep_8}}</td>
                       </tr>
                       <tr> 
                         <td>RW 09</td>
@@ -496,6 +512,7 @@
                         <td>{{$domi_rep_9}}</td>
                         <td>{{$duda_rep_9}}</td>
                         <td>{{$janda_rep_9}}</td>
+                        <td>{{$sbm_rep_9}}</td>
                       </tr>
                       <tr> 
                         <td>RW 10</td>
@@ -504,6 +521,7 @@
                         <td>{{$domi_rep_10}}</td>
                         <td>{{$duda_rep_10}}</td>
                         <td>{{$janda_rep_10}}</td>
+                        <td>{{$sbm_rep_10}}</td>
                       </tr>
                       <tr> 
                         <td>RW 11</td>
@@ -512,6 +530,7 @@
                         <td>{{$domi_rep_11}}</td>
                         <td>{{$duda_rep_11}}</td>
                         <td>{{$janda_rep_11}}</td>
+                        <td>{{$sbm_rep_11}}</td>
                       </tr>
                       <tr> 
                         <td>RW 12</td>
@@ -520,6 +539,7 @@
                         <td>{{$domi_rep_12}}</td>
                         <td>{{$duda_rep_12}}</td>
                         <td>{{$janda_rep_12}}</td>
+                        <td>{{$sbm_rep_12}}</td>
                       </tr>
 
                       <tr> 
@@ -529,6 +549,7 @@
                         <td>{{$domi_rep_13}}</td>
                         <td>{{$duda_rep_13}}</td>
                         <td>{{$janda_rep_13}}</td>
+                        <td>{{$sbm_rep_13}}</td>
                       </tr>
 
                       <tr> 
@@ -538,6 +559,7 @@
                         <td>{{$domi_rep_14}}</td>
                         <td>{{$duda_rep_14}}</td>
                         <td>{{$janda_rep_14}}</td>
+                        <td>{{$sbm_rep_14}}</td>
                       </tr>
 
                       <tr> 
@@ -547,6 +569,7 @@
                         <td>{{$domi_rep_15}}</td>
                         <td>{{$duda_rep_15}}</td>
                         <td>{{$janda_rep_15}}</td>
+                        <td>{{$sbm_rep_15}}</td>
                       </tr>
 
                       <tr> 
@@ -556,6 +579,7 @@
                         <td>{{$domi_rep_16}}</td>
                         <td>{{$duda_rep_16}}</td>
                         <td>{{$janda_rep_16}}</td>
+                        <td>{{$sbm_rep_16}}</td>
                       </tr>
 
                       <tr> 
@@ -565,6 +589,7 @@
                         <td>{{$domi_rep_17}}</td>
                         <td>{{$duda_rep_17}}</td>
                         <td>{{$janda_rep_17}}</td>
+                        <td>{{$sbm_rep_17}}</td>
                       </tr>
 
                       <tr> 
@@ -574,6 +599,7 @@
                         <td>{{$domi_rep_18}}</td>
                         <td>{{$duda_rep_18}}</td>
                         <td>{{$janda_rep_18}}</td>
+                        <td>{{$sbm_rep_18}}</td>
                       </tr>
 
                       <tr> 
@@ -583,6 +609,7 @@
                         <td>{{$domi_rep_19}}</td>
                         <td>{{$duda_rep_19}}</td>
                         <td>{{$janda_rep_19}}</td>
+                        <td>{{$sbm_rep_19}}</td>
                       </tr>
 
                       <tr> 
@@ -592,6 +619,7 @@
                         <td>{{$domi_rep_20}}</td>
                         <td>{{$duda_rep_20}}</td>
                         <td>{{$janda_rep_20}}</td>
+                        <td>{{$sbm_rep_20}}</td>
                       </tr>
 
                       <tr> 
@@ -601,6 +629,7 @@
                         <td>{{$domi_rep_21}}</td>
                         <td>{{$duda_rep_21}}</td>
                         <td>{{$janda_rep_21}}</td>
+                        <td>{{$sbm_rep_21}}</td>
                       </tr>
 
                       <tr> 
@@ -610,6 +639,7 @@
                         <td>{{$domi_rep_22}}</td>
                         <td>{{$duda_rep_22}}</td>
                         <td>{{$janda_rep_22}}</td>
+                        <td>{{$sbm_rep_22}}</td>
                       </tr>
 
                       <tr> 
@@ -619,6 +649,7 @@
                         <td>{{$domi_rep_23}}</td>
                         <td>{{$duda_rep_23}}</td>
                         <td>{{$janda_rep_23}}</td>
+                        <td>{{$sbm_rep_23}}</td>
                       </tr>
 
                       <tr> 
@@ -628,6 +659,7 @@
                         <td>{{$domi_rep_24}}</td>
                         <td>{{$duda_rep_24}}</td>
                         <td>{{$janda_rep_24}}</td>
+                        <td>{{$sbm_rep_24}}</td>
                       </tr>
 
                       <tr> 
@@ -637,6 +669,7 @@
                         <td>{{$domi_rep_25}}</td>
                         <td>{{$duda_rep_25}}</td>
                         <td>{{$janda_rep_25}}</td>
+                        <td>{{$sbm_rep_25}}</td>
                       </tr>
 
                       <tr> 
@@ -646,6 +679,7 @@
                         <td>{{$domi_rep_26}}</td>
                         <td>{{$duda_rep_26}}</td>
                         <td>{{$janda_rep_26}}</td>
+                        <td>{{$sbm_rep_26}}</td>
                       </tr>
 
                       <tr> 
@@ -655,6 +689,7 @@
                         <td>{{$domi_rep_27}}</td>
                         <td>{{$duda_rep_27}}</td>
                         <td>{{$janda_rep_27}}</td>
+                        <td>{{$sbm_rep_27}}</td>
                       </tr>
 
                       <tr> 
@@ -664,6 +699,7 @@
                         <td>{{$domi_rep_28}}</td>
                         <td>{{$duda_rep_28}}</td>
                         <td>{{$janda_rep_28}}</td>
+                        <td>{{$sbm_rep_28}}</td>
                       </tr>
 
                       <tr> 
@@ -673,6 +709,7 @@
                         <td>{{$domi_rep_29}}</td>
                         <td>{{$duda_rep_29}}</td>
                         <td>{{$janda_rep_29}}</td>
+                        <td>{{$sbm_rep_29}}</td>
                       </tr>
 
                       <tr> 
@@ -682,6 +719,7 @@
                         <td>{{$domi_rep_30}}</td>
                         <td>{{$duda_rep_30}}</td>
                         <td>{{$janda_rep_30}}</td>
+                        <td>{{$sbm_rep_30}}</td>
                       </tr>
 
                       <tr> 
@@ -691,6 +729,7 @@
                         <td>{{$domi_rep_31}}</td>
                         <td>{{$duda_rep_31}}</td>
                         <td>{{$janda_rep_31}}</td>
+                        <td>{{$sbm_rep_31}}</td>
                       </tr>
 
                       <tr> 
@@ -700,6 +739,7 @@
                         <td>{{$domi_rep_32}}</td>
                         <td>{{$duda_rep_32}}</td>
                         <td>{{$janda_rep_32}}</td>
+                        <td>{{$sbm_rep_32}}</td>
                       </tr>
 
                     </tbody>

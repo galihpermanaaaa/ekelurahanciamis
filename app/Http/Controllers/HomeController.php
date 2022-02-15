@@ -157,8 +157,17 @@ class HomeController extends Controller
         $janda_verifikasi_rw_belum = SuratJanda::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
         $janda_count_verifikasi_rw_belum = $janda_verifikasi_rw_belum->count();
 
-        
 
+        $skbm_verifikasi_rw_terverifikasi = SBM::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $skbm_count_verifikasi_rw_terverifikasi = $skbm_verifikasi_rw_terverifikasi->count();
+
+        $skbm_verifikasi_rw_ditolak = SBM::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $skbm_count_verifikasi_rw_ditolak = $skbm_verifikasi_rw_ditolak->count();
+
+        $skbm_verifikasi_rw_belum = SBM::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $skbm_count_verifikasi_rw_belum = $skbm_verifikasi_rw_belum->count();
+
+       
 
         $sku_tab = SKU::all()->count();
         $skm_tab = SKM::all()->count();
@@ -628,6 +637,76 @@ class HomeController extends Controller
         ->where('id_rw', '32')->count();
 
 
+
+
+
+
+        $sbm_rep_1 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $sbm_rep_2 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $sbm_rep_3 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $sbm_rep_4 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $sbm_rep_5 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $sbm_rep_6 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $sbm_rep_7 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $sbm_rep_8 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $sbm_rep_9 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $sbm_rep_10 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $sbm_rep_11 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $sbm_rep_12 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $sbm_rep_13 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $sbm_rep_14 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $sbm_rep_15 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $sbm_rep_16 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $sbm_rep_17 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $sbm_rep_18 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $sbm_rep_19 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $sbm_rep_20 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $sbm_rep_21 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $sbm_rep_22 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $sbm_rep_23 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $sbm_rep_24 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $sbm_rep_25 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $sbm_rep_26 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $sbm_rep_27 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $sbm_rep_28 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $sbm_rep_29 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $sbm_rep_30 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $sbm_rep_31 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $sbm_rep_32 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
@@ -675,7 +754,11 @@ class HomeController extends Controller
     'janda_rep_16','janda_rep_17','janda_rep_18','janda_rep_19','janda_rep_20','janda_rep_21','janda_rep_22','janda_rep_23','janda_rep_24','janda_rep_25','janda_rep_26','janda_rep_27','janda_rep_28','janda_rep_29',
     'janda_rep_30','janda_rep_31','janda_rep_32','duda_verifikasi_rw_terverifikasi', 'duda_count_verifikasi_rw_terverifikasi', 'duda_verifikasi_rw_ditolak', 'duda_count_verifikasi_rw_ditolak', 'duda_verifikasi_rw_belum',
     'duda_count_verifikasi_rw_belum', 'janda_verifikasi_rw_terverifikasi', 'janda_count_verifikasi_rw_terverifikasi', 'janda_verifikasi_rw_ditolak',
-    'janda_count_verifikasi_rw_ditolak', 'janda_verifikasi_rw_belum', 'janda_count_verifikasi_rw_belum', 'skbm_tab', 'log_skbm', 'skbm', 'skbm_count', 'skbm_count_verifikasi', 'skbm_verifikasi', 'skbm_jk_lk', 'skbm_jk_pr'));
+    'janda_count_verifikasi_rw_ditolak', 'janda_verifikasi_rw_belum', 'janda_count_verifikasi_rw_belum', 'skbm_tab', 'log_skbm', 'skbm', 'skbm_count', 'skbm_count_verifikasi', 'skbm_verifikasi', 'skbm_jk_lk', 'skbm_jk_pr',
+    'sbm_rep_1', 'sbm_rep_2', 'sbm_rep_3', 'sbm_rep_4', 'sbm_rep_5', 'sbm_rep_6', 'sbm_rep_7', 'sbm_rep_8', 'sbm_rep_9', 'sbm_rep_10', 'sbm_rep_11', 'sbm_rep_12', 'sbm_rep_13', 
+    'sbm_rep_14', 'sbm_rep_15', 'sbm_rep_16', 'sbm_rep_17', 'sbm_rep_18', 'sbm_rep_19', 'sbm_rep_20', 'sbm_rep_21', 'sbm_rep_22', 'sbm_rep_23', 'sbm_rep_24', 'sbm_rep_25', 'sbm_rep_25', 'sbm_rep_26',
+    'sbm_rep_27', 'sbm_rep_28', 'sbm_rep_28', 'sbm_rep_29', 'sbm_rep_30', 'sbm_rep_31', 'sbm_rep_32','skbm_verifikasi_rw_terverifikasi', 'skbm_count_verifikasi_rw_terverifikasi', 'skbm_verifikasi_rw_ditolak', 'skbm_count_verifikasi_rw_ditolak',
+    'skbm_verifikasi_rw_belum', 'skbm_count_verifikasi_rw_belum'));
     }
 
 

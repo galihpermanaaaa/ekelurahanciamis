@@ -188,6 +188,15 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Surat Belum Nikah</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
     </ul>
 
   </aside><!-- End Sidebar-->

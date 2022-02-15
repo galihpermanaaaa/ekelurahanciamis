@@ -45,13 +45,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($duda as $key => $item)
+                    @foreach($data as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
                       <td>{{$item->nik}}</td>
                       <td>{{$item->nama}}</td>
                       <td>{{$item->email}}</td>
-                <td>  <a href="{{ url('user/duda/lihat_data_duda/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                <td>  <a href="{{ url('user/skbm/lihat_data_skbm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
                    </td>
 
                     <td>
@@ -59,7 +59,7 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/duda/surat_duda/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/skbm/surat_skbm/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
 					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif
