@@ -51,4 +51,10 @@ class RW extends Model
     {
     	return $this->hasMany('App\Models\SBM', 'id_rw');
     }
+
+    public function bmr()
+    {
+    	return $this->hasMany('App\Models\BMR', 'id_rw');
+    }
+
 }

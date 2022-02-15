@@ -85,6 +85,14 @@ class CreateTableCities extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('bmr', function (Blueprint $table) {
+            $table->foreign('city_id')
+            ->references('city_id')
+            ->on('cities')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
 
     }
 
@@ -126,6 +134,10 @@ class CreateTableCities extends Migration
 
         Schema::table('sbm', function(Blueprint $table) {
             $table->dropforeign('sbm_city_id_foreign');
+        });
+
+        Schema::table('bmr', function(Blueprint $table) {
+            $table->dropforeign('bmr_city_id_foreign');
         });
 
 

@@ -101,6 +101,11 @@ class User extends Authenticatable
     	return $this->hasMany('App\Models\SBM', 'id_users');
     }
 
+    public function bmr()
+    {
+    	return $this->hasMany('App\Models\BMR', 'id_users');
+    }
+
     
     
 }

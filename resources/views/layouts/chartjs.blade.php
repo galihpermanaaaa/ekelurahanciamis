@@ -62,6 +62,7 @@
   var duda_tab = <?php echo json_encode($duda_tab)?>;
   var janda_tab = <?php echo json_encode($janda_tab)?>;
   var skbm_tab = <?php echo json_encode($skbm_tab)?>;
+  var bmr_tab = <?php echo json_encode($bmr_tab)?>;
 
 Highcharts.chart('container', {
   chart: {
@@ -135,6 +136,11 @@ Highcharts.chart('container', {
         {
           name: "Surat Keterangan Belum Menikah",
           y: skbm_tab,
+        },
+
+        {
+          name: "Surat Keterangan Belum Memiliki Rumah",
+          y: bmr_tab,
         },
 
       ]

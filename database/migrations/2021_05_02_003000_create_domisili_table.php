@@ -28,7 +28,7 @@ class CreateDomisiliTable extends Migration
             $table->unsignedBigInteger('dis_id');
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
-            $table->enum('rt', ['1','2','3','4','5','6','7','8']);
+            $table->string('rt');
             $table->string('alamat_asal');
             $table->string('ktp_domisili');
             $table->string('kk_domisili');

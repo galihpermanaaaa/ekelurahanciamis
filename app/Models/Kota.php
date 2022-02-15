@@ -56,6 +56,11 @@ class Kota extends Model
     	return $this->hasMany('App\Models\SBM', 'city_id');
     }
 
+    public function bmr()
+    {
+    	return $this->hasMany('App\Models\BMR', 'city_id');
+    }
+
 
 
   

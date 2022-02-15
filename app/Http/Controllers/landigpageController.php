@@ -26,6 +26,9 @@ use App\Models\SuratJandaDitolak;
 use App\Models\SBM;
 use App\Models\SBM_Diterima;
 use App\Models\SBM_Ditolak;
+use App\Models\BMR;
+use App\Models\BMR_Diterima;
+use App\Models\BMR_Ditolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -38,6 +41,7 @@ use App\Mail\PembuatSuratDomisili;
 use App\Mail\PembuatSuratKeteranganDuda;
 use App\Mail\PembuatSuratKeteranganJanda;
 use App\Mail\PembuatSuratBelumMenikah;
+use App\Mail\PembuatSuratBelumMemilikiRumah;
 use Illuminate\Support\Facades\Mail;
 use App\Helpers;
 use App\tgl_indo;
@@ -1469,4 +1473,233 @@ class landigpageController extends Controller
 
     }
 
+    public function saveBMR(Request $request)
+    {
+        $token=null;
+        $token = Str::random(11);
+
+
+        $request->validate([
+            'nik'                           => 'required|min:16|numeric',
+            'nama'                          => 'required|string|max:30',
+            'jk'                            => 'required',
+            'tanggal_lahir'                 => 'required|date',
+            'status_perkawinan'             => 'required',
+            'status_kewarganegaraan'        => 'required',
+            'agama'                         => 'required',
+            'pekerjaan'                     => 'required',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
+
+            'pengantar_dari_rt'             => 'required',
+            'pengantar_dari_rw'             => 'required',
+
+            'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pengantar_rt'            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pernyataan_bermaterai'   => 'required|image|mimes:jpeg,jpg,png|max:5000',
+
+            'verifikasi'                    => 'required',
+            'email'                         => 'required',
+            'tanggal_buat_surat'            => 'required|date',
+            
+        ]);
+
+        $file1 = time().'.'.$request->ktp->extension();
+        $request->ktp->move(public_path('bmr/ktp'), $file1);
+
+        $file2 = time().'.'.$request->kk->extension();
+        $request->kk->move(public_path('bmr/kk'), $file2);
+
+        $file3 = time().'.'.$request->surat_pengantar_rt->extension();
+        $request->surat_pengantar_rt->move(public_path('bmr/pengantar_rt_rw'), $file3);
+
+        $file4 = time().'.'.$request->surat_pernyataan_bermaterai->extension();
+        $request->surat_pernyataan_bermaterai->move(public_path('bmr/surat_pernyataan_bermaterai'), $file4);
+
+       
+
+        $form = new BMR;
+        $form->nik                          = $request->nik;
+        $form->nama                         = $request->nama;
+        $form->jk                           = $request->jk;
+        $form->tanggal_lahir                = $request->tanggal_lahir;
+        $form->status_perkawinan            = $request->status_perkawinan;
+        $form->status_kewarganegaraan       = $request->status_kewarganegaraan;
+        $form->agama                        = $request->agama;
+        $form->pekerjaan                    = $request->pekerjaan;
+        $form->prov_id                      = $request->prov_id;
+        $form->city_id                      = $request->city_id;
+        $form->dis_id                      =  $request->dis_id;
+        $form->subdis_id                   =  $request->subdis_id;
+        $form->id_rw                        = $request->id_rw;
+        $form->rt                           = $request->rt;
+
+        $form->pengantar_dari_rt            = $request->pengantar_dari_rt;
+        $form->pengantar_dari_rw            = $request->pengantar_dari_rw;
+
+        $form->ktp                              = $file1;
+        $form->kk                               = $file2;
+        $form->surat_pengantar_rt               = $file3;
+        $form->surat_pernyataan_bermaterai      = $file4;
+
+
+        $form->token                            = $token;
+        $form->verifikasi                        = $request->verifikasi;
+        $form->email                            = $request->email;
+        $form->tanggal_buat_surat                = $request->tanggal_buat_surat;
+
+
+      
+     
+        $form->save();
+        Mail::to($request->email)->send(new \App\Mail\PembuatSuratBelumMemilikiRumah($form));
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        return redirect()->route('index');
+    }
+
+    public function filterbmr(Request $request)
+    {
+
+        $token = $request->token;
+        
+        if(!empty($token)){
+            $data = BMR::where('token', 'like', "%" . $token . "%")->get();
+        }else{
+            Alert::error('Maaf', 'token tersebut tidak ditemukan, silahkan lakukan pembuatan surat untuk mendapatkan token ')->persistent('Close');
+            return redirect()->route('index');
+        }
+        return view('layanan.bmr', compact('data'));
+    }
+
+
+    public function layanan_surat_bmr($id)
+    {
+        $data = BMR::join('bmr_diterima', 'bmr_diterima.id_bmr', '=', 'bmr.id')
+        ->where('id',$id)->get();
+
+        foreach ($data as $p) {
+          
+        $this->fpdf = new Fpdf;
+        $this->fpdf->SetFont('times', 'B', 15);
+        $this->fpdf->AddPage(['P','mm','a4']);
+        $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
+        // $this->fpdf->Text(10, 10, $p->nama);
+        
+        $this->fpdf->SetFont('times','B',20);
+
+        // Membuat string
+        $this->fpdf->Cell(200,6,'PEMERINTAH KABUPATEN CIAMIS',0,1,'C');
+        $this->fpdf->Cell(200,7,'KECAMATAN CIAMIS',0,1,'C');
+        $this->fpdf->Cell(200,8,'KELURAHAN CIAMIS',0,1,'C');
+
+        $this->fpdf->SetFont('times','B',10);
+        $this->fpdf->Cell(200,9,'Jalan Pemuda Nomor 1 Telp.(0265)771045 Ciamis 46211',0,1,'C');
+        $this->fpdf->SetFont('times','B',9);
+        // $this->fpdf->Cell(200,5,'',0,1,'C');
+
+
+        // Setting spasi kebawah supaya tidak rapat
+        $this->fpdf->Cell(10,5,'',0,1);
+        $this->fpdf->SetLineWidth(1);
+        $this->fpdf->Line(10,39,200,39);
+        $this->fpdf->SetLineWidth(0);
+        $this->fpdf->Line(10,40,200,40);
+
+        $this->fpdf->SetFont('times','BU',14);
+
+
+        $this->fpdf->Cell(190,6,'SURAT KETERANGAN BELUM MEMILIKI RUMAH',0,1,'C');
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_bmr_diterima.'/'.$p->id_bmr_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Ln();
+
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->write(8,'Yang bertanda tangan di bawah ini Lurah Ciamis Kecamatan Ciamis Kabupaten Ciamis menerangkan:',0,1);
+
+        $this->fpdf->Ln();
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Nama',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nama,0,1);
+
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'NIK',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
+
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->jk,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Status Perkawinan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->status_perkawinan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Kewarganegaraan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->status_kewarganegaraan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Agama',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->agama,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Pekerjaan',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->pekerjaan,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Alamat',0,0);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT '.$p->pengantar_dari_rt. '  RW '.$p->pengantar_dari_rw. '  Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis bahwa orang tersebut, memang tidak memiliki hak kepemilikan atas rumah.',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Ln();
+
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Ln();
+
+
+        
+        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->Cell(37,6,'',0,0,'C');
+        $this->fpdf->Cell(82,6,'',0,0);
+        $this->fpdf->Cell(14,6,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+
+
+
+        $this->fpdf->Cell(42,6,'',0,0,'C');
+        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->SetFont('times','B',12);
+        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
+        
+
+        $this->fpdf->Cell(40,20,'',0,0, 'C');
+        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->SetFont('times','BU',12);
+        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+
+        $this->fpdf->SetFont('times','B',12);
+        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Output();
+       
+        exit; 
+        }
+
+    }
 }

@@ -5,7 +5,7 @@
 
     <div class="pagetitle">
     @foreach($user as $key => $items)
-    <h1>Daftar Surat Keterangan Duda RW : {{$items->nama_rw}}</h1>
+    <h1>Daftar Surat Keterangan Belum Menikah RW : {{$items->nama_rw}}</h1>
     @endforeach
     </div><!-- End Page Title -->
 

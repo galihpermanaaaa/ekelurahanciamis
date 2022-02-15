@@ -84,6 +84,14 @@ class CreateTableSubdistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('bmr', function (Blueprint $table) {
+            $table->foreign('subdis_id')
+            ->references('subdis_id')
+            ->on('subdistricts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -123,6 +131,10 @@ class CreateTableSubdistricts extends Migration
 
         Schema::table('sbm', function(Blueprint $table) {
             $table->dropforeign('sbm_subdis_id_foreign');
+        });
+
+        Schema::table('bmr', function(Blueprint $table) {
+            $table->dropforeign('bmr_subdis_id_foreign');
         });
         
       

@@ -27,6 +27,7 @@ Route::post('save_domisili', [App\Http\Controllers\landigpageController::class, 
 Route::post('save_duda', [App\Http\Controllers\landigpageController::class, 'saveDuda'])->name('save_duda');
 Route::post('save_janda', [App\Http\Controllers\landigpageController::class, 'saveJanda'])->name('save_janda');
 Route::post('save_sbm', [App\Http\Controllers\landigpageController::class, 'saveSBM'])->name('save_sbm');
+Route::post('save_bmr', [App\Http\Controllers\landigpageController::class, 'saveBMR'])->name('save_bmr');
 
 
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
@@ -35,6 +36,7 @@ Route::get('layanan/domisili',  [App\Http\Controllers\landigpageController::clas
 Route::get('layanan/duda',  [App\Http\Controllers\landigpageController::class, 'filterduda'])->name('layanan/duda');
 Route::get('layanan/janda',  [App\Http\Controllers\landigpageController::class, 'filterjanda'])->name('layanan/janda');
 Route::get('layanan/skbm',  [App\Http\Controllers\landigpageController::class, 'filterskbm'])->name('layanan/skbm');
+Route::get('layanan/bmr',  [App\Http\Controllers\landigpageController::class, 'filterbmr'])->name('layanan/bmr');
 
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('layanan/surat_skm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skm']);
@@ -42,6 +44,7 @@ Route::get('layanan/surat_domisili/{id}', [App\Http\Controllers\landigpageContro
 Route::get('layanan/surat_duda/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_duda']);
 Route::get('layanan/surat_janda/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_janda']);
 Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skbm']);
+Route::get('layanan/surat_bmr/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_bmr']);
 
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');
@@ -144,6 +147,15 @@ Route::get('user/skbm/data_skbm/cari_skbm',  [App\Http\Controllers\PembuatSuratS
 Route::get('user/skbm/data_skbm_rw', [App\Http\Controllers\PembuatSuratSBMController::class, 'indexRWSkbm'])->name('user/skbm/data_skbm_rw');
 
 
+// -----------------------------bmr----------------------------------------//
+Route::get('user/bmr/data_bmr', [App\Http\Controllers\PembuatSuratBMRController::class, 'index'])->name('user/bmr/data_bmr');
+Route::get('user/bmr/verifikasi_bmr/{id}', [App\Http\Controllers\PembuatSuratBMRController::class, 'verifikasi_bmr']);
+Route::post('user/bmr/verifikasi_bmr_bmr', [App\Http\Controllers\PembuatSuratBMRController::class, 'verifikasi_bmr_bmr'])->name('verifikasi_bmr_bmr');
+Route::get('user/bmr/surat_bmr/{id}', [App\Http\Controllers\PembuatSuratBMRController::class, 'surat_bmr']);
+Route::delete('delete_bmr', [App\Http\Controllers\PembuatSuratBMRController::class, 'destroy_bmr'])->name('delete_bmr');
+Route::get('user/bmr/lihat_data_bmr/{id}', [App\Http\Controllers\PembuatSuratBMRController::class, 'lihat_data_bmr']);
+Route::get('user/bmr/data_bmr/cari_bmr',  [App\Http\Controllers\PembuatSuratBMRController::class, 'filterbmr'])->name('user/bmr/data_bmr/cari_bmr');
+Route::get('user/bmr/data_bmr_rw', [App\Http\Controllers\PembuatSuratBMRController::class, 'indexRWBmr'])->name('user/bmr/data_bmr_rw');
 
 
 Auth::routes(['register' => false]);

@@ -136,7 +136,16 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm') }}">
           <i class="bi bi-person"></i>
-          <span>Data Pembuat Belum Nikah</span>
+          <span>Data Pembuat Ket Belum Nikah (SKBM)</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/bmr/data_bmr') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Pembuat Ket Belum Memiliki Rumah (SKBMR)</span>
         </a>
       </li><!-- End Dashboard Nav -->
       @endif
@@ -193,6 +202,15 @@
         <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm_rw') }}">
           <i class="bi bi-person"></i>
           <span>Data Surat Belum Nikah</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/bmr/data_bmr_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Surat Belum Memiliki Rumah</span>
         </a>
       </li><!-- End Dashboard Nav -->
       @endif

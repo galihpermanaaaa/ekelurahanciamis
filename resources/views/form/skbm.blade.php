@@ -284,7 +284,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP</label>
-                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp_duda" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
+                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp_skbm" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
                         @error('ktp')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -293,7 +293,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Upload KK</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk_duda" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk_skbm" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
                         @error('kk')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -304,7 +304,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control @error('surat_pengantar_rt') is-invalid @enderror" id="surat_pengantar_rt_duda" name="surat_pengantar_rt" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
+                        <input type="file" class="form-control @error('surat_pengantar_rt') is-invalid @enderror" id="surat_pengantar_rt_rw_skbm" name="surat_pengantar_rt" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
                         @error('surat_pengantar_rt')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -329,3 +329,66 @@
     </div>
 </div>
 <!-- Modal Janda -->
+
+
+<script>
+ $(document).ready(function(){
+        $('#kk_skbm').change(function(){
+               var memberImgfl = $("#kk_skbm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#kk_skbm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#ktp_skbm').change(function(){
+               var memberImgfl = $("#ktp_skbm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#ktp_skbm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_rt_rw_skbm').change(function(){
+               var memberImgfl = $("#surat_pengantar_rt_rw_skbm");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_rt_rw_skbm').val('');
+               }
+           }
+        });
+    });
+</script>
+
+

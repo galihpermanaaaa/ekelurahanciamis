@@ -27,6 +27,9 @@ use App\Models\SuratJandaDitolak;
 use App\Models\SBM;
 use App\Models\SBM_Diterima;
 use App\Models\SBM_Ditolak;
+use App\Models\BMR;
+use App\Models\BMR_Diterima;
+use App\Models\BMR_Ditolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -80,6 +83,13 @@ class HomeController extends Controller
         $skbm = SBM::where('verifikasi', 'Belum Diverifikasi')->get();
         $skbm_count = $skbm->count();
 
+        $bmr = BMR::where('verifikasi', 'Belum Diverifikasi')->get();
+        $bmr_count = $bmr->count();
+
+        
+
+        $bmr_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
+        $bmr_count_verifikasi = $bmr_verifikasi->count();
 
         $sku_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
         $sku_count_verifikasi = $sku_verifikasi->count();
@@ -167,6 +177,18 @@ class HomeController extends Controller
         $skbm_verifikasi_rw_belum = SBM::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
         $skbm_count_verifikasi_rw_belum = $skbm_verifikasi_rw_belum->count();
 
+
+
+        $bmr_verifikasi_rw_terverifikasi = BMR::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $bmr_count_verifikasi_rw_terverifikasi = $bmr_verifikasi_rw_terverifikasi->count();
+
+        $bmr_verifikasi_rw_ditolak = BMR::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $bmr_count_verifikasi_rw_ditolak = $bmr_verifikasi_rw_ditolak->count();
+
+        $bmr_verifikasi_rw_belum = BMR::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $bmr_count_verifikasi_rw_belum = $bmr_verifikasi_rw_belum->count();
+
+        
        
 
         $sku_tab = SKU::all()->count();
@@ -175,6 +197,7 @@ class HomeController extends Controller
         $duda_tab = SuratDuda::all()->count();
         $janda_tab = SuratJanda::all()->count();
         $skbm_tab = SBM::all()->count();
+        $bmr_tab = BMR::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -707,6 +730,73 @@ class HomeController extends Controller
         ->where('id_rw', '32')->count();
 
 
+
+        $bmr_rep_1 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $bmr_rep_2 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $bmr_rep_3 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $bmr_rep_4 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $bmr_rep_5 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $bmr_rep_6 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $bmr_rep_7 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $bmr_rep_8 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $bmr_rep_9 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $bmr_rep_10 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $bmr_rep_11 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $bmr_rep_12 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $bmr_rep_13 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $bmr_rep_14 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $bmr_rep_15 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $bmr_rep_16 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $bmr_rep_17 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $bmr_rep_18 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $bmr_rep_19 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $bmr_rep_20 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $bmr_rep_21 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $bmr_rep_22 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $bmr_rep_23 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $bmr_rep_24 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $bmr_rep_25 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $bmr_rep_26 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $bmr_rep_27 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $bmr_rep_28 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $bmr_rep_29 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $bmr_rep_30 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $bmr_rep_31 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $bmr_rep_32 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
@@ -758,7 +848,10 @@ class HomeController extends Controller
     'sbm_rep_1', 'sbm_rep_2', 'sbm_rep_3', 'sbm_rep_4', 'sbm_rep_5', 'sbm_rep_6', 'sbm_rep_7', 'sbm_rep_8', 'sbm_rep_9', 'sbm_rep_10', 'sbm_rep_11', 'sbm_rep_12', 'sbm_rep_13', 
     'sbm_rep_14', 'sbm_rep_15', 'sbm_rep_16', 'sbm_rep_17', 'sbm_rep_18', 'sbm_rep_19', 'sbm_rep_20', 'sbm_rep_21', 'sbm_rep_22', 'sbm_rep_23', 'sbm_rep_24', 'sbm_rep_25', 'sbm_rep_25', 'sbm_rep_26',
     'sbm_rep_27', 'sbm_rep_28', 'sbm_rep_28', 'sbm_rep_29', 'sbm_rep_30', 'sbm_rep_31', 'sbm_rep_32','skbm_verifikasi_rw_terverifikasi', 'skbm_count_verifikasi_rw_terverifikasi', 'skbm_verifikasi_rw_ditolak', 'skbm_count_verifikasi_rw_ditolak',
-    'skbm_verifikasi_rw_belum', 'skbm_count_verifikasi_rw_belum'));
+    'skbm_verifikasi_rw_belum', 'skbm_count_verifikasi_rw_belum', 'bmr_tab', 'bmr','bmr_count', 'bmr_verifikasi', 'bmr_count_verifikasi', 'bmr_rep_1', 'bmr_rep_2', 'bmr_rep_3', 'bmr_rep_4', 'bmr_rep_5', 'bmr_rep_6', 'bmr_rep_7', 'bmr_rep_8',
+    'bmr_rep_9', 'bmr_rep_10', 'bmr_rep_11', 'bmr_rep_12', 'bmr_rep_13', 'bmr_rep_14', 'bmr_rep_15', 'bmr_rep_16', 'bmr_rep_17', 'bmr_rep_18', 'bmr_rep_19', 'bmr_rep_20', 'bmr_rep_21', 'bmr_rep_22', 'bmr_rep_22', 'bmr_rep_23',
+    'bmr_rep_24', 'bmr_rep_25', 'bmr_rep_25', 'bmr_rep_26', 'bmr_rep_27', 'bmr_rep_28', 'bmr_rep_29', 'bmr_rep_30', 'bmr_rep_31', 'bmr_rep_32', 'bmr_verifikasi_rw_terverifikasi', 'bmr_count_verifikasi_rw_terverifikasi', 'bmr_verifikasi_rw_ditolak', 'bmr_count_verifikasi_rw_ditolak',
+    'bmr_verifikasi_rw_belum', 'bmr_count_verifikasi_rw_belum'));
     }
 
 

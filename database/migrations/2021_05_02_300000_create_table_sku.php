@@ -28,7 +28,7 @@ class CreateTableSku extends Migration
             $table->unsignedBigInteger('dis_id');
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
-            $table->enum('rt', ['1','2','3','4','5','6','7','8']);
+            $table->string('rt');
             $table->string('nomor_surat_pengantar_rw_rt');
             $table->string('keperluan');
             $table->string('bidang_usaha');
