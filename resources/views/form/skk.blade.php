@@ -65,7 +65,7 @@
                     <div class="container col-md-12">
                         <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Nama</label>
+                        <label class="form-label">Nama Yang Meninggal</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
                         <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
                         <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">NIK</label>
+                        <label class="form-label">NIK Yang Meninggal</label>
                         <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" placeholder="Nomor Induk Kependudukan Anda" required />
                         @error('nik')
                         <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
 
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Tanggal Lahir</label>
+                        <label class="form-label">Tanggal Lahir Yang Meninggal</label>
                         <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" required />
                         @error('tanggal_lahir')
                         <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
 
 
                     <div class="col-md-6">
-                        <label class="form-label">Kewarganegaraan</label>
+                        <label class="form-label">Kewarganegaraan Yang Meninggal</label>
                         <select  class="form-control @error('status_kewarganegaraan') is-invalid @enderror" name="status_kewarganegaraan" id="status_kewarganegaraan" required>
                         <option value="">--Pilih Status Kewarganegaraan Anda--</option>
                         <option value="WNI">WNI</option>
@@ -119,7 +119,7 @@
 
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Agama</label>
+                        <label class="form-label">Agama Yang Meninggal</label>
                         <select  class="form-control @error('agama') is-invalid @enderror" name="agama" id="agama" required>
                         <option value="">--Pilih Agama Anda--</option>
                         <option value="Islam">Islam</option>
@@ -135,9 +135,10 @@
                            @enderror
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Pekerjaan</label>
-                        <select  class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" required>
-                        <option value="">--Pilih Pekerjaan Anda--</option>
+                        <label class="form-label">Pekerjaan Yang Meninggal</label>
+                        <select  class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="select-item" required>
+                        <option value="">--Pilih Pekerjaan Almarhum--</option>
+                        <option value="Pensiunan">Pensiunan</option>
                         <option value="PNS">PNS</option>
                         <option value="Wiraswasta">Wiraswasta</option>
                         <option value="Wirausaha">Wirausaha</option>
@@ -161,9 +162,11 @@
                          @enderror
                     </div>
             </div>
+            <hr>
+            <P>Alamat yang meninggal </p>
             <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Provinsi</label>
+                        <label class="form-label">Provinsi </label>
                         <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi4" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
@@ -247,10 +250,9 @@
 
             <hr>
            <div class="row">
-
-            <div class="col-md-6">
-                        <label class="form-label">Pengantar Dari Lingkungan</label>
-                        <input type="text" class="form-control @error('pengantar_dari') is-invalid @enderror" id="pengantar_dari" name="pengantar_dari" placeholder="Contoh: RT/RW" required>
+           <div class="col-md-6">
+                        <label class="form-label">Lingkungan</label>
+                        <input type="text" class="form-control @error('lingkungan') is-invalid @enderror" id="lingkungan" name="lingkungan" placeholder="Lingkungan yang meninggal" required>
                         @error('pengantar_dari')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -258,9 +260,49 @@
                             @enderror
                     </div>
 
+            <div class="col-md-6">
+                        <label class="form-label">Tanggal Meninggal</label>
+                        <input type="date" class="form-control @error('tanggal_meninggal') is-invalid @enderror" id="tanggal_meninggal" name="tanggal_meninggal" required>
+                        @error('tanggal_meninggal')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
                     <div class="col-md-6">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda" required />
+                        <label class="form-label">Meninggal Disebabkan</label>
+                        <input type="text" class="form-control @error('disebabkan') is-invalid @enderror" id="disebabkan" name="disebabkan" required>
+                        @error('disebabkan')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Tempat Meninggal</label>
+                        <input type="text" class="form-control @error('ditempat') is-invalid @enderror" id="ditempat" name="ditempat" required>
+                        @error('ditempat')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Surat Keterangan ini diperlukan untuk</label>
+                        <input type="text" class="form-control @error('surat_diperlukan_untuk') is-invalid @enderror" id="surat_diperlukan_untuk" name="surat_diperlukan_untuk" required>
+                        @error('surat_diperlukan_untuk')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Email Pelapor</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email Anda Sebagai Pelapor" required />
                         @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -268,65 +310,78 @@
                                                 @enderror
                     </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="form-label">Tanggal Kematian</label>
-                    <input type="date" class="form-control @error('tanggal_kematian') is-invalid @enderror" id="tanggal_kematian" name="tanggal_kematian" placeholder="tanggal Kematian" required />
-                    @error('tanggal_kematian')
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                     @enderror
-                </div>
-                <div class="col-md-6">
-                            <label class="form-label">Keperluan</label>
-                            <input type="text" class="form-control @error('keperluan') is-invalid @enderror" id="keperluan" name="keperluan" placeholder="Keperluan" required>
-                            @error('keperluan')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                        </div>
-
-
-                </div>
+           
 
             <hr>
                     <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Upload KTP</label>
-                        <input type="file" class="form-control @error('ktp') is-invalid @enderror" id="ktp_duda" name="ktp" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
-                        @error('ktp')
+                        <label class="form-label">Upload KTP Yang Meninggal</label>
+                        <input type="file" class="form-control @error('ktp_almarhum') is-invalid @enderror" id="ktp_almarhum" name="ktp_almarhum" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
+                        @error('ktp_almarhum')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Upload KK</label>
-                        <input type="file" class="form-control @error('kk') is-invalid @enderror" id="kk_duda" name="kk" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
-                        @error('kk')
+                        <label class="form-label">Upload KK Yang Meninggal</label>
+                        <input type="file" class="form-control @error('kk_almarhum') is-invalid @enderror" id="kk_almarhum" name="kk_almarhum" accept="image/png, image/jpg, image/jpeg" placeholder="KK" required />
+                        @error('kk_almarhum')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                     </div>
-                    </div>
+                 
+
+
                     <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label">Upload Surat Pengantar</label>
-                        <input type="file" class="form-control @error('surat_pengantar_rt') is-invalid @enderror" id="surat_pengantar_rt_duda" name="surat_pengantar_rt" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
-                        @error('surat_pengantar_rt')
+                        <label class="form-label">Upload Surat Pengantar Dari RT</label>
+                        <input type="file" class="form-control @error('surat_pengantar_dari_rt') is-invalid @enderror" id="surat_pengantar_dari_rt" name="surat_pengantar_dari_rt" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
+                        @error('surat_pengantar_dari_rt')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    
+                    
+                    <div class="col-md-6">
+                        <label class="form-label">Upload Surat Pengantar Dari RS</label>
+                        <input type="file" class="form-control @error('surat_pengantar_dari_rs') is-invalid @enderror" id="surat_pengantar_dari_rs" name="surat_pengantar_dari_rs" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar Rumah Sakit" required />
+                        @error('surat_pengantar_dari_rs')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+                    </div>
+
+                    <div id ="no1" class="col-md-6" style="display:none">
+                    <label class="form-label">SK Terakhir Yang Meninggal</label>
+                        <input type="file" class="form-control @error('sk_terakhir') is-invalid @enderror" name="sk_terakhir" accept="image/png, image/jpg, image/jpeg" placeholder="SK" required />
+                        @error('sk_terakhir')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                     </div>
 
-                    <div class="col-md-6">
-                        <label class="form-label">Upload Surat Kematian/Cerai</label>
-                        <input type="file" class="form-control @error('kematian_akta_cerai') is-invalid @enderror" id="kematian_akta_cerai_duda" name="kematian_akta_cerai" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
-                        @error('kematian_akta_cerai')
+                    <div id ="no2" class="col-md-6" style="display:none">
+                    <label class="form-label">Karip Yang Meninggal</label>
+                        <input type="file" class="form-control @error('karip') is-invalid @enderror" name="karip" accept="image/png, image/jpg, image/jpeg" placeholder="Karip" required />
+                        @error('karip')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                    </div>
+
+                    <div id ="no3" class="col-md-6" style="display:none">
+                    <label class="form-label">Tabungan Pensiunan Yang Meninggal</label>
+                        <input type="file" class="form-control @error('tabungan_pensiunan') is-invalid @enderror" name="tabungan_pensiunan" accept="image/png, image/jpg, image/jpeg" placeholder="Tabungan Pensiunan" required />
+                        @error('tabungan_pensiunan')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -347,4 +402,18 @@
         </div>
     </div>
 </div>
-<!-- Modal Janda -->
+<!-- Modal Kematian -->
+
+<script type="text/javascript">
+$("#select-item").click(function () {
+    if($(this).val() == 'Pensiunan'){
+        $('#no1').show()
+		$('#no2').show()
+		$('#no3').show()
+    } else {
+        $('#no1').hide()
+		$('#no2').hide()
+		$('#no3').hide()
+    }
+});
+</script>
