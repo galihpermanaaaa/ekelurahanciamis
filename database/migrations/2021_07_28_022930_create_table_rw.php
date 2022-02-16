@@ -83,6 +83,14 @@ class CreateTableRw extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
+
+        Schema::table('kematian', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
     }
 
     /**
@@ -122,6 +130,10 @@ class CreateTableRw extends Migration
 
         Schema::table('bmr', function(Blueprint $table) {
             $table->dropforeign('bmr_id_rw_foreign');
+        });
+
+        Schema::table('kematian', function(Blueprint $table) {
+            $table->dropforeign('kematian_id_rw_foreign');
         });
 
         Schema::dropIfExists('rw');

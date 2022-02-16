@@ -57,4 +57,9 @@ class RW extends Model
     	return $this->hasMany('App\Models\BMR', 'id_rw');
     }
 
+    public function kematian()
+    {
+    	return $this->hasMany('App\Models\Kematian', 'id_rw');
+    }
+
 }

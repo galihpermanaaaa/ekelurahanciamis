@@ -62,4 +62,9 @@ class Desa extends Model
     	return $this->hasMany('App\Models\BMR', 'subdis_id');
     }
 
+    public function kematian()
+    {
+    	return $this->hasMany('App\Models\Kematian', 'subdis_id');
+    }
+
 }

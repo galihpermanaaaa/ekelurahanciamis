@@ -88,6 +88,14 @@ class CreateUsersTable extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('kematian', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
        
 
     }
@@ -125,6 +133,10 @@ class CreateUsersTable extends Migration
 
         Schema::table('bmr', function(Blueprint $table) {
             $table->dropforeign('bmr_id_users_foreign');
+        });
+
+        Schema::table('kematian', function(Blueprint $table) {
+            $table->dropforeign('kematian_id_users_foreign');
         });
 
         

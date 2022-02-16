@@ -62,4 +62,9 @@ class Kecamatan extends Model
     	return $this->hasMany('App\Models\BMR', 'dis_id');
     }
 
+    public function kematian()
+    {
+    	return $this->hasMany('App\Models\Kematian', 'dis_id');
+    }
+
 }

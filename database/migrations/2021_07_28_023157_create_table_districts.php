@@ -95,6 +95,14 @@ class CreateTableDistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('kematian', function (Blueprint $table) {
+            $table->foreign('dis_id')
+            ->references('dis_id')
+            ->on('districts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -134,6 +142,10 @@ class CreateTableDistricts extends Migration
 
         Schema::table('bmr', function(Blueprint $table) {
             $table->dropforeign('bmr_dis_id_foreign');
+        });
+
+        Schema::table('kematian', function(Blueprint $table) {
+            $table->dropforeign('kematian_dis_id_foreign');
         });
         
         Schema::dropIfExists('districts');

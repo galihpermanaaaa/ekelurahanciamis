@@ -28,6 +28,7 @@ Route::post('save_duda', [App\Http\Controllers\landigpageController::class, 'sav
 Route::post('save_janda', [App\Http\Controllers\landigpageController::class, 'saveJanda'])->name('save_janda');
 Route::post('save_sbm', [App\Http\Controllers\landigpageController::class, 'saveSBM'])->name('save_sbm');
 Route::post('save_bmr', [App\Http\Controllers\landigpageController::class, 'saveBMR'])->name('save_bmr');
+Route::post('save_kematian', [App\Http\Controllers\landigpageController::class, 'saveKematian'])->name('save_kematian');
 
 
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
@@ -37,6 +38,7 @@ Route::get('layanan/duda',  [App\Http\Controllers\landigpageController::class, '
 Route::get('layanan/janda',  [App\Http\Controllers\landigpageController::class, 'filterjanda'])->name('layanan/janda');
 Route::get('layanan/skbm',  [App\Http\Controllers\landigpageController::class, 'filterskbm'])->name('layanan/skbm');
 Route::get('layanan/bmr',  [App\Http\Controllers\landigpageController::class, 'filterbmr'])->name('layanan/bmr');
+Route::get('layanan/kematian',  [App\Http\Controllers\landigpageController::class, 'filterkematian'])->name('layanan/kematian');
 
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('layanan/surat_skm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skm']);
@@ -45,6 +47,7 @@ Route::get('layanan/surat_duda/{id}', [App\Http\Controllers\landigpageController
 Route::get('layanan/surat_janda/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_janda']);
 Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skbm']);
 Route::get('layanan/surat_bmr/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_bmr']);
+Route::get('layanan/surat_kematian/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_kematian']);
 
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');

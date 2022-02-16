@@ -60,7 +60,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ route('save_janda') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save_kematian') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="container col-md-12">
                         <div class="row">
@@ -69,8 +69,6 @@
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
                         <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
                         <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
-                        <input type="hidden" value="Perempuan" name="jk" required>
-                        <input type="hidden" value="Janda" name="status_perkawinan"  required>
                         @error('nama')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

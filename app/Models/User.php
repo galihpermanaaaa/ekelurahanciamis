@@ -106,6 +106,10 @@ class User extends Authenticatable
     	return $this->hasMany('App\Models\BMR', 'id_users');
     }
 
+    public function kematian()
+    {
+    	return $this->hasMany('App\Models\Kematian', 'id_users');
+    }
     
     
 }

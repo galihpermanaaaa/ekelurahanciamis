@@ -57,4 +57,8 @@ class Provinsi extends Model
     	return $this->hasMany('App\Models\BMR', 'prov_id');
     }
 
+    public function kematian()
+    {
+    	return $this->hasMany('App\Models\Kematian', 'prov_id');
+    }
 }
