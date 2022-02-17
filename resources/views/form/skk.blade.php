@@ -88,6 +88,18 @@
                 </div>
 
             <div class="row">
+
+            <div class="col-md-6">
+                        <label class="form-label">Tempat Lahir</label>
+                        <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat lahir yang meninggal" required />
+                        @error('tempat_lahir')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                         @enderror
+                    </div>
+
+
                     <div class="col-md-6">
                         <label class="form-label">Tanggal Lahir Yang Meninggal</label>
                         <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" required />
@@ -98,26 +110,22 @@
                          @enderror
                     </div>
 
-
-                    <div class="col-md-6">
-                        <label class="form-label">Kewarganegaraan Yang Meninggal</label>
-                        <select  class="form-control @error('status_kewarganegaraan') is-invalid @enderror" name="status_kewarganegaraan" id="status_kewarganegaraan" required>
-                        <option value="">--Pilih Status Kewarganegaraan Anda--</option>
-                        <option value="WNI">WNI</option>
-                        <option value="WNA">WNA</option>
-
-                        </select>
-                        @error('status_kewarganegaraan')
-                        <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                          </span>
-                          @enderror
-                    </div>
-
-
             </div>
 
             <div class="row">
+            <div class="col-md-6">
+                        <label for="pet-select">Pilih Jenis Kelamin:</label>
+                        <select  class="form-control @error('jk') is-invalid @enderror" name="jk" id="jk-select" required>
+                        <option value="">--Pilih Jenis Kelamin Anda--</option>
+                        <option value="Laki-laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                        </select>
+                        @error('jk')
+                         <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                           </span>
+                         @enderror
+                    </div>
                     <div class="col-md-6">
                         <label class="form-label">Agama Yang Meninggal</label>
                         <select  class="form-control @error('agama') is-invalid @enderror" name="agama" id="agama" required>
@@ -161,13 +169,46 @@
                           </span>
                          @enderror
                     </div>
+
+                    
+                    <div class="col-md-6">
+                        <label class="form-label">Kewarganegaraan Yang Meninggal</label>
+                        <select  class="form-control @error('status_kewarganegaraan') is-invalid @enderror" name="status_kewarganegaraan" id="status_kewarganegaraan" required>
+                        <option value="">--Pilih Status Kewarganegaraan Anda--</option>
+                        <option value="WNI">WNI</option>
+                        <option value="WNA">WNA</option>
+
+                        </select>
+                        @error('status_kewarganegaraan')
+                        <span class="invalid-feedback" role="alert">
+                         <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Status Perkawinan</label>
+                        <select  class="form-control @error('status_perkawinan') is-invalid @enderror" name="status_perkawinan" id="status_perkawinan" required>
+                        <option value="">--Pilih Status Perkawinan Anda--</option>
+                        <option value="Belum Menikah">Belum Menikah</option>
+                        <option value="Kawin">Kawin</option>
+                        <option value="Duda">Duda</option>
+                        <option value="Janda">Janda</option>
+                        </select>
+                        @error('status_perkawinan')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
             </div>
             <hr>
             <P>Alamat yang meninggal </p>
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Provinsi </label>
-                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi4" required>
+                        <select class="form-control @error('prov_id') is-invalid @enderror" name="prov_id" id="provinsi8" required>
                                                     <option selected>---Pilih Provinsi---</option>
                                                     @foreach ($provinsi as $prov)
                                                         <option  value="{{$prov->prov_id}}">{{$prov->prov_name}}</option>
@@ -181,7 +222,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kabupaten/Kota</label>
-                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota4" required>
+                        <select class="form-control @error('city_id') is-invalid @enderror" name="city_id" id="kota8" required>
                                                         <option selected>---Pilih Kabupaten/Kota---</option>
                                                 </select>
                                                 @error('city_id')
@@ -192,7 +233,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Kecamatan</label>
-                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan4" required>
+                        <select class="form-control @error('dis_id') is-invalid @enderror" name="dis_id" id="kecamatan8" required>
                                                     <option selected>---Pilih Kecamatan---</option>
                                                 </select>
                                                 @error('dis_id')
@@ -206,7 +247,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Desa/Kelurahan</label>
-                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa4" required>
+                        <select class="form-control @error('subdis_id') is-invalid @enderror" name="subdis_id" id="desa8" required>
                                                     <option selected>---Pilih Desa/Kelurahan---</option>
                                                 </select>
                                                 @error('subdis_id')
@@ -217,7 +258,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">RW</label>
-                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw4" required>
+                        <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw8" required>
                                                     <option selected>--Pilih RW--</option>
                                                 </select>
                                                 @error('id_rw')
@@ -313,7 +354,7 @@
            
 
             <hr>
-                    <div class="row">
+                <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload KTP Yang Meninggal</label>
                         <input type="file" class="form-control @error('ktp_almarhum') is-invalid @enderror" id="ktp_almarhum" name="ktp_almarhum" accept="image/png, image/jpg, image/jpeg" placeholder="KTP" required />
@@ -335,7 +376,6 @@
                  
 
 
-                    <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Upload Surat Pengantar Dari RT</label>
                         <input type="file" class="form-control @error('surat_pengantar_dari_rt') is-invalid @enderror" id="surat_pengantar_dari_rt" name="surat_pengantar_dari_rt" accept="image/png, image/jpg, image/jpeg" placeholder="Surat Pengantar RT/RW" required />
@@ -357,10 +397,10 @@
                                                 @enderror
                     </div>
                     </div>
-
+                    <div class="row">
                     <div id ="no1" class="col-md-6" style="display:none">
                     <label class="form-label">SK Terakhir Yang Meninggal</label>
-                        <input type="file" class="form-control @error('sk_terakhir') is-invalid @enderror" name="sk_terakhir" accept="image/png, image/jpg, image/jpeg" placeholder="SK" required />
+                        <input type="file" class="form-control @error('sk_terakhir') is-invalid @enderror" name="sk_terakhir" id="sk_terakhir" accept="image/png, image/jpg, image/jpeg" placeholder="SK"/>
                         @error('sk_terakhir')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -370,7 +410,7 @@
 
                     <div id ="no2" class="col-md-6" style="display:none">
                     <label class="form-label">Karip Yang Meninggal</label>
-                        <input type="file" class="form-control @error('karip') is-invalid @enderror" name="karip" accept="image/png, image/jpg, image/jpeg" placeholder="Karip" required />
+                        <input type="file" class="form-control @error('karip') is-invalid @enderror" name="karip" id="karip" accept="image/png, image/jpg, image/jpeg" placeholder="Karip"/>
                         @error('karip')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -380,15 +420,13 @@
 
                     <div id ="no3" class="col-md-6" style="display:none">
                     <label class="form-label">Tabungan Pensiunan Yang Meninggal</label>
-                        <input type="file" class="form-control @error('tabungan_pensiunan') is-invalid @enderror" name="tabungan_pensiunan" accept="image/png, image/jpg, image/jpeg" placeholder="Tabungan Pensiunan" required />
+                        <input type="file" class="form-control @error('tabungan_pensiunan') is-invalid @enderror" name="tabungan_pensiunan" id="tabungan_pensiunan" accept="image/png, image/jpg, image/jpeg" placeholder="Tabungan Pensiunan"/>
                         @error('tabungan_pensiunan')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                     </div>
-
-
                     </div>
 
 
@@ -416,4 +454,145 @@ $("#select-item").click(function () {
 		$('#no3').hide()
     }
 });
+</script>
+
+
+<script>
+ $(document).ready(function(){
+        $('#ktp_almarhum').change(function(){
+               var memberImgfl = $("#ktp_almarhum");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#ktp_almarhum').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#kk_almarhum').change(function(){
+               var memberImgfl = $("#kk_almarhum");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#kk_almarhum').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_dari_rt').change(function(){
+               var memberImgfl = $("#surat_pengantar_dari_rt");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_dari_rt').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#surat_pengantar_dari_rs').change(function(){
+               var memberImgfl = $("#surat_pengantar_dari_rs");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#surat_pengantar_dari_rs').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#sk_terakhir').change(function(){
+               var memberImgfl = $("#sk_terakhir");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#sk_terakhir').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#karip').change(function(){
+               var memberImgfl = $("#karip");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#karip').val('');
+               }
+           }
+        });
+    });
+</script>
+
+<script>
+ $(document).ready(function(){
+        $('#tabungan_pensiunan').change(function(){
+               var memberImgfl = $("#tabungan_pensiunan");
+               var lg = memberImgfl[0].files.length; // get Files length
+               var memberProfiles = memberImgfl[0].files;
+               var totalflsize = 0;
+           if (lg > 0) {
+               for (var i = 0; i < lg; i++) {
+                   totalflsize = totalflsize+memberProfiles[i].size; // get file size
+               }
+               if(totalflsize > 5000000) {
+                    alert('Gagal Upload File Maksimal 5 MB');
+                    $('#tabungan_pensiunan').val('');
+               }
+           }
+        });
+    });
 </script>

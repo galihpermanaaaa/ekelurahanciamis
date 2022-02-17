@@ -49,6 +49,9 @@ Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController
 Route::get('layanan/surat_bmr/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_bmr']);
 Route::get('layanan/surat_kematian/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_kematian']);
 
+
+
+
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');
 
@@ -159,6 +162,18 @@ Route::delete('delete_bmr', [App\Http\Controllers\PembuatSuratBMRController::cla
 Route::get('user/bmr/lihat_data_bmr/{id}', [App\Http\Controllers\PembuatSuratBMRController::class, 'lihat_data_bmr']);
 Route::get('user/bmr/data_bmr/cari_bmr',  [App\Http\Controllers\PembuatSuratBMRController::class, 'filterbmr'])->name('user/bmr/data_bmr/cari_bmr');
 Route::get('user/bmr/data_bmr_rw', [App\Http\Controllers\PembuatSuratBMRController::class, 'indexRWBmr'])->name('user/bmr/data_bmr_rw');
+
+
+// -----------------------------kematian----------------------------------------//
+Route::get('user/kematian/data_kematian', [App\Http\Controllers\PembuatSuratKematianController::class, 'index'])->name('user/kematian/data_kematian');
+Route::get('user/kematian/verifikasi_kematian/{id}', [App\Http\Controllers\PembuatSuratKematianController::class, 'verifikasi_kematian']);
+Route::post('user/kematian/verifikasi_kematian_kematian', [App\Http\Controllers\PembuatSuratKematianController::class, 'verifikasi_kematian_kematian'])->name('verifikasi_kematian_kematian');
+Route::get('user/kematian/surat_kematian/{id}', [App\Http\Controllers\PembuatSuratKematianController::class, 'surat_kematian']);
+Route::delete('delete_kematian', [App\Http\Controllers\PembuatSuratKematianController::class, 'destroy_kematian'])->name('delete_kematian');
+Route::get('user/kematian/lihat_data_kematian/{id}', [App\Http\Controllers\PembuatSuratKematianController::class, 'lihat_data_kematian']);
+Route::get('user/kematian/data_kematian/cari_kematian',  [App\Http\Controllers\PembuatSuratKematianController::class, 'filterkematian'])->name('user/kematian/data_kematian/cari_kematian');
+Route::get('user/kematian/data_kematian_rw', [App\Http\Controllers\PembuatSuratKematianController::class, 'indexRWKematian'])->name('user/kematian/data_kematian_rw');
+
 
 
 Auth::routes(['register' => false]);

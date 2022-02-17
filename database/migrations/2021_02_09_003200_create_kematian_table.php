@@ -66,7 +66,7 @@ class CreateKematianTable extends Migration
 
         Schema::table('kematian_ditolak', function (Blueprint $table) {
             $table->foreign('id_kematian')
-            ->references('id')
+            ->references('id') 
             ->on('kematian')
             ->onDelete('cascade')
             ->onUpdate('cascade');

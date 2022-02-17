@@ -29,6 +29,9 @@ use App\Models\SBM_Ditolak;
 use App\Models\BMR;
 use App\Models\BMR_Diterima;
 use App\Models\BMR_Ditolak;
+use App\Models\Kematian;
+use App\Models\Kematian_Ditolak;
+use App\Models\Kematian_Diterima;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -1701,5 +1704,134 @@ class landigpageController extends Controller
         exit; 
         }
 
+    }
+
+    public function saveKematian(Request $request)
+    {
+        $token=null;
+        $token = Str::random(11);
+
+
+        $request->validate([
+            'nik'                           => 'required|min:16|numeric',
+            'nama'                          => 'required|string|max:30',
+            'jk'                            => 'required',
+            'tempat_lahir'                  => 'required',
+            'tanggal_lahir'                 => 'required|date',
+            'status_perkawinan'             => 'required',
+            'status_kewarganegaraan'        => 'required',
+            'agama'                         => 'required',
+            'pekerjaan'                     => 'required',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
+
+            'lingkungan'                         => 'required',
+            'tanggal_meninggal'                  => 'required|date',
+            'disebabkan'                         => 'required',
+            'ditempat'                           => 'required',
+            'surat_diperlukan_untuk'             => 'required',
+
+            'ktp_almarhum'                       => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'kk_almarhum'                        => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pengantar_dari_rs'            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_pengantar_dari_rt'            => 'required|image|mimes:jpeg,jpg,png|max:5000',
+
+            'sk_terakhir'                       => 'image|mimes:jpeg,jpg,png|max:5000|nullable',
+            'karip'                             => 'image|mimes:jpeg,jpg,png|max:5000|nullable',
+            'tabungan_pensiunan'                => 'image|mimes:jpeg,jpg,png|max:5000|nullable',
+          
+
+            'verifikasi'                    => 'required',
+            'email'                         => 'required',
+            'tanggal_buat_surat'            => 'required|date',
+            
+        ]);
+
+        $file1 = time().'.'.$request->ktp_almarhum->extension();
+        $request->ktp_almarhum->move(public_path('kematian/ktp'), $file1);
+
+        $file2 = time().'.'.$request->kk_almarhum->extension();
+        $request->kk_almarhum->move(public_path('kematian/kk'), $file2);
+
+        $file3 = time().'.'.$request->surat_pengantar_dari_rt->extension();
+        $request->surat_pengantar_dari_rt->move(public_path('kematian/pengantar_rt_rw'), $file3);
+
+        $file4 = time().'.'.$request->surat_pengantar_dari_rs->extension();
+        $request->surat_pengantar_dari_rs->move(public_path('kematian/pengantar_rs'), $file4);
+
+        if(!empty($request->sk_terakhir)){
+            $file5 = time().'.'.$request->sk_terakhir->extension();
+            $request->sk_terakhir->move(public_path('kematian/sk_terakhir'), $file5);
+        }else{
+            $file5 = '';
+            $request->sk_terakhir;
+        }
+       
+
+        if(!empty($request->karip)){
+            $file6 = time().'.'.$request->karip->extension();
+            $request->karip->move(public_path('kematian/karip'), $file6);
+        }else{
+            $file6 = '';
+            $request->karip;
+        }
+
+        if(!empty($request->tabungan_pensiunan)){
+            $file7 = time().'.'.$request->tabungan_pensiunan->extension();
+            $request->tabungan_pensiunan->move(public_path('kematian/tabungan'), $file7);
+        }else{
+            $file7 = '';
+            $request->tabungan_pensiunan;
+        }
+
+
+        $form = new Kematian;
+        $form->nik                          = $request->nik;
+        $form->nama                         = $request->nama;
+        $form->jk                           = $request->jk;
+        $form->tempat_lahir                = $request->tempat_lahir;
+        $form->tanggal_lahir                = $request->tanggal_lahir;
+        $form->status_perkawinan            = $request->status_perkawinan;
+        $form->status_kewarganegaraan       = $request->status_kewarganegaraan;
+        $form->agama                        = $request->agama;
+        $form->pekerjaan                    = $request->pekerjaan;
+        $form->prov_id                      = $request->prov_id;
+        $form->city_id                      = $request->city_id;
+        $form->dis_id                       =  $request->dis_id;
+        $form->subdis_id                    =  $request->subdis_id;
+        $form->id_rw                        = $request->id_rw;
+        $form->rt                           = $request->rt;
+
+        $form->lingkungan                   = $request->lingkungan;
+        $form->tanggal_meninggal            = $request->tanggal_meninggal;
+        $form->disebabkan                   = $request->disebabkan;
+        $form->ditempat                     = $request->ditempat;
+        $form->surat_diperlukan_untuk       = $request->surat_diperlukan_untuk;
+
+        $form->ktp_almarhum                              = $file1;
+        $form->kk_almarhum                               = $file2;
+        $form->surat_pengantar_dari_rs                   = $file3;
+        $form->surat_pengantar_dari_rt                   = $file4;
+        $form->sk_terakhir                               = $file5;
+        $form->karip                                     = $file6;
+        $form->tabungan_pensiunan                        = $file7;
+
+
+        $form->token                                 = $token;
+        $form->verifikasi                            = $request->verifikasi;
+        $form->email                                 = $request->email;
+        $form->tanggal_buat_surat                    = $request->tanggal_buat_surat;
+
+
+      
+        
+        $form->save();
+        Mail::to($request->email)->send(new \App\Mail\PembuatSuratKematian($form));
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        return redirect()->route('index');
     }
 }
