@@ -374,7 +374,7 @@
                     <tr>
                       <td>
                         <br>
-                        <p>Berikut adalah hasil anda dalam menginput data untuk membuat Surat Keterangan Domisili di Kelurahan Ciamis</p>
+                        <p>Berikut adalah hasil pelaporan anda:</p>
                         <table  border="0" cellpadding="0" cellspacing="0">
 
                           <tr align="left">
@@ -399,14 +399,38 @@
                           </tr>
 
                           <tr align="left">
-                            <th>Alamat Asal: </th>
-                            <td>{{ $form['alamat_asal'] }} </td>
+                            <th>Konfirmasi Pembuatan Surat: </th>
+                            <td>{{ $form['tanggal_buat_surat'] }} </td>
                           </tr>
 
+                          <tr align="left">
+                            <th>Tanggal Diverifikasi: </th>
+                            <td>{{ $form['tanggal_verifikasi'] }} </td>
+                          </tr>
 
                           <tr align="left">
-                            <th>Alamat Sekarang: </th>
+                            <th>Status Verifikasi: </th>
+                            <td>{{ $form['verifikasi'] }} </td>
+                          </tr>
+
+                          <tr align="left">
+                            <th>Tanggal di Verifikasi: </th>
+                            <td>{{ $form['tanggal_verifikasi'] }} </td>
+                          </tr>
+
+                        
+
+                          <tr align="left">
+                            <th>Alamat: </th>
                             <td>RT. {{ $form['rt'] }}, RW. {{ $rw['nama_rw'] }}, Kelurahan. {{ $desa['subdis_name'] }}, Kecamatan {{ $kecamatan['dis_name'] }}, Kabupaten {{ $kota['city_name'] }} </td>
+                          </tr>
+
+                          <br>
+                          
+
+                          <tr align="left">
+                            <th>Deskripsi: </th>
+                            <td>{{ $form['deskripsi'] }} </td>
                           </tr>
                       
                           <tbody>
@@ -423,10 +447,10 @@
                         </table>
                         <br>
                         <p>Admin Kelurahan Ciamis</p>
-                          <p>Surat keterangan domisili Anda Belum diverifikasi oleh pihak verifikator kelurahan ciamis,  jadi mohon ditunggu sampai Surat keterangan domisili anda diverifikasi sehingga anda bisa mendapatkan Surat keterangan domisili</i><p>
-                          <p>Untuk melihat status surat anda silahkan cek surat anda dengan menginputkan TOKEN yang anda dapatkan dikolom Check Surat E-Kelurahan Ciamis</i><p>
+                          <p>Surat Keterangan Kematian yang anda laporkan sudah diverifikasi</i><p>
+                          <p>Untuk melihat status surat anda dan mendowonload suratnya, silahkan cek surat anda dengan menginputkan TOKEN yang anda dapatkan dikolom Check Surat E-Kelurahan Ciamis</i><p>
 
-                        <p>Mohon untuk tidak menyebarluaskan data anda tersebut dan harap cek email secara berkala untuk mengetahui hasil verifikasi pembuatan surat anda, terima kasih.</p>
+                        <p>Mohon untuk tidak menyebarluaskan data anda tersebut terima kasih.</p>
                         <p>Pengirim</p> 
                       </td>
                     </tr>

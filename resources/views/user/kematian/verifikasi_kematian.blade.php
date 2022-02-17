@@ -1,11 +1,11 @@
 @include('layouts.header')
 @include('layouts.sidebar')
-@include('user.duda.image')
+@include('user.kematian.image')
 
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Verifikasi Pembuatan Surat Keterangan Kematian</h1>
+      <h1>hasil Verifikasi Surat Keterangan Kematian</h1>
       <nav>
         
       </nav>
@@ -23,11 +23,11 @@
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Tanda Penduduk</h3>
                 <p>
-                <img id="myImg1" src="{{ URL::to('/kematian/ktp/'. $data[0]->ktp_almarhum) }}" alt="" width="20%" height="30%">
+                <img id="myImg" src="{{ URL::to('/kematian/ktp/'. $data[0]->ktp_almarhum) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal" class="modal">
                                         <span class="close">&times;</span>
-                                        <img class="modal-content" id="img01">
+                                        <img class="modal-content" id="img0">
                                         <div id="caption"></div>
                                         </div>
                 </p>
@@ -37,7 +37,20 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Kartu Keluarga</h3>
-                <p><img id="myImg2" src="{{ URL::to('/kematian/kk/'. $data[0]->kk_almarhum) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg1" src="{{ URL::to('/kematian/kk/'. $data[0]->kk_almarhum) }}" alt="" width="20%" height="30%">
+										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
+										<div id="myModal1" class="modal">
+                                        <span class="close">&times;</span>
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption1"></div>
+                                        </div></p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-wallet"></i>
+                <h3>Surat Pengantar RT/RW</h3>
+                <p><img id="myImg2" src="{{ URL::to('/kematian/pengantar_rt_rw/'. $data[0]->surat_pengantar_dari_rt) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal2" class="modal">
                                         <span class="close">&times;</span>
@@ -46,11 +59,12 @@
                                         </div></p>
               </div>
             </div>
+
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
-                <h3>Surat Pengantar RT/RW</h3>
-                <p><img id="myImg3" src="{{ URL::to('/kematian/pengantar_rt_rw/'. $data[0]->surat_pengantar_dari_rt) }}" alt="" width="20%" height="30%">
+                <h3>Surat Pengantar RS</h3>
+                <p><img id="myImg3" src="{{ URL::to('/kematian/pengantar_rs/'. $data[0]->surat_pengantar_dari_rs) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal3" class="modal">
                                         <span class="close">&times;</span>
@@ -63,27 +77,13 @@
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
-                <h3>Surat Pengantar RS</h3>
-                <p><img id="myImg4" src="{{ URL::to('/kematian/pengantar_rs/'. $data[0]->surat_pengantar_dari_rs) }}" alt="" width="20%" height="30%">
+                <h3>SK Terakhir Khsusus Pensiunan</h3>
+                <p><img id="myImg4" src="{{ URL::to('/kematian/sk_terakhir/'. $data[0]->sk_terakhir) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
 										<div id="myModal4" class="modal">
                                         <span class="close">&times;</span>
                                         <img class="modal-content" id="img04">
                                         <div id="caption4"></div>
-                                        </div></p>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-wallet"></i>
-                <h3>SK Terakhir Khsusus Pensiunan</h3>
-                <p><img id="myImg5" src="{{ URL::to('/kematian/sk_terakhir/'. $data[0]->sk_terakhir) }}" alt="" width="20%" height="30%">
-										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal5" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img05">
-                                        <div id="caption5"></div>
                                         </div></p>
               </div>
             </div>
@@ -94,12 +94,12 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Tabungan Khsusus Pensiunan</h3>
-                <p><img id="myImg6" src="{{ URL::to('/kematian/tabungan/'. $data[0]->tabungan_pensiunan) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg5" src="{{ URL::to('/kematian/tabungan/'. $data[0]->tabungan_pensiunan) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal6" class="modal">
+										<div id="myModal5" class="modal">
                                         <span class="close">&times;</span>
-                                        <img class="modal-content" id="img06">
-                                        <div id="caption4"></div>
+                                        <img class="modal-content" id="img05">
+                                        <div id="caption5"></div>
                                         </div></p>
               </div>
             </div>
@@ -109,12 +109,12 @@
               <div class="info-box card">
                 <i class="bi bi-wallet"></i>
                 <h3>Karip Khsusus Pensiunan</h3>
-                <p><img id="myImg7" src="{{ URL::to('/kematian/karip/'. $data[0]->karip) }}" alt="" width="20%" height="30%">
+                <p><img id="myImg6" src="{{ URL::to('/kematian/karip/'. $data[0]->karip) }}" alt="" width="20%" height="30%">
 										<P style="color:red;">(Klik Gambar Untuk Memperbesar)</p>
-										<div id="myModal7" class="modal">
+										<div id="myModal6" class="modal">
                                         <span class="close">&times;</span>
-                                        <img class="modal-content" id="img07">
-                                        <div id="caption4"></div>
+                                        <img class="modal-content" id="img06">
+                                        <div id="caption6"></div>
                                         </div></p>
               </div>
             </div>
@@ -123,6 +123,7 @@
 
         </div>
 
+
         <div class="col-xl-6">
           <div class="card p-4">
           <form action="{{ route('verifikasi_kematian_kematian') }}" method="POST" enctype="multipart/form-data">
@@ -130,50 +131,50 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label>Nama</label>
+                  <label>Nama Yang Meninggal</label>
                   <input type="text" name="nama" class="form-control" value="{{ $data[0]->nama }}"  required readonly>
                   <input type="hidden" name="id" class="form-control" value="{{ $data[0]->id }}"  required readonly>
                   <input type="hidden" name="token" class="form-control" value="{{ $data[0]->token }}"  required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Jenis Kelamin</label>
+                  <label>Jenis Kelamin Yang Meninggal</label>
                   <input type="text" name="jk" class="form-control" value="{{ $data[0]->jk}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Nomor Induk Kependudukan</label>
+                  <label>Nomor Induk Kependudukan Yang Meninggal</label>
                   <input type="number" class="form-control" value="{{ $data[0]->nik}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Tanggal Lahir</label>
+                  <label>Tanggal Lahir Yang Meninggal</label>
                   <input type="text" class="form-control" value="{{tanggal_indonesia($data[0]->tanggal_lahir)}}" required readonly>
                   <input type="hidden" class="form-control" name="tanggal_lahir" value="{{$data[0]->tanggal_lahir}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Status Perkawinan</label>
+                  <label>Status Perkawinan Yang Meninggal</label>
                   <input type="text" class="form-control" value="{{ $data[0]->status_perkawinan}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Status Kewarganegaraan</label>
+                  <label>Status Kewarganegaraan Yang Meninggal</label>
                   <input type="text" class="form-control" value="{{ $data[0]->status_kewarganegaraan}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Agama</label>
+                  <label>Agama Yang Meninggal</label>
                   <input type="text" class="form-control" value="{{ $data[0]->agama}}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label>Pekerjaan</label>
+                  <label>Pekerjaan Yang Meninggal</label>
                   <input type="text" class="form-control" value="{{ $data[0]->pekerjaan}}" required readonly>
                 </div>
 
                 <hr>
-
+                <p>Alamat Yang Meninggal</p>
                 <div class="col-md-6">
                   <label>RT</label>
                   <input type="text" class="form-control" name="rt" value="{{ $data[0]->rt}}" required readonly>
@@ -208,10 +209,28 @@
                   <input type="text" class="form-control" value="{{ $data[0]->provinces->prov_name}}" required readonly>
                 </div>
 
+              
+
+
                 <hr>
+                <div class="col-md-6">
+                  <label>Tanggal Meninggal</label>
+                  <input type="text" class="form-control" value="{{tanggal_indonesia($data[0]->tanggal_meninggal)}}" required readonly>
+                </div>
 
                 <div class="col-md-6">
-                  <label>Email</label>
+                  <label>Disebabkan</label>
+                  <input type="hidden" class="form-control" value="{{ $data[0]->disebabkan}}" required readonly>
+                  </div>
+
+                  <div class="col-md-6">
+                  <label>Tempat Meninggal</label>
+                  <input type="hidden" class="form-control" value="{{ $data[0]->ditempat}}" required readonly>
+                  </div>
+
+                <hr>
+                <div class="col-md-6">
+                  <label>Email Pelapor</label>
                   <input type="email" name="email" class="form-control" value="{{ $data[0]->email}}" required readonly>
                 </div>
 
@@ -276,15 +295,16 @@
 
 
 
-@include('layouts.footer')
+
+  @include('layouts.footer')
 
 <script type="text/javascript">
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg1");
-var modalImg = document.getElementById("img01");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img0");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
   modal.style.display = "block";
@@ -304,12 +324,12 @@ span.onclick = function() {
 
 <script type="text/javascript">
 // Get the modal
-var modal = document.getElementById("myModal2");
+var modal = document.getElementById("myModal1");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg2");
-var modalImg = document.getElementById("img02");
-var captionText = document.getElementById("caption2");
+var img = document.getElementById("myImg1");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption1");
 img.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.src;
@@ -327,12 +347,12 @@ span.onclick = function() {
 
 <script type="text/javascript">
 // Get the modal
-var modal = document.getElementById("myModal3");
+var modal = document.getElementById("myModal2");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg3");
-var modalImg = document.getElementById("img03");
-var captionText = document.getElementById("caption3");
+var img = document.getElementById("myImg2");
+var modalImg = document.getElementById("img02");
+var captionText = document.getElementById("caption2");
 img.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.src;
@@ -350,3 +370,100 @@ span.onclick = function() {
 
 
 
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal3");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg3");
+var modalImg = document.getElementById("img03");
+var captionText = document.getElementById("caption3");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[3];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal4");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg4");
+var modalImg = document.getElementById("img04");
+var captionText = document.getElementById("caption4");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[4];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal5");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg5");
+var modalImg = document.getElementById("img05");
+var captionText = document.getElementById("caption5");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[5];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal6");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg6");
+var modalImg = document.getElementById("img06");
+var captionText = document.getElementById("caption6");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[6];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>

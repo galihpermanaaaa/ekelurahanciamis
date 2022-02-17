@@ -11,8 +11,8 @@ use App\Models\RW;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Kematian;
-use App\Models\Kematian_Diterima;
-use App\Models\Kematian_Ditolak;
+use App\Models\KematianDiterima;
+use App\Models\KematianDitolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Codedge\Fpdf\Fpdf\Fpdf;
@@ -103,16 +103,16 @@ class PembuatSuratKematianController extends Controller
     }
 
 
-    public function lihat_data_skbm($id)
+    public function lihat_data_kematian($id)
     {
        
-        $data = SBM::where('id',$id)->get();
+        $data = Kematian::where('id',$id)->get();
         $provinsi =Provinsi::all();
         $kota = Kota::all();
         $kecamatan = Kecamatan::all();
         $desa = Desa::all();
         $rw = RW::all();
-        return view('user.skbm.lihat_data_skbm',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
+        return view('user.kematian.lihat_data_kematian',compact('data', 'provinsi', 'kota', 'kecamatan', 'desa', 'rw'));
        
     }
 
@@ -169,7 +169,7 @@ class PembuatSuratKematianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function verifikasi_skbm_skbm(Request $request)
+    public function verifikasi_kematian_kematian(Request $request)
     {
         $id                     = $request->id;
         $nama                   = $request->nama;
@@ -211,19 +211,19 @@ class PembuatSuratKematianController extends Controller
         ];
 
        
-        SBM::where('id',$request->id)->update($form);
+        Kematian::where('id',$request->id)->update($form);
         if($verifikasi=='Terverifikasi'){
-            $form1 = new SBM_Diterima;
-            $form1->id_sbm = $request->id;
+            $form1 = new KematianDiterima;
+            $form1->id_kematian = $request->id;
             $form1->save();
         }elseif($verifikasi=='Ditolak'){
-            $form2 = new SBM_Ditolak;
-            $form2->id_sbm = $request->id;
+            $form2 = new KematianDitolak;
+            $form2->id_kematian = $request->id;
             $form2->save();
         }
-        Mail::to($request->email)->send(new \App\Mail\VerifikasiSuratBelumNikah($form));
+        Mail::to($request->email)->send(new \App\Mail\VerifikasiSuratKeteranganKematian($form));
         Alert::success('Data Tersebut Berhasil Diverifikasi :)','Success');
-        return redirect()->route('user/skbm/data_skbm');
+        return redirect()->route('user/kematian/data_kematian');
 
     }
 
@@ -379,28 +379,29 @@ class PembuatSuratKematianController extends Controller
             $image_path = public_path().'/kematian/ktp/'.$kematian->ktp_almarhum;
             unlink($image_path);
         }else{
-            $image='';
+            $image_path='';
+           
         }
 
         if(!empty( $kematian->kk_almarhum)){
             $image_path1 = public_path().'/kematian/kk/'.$kematian->kk_almarhum;
             unlink($image_path1);
         }else{
-            $image1='';
+            $image_path1='';
         }
 
         if(!empty($kematian->surat_pengantar_dari_rs)){
             $image_path2 = public_path().'/kematian/pengantar_rs/'.$kematian->surat_pengantar_dari_rs;
             unlink($image_path2);
         }else{
-            $image2='';
+            $image_path2='';
         }
 
         if(!empty($kematian->surat_pengantar_dari_rt)){
             $image_path3 = public_path().'/kematian/pengantar_rt_rw/'.$kematian->surat_pengantar_dari_rt;
             unlink($image_path3);
         }else{
-            $image3='';
+            $image_path3='';
         }
 
 
@@ -408,21 +409,21 @@ class PembuatSuratKematianController extends Controller
             $image_path4 = public_path().'/kematian/sk_terakhir/'.$kematian->sk_terakhir;
             unlink($image_path4);
         }else{
-            $image4='';
+            $image_path4='';
         }
 
         if(!empty($kematian->karip)){
             $image_path5 = public_path().'/kematian/karip/'.$kematian->karip;
             unlink($image_path5);
         }else{
-            $image5='';
+            $image_path5='';
         }
 
         if(!empty($kematian->tabungan_pensiunan)){
             $image_path6 = public_path().'/kematian/tabungan/'.$kematian->tabungan_pensiunan;
             unlink($image_path6);
         }else{
-            $image6='';
+            $image_path6='';
         }
   
     $kematian->delete();

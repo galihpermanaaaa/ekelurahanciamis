@@ -1760,8 +1760,14 @@ class landigpageController extends Controller
         $file3 = time().'.'.$request->surat_pengantar_dari_rt->extension();
         $request->surat_pengantar_dari_rt->move(public_path('kematian/pengantar_rt_rw'), $file3);
 
-        $file4 = time().'.'.$request->surat_pengantar_dari_rs->extension();
-        $request->surat_pengantar_dari_rs->move(public_path('kematian/pengantar_rs'), $file4);
+
+        if(!empty($request->surat_pengantar_dari_rs)){
+            $file4 = time().'.'.$request->surat_pengantar_dari_rs->extension();
+            $request->surat_pengantar_dari_rs->move(public_path('kematian/pengantar_rs'), $file4);
+        }else{
+            $file4 = '';
+            $request->surat_pengantar_dari_rs;
+        }
 
         if(!empty($request->sk_terakhir)){
             $file5 = time().'.'.$request->sk_terakhir->extension();
