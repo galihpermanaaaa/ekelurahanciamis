@@ -117,7 +117,7 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKD Yang Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">SKD Belum Diverifikasi</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -139,7 +139,7 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKBM Yang Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">SKBM Belum Diverifikasi</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -161,7 +161,7 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKBMR Yang Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">SKBMR Belum Diverifikasi</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -169,6 +169,28 @@
                     </div>
                     <div class="ps-3">
                       <h6>{{$bmr_count}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+             <!-- Revenue Card -->
+             <div class="col-xxl-4 col-md-6">
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">SKK Belum Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$kematian_count}}</h6>
                       <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
 
                     </div>
@@ -335,6 +357,29 @@
               </div>
             </div><!-- End Revenue Card -->
 
+             <!-- Revenue Card -->
+             <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">SKK Yang Sudah Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$kematian_count_verifikasi}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+
             @endif
 
             <!-- Top Selling -->
@@ -404,6 +449,13 @@
                         <td>{{$bmr_count_verifikasi_rw_terverifikasi}}</td>
                         <td class="fw-bold">{{$bmr_count_verifikasi_rw_ditolak}}</td>
                         <td>{{$bmr_count_verifikasi_rw_belum}}</td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="{{ route('user/kematian/data_kematian_rw') }}" class="text-primary fw-bold">Surat Keterangan Kematian</a></td>
+                        <td>{{$kematian_count_verifikasi_rw_terverifikasi}}</td>
+                        <td class="fw-bold">{{$kematian_count_verifikasi_rw_ditolak}}</td>
+                        <td>{{$kematian_count_verifikasi_rw_belum}}</td>
                       </tr>
                      
                     </tbody>
@@ -483,6 +535,7 @@
                         <th scope="col">Surat Ket Janda</th>
                         <th scope="col">Surat Ket Belum Nikah</th>
                         <th scope="col">Belum Memiliki Rumah</th>
+                        <th scope="col">Surat Ket Kematian</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -495,6 +548,7 @@
                         <td>{{$janda_rep_1}}</td>
                         <td>{{$sbm_rep_1}}</td>
                         <td>{{$bmr_rep_1}}</td>
+                        <td>{{$skk_rep_1}}</td>
                       </tr>
                       <tr>
                         <td>RW 02</td>
@@ -505,6 +559,7 @@
                         <td>{{$janda_rep_2}}</td>
                         <td>{{$sbm_rep_2}}</td>
                         <td>{{$bmr_rep_2}}</td>
+                        <td>{{$skk_rep_2}}</td>
                       </tr>
                       <tr>
                         <td>RW 03</td>
@@ -515,6 +570,7 @@
                         <td>{{$janda_rep_3}}</td>
                         <td>{{$sbm_rep_3}}</td>
                         <td>{{$bmr_rep_3}}</td>
+                        <td>{{$skk_rep_3}}</td>
                       </tr>
                       <tr>
                         <td>RW 04</td>
@@ -525,6 +581,7 @@
                         <td>{{$janda_rep_4}}</td>
                         <td>{{$sbm_rep_4}}</td>
                         <td>{{$bmr_rep_4}}</td>
+                        <td>{{$skk_rep_4}}</td>
                       </tr>
                       <tr> 
                         <td>RW 05</td>
@@ -535,6 +592,7 @@
                         <td>{{$janda_rep_5}}</td>
                         <td>{{$sbm_rep_5}}</td>
                         <td>{{$bmr_rep_5}}</td>
+                        <td>{{$skk_rep_5}}</td>
                       </tr>
                       <tr> 
                         <td>RW 06</td>
@@ -545,6 +603,7 @@
                         <td>{{$janda_rep_6}}</td>
                         <td>{{$sbm_rep_6}}</td>
                         <td>{{$bmr_rep_6}}</td>
+                        <td>{{$skk_rep_6}}</td>
                       </tr>
                       <tr> 
                         <td>RW 07</td>
@@ -555,6 +614,7 @@
                         <td>{{$janda_rep_7}}</td>
                         <td>{{$sbm_rep_7}}</td>
                         <td>{{$bmr_rep_7}}</td>
+                        <td>{{$skk_rep_7}}</td>
                       </tr>
                       <tr> 
                         <td>RW 08</td>
@@ -565,6 +625,7 @@
                         <td>{{$janda_rep_8}}</td>
                         <td>{{$sbm_rep_8}}</td>
                         <td>{{$bmr_rep_8}}</td>
+                        <td>{{$skk_rep_8}}</td>
                       </tr>
                       <tr> 
                         <td>RW 09</td>
@@ -575,6 +636,7 @@
                         <td>{{$janda_rep_9}}</td>
                         <td>{{$sbm_rep_9}}</td>
                         <td>{{$bmr_rep_9}}</td>
+                        <td>{{$skk_rep_9}}</td>
                       </tr>
                       <tr> 
                         <td>RW 10</td>
@@ -585,6 +647,7 @@
                         <td>{{$janda_rep_10}}</td>
                         <td>{{$sbm_rep_10}}</td>
                         <td>{{$bmr_rep_10}}</td>
+                        <td>{{$skk_rep_10}}</td>
                       </tr>
                       <tr> 
                         <td>RW 11</td>
@@ -595,6 +658,7 @@
                         <td>{{$janda_rep_11}}</td>
                         <td>{{$sbm_rep_11}}</td>
                         <td>{{$bmr_rep_11}}</td>
+                        <td>{{$skk_rep_11}}</td>
                       </tr>
                       <tr> 
                         <td>RW 12</td>
@@ -605,6 +669,7 @@
                         <td>{{$janda_rep_12}}</td>
                         <td>{{$sbm_rep_12}}</td>
                         <td>{{$bmr_rep_12}}</td>
+                        <td>{{$skk_rep_12}}</td>
                       </tr>
 
                       <tr> 
@@ -616,6 +681,7 @@
                         <td>{{$janda_rep_13}}</td>
                         <td>{{$sbm_rep_13}}</td>
                         <td>{{$bmr_rep_13}}</td>
+                        <td>{{$skk_rep_13}}</td>
                       </tr>
 
                       <tr> 
@@ -627,6 +693,7 @@
                         <td>{{$janda_rep_14}}</td>
                         <td>{{$sbm_rep_14}}</td>
                         <td>{{$bmr_rep_14}}</td>
+                        <td>{{$skk_rep_14}}</td>
                       </tr>
 
                       <tr> 
@@ -638,6 +705,7 @@
                         <td>{{$janda_rep_15}}</td>
                         <td>{{$sbm_rep_15}}</td>
                         <td>{{$bmr_rep_15}}</td>
+                        <td>{{$skk_rep_15}}</td>
                       </tr>
 
                       <tr> 
@@ -649,6 +717,7 @@
                         <td>{{$janda_rep_16}}</td>
                         <td>{{$sbm_rep_16}}</td>
                         <td>{{$bmr_rep_16}}</td>
+                        <td>{{$skk_rep_16}}</td>
                       </tr>
 
                       <tr> 
@@ -660,6 +729,7 @@
                         <td>{{$janda_rep_17}}</td>
                         <td>{{$sbm_rep_17}}</td>
                         <td>{{$bmr_rep_17}}</td>
+                        <td>{{$skk_rep_17}}</td>
                       </tr>
 
                       <tr> 
@@ -671,6 +741,7 @@
                         <td>{{$janda_rep_18}}</td>
                         <td>{{$sbm_rep_18}}</td>
                         <td>{{$bmr_rep_18}}</td>
+                        <td>{{$skk_rep_18}}</td>
                       </tr>
 
                       <tr> 
@@ -682,6 +753,7 @@
                         <td>{{$janda_rep_19}}</td>
                         <td>{{$sbm_rep_19}}</td>
                         <td>{{$bmr_rep_19}}</td>
+                        <td>{{$skk_rep_19}}</td>
                       </tr>
 
                       <tr> 
@@ -693,6 +765,7 @@
                         <td>{{$janda_rep_20}}</td>
                         <td>{{$sbm_rep_20}}</td>
                         <td>{{$bmr_rep_20}}</td>
+                        <td>{{$skk_rep_20}}</td>
                       </tr>
 
                       <tr> 
@@ -704,6 +777,7 @@
                         <td>{{$janda_rep_21}}</td>
                         <td>{{$sbm_rep_21}}</td>
                         <td>{{$bmr_rep_21}}</td>
+                        <td>{{$skk_rep_21}}</td>
                       </tr>
 
                       <tr> 
@@ -715,6 +789,7 @@
                         <td>{{$janda_rep_22}}</td>
                         <td>{{$sbm_rep_22}}</td>
                         <td>{{$bmr_rep_22}}</td>
+                        <td>{{$skk_rep_22}}</td>
                       </tr>
 
                       <tr> 
@@ -726,6 +801,7 @@
                         <td>{{$janda_rep_23}}</td>
                         <td>{{$sbm_rep_23}}</td>
                         <td>{{$bmr_rep_23}}</td>
+                        <td>{{$skk_rep_23}}</td>
                       </tr>
 
                       <tr> 
@@ -737,6 +813,7 @@
                         <td>{{$janda_rep_24}}</td>
                         <td>{{$sbm_rep_24}}</td>
                         <td>{{$bmr_rep_24}}</td>
+                        <td>{{$skk_rep_24}}</td>
                       </tr>
 
                       <tr> 
@@ -748,6 +825,7 @@
                         <td>{{$janda_rep_25}}</td>
                         <td>{{$sbm_rep_25}}</td>
                         <td>{{$bmr_rep_25}}</td>
+                        <td>{{$skk_rep_25}}</td>
                       </tr>
 
                       <tr> 
@@ -759,6 +837,7 @@
                         <td>{{$janda_rep_26}}</td>
                         <td>{{$sbm_rep_26}}</td>
                         <td>{{$bmr_rep_26}}</td>
+                        <td>{{$skk_rep_26}}</td>
                       </tr>
 
                       <tr> 
@@ -770,6 +849,7 @@
                         <td>{{$janda_rep_27}}</td>
                         <td>{{$sbm_rep_27}}</td>
                         <td>{{$bmr_rep_27}}</td>
+                        <td>{{$skk_rep_27}}</td>
                       </tr>
 
                       <tr> 
@@ -781,6 +861,7 @@
                         <td>{{$janda_rep_28}}</td>
                         <td>{{$sbm_rep_28}}</td>
                         <td>{{$bmr_rep_28}}</td>
+                        <td>{{$skk_rep_28}}</td>
                       </tr>
 
                       <tr> 
@@ -792,6 +873,7 @@
                         <td>{{$janda_rep_29}}</td>
                         <td>{{$sbm_rep_29}}</td>
                         <td>{{$bmr_rep_29}}</td>
+                        <td>{{$skk_rep_29}}</td>
                       </tr>
 
                       <tr> 
@@ -803,6 +885,7 @@
                         <td>{{$janda_rep_30}}</td>
                         <td>{{$sbm_rep_30}}</td>
                         <td>{{$bmr_rep_30}}</td>
+                        <td>{{$skk_rep_30}}</td>
                       </tr>
 
                       <tr> 
@@ -814,6 +897,7 @@
                         <td>{{$janda_rep_31}}</td>
                         <td>{{$sbm_rep_31}}</td>
                         <td>{{$bmr_rep_31}}</td>
+                        <td>{{$skk_rep_31}}</td>
                       </tr>
 
                       <tr> 
@@ -825,6 +909,7 @@
                         <td>{{$janda_rep_32}}</td>
                         <td>{{$sbm_rep_32}}</td>
                         <td>{{$bmr_rep_32}}</td>
+                        <td>{{$skk_rep_32}}</td>
                       </tr>
 
                     </tbody>
@@ -862,7 +947,7 @@
                   <div class="activite-label">{{ Carbon\Carbon::parse($items->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
-                    {{$items->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat Surat Domisili
+                    {{$items->nama}}<a href="#" class="fw-bold text-dark"></a> (Domisili)
                   </div>
                 </div><!-- End activity item-->
 
@@ -874,7 +959,7 @@
                   <div class="activite-label">{{ Carbon\Carbon::parse($itemss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                   <div class="activity-content">
-                  {{$itemss->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat SKU
+                  {{$itemss->nama}}<a href="#" class="fw-bold text-dark"></a> (SKU)
                   </div>
                 </div><!-- End activity item-->
 
@@ -885,7 +970,7 @@
                   <div class="activite-label">{{ Carbon\Carbon::parse($itemsss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
-                  {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> Membuat SKTM
+                  {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> (SKTM)
                   </div>
                 </div><!-- End activity item-->
                 @endforeach
@@ -895,7 +980,7 @@
                   <div class="activite-label"> {{ Carbon\Carbon::parse($itemssss->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
                   <div class="activity-content">
-                  {{$itemssss->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat Surat Duda
+                  {{$itemssss->nama}} <a href="#" class="fw-bold text-dark"></a> (Surat Duda)
                   </div>
                 </div><!-- End activity item-->
                 @endforeach
@@ -905,7 +990,7 @@
                   <div class="activite-label"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
                   <div class="activity-content">
-                  {{$item->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat Surat Janda
+                  {{$item->nama}} <a href="#" class="fw-bold text-dark"></a> (Surat Janda)
                   </div>
                 </div><!-- End activity item-->
                 @endforeach
@@ -916,7 +1001,18 @@
                   <div class="activite-label"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }} </div>
                   <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                   <div class="activity-content">
-                  {{$item->nama}} <a href="#" class="fw-bold text-dark"></a> Membuat SKBM
+                  {{$item->nama}} <a href="#" class="fw-bold text-dark"></a> (SKBMR)
+                  </div>
+                </div><!-- End activity item-->
+                @endforeach
+
+
+                @foreach($log_kematian as $key => $itemsss)
+                <div class="activity-item d-flex">
+                  <div class="activite-label">{{ Carbon\Carbon::parse($itemsss->created_at)->diffForHumans() }} </div>
+                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                  <div class="activity-content">
+                  {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> (SKK)
                   </div>
                 </div><!-- End activity item-->
                 @endforeach
@@ -1031,6 +1127,34 @@
 
             
           </div><!-- End Budget Report -->
+
+
+          
+          <div class="card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">Report Surat Keterangan Kematian Berdasarkan Jenis Kelamin <span></span></h5>
+
+              <div id="vv5" style="min-height: 200px;" class="echart"></div>
+             
+
+              
+            </div>
+
+            
+          </div><!-- End Budget Report -->
           
 
         </div><!-- End Right side columns -->
@@ -1049,4 +1173,5 @@
 @include('layouts.piechartjs2')
 @include('layouts.piechartsjs3')
 @include('layouts.piechartsjs4')
+@include('layouts.piechartsjs5')
 

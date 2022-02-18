@@ -40,8 +40,10 @@ class PembuatSuratKematianController extends Controller
         $halaman = "data_kematian";
         $user = User::all();
         $data = Kematian::orderBy('id', 'DESC')->get();
+        $count_terverifikasi = Kematian::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = Kematian::where('verifikasi', 'Ditolak')->count();
         $rw = RW::all();
-        return view('user.kematian.data_kematian', compact('halaman', 'data', 'rw'));
+        return view('user.kematian.data_kematian', compact('halaman', 'data', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -49,34 +51,36 @@ class PembuatSuratKematianController extends Controller
         }
     }
 
-    public function filterskbmrw(Request $request)
+    public function filterkematian(Request $request)
     {
 
         $id_rw = $request->id_rw;
         
         if(!empty($id_rw)){
             $user = User::all();
-            $data = SBM::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $data = Kematian::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = Kematian::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = Kematian::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.skbm.data_skbm', compact('data', 'rw', 'user'));
+        return view('user.kematian.data_kematian', compact('data', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
-    public function indexRWSkbm()
+    public function indexRWKematian()
     {
         if (Auth::user()->role_name=='RW')
         {
 
-        $halaman = "data_skbm_rw";
-            $data = SBM::orderBy('id', 'DESC')
+        $halaman = "data_kematian_rw";
+            $data = Kematian::orderBy('id', 'DESC')
             ->where('id_rw',auth()->user()->id_rw)
             ->get();
 
             $user = RW::where('id_rw',auth()->user()->id_rw)->get();
-        return view('user.skbm.data_skbm_rw', compact('halaman', 'data', 'user'));
+        return view('user.kematian.data_kematian_rw', compact('halaman', 'data', 'user'));
         }
         else
         {
@@ -228,9 +232,9 @@ class PembuatSuratKematianController extends Controller
     }
 
 
-    public function surat_skbm($id)
+    public function surat_kematian($id)
     {
-        $data = SBM::join('sbm_diterima', 'sbm_diterima.id_sbm', '=', 'sbm.id')
+        $data = Kematian::join('kematian_diterima', 'kematian_diterima.id_kematian', '=', 'kematian.id')
         ->where('id',$id)->get();
 
         foreach ($data as $p) {
@@ -264,9 +268,9 @@ class PembuatSuratKematianController extends Controller
         $this->fpdf->SetFont('times','BU',14);
 
 
-        $this->fpdf->Cell(190,6,'SURAT KETERANGAN BELUM MENIKAH',0,1,'C');
+        $this->fpdf->Cell(190,6,'SURAT KETERANGAN KEMATIAN',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sbm_diterima.'/'.$p->id_sbm_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_kematian_diterima.'/'.$p->id_kematian_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -283,6 +287,10 @@ class PembuatSuratKematianController extends Controller
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'NIK',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
+
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(35,6,'Tempat Lahir',0,0);
+        $this->fpdf->Cell(50,6,':  '.$p->tempat_lahir,0,1);
 
 
         $this->fpdf->Cell(1,6,'',0,0);
@@ -315,11 +323,17 @@ class PembuatSuratKematianController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis bahwa orang tersebut, sampai saat ini betul belum Menikah / Belum Kawin.',0,1);
+        $this->fpdf->write(8,'Sepengetahuan kami berdasarkan Surat Pengantar Keterangan dari RT '. $p->pengantar_dari_rt. ' RW '. $p->pengantar_dari_rw. ' Lingkungan '.$p->lingkungan. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, benar bahwa orang tersebut diatas telah meninggal dunia pada tanggal '.(tgl_indo($p->tanggal_meninggal)). '.',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Disebabkan '. $p->disebabkan. ' di '. $p->ditempat. '.',0,1);
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->write(8,'Surat Keterangan ini diperlukan untuk '. $p->surat_diperlukan_untuk. '.',0,1);
         $this->fpdf->Ln();
 
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->write(8,'Demikian surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
 

@@ -63,6 +63,7 @@
   var janda_tab = <?php echo json_encode($janda_tab)?>;
   var skbm_tab = <?php echo json_encode($skbm_tab)?>;
   var bmr_tab = <?php echo json_encode($bmr_tab)?>;
+  var kematian_tab = <?php echo json_encode($kematian_tab)?>;
 
 Highcharts.chart('container', {
   chart: {
@@ -141,6 +142,12 @@ Highcharts.chart('container', {
         {
           name: "Surat Keterangan Belum Memiliki Rumah",
           y: bmr_tab,
+        },
+
+        
+        {
+          name: "Surat Keterangan Kematian",
+          y: kematian_tab,
         },
 
       ]

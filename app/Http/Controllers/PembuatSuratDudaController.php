@@ -41,7 +41,9 @@ class PembuatSuratDudaController extends Controller
         $user = User::all();
         $duda = SuratDuda::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.duda.data_duda', compact('halaman', 'duda', 'rw'));
+        $count_terverifikasi = SuratDuda::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SuratDuda::where('verifikasi', 'Ditolak')->count();
+        return view('user.duda.data_duda', compact('halaman', 'duda', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -58,11 +60,13 @@ class PembuatSuratDudaController extends Controller
             $user = User::all();
             $duda = SuratDuda::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SuratDuda::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SuratDuda::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.duda.data_duda', compact('duda', 'rw', 'user'));
+        return view('user.duda.data_duda', compact('duda', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
     public function indexRWDuda()

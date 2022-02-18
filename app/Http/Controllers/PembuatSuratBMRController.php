@@ -41,7 +41,9 @@ class PembuatSuratBMRController extends Controller
         $user = User::all();
         $data = BMR::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.bmr.data_bmr', compact('halaman', 'data', 'rw'));
+        $count_terverifikasi = BMR::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = BMR::where('verifikasi', 'Ditolak')->count();
+        return view('user.bmr.data_bmr', compact('halaman', 'data', 'rw',  'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -49,20 +51,22 @@ class PembuatSuratBMRController extends Controller
         }
     }
 
-    public function filterskbmrw(Request $request)
+    public function filterbmr(Request $request)
     {
 
         $id_rw = $request->id_rw;
         
         if(!empty($id_rw)){
             $user = User::all();
-            $data = SBM::where('id_rw', 'like', "%" . $id_rw . "%")->get();
+            $data = BMR::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = BMR::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = BMR::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.skbm.data_skbm', compact('data', 'rw', 'user'));
+        return view('user.bmr.data_bmr', compact('data', 'rw', 'user',  'count_terverifikasi', 'count_ditolak'));
     }
 
     public function indexRWBmr()

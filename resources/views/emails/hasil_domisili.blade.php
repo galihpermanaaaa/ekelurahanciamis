@@ -14,7 +14,9 @@
       img {
         border: none;
         -ms-interpolation-mode: bicubic;
-        max-width: 100%; 
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
       }
 
       body {

@@ -41,7 +41,9 @@ class PembuatSKMController extends Controller
         $halaman = "data_skm";
         $skm = SKM::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.skm.data_skm', compact('halaman', 'skm', 'rw'));
+        $count_terverifikasi = SKM::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SKM::where('verifikasi', 'Ditolak')->count();
+        return view('user.skm.data_skm', compact('halaman', 'skm', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -58,11 +60,13 @@ class PembuatSKMController extends Controller
             $user = User::all();
             $skm = SKM::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SKM::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SKM::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.skm.data_skm', compact('skm', 'rw', 'user'));
+        return view('user.skm.data_skm', compact('skm', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
     public function indexRWSkm()

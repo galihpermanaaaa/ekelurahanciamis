@@ -30,7 +30,7 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" method="get" action="{{ route('layanan/janda') }}">
+                <form class="form" method="get" action="{{ route('layanan/kematian') }}">
                     <h3 class="h4 text-white mb-4">Check Surat</h3>
                     <div class="form-group">
                       <input type="text"  class="form-control" id="token" name="token" placeholder="Masukkan token yang sudah anda dapatkan">
@@ -295,6 +295,26 @@
                         <label class="form-label">Lingkungan</label>
                         <input type="text" class="form-control @error('lingkungan') is-invalid @enderror" id="lingkungan" name="lingkungan" placeholder="Lingkungan yang meninggal" required>
                         @error('pengantar_dari')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Pengantar Dari RT</label>
+                        <input type="number" class="form-control @error('pengantar_dari_rt') is-invalid @enderror" id="pengantar_dari_rt" name="pengantar_dari_rt" placeholder="Contoh: 001" required>
+                        @error('pengantar_dari_rt')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Pengantar Dari RW</label>
+                        <input type="number" class="form-control @error('pengantar_dari_rw') is-invalid @enderror" id="pengantar_dari_rw" name="pengantar_dari_rw" placeholder="Contoh: 002" required>
+                        @error('pengantar_dari_rw')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                             </span>

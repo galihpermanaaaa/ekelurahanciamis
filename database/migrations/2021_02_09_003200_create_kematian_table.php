@@ -32,6 +32,8 @@ class CreateKematianTable extends Migration
             $table->string('rt');
 
             $table->string('lingkungan');
+            $table->string('pengantar_dari_rt');
+            $table->string('pengantar_dari_rw');
             $table->date('tanggal_meninggal');
             $table->string('disebabkan');
             $table->string('ditempat');

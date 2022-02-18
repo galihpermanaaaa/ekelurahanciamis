@@ -41,7 +41,9 @@ class PembuatSuratSBMController extends Controller
         $user = User::all();
         $data = SBM::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.skbm.data_skbm', compact('halaman', 'data', 'rw'));
+        $count_terverifikasi = SBM::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SBM::where('verifikasi', 'Ditolak')->count();
+        return view('user.skbm.data_skbm', compact('halaman', 'data', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -58,11 +60,13 @@ class PembuatSuratSBMController extends Controller
             $user = User::all();
             $data = SBM::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SBM::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SBM::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.skbm.data_skbm', compact('data', 'rw', 'user'));
+        return view('user.skbm.data_skbm', compact('data', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
     public function indexRWSkbm()

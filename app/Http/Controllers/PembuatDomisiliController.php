@@ -42,7 +42,9 @@ class PembuatDomisiliController extends Controller
         $user = User::all();
         $skd = SuratDomisili::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.domisili.data_domisili', compact('halaman', 'skd', 'rw'));
+        $count_terverifikasi = SuratDomisili::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SuratDomisili::where('verifikasi', 'Ditolak')->count();
+        return view('user.domisili.data_domisili', compact('halaman', 'skd', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -59,11 +61,13 @@ class PembuatDomisiliController extends Controller
             $user = User::all();
             $skd = SuratDomisili::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SuratDomisili::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SuratDomisili::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.domisili.data_domisili', compact('skd', 'rw', 'user'));
+        return view('user.domisili.data_domisili', compact('skd', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
     public function indexRWDomisili()

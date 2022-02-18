@@ -41,7 +41,9 @@ class PembuatSuratJandaController extends Controller
         $user = User::all();
         $janda = SuratJanda::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.janda.data_janda', compact('halaman', 'janda', 'rw'));
+        $count_terverifikasi = SuratJanda::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SuratJanda::where('verifikasi', 'Ditolak')->count();
+        return view('user.janda.data_janda', compact('halaman', 'janda', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -58,11 +60,13 @@ class PembuatSuratJandaController extends Controller
             $user = User::all();
             $janda = SuratJanda::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SuratJanda::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SuratJanda::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.janda.data_janda', compact('janda', 'rw', 'user'));
+        return view('user.janda.data_janda', compact('janda', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
 

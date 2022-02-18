@@ -5,7 +5,7 @@
 
     <div class="pagetitle">
     @foreach($user as $key => $items)
-    <h1>Daftar Surat Keterangan Belum Menikah RW : {{$items->nama_rw}}</h1>
+    <h1>Daftar Surat Keterangan Kematian RW : {{$items->nama_rw}}</h1>
     @endforeach
     </div><!-- End Page Title -->
 
@@ -29,7 +29,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Daftar Pembuat Surat Keterangan Duda</h5>
+              <h5 class="card-title">Daftar Pembuat Surat Keterangan Kematian</h5>
               
 
               <!-- Table with stripped rows -->
@@ -51,7 +51,7 @@
                       <td>{{$item->nik}}</td>
                       <td>{{$item->nama}}</td>
                       <td>{{$item->email}}</td>
-                <td>  <a href="{{ url('user/skbm/lihat_data_skbm/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                <td>  <a href="{{ url('user/kematian/lihat_data_kematian/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
                    </td>
 
                     <td>
@@ -59,7 +59,7 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/skbm/surat_skbm/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/kematian/surat_kematian/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
 					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif

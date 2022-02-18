@@ -74,9 +74,9 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <a href="{{ url('user/kematian/verifikasi_kematian/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
                       @elseif($item->verifikasi =='Terverifikasi')
-                      <p class="text-success"></p>{{$item->verifikasi}}</span>
+                      <span class="badge bg-success">{{$item->verifikasi}}</span>
                                 @else($item->verifikasi =='Ditolak')
-                      <p class="text-danger" style="font-size: 14px;"></p>{{$item->verifikasi}}</span>
+                       <span class="badge bg-danger">{{$item->verifikasi}}</span>
                       @endif
 
                       </td>
@@ -119,9 +119,11 @@
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
+              <span class="badge bg-success">Jumlah Surat Kematian Terverifikasi: {{$count_terverifikasi}}</span><br>
+              <span class="badge bg-danger">Jumlah Surat Kematian Ditolak: {{$count_ditolak}}</span>
 
             </div>
-          </div>
+          </div> 
 
         </div>
       </div>

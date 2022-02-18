@@ -224,6 +224,15 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/kematian/data_kematian_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Data Surat Ket Kematian</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
     </ul>
 
   </aside><!-- End Sidebar-->

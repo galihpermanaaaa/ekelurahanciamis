@@ -24,6 +24,9 @@ use App\Models\SuratDudaDitolak;
 use App\Models\SuratJanda;
 use App\Models\SuratJandaDiterima;
 use App\Models\SuratJandaDitolak;
+use App\Models\Kematian;
+use App\Models\KematianDiterima;
+use App\Models\KematianDitolak;
 use App\Models\SBM;
 use App\Models\SBM_Diterima;
 use App\Models\SBM_Ditolak;
@@ -86,9 +89,15 @@ class HomeController extends Controller
         $bmr = BMR::where('verifikasi', 'Belum Diverifikasi')->get();
         $bmr_count = $bmr->count();
 
-        
+        $kematian = Kematian::where('verifikasi', 'Belum Diverifikasi')->get();
+        $kematian_count = $kematian->count();
 
-        $bmr_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
+        
+        
+        $kematian_verifikasi = Kematian::where('verifikasi', 'Terverifikasi')->get();
+        $kematian_count_verifikasi = $kematian_verifikasi->count();
+
+        $bmr_verifikasi = BMR::where('verifikasi', 'Terverifikasi')->get();
         $bmr_count_verifikasi = $bmr_verifikasi->count();
 
         $sku_verifikasi = SKU::where('verifikasi', 'Terverifikasi')->get();
@@ -188,6 +197,16 @@ class HomeController extends Controller
         $bmr_verifikasi_rw_belum = BMR::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
         $bmr_count_verifikasi_rw_belum = $bmr_verifikasi_rw_belum->count();
 
+
+        $kematian_verifikasi_rw_terverifikasi = Kematian::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $kematian_count_verifikasi_rw_terverifikasi = $kematian_verifikasi_rw_terverifikasi->count();
+
+        $kematian_verifikasi_rw_ditolak = Kematian::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $kematian_count_verifikasi_rw_ditolak = $kematian_verifikasi_rw_ditolak->count();
+
+        $kematian_verifikasi_rw_belum = Kematian::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $kematian_count_verifikasi_rw_belum = $kematian_verifikasi_rw_belum->count();
+
         
        
 
@@ -198,6 +217,7 @@ class HomeController extends Controller
         $janda_tab = SuratJanda::all()->count();
         $skbm_tab = SBM::all()->count();
         $bmr_tab = BMR::all()->count();
+        $kematian_tab = Kematian::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -659,11 +679,6 @@ class HomeController extends Controller
         $janda_rep_32 = SuratJanda::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '32')->count();
 
-
-
-
-
-
         $sbm_rep_1 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '01')->count();
         $sbm_rep_2 = SBM::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
@@ -796,6 +811,72 @@ class HomeController extends Controller
         $bmr_rep_32 = BMR::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '32')->count();
 
+        $skk_rep_1 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $skk_rep_2 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $skk_rep_3 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $skk_rep_4 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $skk_rep_5 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $skk_rep_6 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $skk_rep_7 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $skk_rep_8 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $skk_rep_9 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $skk_rep_10 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $skk_rep_11 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $skk_rep_12 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $skk_rep_13 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $skk_rep_14 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $skk_rep_15 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $skk_rep_16 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $skk_rep_17 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $skk_rep_18 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $skk_rep_19 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $skk_rep_20 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $skk_rep_21 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $skk_rep_22 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $skk_rep_23 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $skk_rep_24 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $skk_rep_25 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $skk_rep_26 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $skk_rep_27 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $skk_rep_28 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $skk_rep_29 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $skk_rep_30 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $skk_rep_31 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $skk_rep_32 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+        
 
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $sku_jk_pr = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
@@ -806,12 +887,18 @@ class HomeController extends Controller
         $skbm_jk_lk = SBM::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
         $skbm_jk_pr = SBM::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
 
+        $kematian_jk_lk = Kematian::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
+        $kematian_jk_pr = Kematian::where('verifikasi', 'Terverifikasi')->where('jk', 'Perempuan')->count();
+
+        
+
         $log_skd = SuratDomisili::orderBy('id', 'DESC')->take(3)->get();
         $log_skm = SKM::orderBy('id', 'DESC')->take(3)->get();
         $log_sku = SKU::orderBy('id', 'DESC')->take(3)->get();
         $log_duda = SuratDuda::orderBy('id', 'DESC')->take(3)->get();
         $log_janda = SuratJanda::orderBy('id', 'DESC')->take(3)->get();
         $log_skbm = SBM::orderBy('id', 'DESC')->take(3)->get();
+        $log_kematian = Kematian::orderBy('id', 'DESC')->take(3)->get();
 
 
 
@@ -851,9 +938,10 @@ class HomeController extends Controller
     'skbm_verifikasi_rw_belum', 'skbm_count_verifikasi_rw_belum', 'bmr_tab', 'bmr','bmr_count', 'bmr_verifikasi', 'bmr_count_verifikasi', 'bmr_rep_1', 'bmr_rep_2', 'bmr_rep_3', 'bmr_rep_4', 'bmr_rep_5', 'bmr_rep_6', 'bmr_rep_7', 'bmr_rep_8',
     'bmr_rep_9', 'bmr_rep_10', 'bmr_rep_11', 'bmr_rep_12', 'bmr_rep_13', 'bmr_rep_14', 'bmr_rep_15', 'bmr_rep_16', 'bmr_rep_17', 'bmr_rep_18', 'bmr_rep_19', 'bmr_rep_20', 'bmr_rep_21', 'bmr_rep_22', 'bmr_rep_22', 'bmr_rep_23',
     'bmr_rep_24', 'bmr_rep_25', 'bmr_rep_25', 'bmr_rep_26', 'bmr_rep_27', 'bmr_rep_28', 'bmr_rep_29', 'bmr_rep_30', 'bmr_rep_31', 'bmr_rep_32', 'bmr_verifikasi_rw_terverifikasi', 'bmr_count_verifikasi_rw_terverifikasi', 'bmr_verifikasi_rw_ditolak', 'bmr_count_verifikasi_rw_ditolak',
-    'bmr_verifikasi_rw_belum', 'bmr_count_verifikasi_rw_belum'));
+    'bmr_verifikasi_rw_belum', 'bmr_count_verifikasi_rw_belum', 'kematian', 'kematian_count', 'kematian_verifikasi', 'kematian_count_verifikasi', 'kematian_tab', 'kematian_jk_lk', 'kematian_jk_pr', 'log_kematian', 'skk_rep_1', 'skk_rep_2', 'skk_rep_3', 'skk_rep_4', 'skk_rep_5', 'skk_rep_6', 'skk_rep_7', 'skk_rep_8', 'skk_rep_9', 'skk_rep_10',
+    'skk_rep_11', 'skk_rep_12', 'skk_rep_13','skk_rep_14', 'skk_rep_15', 'skk_rep_16', 'skk_rep_17', 'skk_rep_18', 'skk_rep_18', 'skk_rep_19', 'skk_rep_20',
+    'skk_rep_21', 'skk_rep_22', 'skk_rep_23', 'skk_rep_24', 'skk_rep_25', 'skk_rep_26', 'skk_rep_27', 'skk_rep_28', 'skk_rep_29', 'skk_rep_30', 'skk_rep_31', 'skk_rep_32', 'kematian_verifikasi_rw_terverifikasi', 'kematian_count_verifikasi_rw_terverifikasi', 'kematian_verifikasi_rw_ditolak', 'kematian_count_verifikasi_rw_ditolak',
+    'kematian_verifikasi_rw_belum', 'kematian_count_verifikasi_rw_belum'));
     }
-
-
 
 }

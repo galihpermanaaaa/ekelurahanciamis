@@ -33,7 +33,7 @@ class UserController extends Controller
 
         $halaman = "data_user";
         $provinsi = Provinsi::all();
-        $rw = RW::all();
+        $rw = RW::where('subdis_id', '25821')->get();
         $user = User::all();
         return view('user.data_user', compact('halaman', 'user', 'provinsi', 'rw'));
         }

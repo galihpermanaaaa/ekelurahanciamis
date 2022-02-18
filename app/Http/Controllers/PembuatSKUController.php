@@ -41,7 +41,9 @@ class PembuatSKUController extends Controller
         $user = User::all();
         $sku = SKU::orderBy('id', 'DESC')->get();
         $rw = RW::all();
-        return view('user.sku.data_sku', compact('halaman', 'sku', 'rw'));
+        $count_terverifikasi = SKU::where('verifikasi', 'Terverifikasi')->count();
+        $count_ditolak = SKU::where('verifikasi', 'Ditolak')->count();
+        return view('user.sku.data_sku', compact('halaman', 'sku', 'rw', 'count_terverifikasi', 'count_ditolak'));
         }
         else
         {
@@ -109,11 +111,13 @@ class PembuatSKUController extends Controller
             $user = User::all();
             $sku = SKU::where('id_rw', 'like', "%" . $id_rw . "%")->get();
             $rw = RW::all();
+            $count_terverifikasi = SKU::where('verifikasi', 'Terverifikasi')->count();
+            $count_ditolak = SKU::where('verifikasi', 'Ditolak')->count();
         }else{
             Alert::error('Maaf', 'Data tersebut tidak ada')->persistent('Close');
             return redirect()->route('dashboard');
         }
-        return view('user.sku.data_sku', compact('sku', 'rw', 'user'));
+        return view('user.sku.data_sku', compact('sku', 'rw', 'user', 'count_terverifikasi', 'count_ditolak'));
     }
 
     
