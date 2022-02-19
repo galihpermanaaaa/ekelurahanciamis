@@ -301,7 +301,7 @@
            <div class="col-md-6">
                         <label class="form-label">Lingkungan</label>
                         <input type="text" class="form-control @error('lingkungan') is-invalid @enderror" id="lingkungan" name="lingkungan" placeholder="Lingkungan yang meninggal" required>
-                        @error('pengantar_dari')
+                        @error('lingkungan')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                             </span>

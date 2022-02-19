@@ -1813,6 +1813,7 @@ class landigpageController extends Controller
         $form->subdis_id                    =  $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->lingkungan                   = $request->lingkungan;
 
         $form->pengantar_dari_rt            = $request->pengantar_dari_rt;
         $form->pengantar_dari_rw            = $request->pengantar_dari_rw;
