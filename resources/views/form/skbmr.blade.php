@@ -69,7 +69,7 @@
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Anda" required/>
                         <input type="hidden" class="form-control" id="verifikasi" name="verifikasi" value="Belum Diverifikasi" readonly  />
                         <input type="hidden" class="form-control" id="tanggal_buat_surat" name="tanggal_buat_surat" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
-               
+
                         @error('nama')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -264,10 +264,17 @@
                         <select class="form-control @error('rt_asal') is-invalid @enderror" name="rt" id="rt" required>
                         <option selected disabled>--Pilih RT--</option>
                         <script>
-                            var rt_asal = 1;
                             for(i=1;i<=132;i++){
-                                document.write("<option>" + i + "</option>");
+                                $rt = i;
+                                if ($rt < 10) {
+                                document.write("<option> 00" + i + "</option>");
+                            } else if($rt < 100){
+                               document.write("<option> 0" + i + "</option>");
+                            }else{
+                                document.write("<option> " + i + "</option>");
                             }
+
+                        }
                         </script>
                         </select>
 

@@ -49,7 +49,7 @@
 
 
 
- 
+
     <!-- Modal Janda Cek -->
   <!-- Modal Janda Buat -->
 <div class="modal fade" id="modalbm_buat" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
@@ -110,7 +110,7 @@
                                                 @enderror
                     </div>
 
-                  
+
 
 
 
@@ -260,10 +260,18 @@
                         <select class="form-control @error('rt_asal') is-invalid @enderror" name="rt" id="rt" required>
                         <option selected disabled>--Pilih RT--</option>
                         <script>
-                            var rt_asal = 1;
+
                             for(i=1;i<=132;i++){
-                                document.write("<option>" + i + "</option>");
+                                $rt = i;
+                                if ($rt < 10) {
+                                document.write("<option> 00" + i + "</option>");
+                            } else if($rt < 100){
+                               document.write("<option> 0" + i + "</option>");
+                            }else{
+                                document.write("<option> " + i + "</option>");
                             }
+
+                        }
                         </script>
                         </select>
 
@@ -277,8 +285,8 @@
                     </div>
             </div>
 
-        
-           
+
+
 
             <hr>
                     <div class="row">
@@ -312,7 +320,7 @@
                                                 @enderror
                     </div>
 
-                    
+
 
 
                     </div>

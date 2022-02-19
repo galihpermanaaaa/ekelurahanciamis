@@ -100,7 +100,7 @@
                          @enderror
                     </div>
 
-                    
+
                     <div class="col-md-6">
                         <label class="form-label">Kewarganegaraan</label>
                         <select  class="form-control @error('status_kewarganegaraan') is-invalid @enderror" name="status_kewarganegaraan" id="status_kewarganegaraan" required>
@@ -115,10 +115,10 @@
                           </span>
                           @enderror
                     </div>
-                   
-                  
+
+
             </div>
-           
+
             <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Agama</label>
@@ -230,10 +230,17 @@
                         <select class="form-control @error('rt_asal') is-invalid @enderror" name="rt" id="rt" required>
                         <option selected disabled>--Pilih RT--</option>
                         <script>
-                            var rt_asal = 1;
                             for(i=1;i<=132;i++){
-                                document.write("<option>" + i + "</option>");
+                                $rt = i;
+                                if ($rt < 10) {
+                                document.write("<option> 00" + i + "</option>");
+                            } else if($rt < 100){
+                               document.write("<option> 0" + i + "</option>");
+                            }else{
+                                document.write("<option> " + i + "</option>");
                             }
+
+                        }
                         </script>
                         </select>
 
