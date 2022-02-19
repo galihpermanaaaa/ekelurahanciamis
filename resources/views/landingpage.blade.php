@@ -123,7 +123,7 @@
 
       <div class="section-title">
         <h2>Pelayanan Surat</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
       </div>
 
       {{-- message --}}
@@ -143,7 +143,7 @@
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-building"></i></div>
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
             </div>
           </div>
 
@@ -153,7 +153,7 @@
 
                 <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKTM_menu">Surat Keterangan Tidak Mampu</a> </h4>
 
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
           </div>
         </div>
 
@@ -163,7 +163,7 @@
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-tachometer"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaldomisili_menu">Surat Keterangan Domisili</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
         </div>
 
@@ -171,7 +171,7 @@
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-tachometer"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalduda_menu">Surat Keterangan Duda</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
         </div>
 
@@ -184,7 +184,7 @@
               <div class="icon"><center><i class="bx bx-building"></i></div>
 
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaljanda_menu">Surat Keterangan Janda</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
             </div>
           </div>
 
@@ -193,7 +193,7 @@
             <div class="icon"><center><i class="bx bx-file"></i></div>
                 <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a> </h4>
 
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
           </div>
         </div>
 
@@ -203,7 +203,7 @@
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-tachometer"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
         </div>
 
@@ -211,7 +211,7 @@
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-tachometer"></i></div>
               <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
             </div>
           </div>
 
@@ -303,7 +303,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
             <h3>Jumlah Permohonan Pembuatan Surat</h3>
             <p class="font-italic">
-              
+
             </p>
 
             <div class="skills-content">
