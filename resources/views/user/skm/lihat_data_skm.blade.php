@@ -80,6 +80,11 @@
                 </div>
 
                 <div class="col-md-6">
+                  <label>Token</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->token}}" required readonly>
+                </div>
+
+                <div class="col-md-6">
                   <label>Nomor BDT</label>
                   <input type="number" class="form-control" value="{{ $data[0]->nomor_bdt}}" required readonly>
                   <input type="hidden" name="nomor_bdt" class="form-control" value="{{ $data[0]->nomor_bdt}}" required readonly>

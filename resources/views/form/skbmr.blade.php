@@ -305,7 +305,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Pengantar Dari RW</label>
-                        <input type="number" class="form-control @error('pengantar_dari_rw') is-invalid @enderror" id="pengantar_dari_rw" name="pengantar_dari_rw" placeholder="Contoh: 01" required />
+                        <input type="number" class="form-control @error('pengantar_dari_rw') is-invalid @enderror" id="pengantar_dari_rw" name="pengantar_dari_rw" placeholder="Contoh: 001" required />
                         @error('pengantar_dari_rw')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -315,7 +315,7 @@
 
                     <div class="col-md-6">
                         <label class="form-label">Pengantar Dari RT</label>
-                        <input type="number" class="form-control @error('pengantar_dari_rt') is-invalid @enderror" id="pengantar_dari_rt" name="pengantar_dari_rt" placeholder="Contoh: 03" required />
+                        <input type="number" class="form-control @error('pengantar_dari_rt') is-invalid @enderror" id="pengantar_dari_rt" name="pengantar_dari_rt" placeholder="Contoh: 003" required />
                         @error('pengantar_dari_rt')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

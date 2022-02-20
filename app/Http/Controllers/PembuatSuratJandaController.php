@@ -317,8 +317,8 @@ class PembuatSuratJandaController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);

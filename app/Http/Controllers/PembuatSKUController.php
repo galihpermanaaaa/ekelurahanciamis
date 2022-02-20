@@ -319,8 +319,8 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW '. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' '.'Kabupaten '. $p->cities->city_name,0,1);
+  
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -341,18 +341,18 @@ class PembuatSKUController extends Controller
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(35,6,'',0,0,'C');
-        $this->fpdf->Cell(80,6,'',0,0);
+        $this->fpdf->Cell(37,6,'',0,0,'C');
+        $this->fpdf->Cell(82,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
         $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
 
-        $this->fpdf->Cell(40,6,'',0,0,'C');
-        $this->fpdf->Cell(75,6,'',0,0);
+        $this->fpdf->Cell(42,6,'',0,0,'C');
+        $this->fpdf->Cell(77,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'Lurah Ciamis',0,1, 'C');
+        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
@@ -384,12 +384,21 @@ class PembuatSKUController extends Controller
     $sku = SKU::findOrFail($request->id);
     $image_path = public_path().'/sku/ktp/'.$sku->ktp;
     $image_path1 = public_path().'/sku/kk/'.$sku->kk;
-    $image_path2 = public_path().'/sku/keterangan_domisili/'.$sku->keterangan_domisili;
-    $image_path3 = public_path().'/sku/surat_pengantar/'.$sku->surat_pengantar;
+    $image_path2 = public_path().'/sku/surat_pengantar/'.$sku->surat_pengantar;
+    $image_path3 = public_path().'/sku/keterangan_domisili/'.$sku->keterangan_domisili;
+    
     unlink($image_path);
     unlink($image_path1);
     unlink($image_path2);
-    unlink($image_path3);
+
+    if(!empty($sku->keterangan_domisili)){
+        $image_path3 = public_path().'/sku/keterangan_domisili/'.$sku->keterangan_domisili;
+        unlink($image_path3);
+    }else{
+        $image_path3='';
+    }
+
+    
     $sku->delete();
     Alert::success('SKU tersebut berhasil dihapus :)','Success');
     return redirect()->route('user/sku/data_sku');

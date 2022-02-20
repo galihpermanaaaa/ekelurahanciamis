@@ -127,8 +127,14 @@ class landigpageController extends Controller
         $file3 = time().'.'.$request->surat_pengantar->extension();
         $request->surat_pengantar->move(public_path('sku/surat_pengantar'), $file3);
 
-        $file4 = time().'.'.$request->keterangan_domisili->extension();
-        $request->keterangan_domisili->move(public_path('sku/keterangan_domisili'), $file4);
+        if(!empty($request->keterangan_domisili)){
+            $file4 = time().'.'.$request->keterangan_domisili->extension();
+            $request->keterangan_domisili->move(public_path('sku/keterangan_domisili'), $file4);
+        }else{
+            $file4 = '';
+            $request->keterangan_domisili;
+        }
+
 
         $form = new SKU;
         $form->nik                          = $request->nik;
@@ -188,6 +194,7 @@ class landigpageController extends Controller
     {
         $data = SKU::join('sku_diterima', 'sku_diterima.id_sku', '=', 'surat_sku.id')
         ->where('id',$id)->get();
+
         foreach ($data as $p) {
           
         $this->fpdf = new Fpdf;
@@ -222,7 +229,6 @@ class landigpageController extends Controller
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
         $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
-
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -243,7 +249,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.(tanggal_indonesia($p->tanggal_buat_surat)),0,1);
+        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);
@@ -267,8 +273,8 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW '. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' '.'Kabupaten '. $p->cities->city_name,0,1);
+  
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -289,18 +295,18 @@ class landigpageController extends Controller
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(35,6,'',0,0,'C');
-        $this->fpdf->Cell(80,6,'',0,0);
+        $this->fpdf->Cell(37,6,'',0,0,'C');
+        $this->fpdf->Cell(82,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
         $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
 
-        $this->fpdf->Cell(40,6,'',0,0,'C');
-        $this->fpdf->Cell(75,6,'',0,0);
+        $this->fpdf->Cell(42,6,'',0,0,'C');
+        $this->fpdf->Cell(77,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'Lurah Ciamis',0,1, 'C');
+        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
@@ -310,7 +316,6 @@ class landigpageController extends Controller
 
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
-
         $this->fpdf->Output();
        
         exit; 
@@ -499,8 +504,8 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+       
         
         $this->fpdf->Ln(3);
         $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
@@ -750,8 +755,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat Sekarang',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -977,8 +981,8 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -1210,8 +1214,8 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'KELURAHAN/DESA. '. $p->subdistricts->subdis_name. ' '. 'KECAMATAN. '. $p->districts->dis_name,0,1);
-        $this->fpdf->Cell(100,6,'                                     '.'KABUPATEN. '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
