@@ -67,4 +67,9 @@ class Kecamatan extends Model
     	return $this->hasMany('App\Models\Kematian', 'dis_id');
     }
 
+    public function domisili_pt()
+    {
+    	return $this->hasMany('App\Models\DomisiliPT', 'id_domisili_pt');
+    }
+
 }

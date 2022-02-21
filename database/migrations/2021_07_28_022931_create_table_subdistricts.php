@@ -100,6 +100,14 @@ class CreateTableSubdistricts extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('domisili_pt', function (Blueprint $table) {
+            $table->foreign('subdis_id')
+            ->references('subdis_id')
+            ->on('subdistricts')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -147,6 +155,10 @@ class CreateTableSubdistricts extends Migration
 
         Schema::table('kematian', function(Blueprint $table) {
             $table->dropforeign('kematian_subdis_id_foreign');
+        });
+
+        Schema::table('domisili_pt', function(Blueprint $table) {
+            $table->dropforeign('domisili_pt_subdis_id_foreign');
         });
         
       

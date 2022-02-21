@@ -61,4 +61,9 @@ class Provinsi extends Model
     {
     	return $this->hasMany('App\Models\Kematian', 'prov_id');
     }
+
+    public function domisili_pt()
+    {
+    	return $this->hasMany('App\Models\DomisiliPT', 'id_domisili_pt');
+    }
 }

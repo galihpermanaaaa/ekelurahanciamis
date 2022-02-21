@@ -96,6 +96,14 @@ class CreateUsersTable extends Migration
             ->onUpdate('cascade');
         });
 
+        Schema::table('domisili_pt', function (Blueprint $table) {
+            $table->foreign('id_users')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
        
 
     }
@@ -137,6 +145,10 @@ class CreateUsersTable extends Migration
 
         Schema::table('kematian', function(Blueprint $table) {
             $table->dropforeign('kematian_id_users_foreign');
+        });
+
+        Schema::table('domisili_pt', function(Blueprint $table) {
+            $table->dropforeign('domisili_pt_id_users_foreign');
         });
 
         

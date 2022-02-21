@@ -62,4 +62,9 @@ class RW extends Model
     	return $this->hasMany('App\Models\Kematian', 'id_rw');
     }
 
+    public function domisili_pt()
+    {
+    	return $this->hasMany('App\Models\DomisiliPT', 'id_domisili_pt');
+    }
+
 }

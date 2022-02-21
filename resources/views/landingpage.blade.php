@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ URL::to('Arsha/img/favicon.png') }}" rel="icon">
-  <link href="{{ URL::to('Arsha/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ URL::to('assets/img/logocms.png') }}" rel="icon">
+  <link href="{{ URL::to('assets/img/logocms.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -309,58 +309,58 @@
             <div class="skills-content">
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Usaha <i class="val">100%</i></span>
+                <span class="skill">Surat Keterangan Usaha <i class="val">{{$sku_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{$sku_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Domisili <i class="val">90%</i></span>
+                <span class="skill">Surat Keterangan Domisili <i class="val">{{$domisili_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{$domisili_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Tidak Mampu <i class="val">75%</i></span>
+                <span class="skill">Surat Keterangan Tidak Mampu <i class="val">{{$skm_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{$skm_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Duda <i class="val">55%</i></span>
+                <span class="skill">Surat Keterangan Duda <i class="val">{{$duda_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$duda_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Janda <i class="val">55%</i></span>
+                <span class="skill">Surat Keterangan Janda <i class="val">{{$janda_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$janda_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Belum Menikah <i class="val">55%</i></span>
+                <span class="skill">Surat Keterangan Belum Menikah <i class="val">{{$sbm_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$sbm_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Belum Memiliki Rumah <i class="val">55%</i></span>
+                <span class="skill">Surat Keterangan Belum Memiliki Rumah <i class="val">{{$bmr_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$bmr_count}}</div>
                 </div>
               </div>
 
               <div class="progress">
-                <span class="skill">Surat Keterangan Kematian <i class="val">55%</i></span>
+                <span class="skill">Surat Keterangan Kematian <i class="val">{{$kematian_count}}</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$kematian_count}}</div>
                 </div>
               </div>
 

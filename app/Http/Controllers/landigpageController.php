@@ -60,7 +60,15 @@ class landigpageController extends Controller
     {
 
         $provinsi = Provinsi::all();
-        return view('landingpage', compact('provinsi'));
+        $sku_count = SKU::all()->count();
+        $domisili_count =SuratDomisili::all()->count();
+        $skm_count = SKM::all()->count();
+        $duda_count = SuratDuda::all()->count();
+        $janda_count = SuratJanda::all()->count();
+        $sbm_count = SBM::all()->count();
+        $bmr_count = BMR::all()->count();
+        $kematian_count = Kematian::all()->count();
+        return view('landingpage', compact('provinsi', 'sku_count', 'domisili_count', 'skm_count','duda_count', 'janda_count', 'sbm_count', 'bmr_count', 'kematian_count'));
 
     }
 
@@ -171,7 +179,7 @@ class landigpageController extends Controller
 
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\SKUMail($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -403,7 +411,7 @@ class landigpageController extends Controller
 
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatanSuratSKMKelurahanCiamis($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -650,7 +658,7 @@ class landigpageController extends Controller
         $form->save();
         
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratDomisili($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -880,7 +888,7 @@ class landigpageController extends Controller
 
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratKeteranganDuda($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -1113,7 +1121,7 @@ class landigpageController extends Controller
 
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratKeteranganJanda($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -1337,7 +1345,7 @@ class landigpageController extends Controller
 
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratBelumMenikah($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -1565,7 +1573,7 @@ class landigpageController extends Controller
      
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratBelumMemilikiRumah($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 
@@ -1845,7 +1853,7 @@ class landigpageController extends Controller
         
         $form->save();
         Mail::to($request->email)->send(new \App\Mail\PembuatSuratKematian($form));
-        Alert::success('Congrats', 'Surat Anda Berhasil di Buat, Token Anda : '.$token)->persistent('Close');
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
         return redirect()->route('index');
     }
 

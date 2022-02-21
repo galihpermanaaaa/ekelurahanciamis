@@ -110,6 +110,11 @@ class User extends Authenticatable
     {
     	return $this->hasMany('App\Models\Kematian', 'id_users');
     }
+
+    public function domisili_pt()
+    {
+    	return $this->hasMany('App\Models\DomisiliPT', 'id_domisili_pt');
+    }
     
     
 }

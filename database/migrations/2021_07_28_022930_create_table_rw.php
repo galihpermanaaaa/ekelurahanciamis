@@ -91,6 +91,14 @@ class CreateTableRw extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
+
+        Schema::table('domisili_pt', function (Blueprint $table) {
+            $table->foreign('id_rw')
+            ->references('id_rw')
+            ->on('rw')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
     }
 
     /**
@@ -134,6 +142,10 @@ class CreateTableRw extends Migration
 
         Schema::table('kematian', function(Blueprint $table) {
             $table->dropforeign('kematian_id_rw_foreign');
+        });
+
+        Schema::table('domisili_pt', function(Blueprint $table) {
+            $table->dropforeign('domisili_pt_id_rw_foreign');
         });
 
         Schema::dropIfExists('rw');
