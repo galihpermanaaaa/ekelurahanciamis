@@ -107,6 +107,7 @@
     @include('form.skbm')
     @include('form.skbmr')
     @include('form.skk')
+    @include('form.skdp')
 
 <!-- ======= Services Section ======= -->
 <!-- Start of LiveChat (www.livechatinc.com) code -->
@@ -216,8 +217,51 @@
           </div>
 
       </div>
+      <br>
+
+
+      <div class="row">
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+
+                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkdp_menu">Surat Keterangan Domisili Perusahaan</a></h4>
+              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
+            </div>
+          </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><center><i class="bx bx-file"></i></div>
+                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a> </h4>
+
+            {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
+          </div>
+        </div>
+
+
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
+            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+              <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
+              {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
+            </div>
+          </div>
+
+      </div>
 
     </div>
+
   </section><!-- End Services Section -->
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about ">
