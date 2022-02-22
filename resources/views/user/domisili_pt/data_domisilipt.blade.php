@@ -4,7 +4,7 @@
 
 
     <div class="pagetitle">
-      <h1>Daftar Surat Keterangan Kematian</h1>
+      <h1>Daftar Surat Keterangan Domisili Perusahaan</h1>
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -30,7 +30,7 @@
             @endforeach
         </select>
         <button type="submit" title="Search" class="btn btn-primary btn-sm" ><i class="bi bi-search"></i></button>&nbsp;&nbsp;
-        <a href="{{ route('user/kematian/data_kematian') }}" class="btn btn-success btn-sm">Refresh</a>
+        <a href="{{ route('user/domisili_pt/data_domisilipt') }}" class="btn btn-success btn-sm">Refresh</a>
       </form>
       </div><!-- End Search Bar -->
     <br>
@@ -41,7 +41,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Daftar Pembuat Surat Keterangan Kematian</h5>
+              <h5 class="card-title">Daftar Pembuat Surat Keterangan Domisili Perusahaan</h5>
               
 
               <!-- Table with stripped rows -->
@@ -49,8 +49,8 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Nama</th>
+                    <th scope="col">NPWP Perusahaan</th>
+                    <th scope="col">Nama Lembaga</th>
                     <th scope="col">Email</th>
                     <th scope="col">RW</th>
                     <th scope="col">Verifikasi</th>
@@ -63,8 +63,8 @@
                     @foreach($data as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
-                      <td>{{$item->nik}}</td>
-                      <td>{{$item->nama}}</td>
+                      <td>{{$item->npwp_pt}}</td>
+                      <td>{{$item->nama_lembaga}}</td>
                       <td>{{$item->email}}</td>
                       <td>{{$item->rw->nama_rw}}</td>
                     
@@ -72,7 +72,7 @@
                       <td>
 
                       @if($item->verifikasi =='Belum Diverifikasi')
-                      <a href="{{ url('user/kematian/verifikasi_kematian/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
+                      <a href="{{ url('user/domisili_pt/verifikasi_domisilipt/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
                       @elseif($item->verifikasi =='Terverifikasi')
                       <span class="badge bg-success">{{$item->verifikasi}}</span>
                                 @else($item->verifikasi =='Ditolak')
@@ -95,9 +95,9 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p>Harus Diverifikasi terlebih dahulu</p>
                       @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/kematian/lihat_data_kematian/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
+                      <a href="{{ url('user/domisili_pt/lihat_data_domisilipt/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>	
                       @else($item->verifikasi =='Ditolak')
-                      <a href="{{ url('user/kematian/lihat_data_kematian/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
+                      <a href="{{ url('user/domisili_pt/lihat_data_domisilipt/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
                       @endif
                       
                     
@@ -108,7 +108,7 @@
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')
-                      <a href="{{ url('user/kematian/surat_kematian/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
+                      <a href="{{ url('user/domisili_pt/surat_domisilipt/'.$item->id) }}" target="_blank" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Download</a>	
                       @else($item->verifikasi =='Ditolak')
 					  <p class="text-danger" style="font-size: 14px;"></p>{{$item->deskripsi}}</span>
 					  @endif
@@ -119,8 +119,8 @@
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-              <span class="badge bg-success">Jumlah Surat Kematian Terverifikasi: {{$count_terverifikasi}}</span><br>
-              <span class="badge bg-danger">Jumlah Surat Kematian Ditolak: {{$count_ditolak}}</span>
+              <span class="badge bg-success">Jumlah Surat Domisili Perusahaan Terverifikasi: {{$count_terverifikasi}}</span><br>
+              <span class="badge bg-danger">Jumlah Surat Domisili Perusahaan Ditolak: {{$count_ditolak}}</span>
 
             </div>
           </div> 
@@ -135,11 +135,11 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Hapus Pembuat Surat Keterangan Belum Menikah</h5>
+                            <h5 class="modal-title">Hapus Pembuat Surat Keterangan Domisili Perusahaan</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('delete_kematian') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('delete_domisilipt') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('DELETE')}}
 
