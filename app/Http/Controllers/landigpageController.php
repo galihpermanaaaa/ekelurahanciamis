@@ -32,6 +32,9 @@ use App\Models\BMR_Ditolak;
 use App\Models\Kematian;
 use App\Models\Kematian_Ditolak;
 use App\Models\Kematian_Diterima;
+use App\Models\DomisiliPT;
+use App\Models\DomisiliPTerima;
+use App\Models\DomisiliPTolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -45,6 +48,7 @@ use App\Mail\PembuatSuratKeteranganDuda;
 use App\Mail\PembuatSuratKeteranganJanda;
 use App\Mail\PembuatSuratBelumMenikah;
 use App\Mail\PembuatSuratBelumMemilikiRumah;
+use App\Mail\PembuatSuratDomisiliPT;
 use Illuminate\Support\Facades\Mail;
 use App\Helpers;
 use App\tgl_indo;
@@ -2003,5 +2007,98 @@ class landigpageController extends Controller
        
         exit; 
         }
+    }
+
+    public function saveDomisiliPT(Request $request)
+    {
+        $token=null;
+        $token = Str::random(11);
+
+
+        $request->validate([
+            'nama_lembaga'                  => 'required|string|max:100',
+            'prov_id'                       => 'required',
+            'city_id'                       => 'required',
+            'dis_id'                        => 'required',
+            'subdis_id'                     => 'required',
+            'id_rw'                         => 'required',
+            'rt'                            => 'required',
+
+            'npwp_pt'                            => 'required',
+            'pimpinan'                           => 'required',
+            'surat_keterangan_dari'              => 'required',
+
+
+            'ktp'                       => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'kk'                        => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'npwp'                      => 'required|image|mimes:jpeg,jpg,png|max:5000',
+            'surat_keterangan_rt'       => 'required|image|mimes:jpeg,jpg,png|max:5000',
+
+            'verifikasi'                    => 'required',
+            'email'                         => 'required',
+            'tanggal_buat_surat'            => 'required|date',
+            
+        ]);
+
+        $file1 = time().'.'.$request->ktp->extension();
+        $request->ktp->move(public_path('domisiliPT/ktp'), $file1);
+
+        $file2 = time().'.'.$request->kk->extension();
+        $request->kk->move(public_path('domisiliPT/kk'), $file2);
+
+        $file3 = time().'.'.$request->npwp->extension();
+        $request->npwp->move(public_path('domisiliPT/npwp'), $file3);
+
+        $file4 = time().'.'.$request->surat_keterangan_rt->extension();
+        $request->surat_keterangan_rt->move(public_path('domisiliPT/surat_keterangan_rt'), $file4);
+
+
+
+        $form = new DomisiliPT;
+        $form->nama_lembaga                 = $request->nama_lembaga;
+     
+        $form->prov_id                      = $request->prov_id;
+        $form->city_id                      = $request->city_id;
+        $form->dis_id                       =  $request->dis_id;
+        $form->subdis_id                    =  $request->subdis_id;
+        $form->id_rw                        = $request->id_rw;
+        $form->rt                           = $request->rt;
+
+        $form->npwp_pt                          = $request->npwp_pt;
+        $form->pimpinan                         = $request->pimpinan;
+        $form->surat_keterangan_dari            = $request->surat_keterangan_dari;
+
+        $form->ktp                                       = $file1;
+        $form->kk                                        = $file2;
+        $form->npwp                                      = $file3;
+        $form->surat_keterangan_rt                       = $file4;
+
+        $form->token                                 = $token;
+        $form->verifikasi                            = $request->verifikasi;
+        $form->email                                 = $request->email;
+        $form->tanggal_buat_surat                    = $request->tanggal_buat_surat;
+
+
+      
+        
+        $form->save();
+        Mail::to($request->email)->send(new \App\Mail\PembuatSuratDomisiliPT($form));
+        Alert::success('Congrats', 'Surat Anda Berhasil di Buat Harap Periksa Email anda untuk mendapatkan hasil inputan anda, Token Anda : '.$token)->persistent('Close');
+        return redirect()->route('index');
+    }
+
+    
+    public function filterdomisiliPT(Request $request)
+    {
+
+        $token = $request->token;
+        
+        if(!empty($token)){
+            $data = DomisiliPT::where('token', 'like', "%" . $token . "%")->get();
+        }else{
+            Alert::error('Maaf', 'token tersebut tidak ditemukan, silahkan lakukan pembuatan surat untuk mendapatkan token ')->persistent('Close');
+            return redirect()->route('index');
+        }
+        return view('layanan.domisili_pt', compact('data'));
     }
 }

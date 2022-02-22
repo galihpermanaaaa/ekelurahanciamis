@@ -24,10 +24,12 @@ class CreateDomisiliperusahaanTable extends Migration
             $table->string('rt');
             $table->string('npwp_pt');
             $table->string('pimpinan');
-            $table->string('surat_keterangan_dari');
+            $table->string('surat_keterangan_dari'); 
             $table->string('ktp');
             $table->string('kk');
             $table->string('npwp');
+            $table->string('surat_keterangan_rt');
+            $table->string('token');
             $table->unsignedBigInteger('id_users')->nullable();
             $table->enum('verifikasi', ['Terverifikasi', 'Belum Diverifikasi', 'Ditolak'])->nullable();
             $table->string('email')->nullable();

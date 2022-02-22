@@ -29,6 +29,7 @@ Route::post('save_janda', [App\Http\Controllers\landigpageController::class, 'sa
 Route::post('save_sbm', [App\Http\Controllers\landigpageController::class, 'saveSBM'])->name('save_sbm');
 Route::post('save_bmr', [App\Http\Controllers\landigpageController::class, 'saveBMR'])->name('save_bmr');
 Route::post('save_kematian', [App\Http\Controllers\landigpageController::class, 'saveKematian'])->name('save_kematian');
+Route::post('save_domisili_pt', [App\Http\Controllers\landigpageController::class, 'saveDomisiliPT'])->name('save_domisili_pt');
 
 
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
@@ -39,6 +40,7 @@ Route::get('layanan/janda',  [App\Http\Controllers\landigpageController::class, 
 Route::get('layanan/skbm',  [App\Http\Controllers\landigpageController::class, 'filterskbm'])->name('layanan/skbm');
 Route::get('layanan/bmr',  [App\Http\Controllers\landigpageController::class, 'filterbmr'])->name('layanan/bmr');
 Route::get('layanan/kematian',  [App\Http\Controllers\landigpageController::class, 'filterkematian'])->name('layanan/kematian');
+Route::get('layanan/domisiliPT',  [App\Http\Controllers\landigpageController::class, 'filterdomisiliPT'])->name('layanan/domisiliPT');
 
 Route::get('layanan/surat_sku/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_sku']);
 Route::get('layanan/surat_skm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skm']);
@@ -48,6 +50,7 @@ Route::get('layanan/surat_janda/{id}', [App\Http\Controllers\landigpageControlle
 Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skbm']);
 Route::get('layanan/surat_bmr/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_bmr']);
 Route::get('layanan/surat_kematian/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_kematian']);
+Route::get('layanan/surat_domisili_pt/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_domisili_pt']);
 
 
 
@@ -173,6 +176,17 @@ Route::delete('delete_kematian', [App\Http\Controllers\PembuatSuratKematianContr
 Route::get('user/kematian/lihat_data_kematian/{id}', [App\Http\Controllers\PembuatSuratKematianController::class, 'lihat_data_kematian']);
 Route::get('user/kematian/data_kematian/cari_kematian',  [App\Http\Controllers\PembuatSuratKematianController::class, 'filterkematian'])->name('user/kematian/data_kematian/cari_kematian');
 Route::get('user/kematian/data_kematian_rw', [App\Http\Controllers\PembuatSuratKematianController::class, 'indexRWKematian'])->name('user/kematian/data_kematian_rw');
+
+
+// -----------------------------Domisili PT----------------------------------------//
+Route::get('user/domisili_pt/data_domisilipt', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'index'])->name('user/domisili_pt/data_domisilipt');
+Route::get('user/domisili_pt/verifikasi_domisilipt/{id}', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'verifikasi_domisilipt']);
+Route::post('user/domisili_pt/verifikasi_domisilipt_domisilipt', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'verifikasi_domisilipt_domisilipt'])->name('verifikasi_domisilipt_domisilipt');
+Route::get('user/domisili_pt/surat_domisilipt/{id}', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'surat_domisilipt']);
+Route::delete('delete_domisilipt', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'destroy_domisilipt'])->name('delete_domisilipt');
+Route::get('user/domisili_pt/lihat_data_domisilipt/{id}', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'lihat_data_domisilipt']);
+Route::get('user/domisili_pt/data_domisilipt/cari_domisilipt',  [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'filterdomisilipt'])->name('user/domisili_pt/data_domisilipt/cari_domisilipt');
+Route::get('user/domisili_pt/data_domisilipt_rw', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'indexRWDomisiliPT'])->name('user/domisili_pt/data_domisilipt_rw');
 
 
 
