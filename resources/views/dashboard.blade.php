@@ -200,6 +200,28 @@
               </div>
             </div><!-- End Revenue Card -->
 
+             <!-- Revenue Card -->
+             <div class="col-xxl-4 col-md-6">
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">SKDP Belum Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$domisilipt_count}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
             
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-6">
@@ -380,6 +402,29 @@
             </div><!-- End Revenue Card -->
 
 
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">SKDP Yang Sudah Diverifikasi</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-wallet"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$domisilipt_count_verifikasi}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+
             @endif
 
             <!-- Top Selling -->
@@ -536,6 +581,7 @@
                         <th scope="col">Surat Ket Belum Nikah</th>
                         <th scope="col">Belum Memiliki Rumah</th>
                         <th scope="col">Surat Ket Kematian</th>
+                        <th scope="col">Domisili Perusahaan</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -549,6 +595,7 @@
                         <td>{{$sbm_rep_1}}</td>
                         <td>{{$bmr_rep_1}}</td>
                         <td>{{$skk_rep_1}}</td>
+                        <td>{{$skdp_rep_1}}</td>
                       </tr>
                       <tr>
                         <td>RW 02</td>
@@ -560,6 +607,7 @@
                         <td>{{$sbm_rep_2}}</td>
                         <td>{{$bmr_rep_2}}</td>
                         <td>{{$skk_rep_2}}</td>
+                        <td>{{$skdp_rep_2}}</td>
                       </tr>
                       <tr>
                         <td>RW 03</td>
@@ -571,6 +619,7 @@
                         <td>{{$sbm_rep_3}}</td>
                         <td>{{$bmr_rep_3}}</td>
                         <td>{{$skk_rep_3}}</td>
+                        <td>{{$skdp_rep_3}}</td>
                       </tr>
                       <tr>
                         <td>RW 04</td>
@@ -582,6 +631,7 @@
                         <td>{{$sbm_rep_4}}</td>
                         <td>{{$bmr_rep_4}}</td>
                         <td>{{$skk_rep_4}}</td>
+                        <td>{{$skdp_rep_4}}</td>
                       </tr>
                       <tr> 
                         <td>RW 05</td>
@@ -593,6 +643,7 @@
                         <td>{{$sbm_rep_5}}</td>
                         <td>{{$bmr_rep_5}}</td>
                         <td>{{$skk_rep_5}}</td>
+                        <td>{{$skdp_rep_5}}</td>
                       </tr>
                       <tr> 
                         <td>RW 06</td>
@@ -604,6 +655,7 @@
                         <td>{{$sbm_rep_6}}</td>
                         <td>{{$bmr_rep_6}}</td>
                         <td>{{$skk_rep_6}}</td>
+                        <td>{{$skdp_rep_6}}</td>
                       </tr>
                       <tr> 
                         <td>RW 07</td>
@@ -615,6 +667,7 @@
                         <td>{{$sbm_rep_7}}</td>
                         <td>{{$bmr_rep_7}}</td>
                         <td>{{$skk_rep_7}}</td>
+                        <td>{{$skdp_rep_7}}</td>
                       </tr>
                       <tr> 
                         <td>RW 08</td>
@@ -626,6 +679,7 @@
                         <td>{{$sbm_rep_8}}</td>
                         <td>{{$bmr_rep_8}}</td>
                         <td>{{$skk_rep_8}}</td>
+                        <td>{{$skdp_rep_8}}</td>
                       </tr>
                       <tr> 
                         <td>RW 09</td>
@@ -637,6 +691,7 @@
                         <td>{{$sbm_rep_9}}</td>
                         <td>{{$bmr_rep_9}}</td>
                         <td>{{$skk_rep_9}}</td>
+                        <td>{{$skdp_rep_9}}</td>
                       </tr>
                       <tr> 
                         <td>RW 10</td>
@@ -648,6 +703,7 @@
                         <td>{{$sbm_rep_10}}</td>
                         <td>{{$bmr_rep_10}}</td>
                         <td>{{$skk_rep_10}}</td>
+                        <td>{{$skdp_rep_10}}</td>
                       </tr>
                       <tr> 
                         <td>RW 11</td>
@@ -659,6 +715,7 @@
                         <td>{{$sbm_rep_11}}</td>
                         <td>{{$bmr_rep_11}}</td>
                         <td>{{$skk_rep_11}}</td>
+                        <td>{{$skdp_rep_11}}</td>
                       </tr>
                       <tr> 
                         <td>RW 12</td>
@@ -670,6 +727,7 @@
                         <td>{{$sbm_rep_12}}</td>
                         <td>{{$bmr_rep_12}}</td>
                         <td>{{$skk_rep_12}}</td>
+                        <td>{{$skdp_rep_12}}</td>
                       </tr>
 
                       <tr> 
@@ -682,6 +740,7 @@
                         <td>{{$sbm_rep_13}}</td>
                         <td>{{$bmr_rep_13}}</td>
                         <td>{{$skk_rep_13}}</td>
+                        <td>{{$skdp_rep_13}}</td>
                       </tr>
 
                       <tr> 
@@ -694,6 +753,7 @@
                         <td>{{$sbm_rep_14}}</td>
                         <td>{{$bmr_rep_14}}</td>
                         <td>{{$skk_rep_14}}</td>
+                        <td>{{$skdp_rep_14}}</td>
                       </tr>
 
                       <tr> 
@@ -706,6 +766,7 @@
                         <td>{{$sbm_rep_15}}</td>
                         <td>{{$bmr_rep_15}}</td>
                         <td>{{$skk_rep_15}}</td>
+                        <td>{{$skdp_rep_15}}</td>
                       </tr>
 
                       <tr> 
@@ -718,6 +779,7 @@
                         <td>{{$sbm_rep_16}}</td>
                         <td>{{$bmr_rep_16}}</td>
                         <td>{{$skk_rep_16}}</td>
+                        <td>{{$skdp_rep_16}}</td>
                       </tr>
 
                       <tr> 
@@ -730,6 +792,7 @@
                         <td>{{$sbm_rep_17}}</td>
                         <td>{{$bmr_rep_17}}</td>
                         <td>{{$skk_rep_17}}</td>
+                        <td>{{$skdp_rep_17}}</td>
                       </tr>
 
                       <tr> 
@@ -742,6 +805,7 @@
                         <td>{{$sbm_rep_18}}</td>
                         <td>{{$bmr_rep_18}}</td>
                         <td>{{$skk_rep_18}}</td>
+                        <td>{{$skdp_rep_18}}</td>
                       </tr>
 
                       <tr> 
@@ -754,6 +818,7 @@
                         <td>{{$sbm_rep_19}}</td>
                         <td>{{$bmr_rep_19}}</td>
                         <td>{{$skk_rep_19}}</td>
+                        <td>{{$skdp_rep_19}}</td>
                       </tr>
 
                       <tr> 
@@ -766,6 +831,7 @@
                         <td>{{$sbm_rep_20}}</td>
                         <td>{{$bmr_rep_20}}</td>
                         <td>{{$skk_rep_20}}</td>
+                        <td>{{$skdp_rep_20}}</td>
                       </tr>
 
                       <tr> 
@@ -778,6 +844,7 @@
                         <td>{{$sbm_rep_21}}</td>
                         <td>{{$bmr_rep_21}}</td>
                         <td>{{$skk_rep_21}}</td>
+                        <td>{{$skdp_rep_21}}</td>
                       </tr>
 
                       <tr> 
@@ -790,6 +857,7 @@
                         <td>{{$sbm_rep_22}}</td>
                         <td>{{$bmr_rep_22}}</td>
                         <td>{{$skk_rep_22}}</td>
+                        <td>{{$skdp_rep_22}}</td>
                       </tr>
 
                       <tr> 
@@ -802,6 +870,7 @@
                         <td>{{$sbm_rep_23}}</td>
                         <td>{{$bmr_rep_23}}</td>
                         <td>{{$skk_rep_23}}</td>
+                        <td>{{$skdp_rep_23}}</td>
                       </tr>
 
                       <tr> 
@@ -814,6 +883,7 @@
                         <td>{{$sbm_rep_24}}</td>
                         <td>{{$bmr_rep_24}}</td>
                         <td>{{$skk_rep_24}}</td>
+                        <td>{{$skdp_rep_24}}</td>
                       </tr>
 
                       <tr> 
@@ -826,6 +896,7 @@
                         <td>{{$sbm_rep_25}}</td>
                         <td>{{$bmr_rep_25}}</td>
                         <td>{{$skk_rep_25}}</td>
+                        <td>{{$skdp_rep_25}}</td>
                       </tr>
 
                       <tr> 
@@ -838,6 +909,7 @@
                         <td>{{$sbm_rep_26}}</td>
                         <td>{{$bmr_rep_26}}</td>
                         <td>{{$skk_rep_26}}</td>
+                        <td>{{$skdp_rep_26}}</td>
                       </tr>
 
                       <tr> 
@@ -850,6 +922,7 @@
                         <td>{{$sbm_rep_27}}</td>
                         <td>{{$bmr_rep_27}}</td>
                         <td>{{$skk_rep_27}}</td>
+                        <td>{{$skdp_rep_27}}</td>
                       </tr>
 
                       <tr> 
@@ -862,6 +935,7 @@
                         <td>{{$sbm_rep_28}}</td>
                         <td>{{$bmr_rep_28}}</td>
                         <td>{{$skk_rep_28}}</td>
+                        <td>{{$skdp_rep_28}}</td>
                       </tr>
 
                       <tr> 
@@ -874,6 +948,7 @@
                         <td>{{$sbm_rep_29}}</td>
                         <td>{{$bmr_rep_29}}</td>
                         <td>{{$skk_rep_29}}</td>
+                        <td>{{$skdp_rep_29}}</td>
                       </tr>
 
                       <tr> 
@@ -886,6 +961,7 @@
                         <td>{{$sbm_rep_30}}</td>
                         <td>{{$bmr_rep_30}}</td>
                         <td>{{$skk_rep_30}}</td>
+                        <td>{{$skdp_rep_30}}</td>
                       </tr>
 
                       <tr> 
@@ -898,6 +974,7 @@
                         <td>{{$sbm_rep_31}}</td>
                         <td>{{$bmr_rep_31}}</td>
                         <td>{{$skk_rep_31}}</td>
+                        <td>{{$skdp_rep_31}}</td>
                       </tr>
 
                       <tr> 
@@ -910,6 +987,7 @@
                         <td>{{$sbm_rep_32}}</td>
                         <td>{{$bmr_rep_32}}</td>
                         <td>{{$skk_rep_32}}</td>
+                        <td>{{$skdp_rep_32}}</td>
                       </tr>
 
                     </tbody>

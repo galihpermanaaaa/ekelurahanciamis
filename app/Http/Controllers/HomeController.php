@@ -33,6 +33,9 @@ use App\Models\SBM_Ditolak;
 use App\Models\BMR;
 use App\Models\BMR_Diterima;
 use App\Models\BMR_Ditolak;
+use App\Models\DomisiliPT;
+use App\Models\DomisiliPTTerima;
+use App\Models\DomisiliPTTolak;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -92,8 +95,15 @@ class HomeController extends Controller
         $kematian = Kematian::where('verifikasi', 'Belum Diverifikasi')->get();
         $kematian_count = $kematian->count();
 
-        
-        
+        $domisilipt = DomisiliPT::where('verifikasi', 'Belum Diverifikasi')->get();
+        $domisilipt_count = $domisilipt->count();
+
+
+
+
+        $domisilipt_verifikasi = DomisiliPT::where('verifikasi', 'Terverifikasi')->get();
+        $domisilipt_count_verifikasi = $domisilipt_verifikasi->count();
+
         $kematian_verifikasi = Kematian::where('verifikasi', 'Terverifikasi')->get();
         $kematian_count_verifikasi = $kematian_verifikasi->count();
 
@@ -218,6 +228,7 @@ class HomeController extends Controller
         $skbm_tab = SBM::all()->count();
         $bmr_tab = BMR::all()->count();
         $kematian_tab = Kematian::all()->count();
+        $domisilipt_tab = DomisiliPT::all()->count();
 
 
         $sku_rep_01 = SKU::where('verifikasi', 'Terverifikasi')
@@ -876,6 +887,74 @@ class HomeController extends Controller
         $skk_rep_32 = Kematian::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
         ->where('id_rw', '32')->count();
 
+
+
+        $skdp_rep_1 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '01')->count();
+        $skdp_rep_2 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '02')->count();
+        $skdp_rep_3 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '03')->count();
+        $skdp_rep_4 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '04')->count();
+        $skdp_rep_5 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '05')->count();
+        $skdp_rep_6 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '06')->count();
+        $skdp_rep_7 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '07')->count();
+        $skdp_rep_8 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '08')->count();
+        $skdp_rep_9 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '09')->count();
+        $skdp_rep_10 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '10')->count();
+        $skdp_rep_11 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '11')->count();
+        $skdp_rep_12 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '12')->count();
+        $skdp_rep_13 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '13')->count();
+        $skdp_rep_14 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '14')->count();
+        $skdp_rep_15 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '15')->count();
+        $skdp_rep_16 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '16')->count();
+        $skdp_rep_17 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '17')->count();
+        $skdp_rep_18 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '18')->count();
+        $skdp_rep_19 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '19')->count();
+        $skdp_rep_20 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '20')->count();
+        $skdp_rep_21 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '21')->count();
+        $skdp_rep_22 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '22')->count();
+        $skdp_rep_23 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '23')->count();
+        $skdp_rep_24 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '24')->count();
+        $skdp_rep_25 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '25')->count();
+        $skdp_rep_26 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '26')->count();
+        $skdp_rep_27 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '27')->count();
+        $skdp_rep_28 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '28')->count();
+        $skdp_rep_29 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '29')->count();
+        $skdp_rep_30 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '30')->count();
+        $skdp_rep_31 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '31')->count();
+        $skdp_rep_32 = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('subdis_id', '25821')
+        ->where('id_rw', '32')->count();
+
+        
         
 
         $sku_jk_lk = SKU::where('verifikasi', 'Terverifikasi')->where('jk', 'Laki-laki')->count();
@@ -941,7 +1020,10 @@ class HomeController extends Controller
     'bmr_verifikasi_rw_belum', 'bmr_count_verifikasi_rw_belum', 'kematian', 'kematian_count', 'kematian_verifikasi', 'kematian_count_verifikasi', 'kematian_tab', 'kematian_jk_lk', 'kematian_jk_pr', 'log_kematian', 'skk_rep_1', 'skk_rep_2', 'skk_rep_3', 'skk_rep_4', 'skk_rep_5', 'skk_rep_6', 'skk_rep_7', 'skk_rep_8', 'skk_rep_9', 'skk_rep_10',
     'skk_rep_11', 'skk_rep_12', 'skk_rep_13','skk_rep_14', 'skk_rep_15', 'skk_rep_16', 'skk_rep_17', 'skk_rep_18', 'skk_rep_18', 'skk_rep_19', 'skk_rep_20',
     'skk_rep_21', 'skk_rep_22', 'skk_rep_23', 'skk_rep_24', 'skk_rep_25', 'skk_rep_26', 'skk_rep_27', 'skk_rep_28', 'skk_rep_29', 'skk_rep_30', 'skk_rep_31', 'skk_rep_32', 'kematian_verifikasi_rw_terverifikasi', 'kematian_count_verifikasi_rw_terverifikasi', 'kematian_verifikasi_rw_ditolak', 'kematian_count_verifikasi_rw_ditolak',
-    'kematian_verifikasi_rw_belum', 'kematian_count_verifikasi_rw_belum'));
+    'kematian_verifikasi_rw_belum', 'kematian_count_verifikasi_rw_belum', 'domisilipt_tab', 'domisilipt', 'domisilipt_count', 'domisilipt_verifikasi', 'domisilipt_count_verifikasi', 'skdp_rep_1', 'skdp_rep_2', 'skdp_rep_3', 'skdp_rep_4', 'skdp_rep_5', 'skdp_rep_6', 'skdp_rep_7', 'skdp_rep_8', 'skdp_rep_9',
+    'skdp_rep_10', 'skdp_rep_11', 'skdp_rep_12', 'skdp_rep_13', 'skdp_rep_14', 'skdp_rep_15', 'skdp_rep_16', 'skdp_rep_17', 'skdp_rep_18', 'skdp_rep_19', 'skdp_rep_20',
+    'skdp_rep_21', 'skdp_rep_22', 'skdp_rep_23', 'skdp_rep_24', 'skdp_rep_25', 'skdp_rep_25', 'skdp_rep_26', 'skdp_rep_27', 'skdp_rep_28', 'skdp_rep_29', 'skdp_rep_30',
+    'skdp_rep_31', 'skdp_rep_32'));
     }
 
 }
