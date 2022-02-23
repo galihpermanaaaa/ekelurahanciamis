@@ -19,10 +19,10 @@
 </script>
 
    
-<br>
+ <br>
     <br>
     <div class="search-bar col-md-3">
-      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/kematian/data_kematian/cari_kematian') }}">
+      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/domisili_pt/data_domisilipt/cari_domisilipt') }}">
       <select class="form-control" name="id_rw" id="id_rw" required>
          <option selected>---Cari Berdasarkan RW---</option>
             @foreach ($rw as $rww)
@@ -88,10 +88,9 @@
                       @else($item->verifikasi =='Ditolak')
                       <p class="text-danger" style="font-size: 14px;"></p>Tidak Bisa dihapus Karena Sudah Diverifikasi</span>
                       @endif
-                    </td>
+                      </td>
 
                     <td> 
-
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p>Harus Diverifikasi terlebih dahulu</p>
                       @elseif($item->verifikasi =='Terverifikasi')
@@ -99,8 +98,6 @@
                       @else($item->verifikasi =='Ditolak')
                       <a href="{{ url('user/domisili_pt/lihat_data_domisilipt/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
                       @endif
-                      
-                    
                     </td>
 
                     <td>

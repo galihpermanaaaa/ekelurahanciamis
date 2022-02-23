@@ -50,7 +50,7 @@ Route::get('layanan/surat_janda/{id}', [App\Http\Controllers\landigpageControlle
 Route::get('layanan/surat_skbm/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_skbm']);
 Route::get('layanan/surat_bmr/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_bmr']);
 Route::get('layanan/surat_kematian/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_kematian']);
-Route::get('layanan/surat_domisili_pt/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_domisili_pt']);
+Route::get('layanan/surat_domisili_pt/{id}', [App\Http\Controllers\landigpageController::class, 'layanan_surat_domisilipt']);
 
 
 

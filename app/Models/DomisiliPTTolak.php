@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class DomisiliPTTolak extends Model
 {
     use HasFactory;
-    protected $table='domisili_pt_ditolak';
-    protected $primaryKey='id_domisili_pt_ditolak';
+    protected $table='domisili_pt_tolak';
+    protected $primaryKey='	id_domisili_pt_ditolak';
     protected $fillable = ['id_domisili_pt'];
 
     public function domisili_pt()
