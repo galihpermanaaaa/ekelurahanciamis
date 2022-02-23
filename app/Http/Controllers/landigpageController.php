@@ -72,7 +72,8 @@ class landigpageController extends Controller
         $sbm_count = SBM::all()->count();
         $bmr_count = BMR::all()->count();
         $kematian_count = Kematian::all()->count();
-        return view('landingpage', compact('provinsi', 'sku_count', 'domisili_count', 'skm_count','duda_count', 'janda_count', 'sbm_count', 'bmr_count', 'kematian_count'));
+        $domisilipt_count = DomisiliPT::all()->count();
+        return view('landingpage', compact('provinsi', 'sku_count', 'domisili_count', 'skm_count','duda_count', 'janda_count', 'sbm_count', 'bmr_count', 'kematian_count','domisilipt_count'));
 
     }
 

@@ -217,6 +217,16 @@ class HomeController extends Controller
         $kematian_verifikasi_rw_belum = Kematian::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
         $kematian_count_verifikasi_rw_belum = $kematian_verifikasi_rw_belum->count();
 
+
+        $domisilipt_verifikasi_rw_terverifikasi = DomisiliPT::where('verifikasi', 'Terverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $domisilipt_count_verifikasi_rw_terverifikasi = $domisilipt_verifikasi_rw_terverifikasi->count();
+
+        $domisilipt_verifikasi_rw_ditolak = DomisiliPT::where('verifikasi', 'Ditolak')->where('id_rw',auth()->user()->id_rw)->get();
+        $domisilipt_count_verifikasi_rw_ditolak = $domisilipt_verifikasi_rw_ditolak->count();
+
+        $domisilipt_verifikasi_rw_belum = DomisiliPT::where('verifikasi', 'Belum Diverifikasi')->where('id_rw',auth()->user()->id_rw)->get();
+        $domisilipt_count_verifikasi_rw_belum = $domisilipt_verifikasi_rw_belum->count();
+
         
        
 
@@ -978,6 +988,7 @@ class HomeController extends Controller
         $log_janda = SuratJanda::orderBy('id', 'DESC')->take(3)->get();
         $log_skbm = SBM::orderBy('id', 'DESC')->take(3)->get();
         $log_kematian = Kematian::orderBy('id', 'DESC')->take(3)->get();
+        $log_domisilipt = DomisiliPT::orderBy('id', 'DESC')->take(3)->get();
 
 
 
@@ -1023,7 +1034,8 @@ class HomeController extends Controller
     'kematian_verifikasi_rw_belum', 'kematian_count_verifikasi_rw_belum', 'domisilipt_tab', 'domisilipt', 'domisilipt_count', 'domisilipt_verifikasi', 'domisilipt_count_verifikasi', 'skdp_rep_1', 'skdp_rep_2', 'skdp_rep_3', 'skdp_rep_4', 'skdp_rep_5', 'skdp_rep_6', 'skdp_rep_7', 'skdp_rep_8', 'skdp_rep_9',
     'skdp_rep_10', 'skdp_rep_11', 'skdp_rep_12', 'skdp_rep_13', 'skdp_rep_14', 'skdp_rep_15', 'skdp_rep_16', 'skdp_rep_17', 'skdp_rep_18', 'skdp_rep_19', 'skdp_rep_20',
     'skdp_rep_21', 'skdp_rep_22', 'skdp_rep_23', 'skdp_rep_24', 'skdp_rep_25', 'skdp_rep_25', 'skdp_rep_26', 'skdp_rep_27', 'skdp_rep_28', 'skdp_rep_29', 'skdp_rep_30',
-    'skdp_rep_31', 'skdp_rep_32'));
+    'skdp_rep_31', 'skdp_rep_32', 'domisilipt_verifikasi_rw_terverifikasi','domisilipt_count_verifikasi_rw_terverifikasi','domisilipt_count_verifikasi_rw_ditolak',
+    'domisilipt_verifikasi_rw_belum','domisilipt_count_verifikasi_rw_belum','log_domisilipt'));
     }
 
 }

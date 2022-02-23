@@ -410,6 +410,13 @@
                 </div>
               </div>
 
+              <div class="progress">
+                <span class="skill">Surat Keterangan Domisili Perusahaan <i class="val">{{$domisilipt_count}}</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">{{$domisilipt_count}}</div>
+                </div>
+              </div>
+
             </div>
 
           </div>

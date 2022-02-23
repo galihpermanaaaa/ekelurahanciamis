@@ -242,6 +242,16 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
+
+      @if (Auth::check() && Auth::user()->role_name == 'RW')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/domisili_pt/data_domisilipt_rw') }}">
+          <i class="bi bi-person"></i>
+          <span>Pembuat Domisili Perusahaan (SKDP)</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
     </ul>
 
   </aside><!-- End Sidebar-->

@@ -502,6 +502,13 @@
                         <td class="fw-bold">{{$kematian_count_verifikasi_rw_ditolak}}</td>
                         <td>{{$kematian_count_verifikasi_rw_belum}}</td>
                       </tr>
+
+                      <tr>
+                        <td><a href="{{ route('user/domisili_pt/data_domisilipt_rw') }}" class="text-primary fw-bold">Surat Keterangan Domisili Perusahaan</a></td>
+                        <td>{{$domisilipt_count_verifikasi_rw_terverifikasi}}</td>
+                        <td class="fw-bold">{{$domisilipt_count_verifikasi_rw_ditolak}}</td>
+                        <td>{{$domisilipt_count_verifikasi_rw_belum}}</td>
+                      </tr> 
                      
                     </tbody>
                   </table>
@@ -1091,6 +1098,16 @@
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
                   {{$itemsss->nama}}<a href="#" class="fw-bold text-dark"></a> (SKK)
+                  </div>
+                </div><!-- End activity item-->
+                @endforeach
+
+                @foreach($log_domisilipt as $key => $itemssss)
+                <div class="activity-item d-flex">
+                  <div class="activite-label"> {{ Carbon\Carbon::parse($itemssss->created_at)->diffForHumans() }} </div>
+                  <i class='bi bi-circle-fill activity-badge text-secondary align-self-start'></i>
+                  <div class="activity-content">
+                  {{$itemssss->nama_lembaga}} <a href="#" class="fw-bold text-dark"></a> (SKDP)
                   </div>
                 </div><!-- End activity item-->
                 @endforeach

@@ -344,71 +344,46 @@ class PembuatSuratDomisiliPTController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy_kematian(Request $request)
+    public function destroy_domisilipt(Request $request)
    {
-    $kematian = Kematian::findOrFail($request->id);
+    $skdp = DomisiliPT::findOrFail($request->id);
     
-        $image_path = $kematian->ktp_almarhum;
-        $image_path1 = $kematian->kk_almarhum;
-        $image_path2 = $kematian->surat_pengantar_dari_rs;
-        $image_path3 = $kematian->surat_pengantar_dari_rt;
-        $image_path4 = $kematian->sk_terakhir;
-        $image_path5 = $kematian->karip;
-        $image_path6 = $kematian->tabungan_pensiunan;
+        $image_path = $skdp->ktp;
+        $image_path1 = $skdp->kk;
+        $image_path2 = $skdp->npwp;
+        $image_path3 = $skdp->surat_keterangan_rt;
 
-        if(!empty($kematian->ktp_almarhum)){
-            $image_path = public_path().'/kematian/ktp/'.$kematian->ktp_almarhum;
+        if(!empty($skdp->ktp)){
+            $image_path = public_path().'/domisiliPT/ktp/'.$skdp->ktp;
             unlink($image_path);
         }else{
             $image_path='';
            
         }
-
-        if(!empty( $kematian->kk_almarhum)){
-            $image_path1 = public_path().'/kematian/kk/'.$kematian->kk_almarhum;
+ 
+        if(!empty($skdp->kk)){
+            $image_path1 = public_path().'/domisiliPT/kk/'.$skdp->kk;
             unlink($image_path1);
         }else{
             $image_path1='';
         }
 
-        if(!empty($kematian->surat_pengantar_dari_rs)){
-            $image_path2 = public_path().'/kematian/pengantar_rs/'.$kematian->surat_pengantar_dari_rs;
+        if(!empty($skdp->npwp)){
+            $image_path2 = public_path().'/domisiliPT/npwp/'.$skdp->npwp;
             unlink($image_path2);
         }else{
             $image_path2='';
         }
 
-        if(!empty($kematian->surat_pengantar_dari_rt)){
-            $image_path3 = public_path().'/kematian/pengantar_rt_rw/'.$kematian->surat_pengantar_dari_rt;
+        if(!empty($skdp->surat_keterangan_rt)){
+            $image_path3 = public_path().'/domisiliPT/surat_keterangan_rt/'.$skdp->surat_keterangan_rt;
             unlink($image_path3);
         }else{
             $image_path3='';
         }
 
-
-        if(!empty($kematian->sk_terakhir)){
-            $image_path4 = public_path().'/kematian/sk_terakhir/'.$kematian->sk_terakhir;
-            unlink($image_path4);
-        }else{
-            $image_path4='';
-        }
-
-        if(!empty($kematian->karip)){
-            $image_path5 = public_path().'/kematian/karip/'.$kematian->karip;
-            unlink($image_path5);
-        }else{
-            $image_path5='';
-        }
-
-        if(!empty($kematian->tabungan_pensiunan)){
-            $image_path6 = public_path().'/kematian/tabungan/'.$kematian->tabungan_pensiunan;
-            unlink($image_path6);
-        }else{
-            $image_path6='';
-        }
-  
-    $kematian->delete();
+    $skdp->delete();
     Alert::success('Data tersebut berhasil dihapus :)','Success');
-    return redirect()->route('user/kematian/data_kematian');
+    return redirect()->route('user/domisili_pt/data_domisilipt');
    }
 }
