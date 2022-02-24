@@ -191,5 +191,6 @@ Route::get('user/domisili_pt/data_domisilipt_rw', [App\Http\Controllers\PembuatS
 
 Route::get('user/profile_kelurahan/data_profile_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'index'])->name('user/profile_kelurahan/data_profile_kelurahan');
 Route::get('user/profile_kelurahan/data_geografis_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexGeografis'])->name('user/profile_kelurahan/data_geografis_kelurahan');
+Route::post('save_geografis', [App\Http\Controllers\ProfileKelurahanController::class, 'saveGeografis'])->name('save_geografis');
 
 Auth::routes(['register' => false]);
