@@ -21,6 +21,9 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#geo" style="float: right;">
                 Input Data
     </button>
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#geo_update" style="float: right;">
+                Update Data
+    </button>
 
     <br>
     <br>
@@ -355,8 +358,7 @@
                             </span>
                             @enderror
                     </div>
-                    <div class="modal-footer d-block">
-
+                    <div class="modal-footer d-block">s
                         <button type="submit" class="btn btn-warning float-end" data-target="#contohModal">Submit</button>
                     </div>
                     </div>
