@@ -55,6 +55,7 @@ Route::get('layanan/surat_domisili_pt/{id}', [App\Http\Controllers\landigpageCon
 
 
 
+
 Route::get('/pesan', 'FlashMessageController@index');
 Route::get('/get-pesan', 'FlashMessageController@pesan');
 
@@ -188,6 +189,7 @@ Route::get('user/domisili_pt/lihat_data_domisilipt/{id}', [App\Http\Controllers\
 Route::get('user/domisili_pt/data_domisilipt/cari_domisilipt',  [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'filterdomisilipt'])->name('user/domisili_pt/data_domisilipt/cari_domisilipt');
 Route::get('user/domisili_pt/data_domisilipt_rw', [App\Http\Controllers\PembuatSuratDomisiliPTController::class, 'indexRWDomisiliPT'])->name('user/domisili_pt/data_domisilipt_rw');
 
-
+Route::get('user/profile_kelurahan/data_profile_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'index'])->name('user/profile_kelurahan/data_profile_kelurahan');
+Route::get('user/profile_kelurahan/data_geografis_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexGeografis'])->name('user/profile_kelurahan/data_geografis_kelurahan');
 
 Auth::routes(['register' => false]);
