@@ -192,5 +192,10 @@ Route::get('user/domisili_pt/data_domisilipt_rw', [App\Http\Controllers\PembuatS
 Route::get('user/profile_kelurahan/data_profile_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'index'])->name('user/profile_kelurahan/data_profile_kelurahan');
 Route::get('user/profile_kelurahan/data_geografis_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexGeografis'])->name('user/profile_kelurahan/data_geografis_kelurahan');
 Route::post('save_geografis', [App\Http\Controllers\ProfileKelurahanController::class, 'saveGeografis'])->name('save_geografis');
+Route::post('update_geografis', [App\Http\Controllers\ProfileKelurahanController::class, 'update_geografis'])->name('update_geografis');
+
+Route::get('user/profile_kelurahan/data_pemerintah_kelurahan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexPemerintah'])->name('user/profile_kelurahan/data_pemerintah_kelurahan');
+Route::post('save_pemerintah', [App\Http\Controllers\ProfileKelurahanController::class, 'savePemerintah'])->name('save_pemerintah');
+Route::post('update_pemerintah', [App\Http\Controllers\ProfileKelurahanController::class, 'update_pemerintah'])->name('update_pemerintah');
 
 Auth::routes(['register' => false]);

@@ -10,6 +10,7 @@ use Alert;
 use Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\DataGeografis;
+use App\Models\DataPemerintah;
 use App\Models\User;
 use App\Helpers;
 
@@ -40,7 +41,7 @@ class ProfileKelurahanController extends Controller
         {
         $halaman = "data_geografis_kelurahan";
         $user = User::all();
-        $data = DataGeografis::all();
+        $data = DataGeografis::limit(1)->get();
         return view('user.profile_keluarahan.data_geografis_kelurahan', compact('halaman','user','data'));
         }
         else
@@ -89,7 +90,6 @@ class ProfileKelurahanController extends Controller
         $user->berperairan_teknis        = $request->berperairan_teknis;
         $user->berperairan_sederhana     = $request->berperairan_sederhana;
         $user->tidak_berperairan         = $request->tidak_berperairan;
-        $user->tidak_berperairan         = $request->tidak_berperairan;
 
         $user->panjang_jalan_nasional           = $request->panjang_jalan_nasional;
         $user->panjang_jalan_provinsi           = $request->panjang_jalan_provinsi;
@@ -110,70 +110,159 @@ class ProfileKelurahanController extends Controller
         return redirect()->route('user/profile_kelurahan/data_geografis_kelurahan');
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function update_geografis(Request $request)
     {
-        //
+        $id                             = $request->id;
+        $jarak_kantor_desa              = $request->jarak_kantor_desa;
+        $luas_wilayah                   = $request->luas_wilayah;
+        $bangunan_pekarangan            = $request->bangunan_pekarangan;
+        $ladang_kebun                   = $request->ladang_kebun;
+        $kolam                          = $request->kolam;
+        $hutan_rakyat                   = $request->hutan_rakyat;
+        $hutan_negara                   = $request->hutan_negara;
+        $lainnya                        = $request->lainnya;
+        $berperairan_teknis             = $request->berperairan_teknis;
+        $berperairan_sederhana          = $request->berperairan_sederhana;
+        $tidak_berperairan              = $request->tidak_berperairan;
+
+        $panjang_jalan_nasional         = $request->panjang_jalan_nasional;
+        $panjang_jalan_provinsi         = $request->panjang_jalan_provinsi;
+        $panjang_jalan_kabupaten        = $request->panjang_jalan_kabupaten;
+        $panjang_jalan_desa             = $request->panjang_jalan_desa;
+
+
+        $hotmix                             = $request->hotmix;
+        $aspal                              = $request->aspal;
+        $batu                               = $request->batu;
+        $tanah                              = $request->tanah;
+
+        $jumlah_jembatan                    = $request->jumlah_jembatan;
+        $sungai_besar_panjang               = $request->sungai_besar_panjang;
+        $sungai_besar_banyaknya             = $request->sungai_besar_banyaknya;
+
+
+
+        $update = [
+
+            'id'                                    => $id,
+            'jarak_kantor_desa'                    => $jarak_kantor_desa,
+            'luas_wilayah'                          => $luas_wilayah,
+            'bangunan_pekarangan'                   => $bangunan_pekarangan,
+            'ladang_kebun'                          => $ladang_kebun,
+            'kolam'                                 => $kolam,
+            'hutan_rakyat'                          => $hutan_rakyat,
+            'hutan_negara'                          => $hutan_negara,
+            'lainnya'                               => $lainnya,
+            'berperairan_teknis'                    => $berperairan_teknis,
+            'berperairan_sederhana'                 => $berperairan_sederhana,
+            'tidak_berperairan'                     => $tidak_berperairan,
+            'panjang_jalan_nasional'                => $panjang_jalan_nasional,
+            'panjang_jalan_provinsi'                => $panjang_jalan_provinsi,
+            'panjang_jalan_kabupaten'               => $panjang_jalan_kabupaten,
+            'panjang_jalan_desa'                    => $panjang_jalan_desa,
+            'hotmix'                                => $hotmix,
+            'aspal'                                 => $aspal,
+            'tanah'                                 => $tanah,
+            'batu'                                  => $batu,
+            'jumlah_jembatan'                       => $jumlah_jembatan,
+            'sungai_besar_panjang'                  => $sungai_besar_panjang,
+            'sungai_besar_banyaknya'                => $sungai_besar_banyaknya,
+
+        ];
+        DataGeografis::where('id',$request->id)->update($update);
+        Alert::success('Data Tersebut Berhasil Diupdate :)','Success');
+        return redirect()->route('user/profile_kelurahan/data_geografis_kelurahan');
+
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function indexPemerintah()
     {
-        //
+        if (Auth::user()->role_name=='Verifikator')
+        {
+        $halaman = "data_pemerintah_kelurahan";
+        $user = User::all();
+        $data = DataPemerintah::limit(1)->get();
+        return view('user.profile_keluarahan.data_pemerintah_kelurahan', compact('halaman','user','data'));
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function savePemerintah(Request $request)
     {
-        //
+        $request->validate([
+            'jumlah_rt'                      => 'required',
+            'jumlah_rw'                      => 'required',
+            'jumlah_dusun'                   => 'required',
+            'jumlah_lurah'                   => 'required',
+            'jumlah_seklur'                  => 'required',
+            'jumlah_kepala_seksi'            => 'required',
+            'jumlah_pelaksana'               => 'required',
+            'jumlah_kepala_lingkungan'       => 'required',
+            'jumlah_anggota_bpd'             => 'required',
+            'jumlah_anggota_lpm'             => 'required',
+           
+           
+        ]);
+
+        $user = new DataPemerintah;
+        $user->jumlah_rt                = $request->jumlah_rt;
+        $user->jumlah_rw                = $request->jumlah_rw;
+        $user->jumlah_dusun             = $request->jumlah_dusun;
+        $user->jumlah_lurah             = $request->jumlah_lurah;
+        $user->jumlah_seklur             = $request->jumlah_seklur;
+        $user->jumlah_kepala_seksi      = $request->jumlah_kepala_seksi;
+        $user->jumlah_pelaksana         = $request->jumlah_pelaksana;
+        $user->jumlah_kepala_lingkungan    = $request->jumlah_kepala_lingkungan;
+        $user->jumlah_anggota_bpd          = $request->jumlah_anggota_bpd;
+        $user->jumlah_anggota_lpm          = $request->jumlah_anggota_lpm;
+       
+        $user->save();
+        Alert::success('Data Tersebut Berhasil Disimpan :)','Success');
+        return redirect()->route('user/profile_kelurahan/data_pemerintah_kelurahan');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function update_pemerintah(Request $request)
     {
-        //
+        $id                             = $request->id;
+        $jumlah_rt                      = $request->jumlah_rt;
+        $jumlah_rw                      = $request->jumlah_rw;
+        $jumlah_dusun                   = $request->jumlah_dusun;
+        $jumlah_lurah                   = $request->jumlah_lurah;
+        $jumlah_seklur                  = $request->jumlah_seklur;
+        $jumlah_kepala_seksi            = $request->jumlah_kepala_seksi;
+        $jumlah_pelaksana               = $request->jumlah_pelaksana;
+        $jumlah_kepala_lingkungan       = $request->jumlah_kepala_lingkungan;
+        $jumlah_anggota_bpd             = $request->jumlah_anggota_bpd;
+        $jumlah_anggota_lpm             = $request->jumlah_anggota_lpm;
+       
+
+        $update = [
+
+            'id'                           => $id,
+            'jumlah_rt'                    => $jumlah_rt,
+            'jumlah_rw'                    => $jumlah_rw,
+            'jumlah_dusun'                 => $jumlah_dusun,
+            'jumlah_lurah'                 => $jumlah_lurah,
+            'jumlah_seklur'                => $jumlah_seklur,
+            'jumlah_kepala_seksi'          => $jumlah_kepala_seksi,
+            'jumlah_pelaksana'             => $jumlah_pelaksana,
+            'jumlah_kepala_lingkungan'     => $jumlah_kepala_lingkungan,
+            'jumlah_anggota_bpd'           => $jumlah_anggota_bpd,
+            'jumlah_anggota_lpm'           => $jumlah_anggota_lpm,
+           
+        ];
+        DataPemerintah::where('id',$request->id)->update($update);
+        Alert::success('Data Tersebut Berhasil Diupdate :)','Success');
+        return redirect()->route('user/profile_kelurahan/data_pemerintah_kelurahan');
+
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+   
 }

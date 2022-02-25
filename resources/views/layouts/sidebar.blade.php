@@ -89,7 +89,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/profile_kelurahan/data_profile_kelurahan') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-collection-fill"></i>
           <span>Data Profile Kelurahan</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -98,7 +98,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/sku/data_sku') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat SKU</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -107,7 +107,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skm/data_skm') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat SKTM</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -116,7 +116,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili/data_domisili') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Domisili</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -125,7 +125,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/duda/data_duda') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Surat Duda</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -134,7 +134,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/janda/data_janda') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Surat Janda</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -144,7 +144,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Ket Belum Nikah (SKBM)</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -153,7 +153,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/bmr/data_bmr') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Ket Belum Memiliki Rumah (SKBMR)</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -162,7 +162,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/kematian/data_kematian') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Ket Kematian (SKK)</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -171,7 +171,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili_pt/data_domisilipt') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Domisili Perusahaan (SKDP)</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -180,7 +180,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/sku/data_sku_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat SKU</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -190,7 +190,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skm/data_skm_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat SKTM</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -199,7 +199,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili/data_domisili_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Domisili</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -209,7 +209,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/duda/data_duda_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Surat Duda</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -218,7 +218,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/janda/data_janda_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Pembuat Surat Janda</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -227,7 +227,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Surat Belum Nikah</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -236,7 +236,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/bmr/data_bmr_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Surat Belum Memiliki Rumah</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -245,7 +245,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/kematian/data_kematian_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Data Surat Ket Kematian</span>
         </a>
       </li><!-- End Dashboard Nav -->
@@ -255,7 +255,7 @@
       @if (Auth::check() && Auth::user()->role_name == 'RW')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili_pt/data_domisilipt_rw') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>Pembuat Domisili Perusahaan (SKDP)</span>
         </a>
       </li><!-- End Dashboard Nav -->

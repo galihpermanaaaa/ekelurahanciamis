@@ -36,7 +36,7 @@
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Klik Icon</span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -50,15 +50,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKTM Yang Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Pemerintah Kelurahan</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_pemerintah_kelurahan') }}">
+                      <i class="bi bi-wallet"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
