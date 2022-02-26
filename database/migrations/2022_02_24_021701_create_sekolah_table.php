@@ -15,7 +15,7 @@ class CreateSekolahTable extends Migration
     {
         Schema::create('sekolah', function (Blueprint $table) {
             $table->id();
-            $table->enum('ting_sekolah', ['TKA/TPA','SD/MI','SMP/MTS','SMK/SMA/Aliyah','Perguruan Tinggi']);
+            $table->enum('ting_sekolah', ['TKA Umum','TKA/TPA','SD/MI','SMP/MTS','SMK/SMA/Aliyah','Perguruan Tinggi']);
             $table->string('jumlah_sekolah');
             $table->string('jumlah_murid');
             $table->string('jumlah_guru');

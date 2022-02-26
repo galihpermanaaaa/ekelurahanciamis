@@ -120,6 +120,7 @@
     </section>
 
   </main><!-- End #main -->
+  @include('layouts.footer')
 
 
 <div id="geo_update" class="modal custom-modal fade" role="dialog">
@@ -745,4 +746,4 @@ modal.find('.modal-body #sungai_besar_panjang').val(Panjangnya)
 </script>
 
 @include('sweetalert::alert')
-@include('layouts.footer')
+

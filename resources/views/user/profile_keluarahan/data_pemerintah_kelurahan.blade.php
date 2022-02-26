@@ -87,6 +87,7 @@
     </section>
 
   </main><!-- End #main -->
+  @include('layouts.footer')
 
 
 <div id="pem_update" class="modal custom-modal fade" role="dialog">
@@ -402,4 +403,4 @@ modal.find('.modal-body #jumlah_anggota_lpm').val(Lpm)
 </script>
 
 @include('sweetalert::alert')
-@include('layouts.footer')
+

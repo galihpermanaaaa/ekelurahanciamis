@@ -15,7 +15,7 @@ class CreateMatapencarianTable extends Migration
     {
         Schema::create('mata_pencarian', function (Blueprint $table) {
             $table->id();
-            $table->enum('pekerjaan', ['PNS','TNI/POLRI','BUMN/BUMD','Pegawai Swasta','Pertanian','Peternakan','Perikanan','Industri Pengolahan','Perdagangan','Angkutan','Jasa-jasa','Buruh Pertukangan','Buruh Pertanian','Buruh Serabutan','Pengangguran']);
+            $table->enum('pekerjaan', ['PNS','TNI/POLRI','BUMN/BUMD','Pegawai Swasta','Pertanian','Peternakan','Perikanan','Industri Pengolahan','Perdagangan','Angkutan','Jasa-jasa','Buruh Pertukangan','Buruh Pertanian','Buruh Serabutan','Pengangguran','Pensiunan']);
             $table->string('jumlah');
             $table->timestamps();
         });

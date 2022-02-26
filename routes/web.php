@@ -198,4 +198,57 @@ Route::get('user/profile_kelurahan/data_pemerintah_kelurahan', [App\Http\Control
 Route::post('save_pemerintah', [App\Http\Controllers\ProfileKelurahanController::class, 'savePemerintah'])->name('save_pemerintah');
 Route::post('update_pemerintah', [App\Http\Controllers\ProfileKelurahanController::class, 'update_pemerintah'])->name('update_pemerintah');
 
+Route::get('user/profile_kelurahan/data_kelompok_umur', [App\Http\Controllers\ProfileKelurahanController::class, 'indexKelompokUmur'])->name('user/profile_kelurahan/data_kelompok_umur');
+Route::post('save_kelompokumur', [App\Http\Controllers\ProfileKelurahanController::class, 'saveKelompokUmur'])->name('save_kelompokumur');
+Route::post('update_kelompokumur', [App\Http\Controllers\ProfileKelurahanController::class, 'update_kelompokumur'])->name('update_kelompokumur');
+Route::delete('hapus_kelompokumur', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_kelompokumur'])->name('hapus_kelompokumur');
+Route::get('user/profile_kelurahan/data_kelompok_umur/cari_kelompok_umur',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterKelompokUmur'])->name('user/profile_kelurahan/data_kelompok_umur/cari_kelompok_umur');
+
+
+Route::get('user/profile_kelurahan/data_pendidikan_ditamatkan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexPendidikanDitamatkan'])->name('user/profile_kelurahan/data_pendidikan_ditamatkan');
+Route::post('save_pendidikanditamatkan', [App\Http\Controllers\ProfileKelurahanController::class, 'savePendidikanDitamatkan'])->name('save_pendidikanditamatkan');
+Route::post('update_pendidikanditamatkan', [App\Http\Controllers\ProfileKelurahanController::class, 'update_pendidikanditamatkan'])->name('update_pendidikanditamatkan');
+Route::delete('hapus_pendidikanditamatkan', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_pendidikanditamatkan'])->name('hapus_pendidikanditamatkan');
+Route::get('user/profile_kelurahan/data_pendidikan_ditamatkan/cari_pendidikan_ditamatkan',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterPendidikanDitamatkan'])->name('user/profile_kelurahan/data_pendidikan_ditamatkan/cari_pendidikan_ditamatkan');
+
+Route::get('user/profile_kelurahan/data_matapencarian_utama', [App\Http\Controllers\ProfileKelurahanController::class, 'indexMataPencarian'])->name('user/profile_kelurahan/data_matapencarian_utama');
+Route::post('save_matapencarian', [App\Http\Controllers\ProfileKelurahanController::class, 'saveMataPencarian'])->name('save_matapencarian');
+Route::post('update_matapencarian', [App\Http\Controllers\ProfileKelurahanController::class, 'update_matapencarian'])->name('update_matapencarian');
+Route::delete('hapus_matapencarian', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_matapencarian'])->name('hapus_matapencarian');
+Route::get('user/profile_kelurahan/data_matapencarian_utama/cari_matapencarian_utama',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterMataPencarian'])->name('user/profile_kelurahan/data_matapencarian_utama/cari_matapencarian_utama');
+
+
+Route::get('user/profile_kelurahan/data_agama_kepercayaan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexAgama'])->name('user/profile_kelurahan/data_agama_kepercayaan');
+Route::post('save_agamakepercayaan', [App\Http\Controllers\ProfileKelurahanController::class, 'saveAgama'])->name('save_agamakepercayaan');
+Route::post('update_agamakepercayaan', [App\Http\Controllers\ProfileKelurahanController::class, 'update_agamakepercayaan'])->name('update_agamakepercayaan');
+Route::delete('hapus_agamakepercayaan', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_agamakepercayaan'])->name('hapus_agamakepercayaan');
+Route::get('user/profile_kelurahan/data_agama_kepercayaan/cari_agama_kepercayaan',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterAgama'])->name('user/profile_kelurahan/data_agama_kepercayaan/cari_agama_kepercayaan');
+
+
+Route::get('user/profile_kelurahan/data_kepala_keluarga', [App\Http\Controllers\ProfileKelurahanController::class, 'indexKepala'])->name('user/profile_kelurahan/data_kepala_keluarga');
+Route::post('save_kepalakeluarga', [App\Http\Controllers\ProfileKelurahanController::class, 'saveKepala'])->name('save_kepalakeluarga');
+Route::post('update_kepalakeluarga', [App\Http\Controllers\ProfileKelurahanController::class, 'update_kepalakeluarga'])->name('update_kepalakeluarga');
+Route::delete('hapus_kepalakeluarga', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_kepalakeluarga'])->name('hapus_kepalakeluarga');
+Route::get('user/profile_kelurahan/data_kepala_keluarga/cari_kepala_keluarga',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterKepala'])->name('user/profile_kelurahan/data_kepala_keluarga/cari_kepala_keluarga');
+
+Route::get('user/profile_kelurahan/data_sekolah_murid_guru', [App\Http\Controllers\ProfileKelurahanController::class, 'indexSekolah'])->name('user/profile_kelurahan/data_sekolah_murid_guru');
+Route::post('save_sekolah', [App\Http\Controllers\ProfileKelurahanController::class, 'saveSekolah'])->name('save_sekolah');
+Route::post('update_sekolah', [App\Http\Controllers\ProfileKelurahanController::class, 'update_sekolah'])->name('update_sekolah');
+Route::delete('hapus_sekolah', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_sekolah'])->name('hapus_sekolah');
+Route::get('user/profile_kelurahan/data_sekolah_murid_guru/cari_sekolah_murid_guru',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterSekolah'])->name('user/profile_kelurahan/data_sekolah_murid_guru/cari_sekolah_murid_guru');
+
+Route::get('user/profile_kelurahan/data_lembaga', [App\Http\Controllers\ProfileKelurahanController::class, 'indexLembaga'])->name('user/profile_kelurahan/data_lembaga');
+Route::post('save_lembaga', [App\Http\Controllers\ProfileKelurahanController::class, 'saveLembaga'])->name('save_lembaga');
+Route::post('update_lembaga', [App\Http\Controllers\ProfileKelurahanController::class, 'update_lembaga'])->name('update_lembaga');
+Route::delete('hapus_lembaga', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_lembaga'])->name('hapus_lembaga');
+Route::get('user/profile_kelurahan/data_lembaga/cari_lembaga',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterLembaga'])->name('user/profile_kelurahan/data_lembaga/cari_lembaga');
+
+Route::get('user/profile_kelurahan/data_sarana', [App\Http\Controllers\ProfileKelurahanController::class, 'indexSarana'])->name('user/profile_kelurahan/data_sarana');
+Route::post('save_sarana', [App\Http\Controllers\ProfileKelurahanController::class, 'saveSarana'])->name('save_sarana');
+Route::post('update_sarana', [App\Http\Controllers\ProfileKelurahanController::class, 'update_sarana'])->name('update_sarana');
+Route::delete('hapus_sarana', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_sarana'])->name('hapus_sarana');
+Route::get('user/profile_kelurahan/data_sarana/cari_sarana',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterSarana'])->name('user/profile_kelurahan/data_sarana/cari_sarana');
+
+
+
 Auth::routes(['register' => false]);

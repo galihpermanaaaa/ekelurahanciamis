@@ -73,11 +73,11 @@
       <li class="nav-item">
         <a class="nav-link " href="{{ route('home') }}">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Dashboard</span> 
         </a>
       </li><!-- End Dashboard Nav -->
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/data_user') }}">
           <i class="bi bi-person"></i>
@@ -86,7 +86,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/profile_kelurahan/data_profile_kelurahan') }}">
           <i class="bi bi-collection-fill"></i>
@@ -95,7 +95,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/sku/data_sku') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -104,7 +104,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skm/data_skm') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -113,7 +113,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili/data_domisili') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -122,7 +122,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/duda/data_duda') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -131,7 +131,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/janda/data_janda') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -141,7 +141,7 @@
       @endif
 
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/skbm/data_skbm') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -150,7 +150,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/bmr/data_bmr') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -159,7 +159,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/kematian/data_kematian') }}">
           <i class="bi bi-envelope-fill"></i>
@@ -168,7 +168,7 @@
       </li><!-- End Dashboard Nav -->
       @endif
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/domisili_pt/data_domisilipt') }}">
           <i class="bi bi-envelope-fill"></i>

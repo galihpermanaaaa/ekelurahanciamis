@@ -15,7 +15,7 @@ class CreateLembagaTable extends Migration
     {
         Schema::create('lembaga', function (Blueprint $table) {
             $table->id();
-            $table->enum('lembaga', ['LPM','TP/PKK','BKM','POKMAS','Karang Taruna','UPZ','BKMM','Pondok Pesantren']);
+            $table->enum('lembaga', ['LPM','TP/PKK','BKM','POKMAS','Karang Taruna','UPZ','BKMM','Pondok Pesantren','MUI']);
             $table->string('jumlah');
             $table->timestamps();
         });

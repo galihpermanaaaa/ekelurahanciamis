@@ -6,12 +6,9 @@
 {!! Toastr::message() !!}
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Data Profile Kelurahan Ciamis</h1>
       <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
+       
       </nav>
     </div><!-- End Page Title -->
 
@@ -32,7 +29,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_geografis_kelurahan') }}">
-                      <i class="bi bi-wallet"></i></a>
+                      <i class="bi bi-geo-fill"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
@@ -54,7 +51,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_pemerintah_kelurahan') }}">
-                      <i class="bi bi-wallet"></i></a>
+                      <i class="bi bi-person-circle"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
@@ -73,15 +70,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Surat Duda Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Kelompok Umur Masyarakat</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_kelompok_umur') }}">
+                      <i class="bi bi-person-check"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -95,15 +92,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Surat Janda Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Pendidikan Yang Ditamatkan</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_pendidikan_ditamatkan') }}">
+                      <i class="bi bi-mortarboard-fill"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -117,15 +114,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKD Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Mata Pencarian Utama</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_matapencarian_utama') }}">
+                      <i class="bi bi-person-workspace"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -139,15 +136,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKBM Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Agama Kepercayaan</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_agama_kepercayaan') }}">
+                      <i class="bi bi-person-lines-fill"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -161,15 +158,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKBMR Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Kepala Keluarga</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-bank"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_kepala_keluarga') }}">
+                      <i class="bi bi-person"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -183,15 +180,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKK Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Sekolah Murid Guru</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_sekolah_murid_guru') }}">
+                      <i class="bi bi-building"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -205,15 +202,15 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKDP Belum Diverifikasi</span></h5>
+                  <h5 class="card-title">Lembaga Masyarakat</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_lembaga') }}">
+                      <i class="bi bi-people"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -228,15 +225,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKU Yang Sudah Diverifikasi <span></span></h5>
+                  <h5 class="card-title">Sarana Ibadah <span></span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_sarana') }}">
+                      <i class="bi bi-house-fill"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
