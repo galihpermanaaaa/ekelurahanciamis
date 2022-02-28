@@ -24,7 +24,9 @@ use App\Models\Perumahan;
 use App\Models\KeluargaBerencana;
 use App\Models\Kesehatan;
 use App\Models\Perekonomian;
+use App\Models\MasukkanSaran;
 use App\Helpers;
+use App\tgl_indo;
 
 class ProfileKelurahanController extends Controller
 {
@@ -50,6 +52,28 @@ class ProfileKelurahanController extends Controller
         {
             return redirect()->route('login');
         }
+    }
+
+    public function indexMasukkan()
+    {
+        if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
+        {
+        $halaman = "data_masukkan_saran";
+        $data = MasukkanSaran::orderBy('id', 'DESC')->get();
+        return view('user.profile_keluarahan.data_masukkan_saran', compact('halaman','data'));
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+
+    public function lihat_data_masukkan_saran($id)
+    {
+       
+        $data = MasukkanSaran::where('id',$id)->get();
+        return view('user.profile_keluarahan.lihat_data_masukkan_saran',compact('data'));
+       
     }
 
     public function indexGeografis()

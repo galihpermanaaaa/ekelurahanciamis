@@ -24,7 +24,6 @@ class UserSeeder extends Seeder
         $user->dis_id = "2160";
         $user->subdis_id ="25821";
         $user->id_rw ="1";
-        $user->rt ="1";
         $user->save();
     }
 }

@@ -35,6 +35,7 @@ use App\Models\Kematian_Diterima;
 use App\Models\DomisiliPT;
 use App\Models\DomisiliPTerima;
 use App\Models\DomisiliPTolak;
+use App\Models\MasukkanSaran;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Hash;
@@ -77,6 +78,24 @@ class landigpageController extends Controller
 
     }
 
+    public function visi_misi()
+    {
+        $halaman = "visi_misi";
+        return view('visi_misi');
+    }
+
+    public function sejarah()
+    {
+        $halaman = "sejarah";
+        return view('sejarah');
+    }
+
+    public function struktur_organisasi()
+    {
+        $halaman = "struktur_organisasi";
+        return view('struktur_organisasi');
+    }
+
     public function getKota(Request $request){
         $kota = Kota::where("prov_id",$request->prov_id)->pluck('city_id','city_name');
         return response()->json($kota);
@@ -94,6 +113,28 @@ class landigpageController extends Controller
     public function getRw(Request $request){
         $rw = RW::where("subdis_id",$request->subdis_id)->pluck('id_rw','nama_rw');
         return response()->json($rw);
+    }
+
+    public function saveMasukkan(Request $request)
+    {
+        $request->validate([
+            'nama'                       => 'required',
+            'email'                        => 'required',
+            'telp'                        => 'required',
+            'isi'                        => 'required',
+            'tanggal_buat_masukkan'      => 'required',
+            
+        ]);
+
+        $user = new MasukkanSaran;
+        $user->nama                              = $request->nama;
+        $user->email                             = $request->email;
+        $user->telp                              = $request->telp;
+        $user->isi                               = $request->isi;
+        $user->tanggal_buat_masukkan             = $request->tanggal_buat_masukkan;
+        $user->save();
+        Alert::success('Masukkan Dan Saran Anda Berhasil Dikirimkan :)','Success');
+        return redirect()->route('index');
     }
 
     public function saveSku(Request $request)

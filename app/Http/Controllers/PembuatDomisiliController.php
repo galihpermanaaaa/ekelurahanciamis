@@ -33,9 +33,15 @@ class PembuatDomisiliController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        if (Auth::user()->role_name=='Verifikator')
+        if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
+       
         {
 
         $halaman = "data_domisili";

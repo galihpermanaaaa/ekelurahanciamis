@@ -68,9 +68,8 @@
                       <td>{{$item->email}}</td>
                       <td>{{$item->rw->nama_rw}}</td>
                     
-                     
+                      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
                       <td>
-
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <a href="{{ url('user/duda/verifikasi_duda/'.$item->id) }}" class="btn btn-primary btn-sm" style="font-size: 14px; color: white" ></i> Verifikasi</a>	
                       @elseif($item->verifikasi =='Terverifikasi')
@@ -78,6 +77,7 @@
                                 @else($item->verifikasi =='Ditolak')
                        <span class="badge bg-danger">{{$item->verifikasi}}</span>
                       @endif
+                      
 
                       </td>
                       <td class="text-right">
@@ -89,6 +89,7 @@
                       <p class="text-danger" style="font-size: 14px;"></p>Tidak Bisa dihapus Karena Sudah Diverifikasi</span>
                       @endif
                     </td>
+                    @endif
 
                     <td> 
 
@@ -104,7 +105,7 @@
                     </td>
 
                     <td>
-                        
+                      
                       @if($item->verifikasi =='Belum Diverifikasi')
                       <p class="text-success"></p>Belum Ada Karena Belum Diverifikasi</span>
 					  @elseif($item->verifikasi =='Terverifikasi')

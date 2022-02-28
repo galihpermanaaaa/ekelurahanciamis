@@ -58,9 +58,9 @@
           <li class="active"><a href="index.html">Home</a></li>
           <li class="drop-down"><a href="">Profil</a>
             <ul>
-              <li><a href="#">Visi & Misi</a></li>
-              <li><a href="#">Sejarah</a></li>
-              <li><a href="#">Struktur Organisasi</a></li>
+              <li><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
+              <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
               <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -786,7 +786,7 @@
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p></p>
+                <p>kelurahanciamis@ekelurahan-ciamis.id</p>
               </div>
 
               <div class="phone">
@@ -802,35 +802,31 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{ route('save_masukkan') }}" method="POST" enctype="multipart/form-data" class="php-email-form">
+            @csrf
+            <h4 style="text-align:center">Masukkan & Saran Anda</h4>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
+                  <label for="name">Nama Anda</label>
+                  <input type="text" name="nama" class="form-control" id="nama" required/>
+                  <input type="hidden" class="form-control" id="tanggal_buat_masukkan" name="tanggal_buat_masukkan" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" readonly />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
+                  <label for="name">Email Anda</label>
+                  <input type="email" class="form-control" name="email" id="email" required/>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
+                <label for="name">Nomor HP Anda</label>
+                <input type="number" class="form-control" name="telp" id="telp" required/>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-                <div class="validate"></div>
+                <label for="name">Masukkan & Saran Anda</label>
+                <textarea class="form-control" name="isi" rows="10" required></textarea>
               </div>
-              <div class="col-md-6">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="text-center">
+                <button type="submit">Kirim Masukkan & Saran</button>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
 
@@ -957,7 +953,7 @@
   <script src="{{ URL::to('Arsha/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ URL::to('Arsha/vendor/php-email-form/validate.js') }}"></script>
+  <!--  -->
   <script src="{{ URL::to('Arsha/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ URL::to('Arsha/vendor/venobox/venobox.min.js') }}"></script>

@@ -67,7 +67,7 @@
                       <td>{{$item->email}}</td>
                       <td>{{$item->rw->nama_rw}}</td>
                     
-                     
+                      @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
                       <td>
 
                       @if($item->verifikasi =='Belum Diverifikasi')
@@ -88,6 +88,7 @@
                       <p class="text-danger" style="font-size: 14px;"></p>Tidak Bisa dihapus Karena Sudah Diverifikasi</span>
                       @endif
                     </td>
+                    @endif
 
                     <td> 
 
@@ -99,7 +100,6 @@
                       <a href="{{ url('user/domisili/lihat_data_domisili/'.$item->id) }}" class="btn btn-info" style="font-size: 14px; color: white" ></i> Lihat Data</a>
                       @endif
                       
-                    
                     </td>
 
                     <td>

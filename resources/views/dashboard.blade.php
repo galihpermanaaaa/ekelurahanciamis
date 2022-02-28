@@ -23,7 +23,7 @@
           <div class="row">
 
             <!-- Sales Card -->
-            @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+            @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card customers-card">
 
@@ -524,7 +524,7 @@
 
           
             <!-- Reports -->
-            @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+            @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
             <div class="col-12">
               <div class="card">
 
@@ -555,7 +555,7 @@
             @endif
 
             <!-- Recent Sales -->
-            @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+            @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
             <div class="col-12">
               <div class="card recent-sales">
 
@@ -1012,7 +1012,7 @@
         <!-- Right side columns -->
         <div class="col-lg-4">
 
-        @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+        @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
 
           <!-- Recent Activity -->
           <div class="card">
@@ -1123,7 +1123,7 @@
  
 
           <!-- Budget Report -->
-          @if (Auth::check() && Auth::user()->role_name == 'Verifikator')
+          @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>

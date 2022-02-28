@@ -68,7 +68,7 @@
 
                       </td>
                       <td class="text-right">
-						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-prov="{{$item->prov_id}}"  data-city="{{$item->city_id}}" data-dis="{{$item->dis_id}}"  data-sub="{{$item->subdis_id}}"  data-rw="{{$item->id_rw}}"  data-rtt="{{$item->rt}}"><i class="bi bi-pencil-square"></i> Edit</button>
+						<button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#edit_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-role="{{$item->role_name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-prov="{{$item->prov_id}}"  data-city="{{$item->city_id}}" data-dis="{{$item->dis_id}}"  data-sub="{{$item->subdis_id}}"  data-rw="{{$item->id_rw}}"  data-rtt="{{$item->rt}}"><i class="bi bi-pencil-square"></i> Edit</button>
                         @if($item->role_name =='RW')
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_user" data-id="{{$item->id}}" data-name="{{$item->name}}" data-emaill="{{$item->email}}" data-phone="{{$item->phone_number}}" data-role="{{$item->role_name}}" ><i class="bi bi-trash"></i> Hapus</button>
                         @endif 
@@ -244,6 +244,7 @@
                                                     <label>Nama User</label>
                                                     <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
                                                     <input type="hidden" name="id" class="form-control" id="id" placeholder="id" required>
+                                                    <input type="hidden" name="role_name" id="role_name" required>
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

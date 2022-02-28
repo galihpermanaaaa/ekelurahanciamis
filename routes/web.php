@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [App\Http\Controllers\landigpageController::class, 'index'])->name('index');
+Route::get('visi_misi', [App\Http\Controllers\landigpageController::class, 'visi_misi'])->name('visi_misi');
+Route::get('sejarah', [App\Http\Controllers\landigpageController::class, 'sejarah'])->name('sejarah');
+Route::get('struktur_organisasi', [App\Http\Controllers\landigpageController::class, 'struktur_organisasi'])->name('struktur_organisasi');
+
+
+
+
 Route::get('/getKota', [App\Http\Controllers\landigpageController::class, 'getKota'])->name('getKota');
 Route::get('/getKecamatan', [App\Http\Controllers\landigpageController::class, 'getKecamatan'])->name('getKecamatan');
 Route::get('/getDesa', [App\Http\Controllers\landigpageController::class, 'getDesa'])->name('getDesa');
@@ -30,6 +37,7 @@ Route::post('save_sbm', [App\Http\Controllers\landigpageController::class, 'save
 Route::post('save_bmr', [App\Http\Controllers\landigpageController::class, 'saveBMR'])->name('save_bmr');
 Route::post('save_kematian', [App\Http\Controllers\landigpageController::class, 'saveKematian'])->name('save_kematian');
 Route::post('save_domisili_pt', [App\Http\Controllers\landigpageController::class, 'saveDomisiliPT'])->name('save_domisili_pt');
+Route::post('save_masukkan', [App\Http\Controllers\landigpageController::class, 'saveMasukkan'])->name('save_masukkan');
 
 
 Route::get('layanan/sku',  [App\Http\Controllers\landigpageController::class, 'filtersku'])->name('layanan/sku');
@@ -275,5 +283,9 @@ Route::post('save_perekonomian', [App\Http\Controllers\ProfileKelurahanControlle
 Route::post('update_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'update_perekonomian'])->name('update_perekonomian');
 Route::delete('hapus_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_perekonomian'])->name('hapus_perekonomian');
 Route::get('user/profile_kelurahan/data_perekonomian/cari_perekonomian',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterPerekonomian'])->name('user/profile_kelurahan/data_perekonomian/cari_perekonomian');
+
+Route::get('user/profile_kelurahan/data_masukkan_saran', [App\Http\Controllers\ProfileKelurahanController::class, 'indexMasukkan'])->name('user/profile_kelurahan/data_masukkan_saran');
+Route::get('user/profile_kelurahan/lihat_data_masukkan_saran/{id}', [App\Http\Controllers\ProfileKelurahanController::class, 'lihat_data_masukkan_saran']);
+
 
 Auth::routes(['register' => false]);
