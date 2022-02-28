@@ -48,7 +48,7 @@
           <div class="card">
             <div class="card-body">
                 
-              <h5 class="card-title">Daftar Lembaga Masyarakat Keluarahan Ciamis</h5>
+              <h5 class="card-title">Daftar Lembaga Masyarakat Kelurahan Ciamis</h5>
               
 
               <!-- Table with stripped rows -->

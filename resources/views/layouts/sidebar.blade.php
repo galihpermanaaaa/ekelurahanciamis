@@ -73,24 +73,31 @@
       <li class="nav-item">
         <a class="nav-link " href="{{ route('home') }}">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span> 
+          <span>Dashboard Surat</span> 
         </a>
       </li><!-- End Dashboard Nav -->
 
-      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('user/data_user') }}">
-          <i class="bi bi-person"></i>
-          <span>Data User</span>
+        <a class="nav-link collapsed" href="{{ route('user/dashboard_profile') }}">
+          <i class="bi bi-speedometer"></i>
+          <span>Dashboard Profile</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      @endif
 
       @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('user/profile_kelurahan/data_profile_kelurahan') }}">
           <i class="bi bi-collection-fill"></i>
           <span>Data Profile Kelurahan</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      @endif
+
+      @if (Auth::check() && Auth::user()->role_name == 'Verifikator' || (Auth::check() && Auth::user()->role_name == 'Lurah'))
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user/data_user') }}">
+          <i class="bi bi-person"></i>
+          <span>Data User</span>
         </a>
       </li><!-- End Dashboard Nav -->
       @endif

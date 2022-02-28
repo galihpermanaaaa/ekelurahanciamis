@@ -188,29 +188,6 @@
                                                 @enderror
                                             </div>
                                             <br>
-                                            <div class="">
-                                                <div class="form-group">
-                                                <label>Rukun Tetangga</label>
-                                                <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt" required>
-                                                <option selected disabled>--Pilih RT--</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                </select>
-                                                    @error('rt')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                                        </div>
-                                                </div>
-
-                                          <br>
 
                                             <div class="">
                                                 <div class="form-group">
@@ -326,34 +303,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <br>
-
-                                            <div class="">
-                                                <div class="form-group">
-                                                <label>Rukun Tetangga</label>
-                                                <select class="form-control @error('rt') is-invalid @enderror" name="rt" id="rt" required>
-                                                <option selected disabled>--Pilih RT--</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                </select>
-                                                    @error('rt')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                                        </div>
-                                                </div>
-
-                                          
-
-
-                                            
+                                            <br>    
                                     </div>
                                 </div>
                                 <br>

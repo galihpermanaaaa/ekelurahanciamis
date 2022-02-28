@@ -4,7 +4,7 @@
 
 
     <div class="pagetitle">
-      <h1>Data Kepala Keluarga Masyarakat Kelurahan Ciamis</h1>
+      <h1>Data Tempat Kesehatan Masyarakat Kelurahan Ciamis</h1>
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -22,14 +22,26 @@
     <br>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_umur" style="float: right;"><i class="bi bi-plus-lg"></i> Input Data</button>
     <div class="search-bar col-md-4">
-      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/profile_kelurahan/data_kepala_keluarga/cari_kepala_keluarga') }}">
-      <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/profile_kelurahan/data_kesehatan/cari_kesehatan') }}">
+      <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Tempat Kesehatan--</option>
+                        <option value="RSU">RSU</option>
+                        <option value="Puskesmas">Puskesmas</option>
+                        <option value="Dokter Umum">Dokter Umum</option>
+                        <option value="Dokter Gigi">Dokter Gigi</option>
+                        <option value="Dokter Spesialis">Dokter Spesialis</option>
+                        <option value="Dokter Kesehatan">Dokter Kesehatan</option>
+                        <option value="Rumah Bersalin">Rumah Bersalin</option>
+                        <option value="Klinik Tradisional">Klinik Tradisional</option>
+                        <option value="Apotek">Apotek</option>
+                        <option value="Toko Obat">Toko Obat</option>
+                        <option value="Polindes">Polindes</option>
+                        <option value="Dukun Beranak">Dukun Beranak</option>
+                        <option value="Posyando">Posyando</option>
+                        <option value="Lab Kesehatan">Lab Kesehatan</option>
                         </select>
         <button type="submit" title="Search" class="btn btn-primary btn-sm" ><i class="bi bi-search"></i></button>&nbsp;&nbsp;
-        <a href="{{ route('user/profile_kelurahan/data_kepala_keluarga') }}" class="btn btn-success btn-sm">Refresh</a>
+        <a href="{{ route('user/profile_kelurahan/data_kesehatan') }}" class="btn btn-success btn-sm">Refresh</a>
       </form>
       
     </div><!-- End Search Bar -->
@@ -41,7 +53,7 @@
           <div class="card">
             <div class="card-body">
                 
-              <h5 class="card-title">Daftar Kepala Keluarga Masyarakat Kelurahan Ciamis</h5>
+              <h5 class="card-title">Daftar Tempat Kesehatan Masyarakat Kelurahan Ciamis</h5>
               
 
               <!-- Table with stripped rows -->
@@ -49,7 +61,7 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Kepala Keluarga</th>
+                    <th scope="col">Tempat</th>
                     <th scope="col">Jumlah</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -58,17 +70,17 @@
                     @foreach($data as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
-                      <td>{{$item->kk}}</td>
+                      <td>{{$item->tempat}}</td>
                       <td>{{$item->jumlah}}</td>
                       <td>
                       <button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#update_umur"
                         data-id="{{$item->id}}"
-                        data-kk="{{$item->kk}}"
+                        data-tempat="{{$item->tempat}}"
                         data-jumlah="{{$item->jumlah}}"><i class="bi bi-pencil"></i> Edit</button>
 
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_umur"
                         data-id="{{$item->id}}"
-                        data-kk="{{$item->kk}}"
+                        data-tempat="{{$item->tempat}}"
                         data-jumlah="{{$item->jumlah}}"><i class="bi bi-trash"></i> Hapus</button>
 
                       </td>
@@ -93,24 +105,36 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Edit Kepala Keluarga Masyarakat Kelurahan Ciamis</h5>
+                            <h5 class="modal-title">Edit Data Tempat Kesehatan Masyarakat Kelurahan Ciamis</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('update_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('update_kesehatan') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                     <div class="container col-md-12">
                     <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
+                        <label class="form-label">Tempat Kesehatan</label>
                         <input type="hidden" name="id" id="id">
-                        <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Tempat Kesehatan--</option>
+                        <option value="RSU">RSU</option>
+                        <option value="Puskesmas">Puskesmas</option>
+                        <option value="Dokter Umum">Dokter Umum</option>
+                        <option value="Dokter Gigi">Dokter Gigi</option>
+                        <option value="Dokter Spesialis">Dokter Spesialis</option>
+                        <option value="Dokter Kesehatan">Dokter Kesehatan</option>
+                        <option value="Rumah Bersalin">Rumah Bersalin</option>
+                        <option value="Klinik Tradisional">Klinik Tradisional</option>
+                        <option value="Apotek">Apotek</option>
+                        <option value="Toko Obat">Toko Obat</option>
+                        <option value="Polindes">Polindes</option>
+                        <option value="Dukun Beranak">Dukun Beranak</option>
+                        <option value="Posyando">Posyando</option>
+                        <option value="Lab Kesehatan">Lab Kesehatan</option>
                         </select>
-                        @error('agama')
+                        @error('kesehatan')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -142,22 +166,22 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Hapus Kepala Keluarga Masyarakat Kelurahan Ciamis Tersebut</h5>
+                            <h5 class="modal-title">Hapus Data Tempat Kesehatan Masyarakat Kelurahan Ciamis Tersebut</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('hapus_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('hapus_kesehatan') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('DELETE')}}
                         <div class="container col-md-12">
                         <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
+                        <label class="form-label">Tempat Kesehatan</label>
                         <input type="hidden" name="id" id="id">
-                        <input type="text" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" required readonly />
+                        <input type="text" class="form-control @error('tempat') is-invalid @enderror" id="tempat" name="tempat" required readonly />
                         </select>
-                        @error('kk')
+                        @error('tempat')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -191,23 +215,35 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalkdp">Input Data Kepala Keluarga Masyarakat Keluarahan Ciamis</h5>
+                <h5 class="modal-title" id="modalkdp">Input Data Tempat Kesehatan Masyarakat Kelurahan Ciamis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ route('save_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save_kesehatan') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="container col-md-12">
                     <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
-                        <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <label class="form-label">Tempat Kesehatan</label>
+                        <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Tempat Kesehatan--</option>
+                        <option value="RSU">RSU</option>
+                        <option value="Puskesmas">Puskesmas</option>
+                        <option value="Dokter Umum">Dokter Umum</option>
+                        <option value="Dokter Gigi">Dokter Gigi</option>
+                        <option value="Dokter Spesialis">Dokter Spesialis</option>
+                        <option value="Dokter Kesehatan">Dokter Kesehatan</option>
+                        <option value="Rumah Bersalin">Rumah Bersalin</option>
+                        <option value="Klinik Tradisional">Klinik Tradisional</option>
+                        <option value="Apotek">Apotek</option>
+                        <option value="Toko Obat">Toko Obat</option>
+                        <option value="Polindes">Polindes</option>
+                        <option value="Dukun Beranak">Dukun Beranak</option>
+                        <option value="Posyando">Posyando</option>
+                        <option value="Lab Kesehatan">Lab Kesehatan</option>
                         </select>
-                        @error('kk')
+                        @error('tempat')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -244,12 +280,12 @@ $('#update_umur').on('show.bs.modal', function (event) {
 
 var button = $(event.relatedTarget)
 var ID = button.data('id')
-var KK = button.data('kk') 
+var Tempat = button.data('tempat') 
 var Jumlah = button.data('jumlah') 
 
 var modal = $(this)
 modal.find('.modal-body #id').val(ID)
-modal.find('.modal-body #kk').val(KK)
+modal.find('.modal-body #tempat').val(Tempat)
 modal.find('.modal-body #jumlah').val(Jumlah)
 })
 
@@ -258,12 +294,12 @@ $('#hapus_umur').on('show.bs.modal', function (event) {
 
 var button = $(event.relatedTarget)
 var ID = button.data('id')
-var KK = button.data('kk') 
+var Tempat = button.data('tempat') 
 var Jumlah = button.data('jumlah') 
 
 var modal = $(this)
 modal.find('.modal-body #id').val(ID)
-modal.find('.modal-body #kk').val(KK)
+modal.find('.modal-body #tempat').val(Tempat)
 modal.find('.modal-body #jumlah').val(Jumlah)
 })
 

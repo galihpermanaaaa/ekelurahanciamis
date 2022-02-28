@@ -11,7 +11,7 @@ class CreateKeluargaberencanaTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('keluarga_berencana', function (Blueprint $table) {
             $table->id();

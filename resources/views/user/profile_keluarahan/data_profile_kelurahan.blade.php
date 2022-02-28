@@ -225,7 +225,7 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Sarana Ibadah <span></span></h5>
+                  <h5 class="card-title">Data Sarana Ibadah <span></span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_sarana') }}">
@@ -248,15 +248,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKTM Yang Sudah Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Perumahan</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_perumahan') }}">
+                      <i class="bi bi-house-door"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -270,15 +270,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Surat Duda Sudah Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Keluarga Berencana</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_kb') }}">
+                      <i class="bi bi-heart-fill"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -292,15 +292,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Surat Janda Sudah Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Sarana Kesehatan</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_kesehatan') }}">
+                      <i class="bi bi-shield-fill-plus"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -314,37 +314,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">SKD Yang Sudah Diverifikasi</span></h5>
+                  <h5 class="card-title">Data Sarana Perekonomian</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"><a href="{{ route('user/profile_kelurahan/data_perekonomian') }}">
+                      <i class="bi bi-bank"></i></a>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-              <!-- Revenue Card -->
-              <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">SKBM Yang Sudah Diverifikasi</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Lihat Data Klik Icon</span>
 
                     </div>
                   </div>
@@ -354,72 +332,6 @@
             </div><!-- End Revenue Card -->
 
             
-              <!-- Revenue Card -->
-              <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">SKBMR Yang Sudah Diverifikasi</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-bank"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-             <!-- Revenue Card -->
-             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">SKK Yang Sudah Diverifikasi</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">SKDP Yang Sudah Diverifikasi</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-wallet"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6></h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
       </div>
     </section>
 

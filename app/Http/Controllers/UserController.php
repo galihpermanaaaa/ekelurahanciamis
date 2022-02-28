@@ -90,7 +90,6 @@ class UserController extends Controller
             'dis_id'                        => '',
             'subdis_id'                     => '',
             'id_rw'                         => '',
-            'rt'                            => '',
             'password'  => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
         ]);
@@ -105,7 +104,6 @@ class UserController extends Controller
         $user->dis_id                      = $request->dis_id;
         $user->subdis_id                   = $request->subdis_id;
         $user->id_rw                        = $request->id_rw;
-        $user->rt                           = $request->rt;
         $user->password     = Hash::make($request->password);
         $user->save();
         Alert::success('Data User Berhasil Disimpan :)','Success');
@@ -155,7 +153,6 @@ class UserController extends Controller
         $dis_id    = $request->dis_id;
         $subdis_id    = $request->subdis_id;
         $id_rw    = $request->id_rw;
-        $rt   = $request->rt;
 
 
         $update = [
@@ -170,7 +167,6 @@ class UserController extends Controller
             'dis_id'        => $dis_id,
             'subdis_id'     => $subdis_id,
             'id_rw'         => $id_rw,
-            'rt'            => $rt,
 
         ];
         User::where('id',$request->id)->update($update);

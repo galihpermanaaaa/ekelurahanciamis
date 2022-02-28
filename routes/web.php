@@ -93,6 +93,8 @@ Route::post('save_user', [App\Http\Controllers\UserController::class, 'store'])-
 Route::post('update_user', [App\Http\Controllers\UserController::class, 'update'])->name('update_user');
 Route::delete('hapus_user', [App\Http\Controllers\UserController::class, 'delete'])->name('hapus_user');
 
+Route::get('user/dashboard_profile', [App\Http\Controllers\ProfileKelurahanController::class, 'DashboardProfile'])->name('user/dashboard_profile');
+
 // -----------------------------sku----------------------------------------//
 Route::get('user/sku/data_sku', [App\Http\Controllers\PembuatSKUController::class, 'index'])->name('user/sku/data_sku');
 Route::get('user/sku/verifikasi/{id}', [App\Http\Controllers\PembuatSKUController::class, 'verifikasi']);
@@ -250,5 +252,28 @@ Route::delete('hapus_sarana', [App\Http\Controllers\ProfileKelurahanController::
 Route::get('user/profile_kelurahan/data_sarana/cari_sarana',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterSarana'])->name('user/profile_kelurahan/data_sarana/cari_sarana');
 
 
+Route::get('user/profile_kelurahan/data_perumahan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexPerumahan'])->name('user/profile_kelurahan/data_perumahan');
+Route::post('save_perumahan', [App\Http\Controllers\ProfileKelurahanController::class, 'savePerumahan'])->name('save_perumahan');
+Route::post('update_perumahan', [App\Http\Controllers\ProfileKelurahanController::class, 'update_perumahan'])->name('update_perumahan');
+Route::delete('hapus_perumahan', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_perumahan'])->name('hapus_perumahan');
+Route::get('user/profile_kelurahan/data_perumahan/cari_perumahan',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterPerumahan'])->name('user/profile_kelurahan/data_perumahan/cari_perumahan');
+
+Route::get('user/profile_kelurahan/data_kb', [App\Http\Controllers\ProfileKelurahanController::class, 'indexKB'])->name('user/profile_kelurahan/data_kb');
+Route::post('save_kb', [App\Http\Controllers\ProfileKelurahanController::class, 'saveKB'])->name('save_kb');
+Route::post('update_kb', [App\Http\Controllers\ProfileKelurahanController::class, 'update_kb'])->name('update_kb');
+Route::delete('hapus_kb', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_kb'])->name('hapus_kb');
+Route::get('user/profile_kelurahan/data_kb/cari_kb',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterKB'])->name('user/profile_kelurahan/data_kb/cari_kb');
+
+Route::get('user/profile_kelurahan/data_kesehatan', [App\Http\Controllers\ProfileKelurahanController::class, 'indexKesehatan'])->name('user/profile_kelurahan/data_kesehatan');
+Route::post('save_kesehatan', [App\Http\Controllers\ProfileKelurahanController::class, 'saveKesehatan'])->name('save_kesehatan');
+Route::post('update_kesehatan', [App\Http\Controllers\ProfileKelurahanController::class, 'update_kesehatan'])->name('update_kesehatan');
+Route::delete('hapus_kesehatan', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_kesehatan'])->name('hapus_kesehatan');
+Route::get('user/profile_kelurahan/data_kesehatan/cari_kesehatan',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterKesehatan'])->name('user/profile_kelurahan/data_kesehatan/cari_kesehatan');
+
+Route::get('user/profile_kelurahan/data_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'indexPerekonomian'])->name('user/profile_kelurahan/data_perekonomian');
+Route::post('save_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'savePerekonomian'])->name('save_perekonomian');
+Route::post('update_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'update_perekonomian'])->name('update_perekonomian');
+Route::delete('hapus_perekonomian', [App\Http\Controllers\ProfileKelurahanController::class, 'delete_perekonomian'])->name('hapus_perekonomian');
+Route::get('user/profile_kelurahan/data_perekonomian/cari_perekonomian',  [App\Http\Controllers\ProfileKelurahanController::class, 'filterPerekonomian'])->name('user/profile_kelurahan/data_perekonomian/cari_perekonomian');
 
 Auth::routes(['register' => false]);

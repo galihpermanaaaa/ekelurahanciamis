@@ -4,7 +4,7 @@
 
 
     <div class="pagetitle">
-      <h1>Data Kepala Keluarga Masyarakat Kelurahan Ciamis</h1>
+      <h1>Data Sarana Perekonomian Masyarakat Kelurahan Ciamis</h1>
     </div><!-- End Page Title -->
 
     {{-- message --}}
@@ -22,14 +22,32 @@
     <br>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_umur" style="float: right;"><i class="bi bi-plus-lg"></i> Input Data</button>
     <div class="search-bar col-md-4">
-      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/profile_kelurahan/data_kepala_keluarga/cari_kepala_keluarga') }}">
-      <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+      <form class="search-form d-flex align-items-center" method="GET" action="{{ route('user/profile_kelurahan/data_perekonomian/cari_perekonomian') }}">
+      <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Sarana Perekonomian--</option>
+                        <option value="Toko Eceran">Toko Eceran</option>
+                        <option value="Warung Eceran">Warung Eceran</option>
+                        <option value="Rumah Makan">Rumah Makan</option>
+                        <option value="Warung Nasi">Warung Nasi</option>
+                        <option value="Wartel/Warpostel">Wartel/Warpostel</option>
+                        <option value="Outlet Hp/Voucer">Outlet Hp/Voucer</option>
+                        <option value="Salon Kecantikan/Rias">Salon Kecantikan/Rias</option>
+                        <option value="Pemangkas Rambut">Pemangkas Rambut</option>
+                        <option value="Bengkel Mobil">Bengkel Mobil</option>
+                        <option value="Bengkel Motor">Bengkel Motor</option>
+                        <option value="Bengkel Sepeda">Bengkel Sepeda</option>
+                        <option value="Tambal Ban">Tambal Ban</option>
+                        <option value="Bengkel Barang Elektronik">Bengkel Barang Elektronik</option>
+                        <option value="Pabrik Makanan/ Minuman">Pabrik Makanan/ Minuman</option>
+                        <option value="Pabrik Lainnya">Pabrik Lainnya</option>
+                        <option value="Huller Gabah">Huller Gabah</option>
+                        <option value="Ojeg Sepada Motor">Ojeg Sepada Motor</option>
+                        <option value="Angkot">Angkot</option>
+                        <option value="Angkutan Antar Kota/ Propinsi">Angkutan Antar Kota/ Propinsi</option>
+                        <option value="Becak">Becak</option>
                         </select>
         <button type="submit" title="Search" class="btn btn-primary btn-sm" ><i class="bi bi-search"></i></button>&nbsp;&nbsp;
-        <a href="{{ route('user/profile_kelurahan/data_kepala_keluarga') }}" class="btn btn-success btn-sm">Refresh</a>
+        <a href="{{ route('user/profile_kelurahan/data_perekonomian') }}" class="btn btn-success btn-sm">Refresh</a>
       </form>
       
     </div><!-- End Search Bar -->
@@ -41,7 +59,7 @@
           <div class="card">
             <div class="card-body">
                 
-              <h5 class="card-title">Daftar Kepala Keluarga Masyarakat Kelurahan Ciamis</h5>
+              <h5 class="card-title">Daftar Sarana Perekonomian Masyarakat Kelurahan Ciamis</h5>
               
 
               <!-- Table with stripped rows -->
@@ -49,7 +67,7 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Kepala Keluarga</th>
+                    <th scope="col">Tempat</th>
                     <th scope="col">Jumlah</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -58,17 +76,17 @@
                     @foreach($data as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
-                      <td>{{$item->kk}}</td>
+                      <td>{{$item->tempat}}</td>
                       <td>{{$item->jumlah}}</td>
                       <td>
                       <button type="button" class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#update_umur"
                         data-id="{{$item->id}}"
-                        data-kk="{{$item->kk}}"
+                        data-tempat="{{$item->tempat}}"
                         data-jumlah="{{$item->jumlah}}"><i class="bi bi-pencil"></i> Edit</button>
 
                         <button type="button" class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#hapus_umur"
                         data-id="{{$item->id}}"
-                        data-kk="{{$item->kk}}"
+                        data-tempat="{{$item->tempat}}"
                         data-jumlah="{{$item->jumlah}}"><i class="bi bi-trash"></i> Hapus</button>
 
                       </td>
@@ -93,24 +111,42 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Edit Kepala Keluarga Masyarakat Kelurahan Ciamis</h5>
+                            <h5 class="modal-title">Edit Data Sarana Perekonomian Masyarakat Kelurahan Ciamis</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('update_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('update_perekonomian') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                     <div class="container col-md-12">
                     <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
+                        <label class="form-label">Sarana Perekonomian</label>
                         <input type="hidden" name="id" id="id">
-                        <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Sarana Perekonomian--</option>
+                        <option value="Toko Eceran">Toko Eceran</option>
+                        <option value="Warung Eceran">Warung Eceran</option>
+                        <option value="Rumah Makan">Rumah Makan</option>
+                        <option value="Warung Nasi">Warung Nasi</option>
+                        <option value="Wartel/Warpostel">Wartel/Warpostel</option>
+                        <option value="Outlet Hp/Voucer">Outlet Hp/Voucer</option>
+                        <option value="Salon Kecantikan/Rias">Salon Kecantikan/Rias</option>
+                        <option value="Pemangkas Rambut">Pemangkas Rambut</option>
+                        <option value="Bengkel Mobil">Bengkel Mobil</option>
+                        <option value="Bengkel Motor">Bengkel Motor</option>
+                        <option value="Bengkel Sepeda">Bengkel Sepeda</option>
+                        <option value="Tambal Ban">Tambal Ban</option>
+                        <option value="Bengkel Barang Elektronik">Bengkel Barang Elektronik</option>
+                        <option value="Pabrik Makanan/ Minuman">Pabrik Makanan/ Minuman</option>
+                        <option value="Pabrik Lainnya">Pabrik Lainnya</option>
+                        <option value="Huller Gabah">Huller Gabah</option>
+                        <option value="Ojeg Sepada Motor">Ojeg Sepada Motor</option>
+                        <option value="Angkot">Angkot</option>
+                        <option value="Angkutan Antar Kota/ Propinsi">Angkutan Antar Kota/ Propinsi</option>
+                        <option value="Becak">Becak</option>
                         </select>
-                        @error('agama')
+                        @error('kesehatan')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -142,22 +178,22 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title">Hapus Kepala Keluarga Masyarakat Kelurahan Ciamis Tersebut</h5>
+                            <h5 class="modal-title">Hapus Data Sarana Perekonimian Masyarakat Kelurahan Ciamis Tersebut</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form action="{{ route('hapus_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('hapus_perekonomian') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('DELETE')}}
                         <div class="container col-md-12">
                         <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
+                        <label class="form-label">Sarana Perekonomian</label>
                         <input type="hidden" name="id" id="id">
-                        <input type="text" class="form-control @error('kk') is-invalid @enderror" id="kk" name="kk" required readonly />
+                        <input type="text" class="form-control @error('tempat') is-invalid @enderror" id="tempat" name="tempat" required readonly />
                         </select>
-                        @error('kk')
+                        @error('tempat')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -191,23 +227,41 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalkdp">Input Data Kepala Keluarga Masyarakat Keluarahan Ciamis</h5>
+                <h5 class="modal-title" id="modalkdp">Input Data Sarana Perekonomian Masyarakat Kelurahan Ciamis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ route('save_kepalakeluarga') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save_perekonomian') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="container col-md-12">
                     <div class="row">
 
                     <div class="col-md-12">
-                        <label class="form-label">Kepala Keluarga</label>
-                        <select  class="form-control @error('kk') is-invalid @enderror" name="kk" id="kk" required>
-                        <option value="">--Pilih Kepala Keluarga--</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <label class="form-label">Sarana Perekonomian</label>
+                        <select  class="form-control @error('tempat') is-invalid @enderror" name="tempat" id="tempat" required>
+                        <option value="">--Pilih Sarana Perekonomian--</option>
+                        <option value="Toko Eceran">Toko Eceran</option>
+                        <option value="Warung Eceran">Warung Eceran</option>
+                        <option value="Rumah Makan">Rumah Makan</option>
+                        <option value="Warung Nasi">Warung Nasi</option>
+                        <option value="Wartel/Warpostel">Wartel/Warpostel</option>
+                        <option value="Outlet Hp/Voucer">Outlet Hp/Voucer</option>
+                        <option value="Salon Kecantikan/Rias">Salon Kecantikan/Rias</option>
+                        <option value="Pemangkas Rambut">Pemangkas Rambut</option>
+                        <option value="Bengkel Mobil">Bengkel Mobil</option>
+                        <option value="Bengkel Motor">Bengkel Motor</option>
+                        <option value="Bengkel Sepeda">Bengkel Sepeda</option>
+                        <option value="Tambal Ban">Tambal Ban</option>
+                        <option value="Bengkel Barang Elektronik">Bengkel Barang Elektronik</option>
+                        <option value="Pabrik Makanan/ Minuman">Pabrik Makanan/ Minuman</option>
+                        <option value="Pabrik Lainnya">Pabrik Lainnya</option>
+                        <option value="Huller Gabah">Huller Gabah</option>
+                        <option value="Ojeg Sepada Motor">Ojeg Sepada Motor</option>
+                        <option value="Angkot">Angkot</option>
+                        <option value="Angkutan Antar Kota/ Propinsi">Angkutan Antar Kota/ Propinsi</option>
+                        <option value="Becak">Becak</option>
                         </select>
-                        @error('kk')
+                        @error('tempat')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -244,12 +298,12 @@ $('#update_umur').on('show.bs.modal', function (event) {
 
 var button = $(event.relatedTarget)
 var ID = button.data('id')
-var KK = button.data('kk') 
+var Tempat = button.data('tempat') 
 var Jumlah = button.data('jumlah') 
 
 var modal = $(this)
 modal.find('.modal-body #id').val(ID)
-modal.find('.modal-body #kk').val(KK)
+modal.find('.modal-body #tempat').val(Tempat)
 modal.find('.modal-body #jumlah').val(Jumlah)
 })
 
@@ -258,12 +312,12 @@ $('#hapus_umur').on('show.bs.modal', function (event) {
 
 var button = $(event.relatedTarget)
 var ID = button.data('id')
-var KK = button.data('kk') 
+var Tempat = button.data('tempat') 
 var Jumlah = button.data('jumlah') 
 
 var modal = $(this)
 modal.find('.modal-body #id').val(ID)
-modal.find('.modal-body #kk').val(KK)
+modal.find('.modal-body #tempat').val(Tempat)
 modal.find('.modal-body #jumlah').val(Jumlah)
 })
 
