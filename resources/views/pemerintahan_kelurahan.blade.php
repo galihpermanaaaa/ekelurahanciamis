@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ URL::to('Arsha/img/favicon.png') }}" rel="icon">
-  <link href="{{ URL::to('Arsha/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ URL::to('assets/img/logocms.png') }}" rel="icon">
+  <link href="{{ URL::to('assets/img/logocms.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -56,7 +56,8 @@
               <li ><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
               <li class="active"><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
-              <li><a href="{{ route('monografi') }}">Monografi</a></li>
+              <li><a href="{{ route('monografi_geografis') }}">Monografi Geografis</a></li>
+              <li><a href="{{ route('monografi') }}">Monografi Pemerintahan & Kependudukan</a></li>
               <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -72,7 +73,7 @@
             </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="{{ route('login') }}" class="get-started-btn scrollto">Login Admin</a>
+      <a href="{{ route('login') }}" class="get-started-btn scrollto">Login</a>
 
     </div>
   </header><!-- End Header -->

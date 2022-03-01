@@ -78,14 +78,17 @@
               <li><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
               <li><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
-              <li><a href="{{ route('monografi') }}">Monografi</a></li>
+              <li><a href="{{ route('monografi_geografis') }}">Monografi Geografis</a></li>
+              <li><a href="{{ route('monografi') }}">Monografi Pemerintahan & Kependudukan</a></li>
+              
+              
               </li>
             </ul>
           </li>
 
 
           <li><a href="#contact">Contact</a></li>
-          <a href="{{ route('login') }}" class="get-started-btn scrollto">Login Admin</a>
+          <a href="{{ route('login') }}" class="get-started-btn scrollto">Login</a>
 
         </ul>
       </nav>
@@ -165,7 +168,7 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Pelayanan Surat</h2>
+        <h2>Pelayanan Surat Online</h2>
         {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
       </div>
 
@@ -983,6 +986,7 @@
 
 @include('layouts.landing_js')
 @include('sweetalert::alert')
+
 
 </body>
 

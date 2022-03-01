@@ -117,6 +117,13 @@ class landigpageController extends Controller
         return view('batas_kelurahan');
     }
 
+    public function monografi_geografis()
+    {
+        $halaman = "monografi_geografis";
+        $data = DataGeografis::limit(1)->get();
+        return view('monografi_geografis', compact('data'));
+    }
+
     public function monografi()
     {
         $halaman = "monografi";

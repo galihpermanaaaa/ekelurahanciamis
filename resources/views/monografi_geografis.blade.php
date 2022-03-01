@@ -52,9 +52,9 @@
           <li class="drop-down"><a href="">Profil</a>
             <ul>
               <li ><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
-              <li class="active"><a href="{{ route('sejarah') }}">Sejarah</a></li>
-              <li><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
-              <li><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
+              <li ><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li class="active"><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
+              <li ><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
               <li><a href="{{ route('monografi_geografis') }}">Monografi Geografis</a></li>
               <li><a href="{{ route('monografi') }}">Monografi Pemerintahan & Kependudukan</a></li>
@@ -86,61 +86,128 @@
 
         <ol>
           <li><a href="{{ route('index') }}">Home</a></li>
-          <li>Sejarah</li>
+          <li>Data Geografis</li>
         </ol>
-        <h2>Sejarah Kelurahan Ciamis</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section id="about" class="about">
+    
+    
+
+      
+
+     
+<section id="why-us" class="why-us section-bg">
+ {{-- message --}}
+
+
+    <script>
+    @if(count($errors) > 0)
+        @foreach($errors->all() as $error)
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+    </script>
       <div class="container" data-aos="fade-up">
 
-        <div class="row content">
-          <div class="col-lg-6">
-            
-            <ul>
-              <h4>Asal Usul Pembentukan Kelurahan Ciamis</h4>
-        <p>
-        Kelurahan Ciamis yang berasal dari Desa Ciamis mulai berdiri pada tahun 1818 (seribu delapan ratus delapan belas) pusat pemerintahannya adalah bertempat di Lingkungan Desakolot sekarang.
-        </p>
-        <P>Adapun Kepala Desa yang pertama adalah bernama KARTO pada tahun 1931 pusat Pemerintahan Desa Ciamis dipindah dari Desakolot yang merupakan Ibu Kota Kecamatan Ciamis yang terkenal dengan sebutan “PUSEUR DAYEUH TATAR GALUH CIAMIS”.</P>
-        <p>Selanjutnya berdasarkan Undang – undang Nomor 5 tahun 1979 tentang Pemerintahan Desa dan Surat Keputusan Menteri Dalam Negeri Nomor : 140 – 502 tanggal 27 September 1980 dan Nomor :140 – 135 tanggal 22 September 1980 perihal Penetapan Desa menjadi kelurahan, maka terhitung sejak tanggal 1 Januari 1981 sampai sekarang Desa Ciamis statusnya mengalami perubahan yaitu semula berstatus Desa berubah menjadi Kelurahan.</p>
-            </p>
-            </ul>
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3>Geografis Kelurahan Ciamis</h3>
+              <p>
+                Berikut ini adalah Data Geografis Kelurahan ciamis:
+              </p>
+            </div>
+
+            @foreach($data as $key => $item)
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span>01</span> Luas Wilayah Desa / Kelurahan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
+                    <p>
+                    {{$item->luas_wilayah}}
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span>02</span> Lahan Kering<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
+                  <p>Bangunan dan Pekarangan ( {{$item->bangunan_pekarangan}} )</p>
+                    <p>Ladang / Kebun ( {{$item->ladang_kebun}} )</p>
+                    <p>Kolam ( {{$item->kolam}} )</p>
+                    <p>Hutan rakyat ({{$item->hutan_rakyat}})</p>
+                    <p>Hutan Negara ({{$item->hutan_negara}})</p>
+                    <p>Lainnya ({{$item->lainnya}})</p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span>03</span>Lahan Sawah<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
+                  <p>Berperairan Teknis ({{$item->berperairan_teknis}})</p>
+                    <p>Berperairan Sederhana / Desa ({{$item->berperairan_sederhana}})</p>
+                    <p>Tidak berperairan / tadah hujan ({{$item->tidak_berperairan}})</p>
+                 
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-4" class="collapsed"><span>04</span> Panjang Jalan Menurut Satuannya<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-4" class="collapse" data-parent=".accordion-list">
+                  <p>Nasional ({{$item->panjang_jalan_nasional}})</p>
+                <p>Provinsi ({{$item->panjang_jalan_provinsi}})</p>
+                <p>Kabupaten ({{$item->panjang_jalan_kabupaten}})</p>
+                <p>Desa/Lokal ({{$item->panjang_jalan_desa}})</p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-5" class="collapsed"><span>05</span> Panjang Jalan Menurut Kondisinya<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-5" class="collapse" data-parent=".accordion-list">
+                <p>Hotmix ({{$item->hotmix}})</p>
+                <p>Aspal ({{$item->aspal}})</p>
+                <p>Batu ({{$item->batu}})</p>
+                <p>Krikil ({{$item->tanah}})</p>
+                <p>Jumlah Jembatan   ({{$item->jumlah_jembatan}})</p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-6" class="collapsed"><span>06</span> Sungai Besar/Sedang<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-6" class="collapse" data-parent=".accordion-list">
+                  <p>Banyaknya ({{$item->sungai_besar_banyaknya}})</p>
+                  <p>Panjang ({{$item->sungai_besar_panjang}})</p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+            @endforeach
+
           </div>
-          
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              <h4>Asal Usul Nama Ciamis</h4>
-        <p>Nama Ciamis baik sejak status Desa maupun sekarang sudah berstatus Kelurahan tetap tidak mengalami perubahan dimana nama Ciamis itu sendiri terdiri dari dua suku kata yaitu CI berasal dari kata CAI yang berarti AIR, digunakan kata sandang untuk nama SUNGAI. Daerah dan Kota.</p>
-        <p>Kata AMIS dari Bahasa Sunda berarti MANIS / CANTIK, maka dari itu Kelurahan Ciamis yang menjadi Ibu Kota Kabupaten Ciamis dengan predikat “KOTA MANIS”.</p>
-        <P>Keadaan ini didukung pula oleh penduduk yang ramah tamah budi bahasanya, dan sangat toleran. </P>
-        <p>Begitu juga kata AMIS itu dapat diartikan “ANYIR” yang maksudnya menunjukan dahulu sungai – sungai di Tatar Ciamis banyak ikannya. Hal ini sebagai tanda kelestarian dan kemakmuran wilayah Tatar Galuh Ciamis.</p>
-            
-          </div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/geo.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
         </div>
 
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </section>
-
+    </section><!-- End Services Section -->
+    <!-- ======= About Us Section ======= -->
+   
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <!-- <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
       &copy; Copyright <strong><span>Kelurahan Ciamis 2022</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>

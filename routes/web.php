@@ -21,6 +21,8 @@ Route::get('struktur_organisasi', [App\Http\Controllers\landigpageController::cl
 Route::get('batas_kelurahan', [App\Http\Controllers\landigpageController::class, 'batas_kelurahan'])->name('batas_kelurahan');
 Route::get('pemerintahan_kelurahan', [App\Http\Controllers\landigpageController::class, 'pemerintahan_kelurahan'])->name('pemerintahan_kelurahan');
 Route::get('monografi', [App\Http\Controllers\landigpageController::class, 'monografi'])->name('monografi');
+Route::get('monografi_geografis', [App\Http\Controllers\landigpageController::class, 'monografi_geografis'])->name('monografi_geografis');
+
 
 
 
