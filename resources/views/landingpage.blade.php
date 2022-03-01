@@ -34,8 +34,23 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
+ <link rel="stylesheet" href="{{ URL::to('roxy/css/style.min.css') }}">
+ <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+ <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 
+<!-- External CSS -->
+<link rel="stylesheet" href="{{ URL::to('roxy/vendor/bootstrap/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ URL::to('roxy/vendor/select2/select2.min.css') }}">
+<link rel="stylesheet" href="{{ URL::to('roxy/vendor/owlcarousel/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ URL::to('roxy/vendor/lightcase/lightcase.css') }}">
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Arsha - v2.3.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -75,7 +90,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          
+
 
           <li><a href="#contact">Contact</a></li>
 
@@ -92,6 +107,13 @@
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
+        <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1> E-Kelurahan Ciamis</h1>
@@ -106,7 +128,7 @@
 
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
 
-                <img src="{{ URL::to('Arsha/img/bupati-wakil-2.png') }}" class="img-fluid animated" alt="">
+                <img src="{{ URL::to('Arsha/img/BUPATI-WAKIL.png') }}" class="img-fluid animated" alt="">
 
         {{-- <form class="form" method="get" action="{{ route('layanan/sku') }}">
             <h3 class="h4 text-white mb-4">Check Surat</h3>
