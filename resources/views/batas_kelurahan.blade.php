@@ -42,18 +42,21 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">E-KELURAHAN CIAMIS</a></h1>
+      <h1 class="logo mr-auto"><a href="{{ route('index') }}">E-KELURAHAN CIAMIS</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
       <ul>
-          <li class="active"><a href="">Home</a></li>
+          <li><a href="{{ route('index') }}">Home</a></li>
           <li class="drop-down"><a href="">Profil</a>
             <ul>
-              <li><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
-              <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li ><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
+              <li ><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li class="active"><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
+              <li ><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
+              <li><a href="{{ route('monografi') }}">Monografi</a></li>
               <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -88,15 +91,14 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section id="services" class="services section-bg">
-    <div class="container" data-aos="fade-up">
+    
+    
 
-      <div class="section-title">
-        <h2>BATAS KELURAHAN CIAMIS</h2>
-        <p>Batas Kelurahan Ciamis sejak Desa hingga sekarang tidak mengalami perubahan yaitu :</p>
-        </div>
+      
 
-      {{-- message --}}
+     
+<section id="why-us" class="why-us section-bg">
+ {{-- message --}}
 
 
     <script>
@@ -106,48 +108,67 @@
         @endforeach
     @endif
     </script>
+      <div class="container" data-aos="fade-up">
 
-      <div class="row">
+        <div class="row">
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
-                <center><h4>Sebelah Utara : Kelurahan Maleber</a></h4>
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3>BATAS KELURAHAN CIAMIS</h3>
+              <p>
+                Batas Kelurahan Ciamis sejak Desa hingga sekarang tidak mengalami perubahan yaitu :
+              </p>
             </div>
-          </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
-                <center><h4>Sebelah Selatan	: Kelurahan Benteng</a></h4>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span>01</span> Sebelah Utara <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
+                    <p>
+                      Kelurahan Maleber
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span>02</span> Sebelah Selatan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      Kelurahan Benteng
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span>03</span> Sebelah Barat <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      Kelurahan Sindangrasa dan Kelurahan Linggarsari
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-4" class="collapsed"><span>04</span> Sebelah Timur <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-4" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      Kelurahan Kertasari dan Kelurahan Cigembor
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
             </div>
+
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
-                <center><h4>Sebelah Barat	: Kelurahan Sindangrasa dan Kelurahan Linggarsari</a></h4>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
-                <center><h4>Sebelah Timur	: Kelurahan Kertasari dan Kelurahan Cigembor</a></h4>
-            </div>
-          </div>
-
-        
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
 
       </div>
-      <br>
-     
-      <br>
-
-
-      
-    </div>
-
-  </section><!-- End Services Section -->
+    </section><!-- End Services Section -->
     <!-- ======= About Us Section ======= -->
    
   </main><!-- End #main -->

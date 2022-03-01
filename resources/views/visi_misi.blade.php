@@ -48,12 +48,15 @@
 
       <nav class="nav-menu d-none d-lg-block">
       <ul>
-          <li class="active"><a href="">Home</a></li>
+          <li class=""><a href="{{ route('index') }}">Home</a></li>
           <li class="drop-down"><a href="">Profil</a>
             <ul>
-              <li><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
+              <li class="active"><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
               <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
+              <li><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
+              <li><a href="{{ route('monografi') }}">Monografi</a></li>
               <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
