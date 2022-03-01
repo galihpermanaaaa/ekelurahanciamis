@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Arsha Bootstrap Template</title>
+  <title>Kelurahan Ciamis</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,21 +42,19 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Arsha</a></h1>
+      <h1 class="logo mr-auto"><a href="index.html">E-KELURAHAN CIAMIS</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+      <ul>
+          <li class="active"><a href="">Home</a></li>
+          <li class="drop-down"><a href="">Profil</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
+              <li><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
+              <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
+              <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -67,15 +65,11 @@
               </li>
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 4</a></li> -->
             </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <a href="{{ route('login') }}" class="get-started-btn scrollto">Login Admin</a>
 
     </div>
   </header><!-- End Header -->
@@ -87,19 +81,30 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Inner Page</li>
+          <li><a href="{{ route('index') }}">Home</a></li>
+          <li>Visi Misi</li>
         </ol>
-        <h2>Inner Page</h2>
+        <h2>VISI MISI KELURAHAN CIAMIS</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
       <div class="container">
+        <h4>Visi Kelurahan Ciamis</h4>
         <p>
-          Example inner page template
+        Berdasarkan Perbup No. 63 Tahun 2016 tentang susunan organisasi perangkat Daerah, Kelurahan Ciamis merupakan perangkat Kecamatan Ciamis, mengemban tugas membantu Camat Ciamis dalam menyelenggarakan tugas-tugas pemerintahan, pembangunan, kemasyarakatan dan Pemberdayaan Masyarakat di Kelurahan Ciamis.  
         </p>
+        <P>Visi Kelurahan Ciamis disusun dengan mengacu kepada Visi Pembangunan Kabupaten Ciamis yang tertuang dalam RPJMD Kabupaten Ciamis Tahun 2019 – 2024 “ yaitu ; <b> “Mantapnya Kemandirian Ekonomi Sejahtera untuk Semua “ </b></P>
+        <p>Visi Kelurahan Ciamis merupakan cita-cita yang diharapkan khususnya dalam rangka menunjang terwujudnya Visi Kabupaten Ciamis. Harapan-harapan tersebut tertuang dalam Visi : <b>“Dengan Iman dan Taqwa Kelurahan Ciamis Menigkat dalam pelayanan menuju Masyarakat Sejahtera“. </b></p>
+        <br>
+        <h4>Misi Kelurahan Ciamis</h4>
+        <p>Perwujudan makna dari Visi Kelurahan Ciamis Kecamatan Ciamis serta untuk mewujudkan Visi tersebut diatas, Kelurahan Ciamis menetapkan misi sebagai berikut :</p>
+        <p>1. Meningkatkan tata kelola pemerintahan melalui peningkatan kinerja aparatur pemerintahan.</p>
+        <p>2. Meningkatkan partisipasi masyarakat di bidang pembangunan, kemasyarakatan dan pemberdayaan masyarakat</p>
+        <p>3. Meningkatkan pemberdayaan ekonomi, kegiatan layanan pendidikan, kesehatan, dan sosial keagamaan</p>
+        <p>4. 	Memelihara dan meningkatkan keamanan dan ketertiban di lingkungan masyarakat. </p>
+        <p>5. 	Meningkatkan kualitas pelayanan menuju pelayanan prima kepada masyarakat.</p>
       </div>
     </section>
 
@@ -107,84 +112,9 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Arsha</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      &copy; Copyright <strong><span>Kelurahan Ciamis 2022</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

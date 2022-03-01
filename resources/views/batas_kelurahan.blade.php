@@ -82,40 +82,84 @@
 
         <ol>
           <li><a href="{{ route('index') }}">Home</a></li>
-          <li>Sejarah</li>
+          <li>Batas Kelurahan</li>
         </ol>
-        <h2>Sejarah Kelurahan Ciamis</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-      <div class="container">
-        <h4>Asal Usul Pembentukan Kelurahan Ciamis</h4>
-        <p>
-        Kelurahan Ciamis yang berasal dari Desa Ciamis mulai berdiri pada tahun 1818 (seribu delapan ratus delapan belas) pusat pemerintahannya adalah bertempat di Lingkungan Desakolot sekarang.
-        </p>
-        <P>Adapun Kepala Desa yang pertama adalah bernama KARTO pada tahun 1931 pusat Pemerintahan Desa Ciamis dipindah dari Desakolot yang merupakan Ibu Kota Kecamatan Ciamis yang terkenal dengan sebutan “PUSEUR DAYEUH TATAR GALUH CIAMIS”.</P>
-        <p>Selanjutnya berdasarkan Undang – undang Nomor 5 tahun 1979 tentang Pemerintahan Desa dan Surat Keputusan Menteri Dalam Negeri Nomor : 140 – 502 tanggal 27 September 1980 dan Nomor :140 – 135 tanggal 22 September 1980 perihal Penetapan Desa menjadi kelurahan, maka terhitung sejak tanggal 1 Januari 1981 sampai sekarang Desa Ciamis statusnya mengalami perubahan yaitu semula berstatus Desa berubah menjadi Kelurahan.</p>
-        <br>
-        <h4>Asal Usul Nama Ciamis</h4>
-        <p>Nama Ciamis baik sejak status Desa maupun sekarang sudah berstatus Kelurahan tetap tidak mengalami perubahan dimana nama Ciamis itu sendiri terdiri dari dua suku kata yaitu CI berasal dari kata CAI yang berarti AIR, digunakan kata sandang untuk nama SUNGAI. Daerah dan Kota.</p>
-        <p>Kata AMIS dari Bahasa Sunda berarti MANIS / CANTIK, maka dari itu Kelurahan Ciamis yang menjadi Ibu Kota Kabupaten Ciamis dengan predikat “KOTA MANIS”.</p>
-        <P>Keadaan ini didukung pula oleh penduduk yang ramah tamah budi bahasanya, dan sangat toleran. </P>
-        <p>Begitu juga kata AMIS itu dapat diartikan “ANYIR” yang maksudnya menunjukan dahulu sungai – sungai di Tatar Ciamis banyak ikannya. Hal ini sebagai tanda kelestarian dan kemakmuran wilayah Tatar Galuh Ciamis.</p>
-    </div>
-    </section>
+    <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
 
+      <div class="section-title">
+        <h2>BATAS KELURAHAN CIAMIS</h2>
+        <p>Batas Kelurahan Ciamis sejak Desa hingga sekarang tidak mengalami perubahan yaitu :</p>
+        </div>
+
+      {{-- message --}}
+
+
+    <script>
+    @if(count($errors) > 0)
+        @foreach($errors->all() as $error)
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+    </script>
+
+      <div class="row">
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+                <center><h4>Sebelah Utara : Kelurahan Maleber</a></h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+                <center><h4>Sebelah Selatan	: Kelurahan Benteng</a></h4>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+                <center><h4>Sebelah Barat	: Kelurahan Sindangrasa dan Kelurahan Linggarsari</a></h4>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><center><i class="bx bx-building"></i></div>
+                <center><h4>Sebelah Timur	: Kelurahan Kertasari dan Kelurahan Cigembor</a></h4>
+            </div>
+          </div>
+
+        
+
+      </div>
+      <br>
+     
+      <br>
+
+
+      
+    </div>
+
+  </section><!-- End Services Section -->
+    <!-- ======= About Us Section ======= -->
+   
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <!-- <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
       &copy; Copyright <strong><span>Kelurahan Ciamis 2022</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>

@@ -82,28 +82,50 @@
 
         <ol>
           <li><a href="{{ route('index') }}">Home</a></li>
-          <li>Sejarah</li>
+          <li>Pemeritahan</li>
         </ol>
-        <h2>Sejarah Kelurahan Ciamis</h2>
+        <h2>PEMERINTAHAN DESA/KELURAHAN</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
       <div class="container">
-        <h4>Asal Usul Pembentukan Kelurahan Ciamis</h4>
         <p>
-        Kelurahan Ciamis yang berasal dari Desa Ciamis mulai berdiri pada tahun 1818 (seribu delapan ratus delapan belas) pusat pemerintahannya adalah bertempat di Lingkungan Desakolot sekarang.
+        Kelurahan Ciamis sejak berdirinya Desa tahun 1818 hingga sekarang sudah berstatus Kelurahan mengalami pergantian beberapa orang Pimpinan / Kepala Desa sebagai berikut :
         </p>
-        <P>Adapun Kepala Desa yang pertama adalah bernama KARTO pada tahun 1931 pusat Pemerintahan Desa Ciamis dipindah dari Desakolot yang merupakan Ibu Kota Kecamatan Ciamis yang terkenal dengan sebutan “PUSEUR DAYEUH TATAR GALUH CIAMIS”.</P>
-        <p>Selanjutnya berdasarkan Undang – undang Nomor 5 tahun 1979 tentang Pemerintahan Desa dan Surat Keputusan Menteri Dalam Negeri Nomor : 140 – 502 tanggal 27 September 1980 dan Nomor :140 – 135 tanggal 22 September 1980 perihal Penetapan Desa menjadi kelurahan, maka terhitung sejak tanggal 1 Januari 1981 sampai sekarang Desa Ciamis statusnya mengalami perubahan yaitu semula berstatus Desa berubah menjadi Kelurahan.</p>
+        <p>a. Bapak KARTO memerintah sampai dengan Tahun 1911</p>
+        <p>b. Bapak RAKSADIPRADJA memerintah dari Tahun 1911 s/d Tahun 1920</p>
+        <p>c. Bapak MADSANI memerintah dari Tahun 1920 s/d Tahun 1931</p>
+        <p>d. Bapak WILASTRA memerintah dari Tahun 1931 s/d Tahun 1938</p>
+        <p>e. Bapak HARJA memerintah dari Tahun 1938 s/d tahun 1943</p>
+        <p>f. Bapak NATAWIDJAJA memerintah dari Tahun 1943 s/d tahun 1948</p>
+        <p>g. Bapak LAMRIA memerintah dari Tahun 1948 s/d tahun 1965</p>
+        <p>h. Bapak SUKARJA memerintah dari Tahun 1965 s.d tahun 1967</p>
+        <p>i. Bapak MUH. E. SAMSU memerintah dari Tahun 1967 s/d Tahun 1979</p>
+        <p>j. Bapak AFFANDI memerintah dari Tahun 1979 s/d tahun 1981
+            Selanjutnya terhitung sejak tanggal 1 Januari 1981, status Desa menjadi Kelurahan,adapun Lurah / Kepala Kelurahan yang melaksanakan tugas adalah sebagai berikut :
+        </p>
         <br>
-        <h4>Asal Usul Nama Ciamis</h4>
-        <p>Nama Ciamis baik sejak status Desa maupun sekarang sudah berstatus Kelurahan tetap tidak mengalami perubahan dimana nama Ciamis itu sendiri terdiri dari dua suku kata yaitu CI berasal dari kata CAI yang berarti AIR, digunakan kata sandang untuk nama SUNGAI. Daerah dan Kota.</p>
-        <p>Kata AMIS dari Bahasa Sunda berarti MANIS / CANTIK, maka dari itu Kelurahan Ciamis yang menjadi Ibu Kota Kabupaten Ciamis dengan predikat “KOTA MANIS”.</p>
-        <P>Keadaan ini didukung pula oleh penduduk yang ramah tamah budi bahasanya, dan sangat toleran. </P>
-        <p>Begitu juga kata AMIS itu dapat diartikan “ANYIR” yang maksudnya menunjukan dahulu sungai – sungai di Tatar Ciamis banyak ikannya. Hal ini sebagai tanda kelestarian dan kemakmuran wilayah Tatar Galuh Ciamis.</p>
-    </div>
+        <p>1. Bapak TACHYADI A. SATIBIE, BA.
+           Diangkat berdasarkan Surat Keputusan Gubernur KDH Tingkat I Jawa Barat Nomor : 778/Ds. 012 / SK./ 81 tanggal 10 Agustus 1981 terhitung mulai tanggal 1 Januari 1981 s/d Tahun 1986.
+        </p>
+        <p>2. Bapak DEDI KUSMAYADI, BA. Tahun 1986</p>
+        <p>3. Bapak HAERUDIN Drs. Tahun 1986 s/d Tahun 1992</p>
+        <p>4. Bapak SUCHYAR Tahun 1992 s/d Tahun 1993</p>
+        <p>5. Bapak RENALDI YUSHAB FIANSYAH,Drs Tahun 1993 s/d Tahun 1999</p>
+        <p>6. Bapak DIDI KUSNADI,Drs Tahun 1999 s/d Tahun 2000</p>
+        <p>7. Bapak MOMO T. SUKARNA Tahun 2000 S/D Tahun 2001</p>
+        <p>8. Bapak ENO SETIAWANSYAH Tahun 2002 S/D Tahun 2003</p>
+        <p>9. Bapak H. MOCH. SALEH YUSUF, BA. Tahun 2004</p>
+        <p>10.Bapak SUDJO SH. Tahun 2004 s/d Tahun 2009</p>
+        <p>11.Bapak WAWAN IRAWAN Tahun 2009 s/d 1 Februari 2010</p>
+        <p>12.Bapak OOS KOSWARA, S.IP  Tahun 2010 s/d. 2012</p>
+        <p>13.Bapak AJI SIROJUDIN RA’UF, SH s/d. Tahun 2012 s.d. 1 Juli 2016</p>
+        <p>14.Bapak DADANG WAHYUNADI Per 2 Januari 2017 s/d 2019 </p>
+        <p>15.Bapak H. RIDWAN, SPd.I, M.Si. Tahun 2019 s/d Januari 2021<p>
+        <p>16.Bapak WAHYU GHIFARY SETIAWAN, S.STP. Tahun 2021 s/d sekarang</p>
+      </div>
     </section>
 
   </main><!-- End #main -->

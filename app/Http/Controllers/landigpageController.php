@@ -53,6 +53,21 @@ use App\Mail\PembuatSuratDomisiliPT;
 use Illuminate\Support\Facades\Mail;
 use App\Helpers;
 use App\tgl_indo;
+use App\Models\DataGeografis;
+use App\Models\DataPemerintah;
+use App\Models\KelompokUmur;
+use App\Models\User;
+use App\Models\MataPencarian;
+use App\Models\PendidikanDitamatkan;
+use App\Models\AgamaKepercayaan;
+use App\Models\KepalaKeluarga;
+use App\Models\Sekolah;
+use App\Models\Lembaga;
+use App\Models\SaranaIbadah;
+use App\Models\Perumahan;
+use App\Models\KeluargaBerencana;
+use App\Models\Kesehatan;
+use App\Models\Perekonomian;
 
 class landigpageController extends Controller
 {
@@ -94,6 +109,156 @@ class landigpageController extends Controller
     {
         $halaman = "struktur_organisasi";
         return view('struktur_organisasi');
+    }
+
+    public function batas_kelurahan()
+    {
+        $halaman = "batas_kelurahan";
+        return view('batas_kelurahan');
+    }
+
+    public function monografi()
+    {
+        $halaman = "monografi";
+        $kelompok_umur1_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','0-4')->sum('jumlah');
+        $kelompok_umur1_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','0-4')->sum('jumlah');
+
+        $kelompok_umur2_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','5-9')->sum('jumlah');
+        $kelompok_umur2_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','5-9')->sum('jumlah');
+
+        $kelompok_umur3_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','10-14')->sum('jumlah');
+        $kelompok_umur3_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','10-14')->sum('jumlah');
+
+        $kelompok_umur4_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','15-19')->sum('jumlah');
+        $kelompok_umur4_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','15-19')->sum('jumlah');
+
+        $kelompok_umur5_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','20-24')->sum('jumlah');
+        $kelompok_umur5_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','20-24')->sum('jumlah');
+
+        $kelompok_umur6_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','25-29')->sum('jumlah');
+        $kelompok_umur6_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','25-29')->sum('jumlah');
+
+        $kelompok_umur7_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','30-34')->sum('jumlah');
+        $kelompok_umur7_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','30-34')->sum('jumlah');
+
+        $kelompok_umur8_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','35-39')->sum('jumlah');
+        $kelompok_umur8_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','35-39')->sum('jumlah');
+
+        $kelompok_umur9_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','40-44')->sum('jumlah');
+        $kelompok_umur9_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','40-44')->sum('jumlah');
+
+        $kelompok_umur10_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','45-49')->sum('jumlah');
+        $kelompok_umur10_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','45-49')->sum('jumlah');
+
+        $kelompok_umur11_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','50-54')->sum('jumlah');
+        $kelompok_umur11_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','50-54')->sum('jumlah');
+
+        $kelompok_umur12_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','55-59')->sum('jumlah');
+        $kelompok_umur12_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','55-59')->sum('jumlah');
+
+        $kelompok_umur13_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','60-64')->sum('jumlah');
+        $kelompok_umur13_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','60-64')->sum('jumlah');
+
+        $kelompok_umur14_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','65-69')->sum('jumlah');
+        $kelompok_umur14_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','65-69')->sum('jumlah');
+
+        $kelompok_umur15_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','70-74')->sum('jumlah');
+        $kelompok_umur15_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','70-74')->sum('jumlah');
+
+        $kelompok_umur16_lk = KelompokUmur::where('jk','Laki-laki')->where('kiteria','75keatas')->sum('jumlah');
+        $kelompok_umur16_pr = KelompokUmur::where('jk','Perempuan')->where('kiteria','75keatas')->sum('jumlah');
+
+        $pendidikan1 = PendidikanDitamatkan::where('pendidikan','Belum Sekolah')->sum('jumlah');
+        $pendidikan2 = PendidikanDitamatkan::where('pendidikan','Belum Tamat SD')->sum('jumlah');
+        $pendidikan3 = PendidikanDitamatkan::where('pendidikan','SD')->sum('jumlah');
+        $pendidikan4 = PendidikanDitamatkan::where('pendidikan','SMP')->sum('jumlah');
+        $pendidikan5 = PendidikanDitamatkan::where('pendidikan','SMA')->sum('jumlah');
+        $pendidikan6 = PendidikanDitamatkan::where('pendidikan','DI')->sum('jumlah');
+        $pendidikan7 = PendidikanDitamatkan::where('pendidikan','DII')->sum('jumlah');
+        $pendidikan8 = PendidikanDitamatkan::where('pendidikan','DIII')->sum('jumlah');
+        $pendidikan9 = PendidikanDitamatkan::where('pendidikan','SI')->sum('jumlah');
+        $pendidikan10 = PendidikanDitamatkan::where('pendidikan','SII')->sum('jumlah');
+        $pendidikan11 = PendidikanDitamatkan::where('pendidikan','SIII')->sum('jumlah');
+
+        $matapencarian1 = MataPencarian::where('pekerjaan','PNS')->sum('jumlah');
+        $matapencarian2 = MataPencarian::where('pekerjaan','TNI/POLRI')->sum('jumlah');
+        $matapencarian3 = MataPencarian::where('pekerjaan','BUMN/BUMD')->sum('jumlah');
+        $matapencarian4 = MataPencarian::where('pekerjaan','Pegawai Swasta')->sum('jumlah');
+        $matapencarian5 = MataPencarian::where('pekerjaan','Pertanian')->sum('jumlah');
+        $matapencarian6 = MataPencarian::where('pekerjaan','Perikanan')->sum('jumlah');
+        $matapencarian7 = MataPencarian::where('pekerjaan','Industri Pengolahan')->sum('jumlah');
+        $matapencarian8 = MataPencarian::where('pekerjaan','Perdagangan')->sum('jumlah');
+        $matapencarian9 = MataPencarian::where('pekerjaan','Angkutan')->sum('jumlah');
+        $matapencarian10 = MataPencarian::where('pekerjaan','Jasa-jasa')->sum('jumlah');
+        $matapencarian11 = MataPencarian::where('pekerjaan','Buruh Pertukangan')->sum('jumlah');
+        $matapencarian12 = MataPencarian::where('pekerjaan','Buruh Pertanian')->sum('jumlah');
+        $matapencarian13 = MataPencarian::where('pekerjaan','Buruh Serabutan')->sum('jumlah');
+        $matapencarian14 = MataPencarian::where('pekerjaan','Pengangguran')->sum('jumlah');
+        $matapencarian15 = MataPencarian::where('pekerjaan','Pensiunan')->sum('jumlah'); 
+
+        $agama1 = AgamaKepercayaan::where('agama','Islam')->sum('jumlah');
+        $agama2 = AgamaKepercayaan::where('agama','Kristen')->sum('jumlah');
+        $agama3 = AgamaKepercayaan::where('agama','Katholik')->sum('jumlah');
+        $agama4 = AgamaKepercayaan::where('agama','Hindu')->sum('jumlah');
+        $agama5 = AgamaKepercayaan::where('agama','Budha')->sum('jumlah');
+        $agama6 = AgamaKepercayaan::where('agama','Konghuchu')->sum('jumlah');
+        $agama7 = AgamaKepercayaan::where('agama','Kepercayaan')->sum('jumlah');
+
+        $kk1 = KepalaKeluarga::where('kk','Laki-laki')->sum('jumlah');
+        $kk2 = KepalaKeluarga::where('kk','Perempuan')->sum('jumlah');
+
+        $sekolah = Sekolah::all();
+        $jumlah_guru = Sekolah::all()->sum('jumlah_guru');
+        $jumlah_murid = Sekolah::all()->sum('jumlah_murid');
+        $jumlah_sekolah = Sekolah::all()->sum('jumlah_sekolah');
+
+        $lem1 =  Lembaga::where('lembaga','LPM')->sum('jumlah');
+        $lem2 =  Lembaga::where('lembaga','TP/PKK')->sum('jumlah');
+        $lem3 =  Lembaga::where('lembaga','BKM')->sum('jumlah');
+        $lem4 =  Lembaga::where('lembaga','POKMAS')->sum('jumlah');
+        $lem5 =  Lembaga::where('lembaga','Karang Taruna')->sum('jumlah');
+        $lem6 =  Lembaga::where('lembaga','UPZ')->sum('jumlah');
+        $lem7 =  Lembaga::where('lembaga','BKMM')->sum('jumlah');
+        $lem8 =  Lembaga::where('lembaga','Pondok Pesantren')->sum('jumlah');
+        $lem9 =  Lembaga::where('lembaga','MUI')->sum('jumlah');
+
+        $sarana = SaranaIbadah::all();
+        $jumlah_sarana = SaranaIbadah::all()->sum('jumlah');
+
+        $perum1 =  Perumahan::where('status_kepemilikan','Sendiri')->sum('jumlah');
+        $perum2 =  Perumahan::where('status_kepemilikan','Sewa Kontrak')->sum('jumlah');
+        $perum3 =  Perumahan::where('status_kepemilikan','Perumnas')->sum('jumlah');
+        $perum4 =  Perumahan::where('status_kepemilikan','Developer Swasta')->sum('jumlah');
+        $perum5 =  Perumahan::where('status_kepemilikan','Penyedia Perseorangan')->sum('jumlah');
+       
+        $kesehatan = Kesehatan::all();
+        $jumlah_kesehatan = Kesehatan::all()->sum('jumlah');
+
+        $perekonomian = Perekonomian::all();
+        $jumlah_perekonomian = Perekonomian::all()->sum('jumlah');
+
+        $kb1 =  KeluargaBerencana::where('berencana','PUS')->sum('jumlah');
+        $kb2 =  KeluargaBerencana::where('berencana','Peserta KB Aktif')->sum('jumlah');
+        $kb3 =  KeluargaBerencana::where('berencana','Pra KS')->sum('jumlah');
+        $kb4 =  KeluargaBerencana::where('berencana','KS 1')->sum('jumlah');
+        $kb5 =  KeluargaBerencana::where('berencana','KS')->sum('jumlah');
+        return view('monografi', compact('halaman','kelompok_umur1_lk','kelompok_umur1_pr',
+        'kelompok_umur2_lk','kelompok_umur2_pr','kelompok_umur3_lk','kelompok_umur3_pr', 'kelompok_umur4_lk','kelompok_umur4_pr',
+        'kelompok_umur5_lk','kelompok_umur5_pr','kelompok_umur6_lk','kelompok_umur6_pr','kelompok_umur7_lk','kelompok_umur7_pr',
+        'kelompok_umur8_lk','kelompok_umur8_pr','kelompok_umur9_lk','kelompok_umur9_pr','kelompok_umur10_lk','kelompok_umur10_pr',
+        'kelompok_umur11_lk','kelompok_umur11_pr','kelompok_umur12_lk','kelompok_umur12_pr','kelompok_umur13_lk','kelompok_umur13_pr',
+        'kelompok_umur14_lk','kelompok_umur14_pr','kelompok_umur15_lk','kelompok_umur15_pr','kelompok_umur16_lk','kelompok_umur16_pr',
+        'pendidikan1','pendidikan2','pendidikan3','pendidikan4','pendidikan5','pendidikan6','pendidikan7','pendidikan8','pendidikan9','pendidikan10',
+        'matapencarian1','matapencarian2','matapencarian3','matapencarian4','matapencarian5','matapencarian6','matapencarian7','matapencarian8','matapencarian9','matapencarian10',
+        'matapencarian11','matapencarian12','matapencarian13','matapencarian14','matapencarian15','agama1','agama2','agama3','agama4','agama5','agama6','agama7',
+        'kk1','kk2','sekolah','jumlah_guru','jumlah_murid','jumlah_sekolah','lem1','lem2','lem3','lem4','lem5','lem6','lem7','lem8','lem9','sarana','jumlah_sarana',
+        'perum1','perum2','perum3','perum4','perum5','kesehatan','jumlah_kesehatan','perekonomian','jumlah_perekonomian','kb1','kb2','kb3','kb4','kb5'));
+    }
+
+    public function pemerintahan_kelurahan()
+    {
+        $halaman = "pemerintahan_kelurahan";
+        return view('pemerintahan_kelurahan');
     }
 
     public function getKota(Request $request){

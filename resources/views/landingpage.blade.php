@@ -70,29 +70,22 @@
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="{{ route('index') }}">Home</a></li>
           <li class="drop-down"><a href="">Profil</a>
             <ul>
               <li><a href="{{ route('visi_misi') }}">Visi & Misi</a></li>
               <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li><a href="{{ route('batas_kelurahan') }}">Batas Kelurahan</a></li>
+              <li><a href="{{ route('pemerintahan_kelurahan') }}">Pemerintahan Kelurahan</a></li>
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
+              <li><a href="{{ route('monografi') }}">Monografi</a></li>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
 
 
           <li><a href="#contact">Contact</a></li>
+          <a href="{{ route('login') }}" class="get-started-btn scrollto">Login Admin</a>
 
         </ul>
       </nav>
@@ -191,7 +184,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
+              <div class="icon"><center><i class="bx bx-file"></i></div>
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
               {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
             </div>
@@ -211,7 +204,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+            <div class="icon"><center><i class="bx bx-file"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaldomisili_menu">Surat Keterangan Domisili</a></h4>
             {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
@@ -219,7 +212,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+            <div class="icon"><center><i class="bx bx-file"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalduda_menu">Surat Keterangan Duda</a></h4>
             {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
@@ -231,7 +224,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
+              <div class="icon"><center><i class="bx bx-file"></i></div>
 
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaljanda_menu">Surat Keterangan Janda</a></h4>
               {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
@@ -251,7 +244,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+            <div class="icon"><center><i class="bx bx-file"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
             {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
           </div>
@@ -259,7 +252,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-tachometer"></i></div>
+              <div class="icon"><center><i class="bx bx-file"></i></div>
               <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
               {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
             </div>
@@ -273,7 +266,7 @@
 
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-building"></i></div>
+              <div class="icon"><center><i class="bx bx-file"></i></div>
 
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkdp_menu">Surat Keterangan Domisili Perusahaan</a></h4>
               {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}

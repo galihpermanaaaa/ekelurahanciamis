@@ -18,7 +18,9 @@ Route::get('/', [App\Http\Controllers\landigpageController::class, 'index'])->na
 Route::get('visi_misi', [App\Http\Controllers\landigpageController::class, 'visi_misi'])->name('visi_misi');
 Route::get('sejarah', [App\Http\Controllers\landigpageController::class, 'sejarah'])->name('sejarah');
 Route::get('struktur_organisasi', [App\Http\Controllers\landigpageController::class, 'struktur_organisasi'])->name('struktur_organisasi');
-
+Route::get('batas_kelurahan', [App\Http\Controllers\landigpageController::class, 'batas_kelurahan'])->name('batas_kelurahan');
+Route::get('pemerintahan_kelurahan', [App\Http\Controllers\landigpageController::class, 'pemerintahan_kelurahan'])->name('pemerintahan_kelurahan');
+Route::get('monografi', [App\Http\Controllers\landigpageController::class, 'monografi'])->name('monografi');
 
 
 
