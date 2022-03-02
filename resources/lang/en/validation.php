@@ -239,6 +239,11 @@ return [
         'tanggal_buat_surat' => [
             'required' => 'The :attribute field can not be blank value.',
         ],
+
+        'g-recaptcha-response' => [
+            'required' => 'Validasi login captcha anda gagal, silahkan ulangi lagi.',
+            'captcha' => 'Captcha anda salah, silahkan ulangi lagi!.',
+        ],
     ],
 
     /*

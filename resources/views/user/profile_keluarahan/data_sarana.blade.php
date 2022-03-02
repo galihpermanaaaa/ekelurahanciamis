@@ -33,7 +33,6 @@
                         <option value="Wihara">Wihara</option>
                         <option value="Cetya">Cetya</option>
                         <option value="Kelenteng">Kelenteng</option>
-                        <option value="MUI">MUI</option>
                         </select>
         <button type="submit" title="Search" class="btn btn-primary btn-sm" ><i class="bi bi-search"></i></button>&nbsp;&nbsp;
         <a href="{{ route('user/profile_kelurahan/data_sarana') }}" class="btn btn-success btn-sm">Refresh</a>
@@ -122,7 +121,6 @@
                         <option value="Wihara">Wihara</option>
                         <option value="Cetya">Cetya</option>
                         <option value="Kelenteng">Kelenteng</option>
-                        <option value="MUI">MUI</option>
                         </select>
                         @error('sarana')
                         <span class="invalid-feedback" role="alert">
@@ -226,7 +224,6 @@
                         <option value="Wihara">Wihara</option>
                         <option value="Cetya">Cetya</option>
                         <option value="Kelenteng">Kelenteng</option>
-                        <option value="MUI">MUI</option>
                         </select>
                         @error('sarana')
                         <span class="invalid-feedback" role="alert">

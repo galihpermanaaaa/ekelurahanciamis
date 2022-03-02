@@ -258,10 +258,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($perekonomian as $key => $item)
+                    @foreach($sarana as $key => $item)
                   <tr>
                       <td>{{++$key}}</td>
-                      <td>{{$item->tempat}}</td>
+                      <td>{{$item->sarana}}</td>
                       <td>{{$item->jumlah}}</td>
                     
                   </tr>
@@ -269,7 +269,7 @@
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-              <span class="badge bg-success">Jumlah Keseluruhan: {{$jumlah_perekonomian}}</span>
+              <span class="badge bg-success">Jumlah Keseluruhan: {{$jumlah_sarana}}</span>
               
               <!-- End Bar CHart -->
 

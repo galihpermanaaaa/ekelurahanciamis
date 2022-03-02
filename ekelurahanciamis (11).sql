@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2022 at 09:02 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Mar 02, 2022 at 03:43 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,10 +40,13 @@ CREATE TABLE `agama_kepercayaan` (
 --
 
 INSERT INTO `agama_kepercayaan` (`id`, `agama`, `jumlah`, `created_at`, `updated_at`) VALUES
-(5, 'Katholik', '246', '2022-02-26 02:14:41', '2022-02-26 02:15:53'),
-(6, 'Hindu', '5', '2022-02-26 02:14:58', '2022-02-26 02:15:36'),
-(7, 'Islam', '2042', '2022-02-26 02:16:07', '2022-02-26 02:16:07'),
-(8, 'Kristen', '581', '2022-02-26 02:16:25', '2022-02-26 02:16:25');
+(1, 'Islam', '20042', '2022-03-01 19:14:23', '2022-03-01 19:14:23'),
+(2, 'Kristen', '581', '2022-03-01 19:14:37', '2022-03-01 19:14:37'),
+(3, 'Katholik', '246', '2022-03-01 19:14:50', '2022-03-01 19:14:50'),
+(4, 'Hindu', '5', '2022-03-01 19:15:02', '2022-03-01 19:15:02'),
+(5, 'Budha', '73', '2022-03-01 19:15:15', '2022-03-01 19:15:15'),
+(6, 'Konghuchu', '108', '2022-03-01 19:15:28', '2022-03-01 19:15:28'),
+(7, 'Kepercayaan', '17', '2022-03-01 19:15:42', '2022-03-01 19:15:42');
 
 -- --------------------------------------------------------
 
@@ -644,7 +647,7 @@ CREATE TABLE `data_geografis` (
 --
 
 INSERT INTO `data_geografis` (`id`, `jarak_kantor_desa`, `luas_wilayah`, `bangunan_pekarangan`, `ladang_kebun`, `kolam`, `hutan_rakyat`, `hutan_negara`, `lainnya`, `berperairan_teknis`, `berperairan_sederhana`, `tidak_berperairan`, `panjang_jalan_nasional`, `panjang_jalan_provinsi`, `panjang_jalan_kabupaten`, `panjang_jalan_desa`, `hotmix`, `aspal`, `batu`, `tanah`, `jumlah_jembatan`, `sungai_besar_panjang`, `sungai_besar_banyaknya`, `created_at`, `updated_at`) VALUES
-(7, '0,8 Km', '347,52 Ha', '334 Ha', '5 Ha', '400 Ha', '-', '-', '-', '38 Ha', '-', '2 Ha', '30 Km', '20 Km', '10 Km', '20 Km', '50 Km', '30 Km', '5 Km', '5 m', '1 Bh', '1.800 Meter Persegi', '3 Sungai', '2022-02-24 11:24:43', '2022-02-24 11:24:43');
+(1, '0,8 Km', '347,52 Ha', '334 Ha', '5 Ha', '400 Ha', '-', '-', '-', '38 Ha', '-', '2 Ha', '30 Km', '20 Km', '10 Km', '20 Km', '50 Km', '30 Km', '5 Km', '5 M', '1 Bh', '1.800 Meter Persegi', '3 Sungai', '2022-02-28 22:25:09', '2022-02-28 22:25:09');
 
 -- --------------------------------------------------------
 
@@ -673,7 +676,7 @@ CREATE TABLE `data_pemerintah` (
 --
 
 INSERT INTO `data_pemerintah` (`id`, `jumlah_rt`, `jumlah_rw`, `jumlah_dusun`, `jumlah_lurah`, `jumlah_seklur`, `jumlah_kepala_seksi`, `jumlah_pelaksana`, `jumlah_kepala_lingkungan`, `jumlah_anggota_bpd`, `jumlah_anggota_lpm`, `created_at`, `updated_at`) VALUES
-(1, '134', '32', '10', '1', '1', '3', '7', '0', '0', '29', '2022-02-25 19:12:44', '2022-02-25 19:12:44');
+(1, '134', '32', '10', '1', '1', '3', '7', '0', '0', '28', '2022-02-28 22:28:59', '2022-02-28 22:28:59');
 
 -- --------------------------------------------------------
 
@@ -694,8 +697,16 @@ CREATE TABLE `data_pendidikan` (
 --
 
 INSERT INTO `data_pendidikan` (`id`, `pendidikan`, `jumlah`, `created_at`, `updated_at`) VALUES
-(1, 'SMA', '6692', '2022-02-25 22:04:33', '2022-02-26 00:06:27'),
-(3, 'Belum Tamat SD', '1460', '2022-02-26 00:09:57', '2022-02-26 00:09:57');
+(1, 'Belum Sekolah', '3447', '2022-03-01 19:05:24', '2022-03-01 19:05:24'),
+(2, 'Belum Tamat SD', '1460', '2022-03-01 19:05:37', '2022-03-01 19:05:37'),
+(3, 'SD', '3611', '2022-03-01 19:05:55', '2022-03-01 19:05:55'),
+(4, 'SMP', '2846', '2022-03-01 19:06:23', '2022-03-01 19:06:23'),
+(5, 'SMA', '6692', '2022-03-01 19:06:49', '2022-03-01 19:06:49'),
+(6, 'DI', '305', '2022-03-01 19:07:17', '2022-03-01 19:07:17'),
+(7, 'DIII', '628', '2022-03-01 19:07:40', '2022-03-01 19:07:40'),
+(8, 'SI', '1885', '2022-03-01 19:07:56', '2022-03-01 19:07:56'),
+(9, 'SII', '182', '2022-03-01 19:08:08', '2022-03-01 19:08:08'),
+(10, 'SIII', '16', '2022-03-01 19:08:20', '2022-03-01 19:08:20');
 
 -- --------------------------------------------------------
 
@@ -717,10 +728,38 @@ CREATE TABLE `data_umur` (
 --
 
 INSERT INTO `data_umur` (`id`, `jk`, `kiteria`, `jumlah`, `created_at`, `updated_at`) VALUES
-(4, 'Laki-laki', '0-4', '523', '2022-02-25 20:55:55', '2022-02-25 20:55:55'),
-(5, 'Perempuan', '0-4', '503', '2022-02-25 20:56:11', '2022-02-25 20:56:11'),
-(6, 'Laki-laki', '5-9', '697', '2022-02-25 20:56:24', '2022-02-25 20:56:24'),
-(7, 'Perempuan', '5-9', '697', '2022-02-25 20:56:36', '2022-02-25 20:56:36');
+(1, 'Laki-laki', '0-4', '523', '2022-02-28 22:29:34', '2022-02-28 22:29:34'),
+(2, 'Perempuan', '0-4', '503', '2022-02-28 22:29:48', '2022-02-28 22:33:41'),
+(3, 'Laki-laki', '5-9', '697', '2022-02-28 22:30:07', '2022-02-28 22:30:07'),
+(4, 'Perempuan', '5-9', '697', '2022-02-28 22:30:27', '2022-02-28 22:30:27'),
+(5, 'Laki-laki', '10-14', '814', '2022-02-28 22:30:59', '2022-02-28 22:30:59'),
+(6, 'Perempuan', '10-14', '730', '2022-02-28 22:31:18', '2022-02-28 22:31:18'),
+(7, 'Laki-laki', '15-19', '778', '2022-02-28 22:31:40', '2022-02-28 22:31:40'),
+(8, 'Perempuan', '15-19', '831', '2022-02-28 22:32:08', '2022-02-28 22:32:08'),
+(9, 'Laki-laki', '20-24', '809', '2022-02-28 22:32:38', '2022-02-28 22:32:38'),
+(10, 'Perempuan', '20-24', '796', '2022-02-28 22:33:01', '2022-02-28 22:33:01'),
+(11, 'Laki-laki', '25-29', '761', '2022-02-28 22:34:15', '2022-02-28 22:34:15'),
+(12, 'Perempuan', '25-29', '835', '2022-02-28 22:34:40', '2022-02-28 22:34:40'),
+(13, 'Laki-laki', '30-34', '850', '2022-02-28 22:35:08', '2022-02-28 22:35:08'),
+(14, 'Perempuan', '30-34', '777', '2022-02-28 22:35:41', '2022-02-28 22:35:41'),
+(15, 'Laki-laki', '35-39', '836', '2022-02-28 22:36:08', '2022-02-28 22:36:08'),
+(16, 'Perempuan', '35-39', '825', '2022-02-28 22:36:37', '2022-02-28 22:36:37'),
+(17, 'Laki-laki', '40-44', '739', '2022-02-28 22:37:19', '2022-02-28 22:37:19'),
+(18, 'Perempuan', '40-44', '736', '2022-02-28 22:37:38', '2022-02-28 22:37:38'),
+(19, 'Laki-laki', '45-49', '763', '2022-02-28 22:38:04', '2022-02-28 22:38:04'),
+(20, 'Perempuan', '45-49', '792', '2022-02-28 22:38:21', '2022-02-28 22:38:21'),
+(21, 'Laki-laki', '50-54', '664', '2022-02-28 22:39:09', '2022-02-28 22:39:09'),
+(22, 'Perempuan', '50-54', '751', '2022-02-28 22:39:30', '2022-02-28 22:39:30'),
+(23, 'Laki-laki', '55-59', '569', '2022-02-28 22:39:51', '2022-02-28 22:39:51'),
+(24, 'Perempuan', '55-59', '652', '2022-02-28 22:40:18', '2022-02-28 22:40:18'),
+(25, 'Laki-laki', '60-64', '474', '2022-02-28 22:41:07', '2022-02-28 22:41:07'),
+(26, 'Perempuan', '60-64', '557', '2022-02-28 22:41:27', '2022-02-28 22:41:27'),
+(27, 'Laki-laki', '65-69', '390', '2022-02-28 22:41:48', '2022-02-28 22:41:48'),
+(28, 'Perempuan', '65-69', '390', '2022-02-28 22:42:02', '2022-02-28 22:42:02'),
+(29, 'Laki-laki', '70-74', '249', '2022-02-28 22:42:22', '2022-02-28 22:42:22'),
+(30, 'Perempuan', '70-74', '347', '2022-02-28 22:42:40', '2022-02-28 22:42:40'),
+(31, 'Laki-laki', '75keatas', '340', '2022-02-28 22:42:58', '2022-02-28 22:42:58'),
+(32, 'Perempuan', '75keatas', '565', '2022-02-28 22:43:15', '2022-02-28 22:43:15');
 
 -- --------------------------------------------------------
 
@@ -7841,7 +7880,11 @@ CREATE TABLE `keluarga_berencana` (
 --
 
 INSERT INTO `keluarga_berencana` (`id`, `berencana`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Pra KS', '285', '2022-02-26 22:32:12', '2022-02-26 22:32:36');
+(1, 'PUS', '2510', '2022-03-01 19:30:36', '2022-03-01 19:30:36'),
+(2, 'Peserta KB Aktif', '2134', '2022-03-01 19:31:18', '2022-03-01 19:31:18'),
+(3, 'Pra KS', '285', '2022-03-01 19:31:29', '2022-03-01 19:31:29'),
+(4, 'KS 1', '1535', '2022-03-01 19:31:54', '2022-03-01 19:31:54'),
+(5, 'KS', '3697', '2022-03-01 19:32:08', '2022-03-01 19:32:08');
 
 -- --------------------------------------------------------
 
@@ -7936,8 +7979,8 @@ CREATE TABLE `kepala_keluarga` (
 --
 
 INSERT INTO `kepala_keluarga` (`id`, `kk`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Perempuan', '1738', '2022-02-26 03:46:08', '2022-02-26 03:46:21'),
-(3, 'Laki-laki', '5738', '2022-02-26 03:46:34', '2022-02-26 03:46:34');
+(1, 'Laki-laki', '5738', '2022-03-01 19:16:39', '2022-03-01 19:16:39'),
+(2, 'Perempuan', '1738', '2022-03-01 19:16:57', '2022-03-01 19:16:57');
 
 -- --------------------------------------------------------
 
@@ -7958,8 +8001,20 @@ CREATE TABLE `kesehatan` (
 --
 
 INSERT INTO `kesehatan` (`id`, `tempat`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'RSU', '2', '2022-02-26 22:58:23', '2022-02-26 22:58:23'),
-(3, 'Puskesmas', '1', '2022-02-26 22:58:31', '2022-02-26 22:58:31');
+(1, 'RSU', '1', '2022-03-01 19:33:00', '2022-03-01 19:33:00'),
+(2, 'Puskesmas', '1', '2022-03-01 19:33:16', '2022-03-01 19:33:16'),
+(3, 'Dokter Umum', '2', '2022-03-01 19:33:25', '2022-03-01 19:33:25'),
+(4, 'Dokter Gigi', '1', '2022-03-01 19:33:38', '2022-03-01 19:33:38'),
+(5, 'Dokter Spesialis', '5', '2022-03-01 19:33:50', '2022-03-01 19:33:50'),
+(6, 'Dokter Kesehatan', '7', '2022-03-01 19:34:05', '2022-03-01 19:34:05'),
+(7, 'Rumah Bersalin', '0', '2022-03-01 19:34:17', '2022-03-01 19:34:17'),
+(8, 'Klinik Tradisional', '1', '2022-03-01 19:34:28', '2022-03-01 19:34:28'),
+(9, 'Apotek', '6', '2022-03-01 19:34:44', '2022-03-01 19:34:44'),
+(10, 'Toko Obat', '7', '2022-03-01 19:34:56', '2022-03-01 19:34:56'),
+(11, 'Polindes', '0', '2022-03-01 19:35:10', '2022-03-01 19:35:10'),
+(12, 'Dukun Beranak', '2', '2022-03-01 19:35:21', '2022-03-01 19:35:21'),
+(13, 'Posyando', '32', '2022-03-01 19:35:32', '2022-03-01 19:35:32'),
+(14, 'Lab Kesehatan', '2', '2022-03-01 19:35:42', '2022-03-01 19:35:42');
 
 -- --------------------------------------------------------
 
@@ -7980,8 +8035,39 @@ CREATE TABLE `lembaga` (
 --
 
 INSERT INTO `lembaga` (`id`, `lembaga`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Pondok Pesantren', '100', '2022-02-26 07:38:03', '2022-02-26 07:40:34'),
-(3, 'TP/PKK', '1', '2022-02-26 07:38:12', '2022-02-26 07:38:12');
+(1, 'LPM', '1', '2022-03-01 19:21:52', '2022-03-01 19:21:52'),
+(2, 'TP/PKK', '1', '2022-03-01 19:21:58', '2022-03-01 19:21:58'),
+(3, 'BKM', '1', '2022-03-01 19:22:03', '2022-03-01 19:22:03'),
+(4, 'POKMAS', '1', '2022-03-01 19:22:09', '2022-03-01 19:22:09'),
+(5, 'Karang Taruna', '1', '2022-03-01 19:22:16', '2022-03-01 19:22:16'),
+(6, 'UPZ', '1', '2022-03-01 19:22:22', '2022-03-01 19:22:22'),
+(7, 'BKMM', '1', '2022-03-01 19:22:29', '2022-03-01 19:22:29'),
+(8, 'Pondok Pesantren', '1', '2022-03-01 19:22:35', '2022-03-01 19:22:35'),
+(9, 'MUI', '1', '2022-03-01 19:22:41', '2022-03-01 19:22:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `masukkan`
+--
+
+CREATE TABLE `masukkan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isi` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_buat_masukkan` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `masukkan`
+--
+
+INSERT INTO `masukkan` (`id`, `nama`, `email`, `telp`, `isi`, `tanggal_buat_masukkan`, `created_at`, `updated_at`) VALUES
+(2, 'Galih', 'galihpermana900@gmail.com', '089000222111', 'Test Percobaan', '2022-02-28', '2022-02-28 02:06:28', '2022-02-28 02:06:28');
 
 -- --------------------------------------------------------
 
@@ -7991,7 +8077,7 @@ INSERT INTO `lembaga` (`id`, `lembaga`, `jumlah`, `created_at`, `updated_at`) VA
 
 CREATE TABLE `mata_pencarian` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `pekerjaan` enum('PNS','TNI/POLRI','BUMN/BUMD','Pegawai Swasta','Pertanian','Peternakan','Perikanan','Industri Pengolahan','Perdagangan','Angkutan','Jasa-jasa','Buruh Pertukangan','Buruh Pertanian','Buruh Serabutan','Pengangguran') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','TNI/POLRI','BUMN/BUMD','Pegawai Swasta','Pertanian','Peternakan','Perikanan','Industri Pengolahan','Perdagangan','Angkutan','Jasa-jasa','Buruh Pertukangan','Buruh Pertanian','Buruh Serabutan','Pengangguran','Pensiunan') COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -8002,8 +8088,19 @@ CREATE TABLE `mata_pencarian` (
 --
 
 INSERT INTO `mata_pencarian` (`id`, `pekerjaan`, `jumlah`, `created_at`, `updated_at`) VALUES
-(3, 'PNS', '1975', '2022-02-26 00:50:21', '2022-02-26 00:50:21'),
-(4, 'TNI/POLRI', '275', '2022-02-26 00:50:35', '2022-02-26 00:50:35');
+(1, 'PNS', '1975', '2022-03-01 19:09:24', '2022-03-01 19:09:24'),
+(2, 'TNI/POLRI', '275', '2022-03-01 19:09:35', '2022-03-01 19:09:35'),
+(3, 'BUMN/BUMD', '475', '2022-03-01 19:09:47', '2022-03-01 19:09:47'),
+(4, 'Pegawai Swasta', '471', '2022-03-01 19:10:05', '2022-03-01 19:10:05'),
+(5, 'Pertanian', '37', '2022-03-01 19:10:39', '2022-03-01 19:11:07'),
+(6, 'Industri Pengolahan', '288', '2022-03-01 19:11:19', '2022-03-01 19:11:19'),
+(7, 'Perdagangan', '1230', '2022-03-01 19:11:52', '2022-03-01 19:11:59'),
+(8, 'Angkutan', '132', '2022-03-01 19:12:16', '2022-03-01 19:12:16'),
+(9, 'Jasa-jasa', '167', '2022-03-01 19:12:28', '2022-03-01 19:12:28'),
+(10, 'Buruh Pertukangan', '107', '2022-03-01 19:12:54', '2022-03-01 19:12:54'),
+(11, 'Buruh Pertanian', '431', '2022-03-01 19:13:08', '2022-03-01 19:13:08'),
+(12, 'Buruh Serabutan', '517', '2022-03-01 19:13:37', '2022-03-01 19:13:37'),
+(13, 'Pengangguran', '1056', '2022-03-01 19:13:52', '2022-03-01 19:13:52');
 
 -- --------------------------------------------------------
 
@@ -8073,7 +8170,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (49, '2022_02_24_025500_create_perumahan_table', 1),
 (50, '2022_02_24_025904_create_keluargaberencana_table', 1),
 (51, '2022_02_24_030300_create_kesehatan_table', 1),
-(52, '2022_02_24_030743_create_perekonomian_table', 1);
+(52, '2022_02_24_030743_create_perekonomian_table', 1),
+(53, '2022_02_28_072812_create_masukkan_table', 1);
 
 -- --------------------------------------------------------
 
@@ -8106,8 +8204,26 @@ CREATE TABLE `perekonomian` (
 --
 
 INSERT INTO `perekonomian` (`id`, `tempat`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Toko Eceran', '720', '2022-02-27 00:58:51', '2022-02-27 00:58:51'),
-(3, 'Warung Eceran', '320', '2022-02-27 00:59:23', '2022-02-27 00:59:23');
+(1, 'Toko Eceran', '570', '2022-03-01 19:36:59', '2022-03-01 19:36:59'),
+(2, 'Warung Eceran', '320', '2022-03-01 19:37:10', '2022-03-01 19:37:10'),
+(3, 'Rumah Makan', '20', '2022-03-01 19:37:25', '2022-03-01 19:37:25'),
+(4, 'Warung Nasi', '50', '2022-03-01 19:37:38', '2022-03-01 19:37:38'),
+(5, 'Wartel/Warpostel', '32', '2022-03-01 19:37:49', '2022-03-01 19:37:49'),
+(6, 'Outlet Hp/Voucer', '42', '2022-03-01 19:38:02', '2022-03-01 19:38:02'),
+(7, 'Salon Kecantikan/Rias', '10', '2022-03-01 19:38:16', '2022-03-01 19:38:16'),
+(8, 'Pemangkas Rambut', '13', '2022-03-01 19:38:31', '2022-03-01 19:38:31'),
+(9, 'Bengkel Mobil', '6', '2022-03-01 19:38:47', '2022-03-01 19:38:47'),
+(10, 'Bengkel Motor', '7', '2022-03-01 19:38:53', '2022-03-01 19:38:53'),
+(11, 'Bengkel Sepeda', '1', '2022-03-01 19:38:59', '2022-03-01 19:38:59'),
+(12, 'Tambal Ban', '15', '2022-03-01 19:39:14', '2022-03-01 19:39:14'),
+(13, 'Bengkel Barang Elektronik', '3', '2022-03-01 19:39:30', '2022-03-01 19:39:30'),
+(14, 'Pabrik Makanan/ Minuman', '3', '2022-03-01 19:39:38', '2022-03-01 19:39:38'),
+(15, 'Huller Gabah', '3', '2022-03-01 19:39:59', '2022-03-01 19:39:59'),
+(16, 'Ojeg Sepada Motor', '150', '2022-03-01 19:40:17', '2022-03-01 19:40:17'),
+(17, 'Angkot', '240', '2022-03-01 19:40:38', '2022-03-01 19:40:38'),
+(18, 'Angkot', '240', '2022-03-01 19:40:59', '2022-03-01 19:40:59'),
+(19, 'Angkutan Antar Kota/ Propinsi', '29', '2022-03-01 19:41:10', '2022-03-01 19:41:10'),
+(20, 'Becak', '30', '2022-03-01 19:41:23', '2022-03-01 19:41:23');
 
 -- --------------------------------------------------------
 
@@ -8146,9 +8262,9 @@ CREATE TABLE `perumahan` (
 --
 
 INSERT INTO `perumahan` (`id`, `status_kepemilikan`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Developer Swasta', '1', '2022-02-26 21:36:46', '2022-02-26 21:37:58'),
-(3, 'Sewa Kontrak', '1791', '2022-02-26 21:37:01', '2022-02-26 21:37:01'),
-(4, 'Sendiri', '4021', '2022-02-26 21:38:18', '2022-02-26 21:38:18');
+(1, 'Sendiri', '4021', '2022-03-01 19:27:25', '2022-03-01 19:27:25'),
+(2, 'Sewa Kontrak', '1791', '2022-03-01 19:27:38', '2022-03-01 19:27:38'),
+(3, 'Developer Swasta', '1', '2022-03-01 19:27:48', '2022-03-01 19:27:48');
 
 -- --------------------------------------------------------
 
@@ -8246,15 +8362,15 @@ CREATE TABLE `rw` (
 --
 
 INSERT INTO `rw` (`id_rw`, `subdis_id`, `nama_rw`, `created_at`, `updated_at`) VALUES
-(1, 25821, '001', NULL, NULL),
-(2, 25821, '002', NULL, NULL),
-(3, 25821, '003', NULL, NULL),
-(4, 25821, '004', NULL, NULL),
-(5, 25821, '005', NULL, NULL),
-(6, 25821, '006', NULL, NULL),
-(7, 25821, '007', NULL, NULL),
-(8, 25821, '008', NULL, NULL),
-(9, 25821, '009', NULL, NULL),
+(1, 25821, '01', NULL, NULL),
+(2, 25821, '02', NULL, NULL),
+(3, 25821, '03', NULL, NULL),
+(4, 25821, '04', NULL, NULL),
+(5, 25821, '05', NULL, NULL),
+(6, 25821, '06', NULL, NULL),
+(7, 25821, '07', NULL, NULL),
+(8, 25821, '08', NULL, NULL),
+(9, 25821, '09', NULL, NULL),
 (10, 25821, '010', NULL, NULL),
 (11, 25821, '011', NULL, NULL),
 (12, 25821, '012', NULL, NULL),
@@ -8298,8 +8414,14 @@ CREATE TABLE `sarana` (
 --
 
 INSERT INTO `sarana` (`id`, `sarana`, `jumlah`, `created_at`, `updated_at`) VALUES
-(2, 'Mesjid(Jamie)', '32', '2022-02-26 08:07:41', '2022-02-26 08:07:41'),
-(3, 'Langgar/Mushola', '12', '2022-02-26 08:07:51', '2022-02-26 08:07:51');
+(1, 'Mesjid(Jamie)', '32', '2022-03-01 19:23:16', '2022-03-01 19:23:16'),
+(2, 'Langgar/Mushola', '14', '2022-03-01 19:23:26', '2022-03-01 19:23:26'),
+(3, 'Gereja/Protestan', '1', '2022-03-01 19:23:35', '2022-03-01 19:23:35'),
+(4, 'Gereja Katholik', '2', '2022-03-01 19:24:59', '2022-03-01 19:24:59'),
+(5, 'Pura/Kuil/Sanggah', '1', '2022-03-01 19:25:09', '2022-03-01 19:25:09'),
+(6, 'Wihara', '1', '2022-03-01 19:25:18', '2022-03-01 19:25:18'),
+(7, 'Cetya', '1', '2022-03-01 19:25:33', '2022-03-01 19:25:33'),
+(8, 'Kelenteng', '1', '2022-03-01 19:25:39', '2022-03-01 19:25:39');
 
 -- --------------------------------------------------------
 
@@ -8384,8 +8506,11 @@ CREATE TABLE `sekolah` (
 --
 
 INSERT INTO `sekolah` (`id`, `ting_sekolah`, `jumlah_sekolah`, `jumlah_murid`, `jumlah_guru`, `created_at`, `updated_at`) VALUES
-(2, 'TKA/TPA', '25', '425', '50', '2022-02-26 06:46:10', '2022-02-26 06:46:10'),
-(3, 'TKA Umum', '9', '280', '28', '2022-02-26 06:49:56', '2022-02-26 06:49:56');
+(1, 'TKA Umum', '9', '280', '28', '2022-03-01 19:17:58', '2022-03-01 19:17:58'),
+(2, 'TKA/TPA', '25', '425', '50', '2022-03-01 19:18:29', '2022-03-01 19:18:29'),
+(3, 'SD/MI', '8', '3200', '80', '2022-03-01 19:19:08', '2022-03-01 19:19:08'),
+(4, 'SMP/MTS', '3', '4600', '183', '2022-03-01 19:19:44', '2022-03-01 19:19:44'),
+(5, 'SMK/SMA/Aliyah', '2', '1240', '120', '2022-03-01 19:20:54', '2022-03-01 19:20:54');
 
 -- --------------------------------------------------------
 
@@ -90037,7 +90162,6 @@ CREATE TABLE `users` (
   `dis_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subdis_id` bigint(20) UNSIGNED DEFAULT NULL,
   `id_rw` bigint(20) UNSIGNED DEFAULT NULL,
-  `rt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -90049,10 +90173,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `role_name`, `avatar`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'verifikator', 'verifikator@mail.com', NULL, 'Verifikator', NULL, 12, 168, 2160, 25821, 1, '1', NULL, '$2y$10$INsOjNPlg790IyP8SYpo.e5vmfbbKxRkgfrTfpoQExzKKftxcYGfC', NULL, '2022-02-24 06:24:44', '2022-02-24 06:24:44'),
-(2, 'Lurah Ciamis', 'lurah@mail.com', '081999000222', 'Lurah', NULL, 12, 168, 2160, 25821, 1, '1', NULL, '$2y$10$pF6w3qHA69cDIuRajqwyZ.L2NHXsVwkpHQM0hGAFl7W/2/iDNHnQe', NULL, '2022-02-25 21:32:30', '2022-02-25 21:32:30'),
-(3, 'Admin RW 1', 'adminrw01@gmail.com', '081999000222', 'RW', NULL, 12, 168, 2160, 25821, 1, '1', NULL, '$2y$10$wNklNsgkWEgNMM63GWclSOTWeAWrnYggSio8jOIfnhncrLwrunfxq', NULL, '2022-02-25 21:36:00', '2022-02-25 21:36:00');
+INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `role_name`, `avatar`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'verifikator', 'verifikator@mail.com', '081999000223', 'Verifikator', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$fSw.GpATVtc4EEUaZ1sH9eaGIjSCzqaRCOI5gFnkrRWSVJ9LeEHnu', NULL, '2022-02-28 00:35:13', '2022-02-28 00:42:19'),
+(2, 'Admin RW 1', 'adminrw01@gmail.com', '081999000111', 'RW', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$sGNCLXBGdNxKbAGdsLqLiecWF1BvkgQmuIX1A1gsawQA7XD2gdVES', NULL, '2022-02-28 00:36:03', '2022-02-28 00:41:23'),
+(3, 'Lurah Ciamis', 'lurah@mail.com', '089888999999', 'Lurah', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$.YN7mvzmGK1AUyCuRNwSuOlnaMpzMCdtQznnivKucOqW7i.B6Rh.C', NULL, '2022-02-28 00:36:37', '2022-02-28 00:41:35');
 
 -- --------------------------------------------------------
 
@@ -90230,6 +90354,12 @@ ALTER TABLE `kesehatan`
 -- Indexes for table `lembaga`
 --
 ALTER TABLE `lembaga`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `masukkan`
+--
+ALTER TABLE `masukkan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -90490,7 +90620,7 @@ ALTER TABLE `user_types`
 -- AUTO_INCREMENT for table `agama_kepercayaan`
 --
 ALTER TABLE `agama_kepercayaan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `bmr`
@@ -90520,7 +90650,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `data_geografis`
 --
 ALTER TABLE `data_geografis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_pemerintah`
@@ -90532,13 +90662,13 @@ ALTER TABLE `data_pemerintah`
 -- AUTO_INCREMENT for table `data_pendidikan`
 --
 ALTER TABLE `data_pendidikan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `data_umur`
 --
 ALTER TABLE `data_umur`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `districts`
@@ -90574,7 +90704,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `keluarga_berencana`
 --
 ALTER TABLE `keluarga_berencana`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kematian`
@@ -90598,37 +90728,43 @@ ALTER TABLE `kematian_ditolak`
 -- AUTO_INCREMENT for table `kepala_keluarga`
 --
 ALTER TABLE `kepala_keluarga`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kesehatan`
 --
 ALTER TABLE `kesehatan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
 --
 ALTER TABLE `lembaga`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `masukkan`
+--
+ALTER TABLE `masukkan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `mata_pencarian`
 --
 ALTER TABLE `mata_pencarian`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `perekonomian`
 --
 ALTER TABLE `perekonomian`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -90640,7 +90776,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `perumahan`
 --
 ALTER TABLE `perumahan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -90664,7 +90800,7 @@ ALTER TABLE `rw`
 -- AUTO_INCREMENT for table `sarana`
 --
 ALTER TABLE `sarana`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sbm`
@@ -90688,7 +90824,7 @@ ALTER TABLE `sbm_ditolak`
 -- AUTO_INCREMENT for table `sekolah`
 --
 ALTER TABLE `sekolah`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sku_diterima`

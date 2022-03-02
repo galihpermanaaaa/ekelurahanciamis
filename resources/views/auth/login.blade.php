@@ -42,6 +42,17 @@
                     </div>
 
                     <div class="col-12">
+                    {!! NoCaptcha::renderJs('eng', false, 'onloadCallback') !!}
+                    {!! NoCaptcha::display() !!}
+									@if ($errors->has('g-recaptcha-response'))
+									<span class="help-block">
+										<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+									</span>
+									@endif
+								
+								</div>
+
+                    <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                   </form>
@@ -60,3 +71,8 @@
 
 @include('layouts.footer')
 
+<script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
