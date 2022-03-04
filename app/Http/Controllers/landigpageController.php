@@ -68,6 +68,7 @@ use App\Models\Perumahan;
 use App\Models\KeluargaBerencana;
 use App\Models\Kesehatan;
 use App\Models\Perekonomian;
+use Response;
 
 class landigpageController extends Controller
 {
@@ -103,6 +104,12 @@ class landigpageController extends Controller
     {
         $halaman = "sejarah";
         return view('sejarah');
+    }
+
+    public function apk()
+    {
+        $filepath = public_path('apk/ekelurahan.apk');
+        return Response::download($filepath); 
     }
 
     public function struktur_organisasi()

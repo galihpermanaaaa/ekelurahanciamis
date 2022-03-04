@@ -80,6 +80,7 @@
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
               <li><a href="{{ route('monografi_geografis') }}">Monografi Geografis</a></li>
               <li><a href="{{ route('monografi') }}">Monografi Pemerintahan & Kependudukan</a></li>
+              <li><a href="{{ URL::to('apk/ekelurahan.apk') }} ">Download Aplikasi E-Keluarahan Berbasis Mobile</a></li>
               
               
               </li>

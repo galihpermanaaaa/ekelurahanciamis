@@ -1,0 +1,1 @@
+<a href="{{ URL::to('apk/ekelurahan.apk') }} " alt="Profile" class="rounded-circle">Download</a>
