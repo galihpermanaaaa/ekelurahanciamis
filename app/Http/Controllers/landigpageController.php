@@ -106,6 +106,8 @@ class landigpageController extends Controller
         return view('sejarah');
     }
 
+    
+
     public function apk()
     {
         $filepath = public_path('apk/ekelurahan.apk');
@@ -129,6 +131,12 @@ class landigpageController extends Controller
         $halaman = "monografi_geografis";
         $data = DataGeografis::limit(1)->get();
         return view('monografi_geografis', compact('data'));
+    }
+
+    public function gallery()
+    {
+        $halaman = "gallery";
+        return view('gallery');
     }
 
     public function monografi()
@@ -432,7 +440,7 @@ class landigpageController extends Controller
           
         $this->fpdf = new Fpdf;
         $this->fpdf->SetFont('times', 'B', 15);
-        $this->fpdf->AddPage(['P','mm','a4']);
+        $this->fpdf->AddPage(['P','mm','Legal']);
         $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
         // $this->fpdf->Text(10, 10, $p->nama);
         
@@ -461,7 +469,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'      '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -511,7 +519,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->write(8,'Dengan Nomor: .'. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha',0,1);
         $this->fpdf->write(8,'dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk: '. $p->keperluan.'.',0,1);
@@ -692,7 +700,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN TIDAK MAMPU',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_skm_diterima.'/'.$p->id_skm_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -769,7 +777,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln(3);
         $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan keterangan pribadi dan Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. ' (Optional 1/Mengikuti yg atas).',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. ' (Optional 1/Mengikuti yg atas).',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,0.5,'',0,0);
         $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan,0,1);
@@ -939,7 +947,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN DOMISILI',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_domisili_diterima.'/'.$p->id_domisili_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -992,7 +1000,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis'. ','. ' benar bahwa orang tersebut di atas adalah warga yang saat ini berdomisili pada alamat di atas'. '.',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis'. ','. ' benar bahwa orang tersebut di atas adalah warga yang saat ini berdomisili pada alamat di atas'. '.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
         $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya'. '.',0,1);
@@ -1169,7 +1177,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN DUDA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_duda_diterima.'/'.$p->id_duda_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -1219,7 +1227,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan pengantar dari Lingkungan '. 'RT. '. $p->rt. ' '. 'RW. '. $p->rw->nama_rw.', bahwa orang tersebut adalah warga kami yang berstatus Duda dan sampai sekarang belum menikah lagi.',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar '. 'RT. '. $p->rt. ' '. 'RW. '. $p->rw->nama_rw.', bahwa orang tersebut adalah warga kami yang berstatus Duda dan sampai sekarang belum menikah lagi.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
         $this->fpdf->write(8,'Surat keterangan ini diperlukan untuk persyaratan melengkapi '. $p->melengkapi,0,1);
@@ -1402,7 +1410,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN JANDA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_janda_diterima.'/'.$p->id_janda_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -1452,7 +1460,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan pengantar dari Lingkungan '. 'RT. '. $p->rt. ' '. 'RW. '. $p->rw->nama_rw.', bahwa orang tersebut adalah warga kami yang berstatus Janda dan sampai sekarang belum menikah lagi.',0,1);
+        $this->fpdf->write(8,'Berdasarkan surat pengantar '. 'RT. '. $p->rt. ' '. 'RW. '. $p->rw->nama_rw.', bahwa orang tersebut adalah warga kami yang berstatus Janda dan sampai sekarang belum menikah lagi.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
         $this->fpdf->write(8,'Surat keterangan ini diperlukan untuk persyaratan melengkapi '. $p->melengkapi,0,1);
@@ -1626,7 +1634,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN BELUM MENIKAH',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sbm_diterima.'/'.$p->id_sbm_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -1675,7 +1683,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis bahwa orang tersebut, sampai saat ini betul belum Menikah / Belum Kawin.',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari '. 'RT/RW. '. $p->rt. '/'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis bahwa orang tersebut, sampai saat ini betul belum Menikah / Belum Kawin.',0,1);
         $this->fpdf->Ln();
 
         $this->fpdf->Cell(10,6,'',0,0);
@@ -1855,8 +1863,8 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN BELUM MEMILIKI RUMAH',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_bmr_diterima.'/'.$p->id_bmr_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
-        $this->fpdf->Ln();
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'      '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
         $this->fpdf->Cell(1,6,'',0,0);
@@ -2134,7 +2142,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN KEMATIAN',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_kematian_diterima.'/'.$p->id_kematian_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'      '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -2187,7 +2195,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Sepengetahuan kami berdasarkan Surat Pengantar Keterangan dari RT '. $p->pengantar_dari_rt. ' RW '. $p->pengantar_dari_rw. ' Lingkungan '.$p->lingkungan. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, benar bahwa orang tersebut diatas telah meninggal dunia pada tanggal '.(tgl_indo($p->tanggal_meninggal)). '.',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT '. $p->pengantar_dari_rt. ' RW '. $p->pengantar_dari_rw. ' Lingkungan '.$p->lingkungan. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, benar bahwa orang tersebut diatas telah meninggal dunia pada tanggal '.(tgl_indo($p->tanggal_meninggal)). '.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
         $this->fpdf->write(8,'Disebabkan '. $p->disebabkan. ' di '. $p->ditempat. '.',0,1);
@@ -2361,7 +2369,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN DOMISILI',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_domisili_pt_diterima.'/'.$p->id_domisili_pt_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -2388,7 +2396,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Sepengetahuan kami berdasarkan Surat Keterangan dari '. $p->surat_keterangan_dari.' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, bahwa '.$p->nama_lembaga.' berdomisili pada alamat tersebut di atas.',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Keterangan dari RT. '. $p->surat_keterangan_dari.' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, bahwa '.$p->nama_lembaga.' berdomisili pada alamat tersebut di atas.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
 

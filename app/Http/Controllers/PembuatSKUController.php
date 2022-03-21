@@ -251,7 +251,7 @@ class PembuatSKUController extends Controller
           
         $this->fpdf = new Fpdf;
         $this->fpdf->SetFont('times', 'B', 15);
-        $this->fpdf->AddPage(['P','mm','a4']);
+        $this->fpdf->AddPage(['P','mm','Legal']);
         $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
         // $this->fpdf->Text(10, 10, $p->nama);
         
@@ -280,7 +280,7 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN USAHA',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor:'.$p->id_sku_diterima.'/'.$p->id_sku_diterima.'/Kel-'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'      '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -330,7 +330,7 @@ class PembuatSKUController extends Controller
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Pengakuan yang bersangkutan disertai Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->write(8,'Dengan Nomor: .'. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha',0,1);
         $this->fpdf->write(8,'dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk: '. $p->keperluan.'.',0,1);

@@ -23,6 +23,8 @@ Route::get('pemerintahan_kelurahan', [App\Http\Controllers\landigpageController:
 Route::get('monografi', [App\Http\Controllers\landigpageController::class, 'monografi'])->name('monografi');
 Route::get('monografi_geografis', [App\Http\Controllers\landigpageController::class, 'monografi_geografis'])->name('monografi_geografis');
 Route::get('apk', [App\Http\Controllers\landigpageController::class, 'apk'])->name('apk');
+Route::get('gallery', [App\Http\Controllers\landigpageController::class, 'gallery'])->name('gallery');
+
 
 
 
