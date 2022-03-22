@@ -53,7 +53,7 @@
     <!-- Modal Domisili Cek -->
   <!-- Modal Domisili Buat -->
 <div class="modal fade" id="modaldomisili_buat" tabindex="-1" aria-labelledby="modaldomisili" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modaldomisili">Surat Keterangan Domisili</h5>

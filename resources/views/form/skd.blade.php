@@ -53,7 +53,7 @@
     <!-- Modal Duda Cek -->
   <!-- Modal Duda Buat -->
 <div class="modal fade" id="modalduda_buat" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalduda">Surat Keterangan Duda</h5>

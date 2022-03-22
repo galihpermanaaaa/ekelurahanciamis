@@ -53,7 +53,7 @@
     <!-- Modal Janda Cek -->
   <!-- Modal Janda Buat -->
 <div class="modal fade" id="modalkematian_buat" tabindex="-1" aria-labelledby="modalkematian" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalkematian">Surat Keterangan Kematian</h5>

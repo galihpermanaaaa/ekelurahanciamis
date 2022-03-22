@@ -53,7 +53,7 @@
     <!-- Modal Janda Cek -->
   <!-- Modal Janda Buat -->
 <div class="modal fade" id="modalkdp_buat" tabindex="-1" aria-labelledby="modalkdp" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalkdp">Surat Keterangan Domisili Perusahaan</h5>
