@@ -1,5 +1,5 @@
 <!-- Modal SKTM Menu -->
-<div class="modal fade" id="modalSKTM_menu" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+<div class="modal fade" id="modalSKTM_menu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -20,7 +20,7 @@
 
 
   <!-- Modal SKTM Cek -->
-  <div class="modal fade" id="modalSKTM_cek" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+  <div class="modal fade" id="modalSKTM_cek" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -47,7 +47,7 @@
 
 
   <!-- Modal SKTM Buat -->
-<div class="modal fade" id="modalSKTM_buat" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
+<div class="modal fade" id="modalSKTM_buat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSKTM" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">

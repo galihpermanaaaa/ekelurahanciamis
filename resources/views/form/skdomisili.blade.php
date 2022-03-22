@@ -1,5 +1,5 @@
 <!-- Modal Domisili Menu -->
-<div class="modal fade" id="modaldomisili_menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaldomisili_menu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,7 +21,7 @@
 
     <!-- Modal Domisili Menu -->
      <!-- Modal Domisili Cek -->
-  <div class="modal fade" id="modaldomisili_cek" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modaldomisili_cek" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -52,7 +52,7 @@
 
     <!-- Modal Domisili Cek -->
   <!-- Modal Domisili Buat -->
-<div class="modal fade" id="modaldomisili_buat" tabindex="-1" aria-labelledby="modaldomisili" aria-hidden="true">
+<div class="modal fade" id="modaldomisili_buat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modaldomisili" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">

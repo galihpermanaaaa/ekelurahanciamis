@@ -1,5 +1,5 @@
 <!-- Modal Domisili Menu -->
-<div class="modal fade" id="modalduda_menu" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
+<div class="modal fade" id="modalduda_menu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,7 +21,7 @@
 
     <!-- Modal Duda Menu -->
      <!-- Modal Duda Cek -->
-  <div class="modal fade" id="modalduda_cek" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
+  <div class="modal fade" id="modalduda_cek" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -52,7 +52,7 @@
 
     <!-- Modal Duda Cek -->
   <!-- Modal Duda Buat -->
-<div class="modal fade" id="modalduda_buat" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
+<div class="modal fade" id="modalduda_buat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalduda" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">

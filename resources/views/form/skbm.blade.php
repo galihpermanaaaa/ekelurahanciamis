@@ -1,5 +1,5 @@
 <!-- Modal Domisili Menu -->
-<div class="modal fade" id="modalbm_menu" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
+<div class="modal fade" id="modalbm_menu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,7 +21,7 @@
 
     <!-- Modal Janda Menu -->
      <!-- Modal Janda Cek -->
-  <div class="modal fade" id="modalbm_cek" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
+  <div class="modal fade" id="modalbm_cek" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -52,7 +52,7 @@
 
     <!-- Modal Janda Cek -->
   <!-- Modal Janda Buat -->
-<div class="modal fade" id="modalbm_buat" tabindex="-1" aria-labelledby="modalbm" aria-hidden="true">
+<div class="modal fade" id="modalbm_buat" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalbm" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
