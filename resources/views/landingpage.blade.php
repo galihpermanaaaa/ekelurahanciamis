@@ -18,7 +18,7 @@
           <div class="d-lg-flex">
 
             <a href="#services" class="btn-get-started scrollto">Pelayanan Surat</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+            <a href="https://www.youtube.com/watch?v=RHpyMoMMXKQ" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
 
         </div>
@@ -86,7 +86,7 @@
 
       <div class="row">
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-file"></i></div>
                 <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
@@ -94,7 +94,7 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-file"></i></div>
 
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-file"></i></div>
             <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalduda_menu">Surat Keterangan Duda</a></h4>
@@ -126,7 +126,7 @@
       <br>
       <div class="row">
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-file"></i></div>
 
@@ -135,7 +135,7 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
             <div class="icon"><center><i class="bx bx-file"></i></div>
                 <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a> </h4>
@@ -154,7 +154,7 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-file"></i></div>
               <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
@@ -168,7 +168,7 @@
 
       <div class="row">
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><center><i class="bx bx-file"></i></div>
 
