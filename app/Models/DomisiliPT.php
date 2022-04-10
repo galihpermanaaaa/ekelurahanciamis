@@ -12,7 +12,7 @@ class DomisiliPT extends Model
     protected $primaryKey='id';
     protected $fillable = ['nama_lembaga', 'npwp_pt', 'pimpinan', 'surat_keterangan_dari',
                             'surat_keterangan_rt','ktp', 'kk', 'npwp',
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt',
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 'nama_jalan',
                              'id_users','verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi', 'tanggal_verifikasi'];
 
                             public function provinces()

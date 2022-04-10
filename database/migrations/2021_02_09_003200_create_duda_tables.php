@@ -29,6 +29,7 @@ class CreateDudaTables extends Migration
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
             $table->string('rt');
+            $table->string('nama_jalan');
             $table->string('pengantar_dari');
             $table->string('melengkapi');
            

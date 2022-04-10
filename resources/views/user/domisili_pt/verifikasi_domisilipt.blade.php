@@ -113,6 +113,12 @@
                 </div>
                 <hr>
                 <p>Alamat Perusahaan/Lembaga</p>
+
+                <div class="col-md-6">
+                  <label>Nama Jalan</label>
+                  <input type="text" class="form-control" value="{{ $data[0]->nama_jalan}}" required readonly>
+                </div>
+
                 <div class="col-md-6">
                   <label>RT</label>
                   <input type="text" class="form-control" name="rt" value="{{ $data[0]->rt}}" required readonly>

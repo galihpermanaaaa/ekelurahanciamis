@@ -275,7 +275,7 @@ class PembuatSuratDomisiliPTController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN DOMISILI',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel.'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);
@@ -290,13 +290,15 @@ class PembuatSuratDomisiliPTController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'NPWP Perusahaan',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->npwp_pt,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->Cell(1,6,'',0,0); 
         $this->fpdf->Cell(35,6,'Pimpinan',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->pimpinan,0,1);
 
@@ -322,18 +324,18 @@ class PembuatSuratDomisiliPTController extends Controller
 
 
         $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->Cell(74,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
-        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
-
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+ 
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 

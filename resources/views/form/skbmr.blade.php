@@ -188,6 +188,9 @@
                         <option value="Karyawan BUMN">Karyawan BUMN</option>
                         <option value="Karyawan BUMD">Karyawan BUMD</option>
                         <option value="Anggota DPRD">Anggota DPRD</option>
+                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Pelajar">Pelajar</option>
                         <option value="Belum Bekerja">Belum Bekerja</option>
                         </select>
                         @error('pekerjaan')
@@ -248,7 +251,19 @@
                                                     </span>
                                                 @enderror
                     </div>
-                    <div class="col-md-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Nama Jalan/Nama Gang/Nama Lingkungan</label>
+                        <input type="text" class="form-control @error('nama_jalan') is-invalid @enderror" id="nama_jalan" name="nama_jalan" placeholder="Contoh: Jln. Ciptomangunkusumo" required />
+                        @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                        
+                    </div>
+                    
+                    <div class="col-md-6">
                         <label class="form-label">RW</label>
                         <select class="form-control @error('id_rw') is-invalid @enderror" name="id_rw" id="rw7" required>
                                                     <option selected>--Pilih RW--</option>
@@ -259,7 +274,7 @@
                                                     </span>
                                                 @enderror
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label class="form-label">RT</label>
                         <select class="form-control @error('rt_asal') is-invalid @enderror" name="rt" id="rt" required>
                         <option selected disabled>--Pilih RT--</option>

@@ -11,7 +11,7 @@ class BMR extends Model
     protected $table='bmr';
     protected $primaryKey='id';
     protected $fillable = ['nama', 'nik', 'jk', 'tanggal_lahir', 'status_perkawinan', 'status_kewarganegaraan', 'agama', 'pekerjaan', 
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt',
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt','nama_jalan',
 
                             'pengantar_dari_rt', 'pengantar_dari_rw',  
 

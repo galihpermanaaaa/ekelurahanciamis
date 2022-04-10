@@ -281,7 +281,7 @@ class PembuatSKMController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN TIDAK MAMPU',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor: 140/'.'          '.'/Kel:'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'          '.'/Kel.'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
         $this->fpdf->SetFont('times','',12);

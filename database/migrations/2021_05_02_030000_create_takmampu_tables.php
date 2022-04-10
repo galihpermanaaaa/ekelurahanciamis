@@ -28,6 +28,7 @@ class CreateTakmampuTables extends Migration
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
             $table->string('rt');
+            $table->string('nama_jalan');
 
 
             $table->string('hubungan_keluarga');

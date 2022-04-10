@@ -22,6 +22,7 @@ class CreateDomisiliperusahaanTable extends Migration
             $table->unsignedBigInteger('subdis_id');
             $table->unsignedBigInteger('id_rw');
             $table->string('rt');
+            $table->string('nama_jalan');
             $table->string('npwp_pt');
             $table->string('pimpinan');
             $table->string('surat_keterangan_dari'); 
