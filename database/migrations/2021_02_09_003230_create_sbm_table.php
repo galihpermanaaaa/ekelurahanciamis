@@ -22,7 +22,7 @@ class CreateSbmTable extends Migration
             $table->enum('status_perkawinan', ['Belum Menikah']);
             $table->enum('status_kewarganegaraan', ['WNI', 'WNA']);
             $table->enum('agama', ['Islam','Kristen','Hindu','Budha','Konghuchu']);
-            $table->enum('pekerjaan', ['PNS','Wiraswasta','Wirausaha','Buruh','Dokter', 'Bidan', 'TNI', 'Polisi', 'Petani', 'Karyawan Swasta', 'Karyawan Honorer', 'Karyawan BUMN', 'Karyawan BUMD', 'Anggota DPRD', 'Belum Bekerja']);
+            $table->enum('pekerjaan', ['PNS','Wiraswasta','Wirausaha','Buruh','Dokter', 'Bidan', 'TNI', 'Polisi', 'Petani', 'Karyawan Swasta', 'Karyawan Honorer', 'Karyawan BUMN', 'Karyawan BUMD', 'Anggota DPRD', 'Ibu Rumah Tangga', 'Mahasiswa', 'Pelajar', 'Belum Bekerja']);
             $table->unsignedBigInteger('prov_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('dis_id');

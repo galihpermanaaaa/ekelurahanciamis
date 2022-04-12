@@ -11,7 +11,7 @@ class SuratDomisili extends Model
     protected $table='surat_domisili';
     protected $primaryKey='id';
     protected $fillable = ['nama', 'nik', 'jk', 'tanggal_lahir', 'status_perkawinan', 'status_kewarganegaraan', 'agama', 'pekerjaan', 
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 'nama_jalan',
                             'alamat_asal',
                             'ktp_domisili', 'kk_domisili', 'surat_pengantar_rt_rw_domisili', 
                             'token', 'id_users','verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi', 'tanggal_verifikasi'];

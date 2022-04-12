@@ -11,7 +11,7 @@ class Kematian extends Model
     protected $table='kematian';
     protected $primaryKey='id';
     protected $fillable = ['nama', 'tanggal_lahir', 'tempat_lahir', 'nomor_bdt', 'untuk_persyaratan',
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt',
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt','nama_jalan',
 
                             'lingkungan','tanggal_meninggal', 'disebabkan', 'ditempat', 'surat_diperlukan_untuk', 'ktp_almarhum',
                             'kk_almarhum', 'surat_pengantar_dari_rs', 'surat_pengantar_dari_rt', 'sk_terakhir', 'karip', 'tabungan_pensiunan',

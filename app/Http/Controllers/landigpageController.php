@@ -839,6 +839,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
             'alamat_asal'                   => 'required',
             'ktp_domisili'                           => 'required|image|mimes:jpeg,jpg,png|max:5000',
             'kk_domisili'                            => 'required|image|mimes:jpeg,jpg,png|max:5000',
@@ -875,6 +876,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                   = $request->nama_jalan;
         $form->alamat_asal                  = $request->alamat_asal;
        
 
@@ -994,9 +996,13 @@ class landigpageController extends Controller
         $this->fpdf->Cell(35,6,'Alamat Asal',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->alamat_asal,0,1);
 
+        
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat Sekarang',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -1059,6 +1065,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
 
             'pengantar_dari'                => 'required',
             'melengkapi'                     => 'required',
@@ -1101,6 +1108,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                   = $request->nama_jalan;
 
         $form->pengantar_dari               = $request->pengantar_dari;
         $form->melengkapi                       = $request->melengkapi;
@@ -1525,6 +1533,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
 
             'ktp'                           => 'required|image|mimes:jpeg,jpg,png|max:5000',
             'kk'                            => 'required|image|mimes:jpeg,jpg,png|max:5000',
@@ -1562,6 +1571,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                   = $request->nama_jalan;
 
         $form->ktp                              = $file1;
         $form->kk                               = $file2;
@@ -1679,8 +1689,10 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
-
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+        
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
         $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari '. 'RT/RW. '. $p->rt. '/'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis bahwa orang tersebut, sampai saat ini betul belum Menikah / Belum Kawin.',0,1);
@@ -1702,18 +1714,18 @@ class landigpageController extends Controller
 
 
         $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->Cell(74,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
-        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
-
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+ 
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 
@@ -1977,6 +1989,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
 
             'lingkungan'                         => 'required',
             'pengantar_dari_rt'                  => 'required',
@@ -2063,6 +2076,7 @@ class landigpageController extends Controller
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
         $form->lingkungan                   = $request->lingkungan;
+        $form->nama_jalan                   = $request->nama_jalan;
 
         $form->pengantar_dari_rt            = $request->pengantar_dari_rt;
         $form->pengantar_dari_rw            = $request->pengantar_dari_rw;
@@ -2195,7 +2209,9 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
@@ -2214,7 +2230,6 @@ class landigpageController extends Controller
         $this->fpdf->Ln();
 
 
-        
         $this->fpdf->SetFont('times','',12);
         $this->fpdf->Cell(37,6,'',0,0,'C');
         $this->fpdf->Cell(82,6,'',0,0);
@@ -2224,18 +2239,18 @@ class landigpageController extends Controller
 
 
         $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->Cell(74,6,'',0,0);
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
-        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
-
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+ 
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 

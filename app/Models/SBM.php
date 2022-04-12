@@ -11,7 +11,7 @@ class SBM extends Model
     protected $table='sbm';
     protected $primaryKey='id';
     protected $fillable = ['nama', 'nik', 'jk', 'tanggal_lahir', 'status_perkawinan', 'status_kewarganegaraan', 'agama', 'pekerjaan', 
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt',
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 'nama_jalan',
                             'pengantar_dari', 'melengkapi',  
                             'ktp', 'kk', 'surat_pengantar_rt', 'token', 'id_users', 
                             'verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi', 'tanggal_verifikasi'];
