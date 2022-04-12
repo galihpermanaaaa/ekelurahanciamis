@@ -284,31 +284,28 @@ class PembuatSuratDomisiliPTController extends Controller
 
         $this->fpdf->Ln();
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nama Lembaga',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nama_lembaga,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Nama Lembaga',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->nama_lembaga,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
-        $this->fpdf->Cell(39,6,'',0,0);
-        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Alamat',0,0);
+        $this->fpdf->Cell(50,7,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,7,'',0,0);
+        $this->fpdf->Cell(50,7,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'NPWP Perusahaan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->npwp_pt,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'NPWP Perusahaan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->npwp_pt,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0); 
-        $this->fpdf->Cell(35,6,'Pimpinan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->pimpinan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0); 
+        $this->fpdf->Cell(35,7,'Pimpinan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->pimpinan,0,1);
 
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->Cell(10,7,'',0,0);
         $this->fpdf->write(8,'Berdasarkan Surat Keterangan dari '. $p->surat_keterangan_dari.' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, bahwa '.$p->nama_lembaga.' berdomisili pada alamat tersebut di atas.',0,1);
         $this->fpdf->Ln();
-        $this->fpdf->Ln();
-
-        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->Cell(10,7,'',0,0);
         $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
@@ -316,17 +313,17 @@ class PembuatSuratDomisiliPTController extends Controller
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(37,6,'',0,0,'C');
-        $this->fpdf->Cell(82,6,'',0,0);
-        $this->fpdf->Cell(14,6,'Ciamis,',0,0);
-        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+        $this->fpdf->Cell(37,7,'',0,0,'C');
+        $this->fpdf->Cell(82,7,'',0,0);
+        $this->fpdf->Cell(14,7,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,7,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
-        $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(74,6,'',0,0);
+        $this->fpdf->Cell(42,7,'',0,0,'C');
+        $this->fpdf->Cell(74,7,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
+        $this->fpdf->Cell(45,7,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
