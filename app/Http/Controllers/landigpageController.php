@@ -778,7 +778,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln(3);
         $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. ' (Optional 1/Mengikuti yg atas).',0,1);
+        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,0.5,'',0,0);
         $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan,0,1);
