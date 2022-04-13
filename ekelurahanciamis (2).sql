@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2022 at 03:43 AM
+-- Generation Time: Apr 13, 2022 at 07:47 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -63,13 +63,14 @@ CREATE TABLE `bmr` (
   `status_perkawinan` enum('Belum Menikah','Kawin','Duda','Janda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari_rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari_rw` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -87,6 +88,13 @@ CREATE TABLE `bmr` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `bmr`
+--
+
+INSERT INTO `bmr` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `pengantar_dari_rt`, `pengantar_dari_rw`, `ktp`, `kk`, `surat_pengantar_rt`, `surat_pernyataan_bermaterai`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'percobaan bmr', '1121112221112221', 'Laki-laki', '1997-04-11', 'Belum Menikah', 'WNI', 'Islam', 'Mahasiswa', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptomangunkusumo', '001', '01', '1649620593.png', '1649620593.png', '1649620593.png', '1649620594.png', 'vRZh0Panh6n', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-10', '2022-04-10', 'Diterima', '2022-04-10 12:56:34', '2022-04-10 13:01:05');
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +107,13 @@ CREATE TABLE `bmr_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bmr_diterima`
+--
+
+INSERT INTO `bmr_diterima` (`id_bmr_diterima`, `id_bmr`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-04-10 13:01:05', '2022-04-10 13:01:05');
 
 -- --------------------------------------------------------
 
@@ -7801,6 +7816,7 @@ CREATE TABLE `domisili_pt` (
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `npwp_pt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pimpinan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surat_keterangan_dari` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -7819,6 +7835,18 @@ CREATE TABLE `domisili_pt` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `domisili_pt`
+--
+
+INSERT INTO `domisili_pt` (`id`, `nama_lembaga`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `npwp_pt`, `pimpinan`, `surat_keterangan_dari`, `ktp`, `kk`, `npwp`, `surat_keterangan_rt`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(5, 'PT Makmur Sentosa', 12, 168, 2160, 25821, 1, '001', '', '1232123212321', 'Hasim Makmur Sentosa', 'RW 001', '1648037885.png', '1648037885.png', '1648037885.png', '1648037885.png', 'TNAmN3Wto7z', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-23', '2022-03-23', 'Pembuatan surat anda telah diterima, silahkan datang ke kantor kelurahan ciamis untuk mendapatkan nomor surat serta tanda tangan dari kelurahan ciamis', '2022-03-23 05:18:05', '2022-03-23 05:21:53'),
+(6, 'PT Percobaan', 12, 168, 2160, 25821, 1, '001', '', '1112112211121', 'Percobaan', 'RT 001', '1648038765.png', '1648038765.png', '1648038765.png', '1648038765.png', 'mErsaXqMdIB', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-23', '2022-03-23', 'sa', '2022-03-23 05:32:45', '2022-03-23 06:31:50'),
+(7, 'PT Percobaan2', 12, 168, 2160, 25821, 2, '001', '', '1111112221111', 'Percobaan2', 'RT 001', '1648038894.png', '1648038894.png', '1648038894.png', '1648038894.png', 'G3pCStOVyyG', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-23', '2022-03-23', 'z', '2022-03-23 05:34:54', '2022-03-23 06:32:04'),
+(8, 'PT Nyobian', 12, 168, 2160, 25821, 1, '001', '', '1238976545676', 'Nyobian', 'RT 001', '1648042418.png', '1648042418.png', '1648042418.png', '1648042418.png', '0eiV6DpgUHv', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-23', '2022-03-23', 'assas', '2022-03-23 06:33:38', '2022-03-23 06:33:54'),
+(9, 'KELOMPOK PEMBUDIDAYA IKAN TUMARITIS MANDIRI', 12, 168, 2160, 25821, 23, '001', '', '088798', 'Cucu Sugema', 'RT.01 RW.23', '1649640963.jpg', '1649640963.jpg', '1649640963.jpg', '1649640963.jpg', 'CH97QgDmB6C', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-04-11', '2022-04-11', '-', '2022-04-10 18:36:03', '2022-04-10 18:37:57'),
+(10, 'PT Percobaan', 12, 168, 2160, 25821, 1, '002', 'Jln. Yos Sudarso Mangina', '1212321232123', 'Percobaan PT', 'RW 001', '1649623917.png', '1649623917.png', '1649623917.png', '1649623917.png', 'ztHfrmfs28o', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-10', '2022-04-10', 'Diterima', '2022-04-10 13:51:57', '2022-04-10 13:54:09');
+
 -- --------------------------------------------------------
 
 --
@@ -7831,6 +7859,18 @@ CREATE TABLE `domisili_pt_terima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `domisili_pt_terima`
+--
+
+INSERT INTO `domisili_pt_terima` (`id_domisili_pt_diterima`, `id_domisili_pt`, `created_at`, `updated_at`) VALUES
+(3, 5, '2022-03-23 05:21:53', '2022-03-23 05:21:53'),
+(6, 6, '2022-03-23 06:31:50', '2022-03-23 06:31:50'),
+(7, 7, '2022-03-23 06:32:04', '2022-03-23 06:32:04'),
+(8, 8, '2022-03-23 06:33:54', '2022-03-23 06:33:54'),
+(9, 9, '2022-04-10 18:37:57', '2022-04-10 18:37:57'),
+(10, 10, '2022-04-10 13:54:09', '2022-04-10 13:54:09');
 
 -- --------------------------------------------------------
 
@@ -7902,13 +7942,14 @@ CREATE TABLE `kematian` (
   `status_perkawinan` enum('Belum Menikah','Kawin','Duda','Janda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja','Pensiunan') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Tidak Bekerja','Pensiunan','Ibu Rumah Tangga','Mahasiswa','Pelajar') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lingkungan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari_rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari_rw` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -7934,6 +7975,14 @@ CREATE TABLE `kematian` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `kematian`
+--
+
+INSERT INTO `kematian` (`id`, `nama`, `nik`, `jk`, `tempat_lahir`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `lingkungan`, `pengantar_dari_rt`, `pengantar_dari_rw`, `tanggal_meninggal`, `disebabkan`, `ditempat`, `surat_diperlukan_untuk`, `ktp_almarhum`, `kk_almarhum`, `surat_pengantar_dari_rs`, `surat_pengantar_dari_rt`, `sk_terakhir`, `karip`, `tabungan_pensiunan`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'HENDARIN', '3207011804620001', 'Laki-laki', 'Ciamis', '1962-04-18', 'Kawin', 'WNI', 'Islam', '', 12, 168, 2160, 25821, 7, '003', '', 'Janggala', '03', '07', '2014-04-10', 'Sakit', 'Ciamis', 'Membuat Kartu Keluarga', '1646789583.jpg', '1646789583.jpg', '1646789583.jpg', '1646789583.jpg', '', '', '', 'gxXnWJwHbe7', 1, 'Terverifikasi', 'nyonyonsumadi@gmail.com', '2022-03-09', '2022-03-09', '-', '2022-03-08 18:33:03', '2022-03-08 18:35:54'),
+(2, 'percobaan3', '1112221112221112', 'Laki-laki', 'Ciamis', '1978-04-12', 'Kawin', 'WNI', 'Islam', 'Pensiunan', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptomangunkusumo', 'Ciamis', '001', '01', '2022-04-12', 'Sakit', 'RSUD Ciamis', 'Melengkapi asuransi', '1649729207.png', '1649729207.png', '1649729207.png', '1649729207.png', '1649729207.jpg', '1649729207.png', '1649729207.png', 'Q2Ruk3Gk3R6', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-12', '2022-04-12', 'Diterima', '2022-04-11 19:06:47', '2022-04-11 19:13:19');
+
 -- --------------------------------------------------------
 
 --
@@ -7946,6 +7995,14 @@ CREATE TABLE `kematian_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `kematian_diterima`
+--
+
+INSERT INTO `kematian_diterima` (`id_kematian_diterima`, `id_kematian`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-08 18:35:54', '2022-03-08 18:35:54'),
+(2, 2, '2022-04-11 19:13:19', '2022-04-11 19:13:19');
 
 -- --------------------------------------------------------
 
@@ -8438,13 +8495,14 @@ CREATE TABLE `sbm` (
   `status_perkawinan` enum('Belum Menikah') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surat_pengantar_rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -8459,6 +8517,15 @@ CREATE TABLE `sbm` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sbm`
+--
+
+INSERT INTO `sbm` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `ktp`, `kk`, `surat_pengantar_rt`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Coba Belum Menikah', '878682345136451341331', 'Laki-laki', '1955-10-25', 'Belum Menikah', 'WNI', 'Islam', 'Dokter', 12, 168, 2160, 25821, 28, '016', '', '1647569226.jpg', '1647569226.jpg', '1647569226.jpg', 'GfQXXr4HqQh', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-18', '2022-03-18', '-', '2022-03-17 19:07:06', '2022-03-17 19:20:21'),
+(2, 'Fauzi Wildan Hendriana', '3207010407030002', 'Laki-laki', '2003-07-04', 'Belum Menikah', 'WNI', 'Islam', 'Belum Bekerja', 12, 168, 2160, 25821, 20, '005', '', '1649651021.jpg', '1649651021.png', '1649651021.jpg', 'bpWJWqzoJyo', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-04-11', '2022-04-11', '-', '2022-04-10 21:23:41', '2022-04-10 21:24:15'),
+(3, 'percobaan4', '1112223334445555', 'Laki-laki', '1995-04-12', 'Belum Menikah', 'WNI', 'Islam', 'Polisi', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptomangunkusumo', '1649732141.png', '1649732141.png', '1649732141.png', 'WobCTGMsq46', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-12', '2022-04-12', 'Diterima', '2022-04-11 19:55:41', '2022-04-11 19:58:02');
+
 -- --------------------------------------------------------
 
 --
@@ -8471,6 +8538,15 @@ CREATE TABLE `sbm_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sbm_diterima`
+--
+
+INSERT INTO `sbm_diterima` (`id_sbm_diterima`, `id_sbm`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-17 19:20:21', '2022-03-17 19:20:21'),
+(2, 2, '2022-04-10 21:24:15', '2022-04-10 21:24:15'),
+(3, 3, '2022-04-11 19:58:02', '2022-04-11 19:58:02');
 
 -- --------------------------------------------------------
 
@@ -8524,6 +8600,16 @@ CREATE TABLE `sku_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sku_diterima`
+--
+
+INSERT INTO `sku_diterima` (`id_sku_diterima`, `id_sku`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-02 18:59:32', '2022-03-02 18:59:32'),
+(2, 2, '2022-03-23 06:30:04', '2022-03-23 06:30:04'),
+(3, 3, '2022-04-10 18:56:40', '2022-04-10 18:56:40'),
+(4, 4, '2022-04-12 20:04:25', '2022-04-12 20:04:25');
 
 -- --------------------------------------------------------
 
@@ -89860,13 +89946,14 @@ CREATE TABLE `surat_domisili` (
   `status_perkawinan` enum('Belum Menikah','Kawin','Duda','Janda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat_asal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp_domisili` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kk_domisili` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -89882,6 +89969,17 @@ CREATE TABLE `surat_domisili` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `surat_domisili`
+--
+
+INSERT INTO `surat_domisili` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `alamat_asal`, `ktp_domisili`, `kk_domisili`, `surat_pengantar_rt_rw_domisili`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Percobaan', '1111111111212121', 'Laki-laki', '1997-03-02', 'Belum Menikah', 'WNI', 'Islam', 'PNS', 12, 168, 2160, 25821, 1, '001', '', 'Sadananya Ciamis', '1646191207.jpg', '1646191207.jpg', '1646191207.png', 'GATvlGRsD4Q', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-02', '2022-03-02', 'Sangat Kumplit silahkan datang ke kantor untuk mendapatkan tanda tangannya', '2022-03-01 20:20:07', '2022-03-01 20:22:00'),
+(2, 'Percobaan2', '1212121212121212', 'Laki-laki', '1998-03-02', 'Belum Menikah', 'WNI', 'Islam', 'PNS', 12, 168, 2160, 25821, 1, '001', '', 'Sadananya Ciamis', '1646208371.png', '1646208371.png', '1646208371.png', 'UrELhl83Kld', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-02', '2022-03-02', 'Sudah diverifikasi silahkan download suratnya', '2022-03-02 01:06:11', '2022-03-02 01:38:48'),
+(3, 'Domisili Coba', '21413535758456242', 'Laki-laki', '1937-09-12', 'Kawin', 'WNI', 'Islam', 'Wiraswasta', 12, 168, 2160, 25821, 9, '008', '', 'Bogor', '1647568321.jpg', '1647568321.jpg', '1647568321.jpg', 'nwk5Aj6s0fW', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-18', '2022-03-18', '-', '2022-03-17 18:52:01', '2022-03-17 19:18:09'),
+(4, 'percobaan', '1111122233332222', 'Laki-laki', '2022-03-22', 'Belum Menikah', 'WNI', 'Islam', 'Dokter', 12, 168, 2160, 25821, 1, '002', '', 'Ciamis', '1647976557.png', '1647976557.png', '1647976557.png', 'ZazzFyYmW6Z', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-22', '2022-03-23', 'Z', '2022-03-22 12:15:57', '2022-03-23 06:27:41'),
+(6, 'percobaan5', '1122244441112123', 'Perempuan', '1981-04-12', 'Janda', 'WNI', 'Islam', 'Ibu Rumah Tangga', 12, 168, 2160, 25821, 1, '001', 'Jln. Yos Sudarso', 'Tasikmalaya', '1649737967.png', '1649737967.png', '1649737967.png', 'rD3OjQrsIiY', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-12', '2022-04-12', 'Diterima', '2022-04-11 21:32:47', '2022-04-11 21:36:48');
+
 -- --------------------------------------------------------
 
 --
@@ -89894,6 +89992,16 @@ CREATE TABLE `surat_domisili_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `surat_domisili_diterima`
+--
+
+INSERT INTO `surat_domisili_diterima` (`id_domisili_diterima`, `id_domisili`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-01 20:22:00', '2022-03-01 20:22:00'),
+(2, 2, '2022-03-02 01:38:48', '2022-03-02 01:38:48'),
+(4, 4, '2022-03-23 06:27:41', '2022-03-23 06:27:41'),
+(5, 6, '2022-04-11 21:36:48', '2022-04-11 21:36:48');
 
 -- --------------------------------------------------------
 
@@ -89923,13 +90031,14 @@ CREATE TABLE `surat_duda` (
   `status_perkawinan` enum('Duda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `melengkapi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -89947,6 +90056,14 @@ CREATE TABLE `surat_duda` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `surat_duda`
+--
+
+INSERT INTO `surat_duda` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `pengantar_dari`, `melengkapi`, `ktp`, `kk`, `surat_pengantar_rt`, `kematian_akta_cerai`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Coba suket Duda', '131567211231212121', 'Laki-laki', '1945-12-24', 'Duda', 'WNI', 'Islam', 'Bidan', 12, 168, 2160, 25821, 13, '017', '', 'RT.03 RW.12', 'Melengkapi Administrasi', '1647568835.png', '1647568835.jpg', '1647568835.jpg', '1647568835.jpg', '6phxQNVVcHd', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-18', '2022-03-18', '-', '2022-03-17 19:00:35', '2022-03-17 19:19:04'),
+(3, 'percobaan5', '1112223334444555', 'Laki-laki', '1971-04-12', 'Duda', 'WNI', 'Islam', 'Karyawan BUMN', 12, 168, 2160, 25821, 1, '002', 'Jln. Ciptomangunkusumo', 'RW 002', 'Untuk Persyaratan Menikah', '1649745800.png', '1649745800.png', '1649745800.png', '1649745800.png', 'AHJ1q0z6TlL', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-12', '2022-04-12', 'Diterima', '2022-04-11 23:43:20', '2022-04-11 23:48:15');
+
 -- --------------------------------------------------------
 
 --
@@ -89959,6 +90076,14 @@ CREATE TABLE `surat_duda_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `surat_duda_diterima`
+--
+
+INSERT INTO `surat_duda_diterima` (`id_duda_diterima`, `id_duda`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-17 19:19:04', '2022-03-17 19:19:04'),
+(2, 3, '2022-04-11 23:48:15', '2022-04-11 23:48:15');
 
 -- --------------------------------------------------------
 
@@ -89988,13 +90113,14 @@ CREATE TABLE `surat_janda` (
   `status_perkawinan` enum('Janda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pengantar_dari` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `melengkapi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -90012,6 +90138,16 @@ CREATE TABLE `surat_janda` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `surat_janda`
+--
+
+INSERT INTO `surat_janda` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `pengantar_dari`, `melengkapi`, `ktp`, `kk`, `surat_pengantar_rt`, `kematian_akta_cerai`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Coba SUket Janda', '121453464564574674', 'Perempuan', '1965-10-23', 'Janda', 'WNI', 'Islam', 'Petani', 12, 168, 2160, 25821, 13, '018', '', 'RT.03 RW.12', 'Melengkapi Administrasi', '1647569001.jpg', '1647569001.jpg', '1647569001.jpg', '1647569001.jpg', 'Who07e0APlo', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-18', '2022-03-18', '-', '2022-03-17 19:03:21', '2022-03-17 19:19:38'),
+(2, 'Coba SKJ', '323232425353353', 'Perempuan', '1972-10-10', 'Janda', 'WNI', 'Islam', 'Buruh', 12, 168, 2160, 25821, 9, '004', '', 'RT.04 RW.09', 'administrasi bank', '1648713014.jpg', '1648713014.jpg', '1648713014.jpg', '1648713014.jpg', '0heUN4gM7pk', NULL, 'Belum Diverifikasi', 'bytheater@gmail.com', '2022-03-31', NULL, NULL, '2022-03-31 00:50:14', '2022-03-31 00:50:14'),
+(3, 'Dra. Erni Daryati', '3207010909070234', 'Perempuan', '1967-03-13', 'Janda', 'WNI', 'Islam', 'Belum Bekerja', 12, 168, 2160, 25821, 6, '003', '', 'RT/RW 03/06', 'melengkapi persyaratan administrasi', '1649232311.jpg', '1649232311.png', '1649232311.jpg', '1649232311.jpg', 'GuQVCX3vzBT', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-04-06', '2022-04-06', '-', '2022-04-06 01:05:11', '2022-04-06 01:06:22'),
+(4, 'Percobaan6', '1115556667773423', 'Perempuan', '1987-04-13', 'Janda', 'WNI', 'Islam', 'Ibu Rumah Tangga', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptamangunkusumo', 'RT 001', 'Untuk melengkapi persyaratan bansos', '1649810160.png', '1649810160.png', '1649810160.png', '1649810160.png', 'cayXq4h5T52', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-13', '2022-04-13', 'Diterima', '2022-04-12 17:36:00', '2022-04-12 17:38:25');
+
 -- --------------------------------------------------------
 
 --
@@ -90024,6 +90160,16 @@ CREATE TABLE `surat_janda_diterima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `surat_janda_diterima`
+--
+
+INSERT INTO `surat_janda_diterima` (`id_janda_diterima`, `id_janda`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-17 19:19:38', '2022-03-17 19:19:38'),
+(2, 3, '2022-04-06 01:06:18', '2022-04-06 01:06:18'),
+(3, 3, '2022-04-06 01:06:22', '2022-04-06 01:06:22'),
+(4, 4, '2022-04-12 17:38:25', '2022-04-12 17:38:25');
 
 -- --------------------------------------------------------
 
@@ -90053,13 +90199,14 @@ CREATE TABLE `surat_sku` (
   `status_perkawinan` enum('Belum Menikah','Kawin','Duda','Janda') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kewarganegaraan` enum('WNI','WNA') COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` enum('Islam','Kristen','Hindu','Budha','Konghuchu') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` enum('PNS','Wiraswasta','Wirausaha','Buruh','Dokter','Bidan','TNI','Polisi','Petani','Karyawan Swasta','Karyawan Honorer','Karyawan BUMN','Karyawan BUMD','Anggota DPRD','Ibu Rumah Tangga','Mahasiswa','Pelajar','Belum Bekerja') COLLATE utf8mb4_unicode_ci NOT NULL,
   `prov_id` bigint(20) UNSIGNED NOT NULL,
   `city_id` bigint(20) UNSIGNED NOT NULL,
   `dis_id` bigint(20) UNSIGNED NOT NULL,
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nomor_surat_pengantar_rw_rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keperluan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bidang_usaha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -90077,6 +90224,16 @@ CREATE TABLE `surat_sku` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `surat_sku`
+--
+
+INSERT INTO `surat_sku` (`id`, `nama`, `nik`, `jk`, `tanggal_lahir`, `status_perkawinan`, `status_kewarganegaraan`, `agama`, `pekerjaan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `nomor_surat_pengantar_rw_rt`, `keperluan`, `bidang_usaha`, `ktp`, `kk`, `surat_pengantar`, `keterangan_domisili`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Percobaan', '1111111212121212', 'Laki-laki', '2022-03-03', 'Belum Menikah', 'WNI', 'Islam', 'Wirausaha', 12, 168, 2160, 25821, 1, '001', '', '01/RT/2022', 'Meminta bantuan biaya modal', 'Perdagangan', '1646271690.png', '1646271690.png', '1646271690.png', '1646271690.png', 'oY2IJZ3nd4V', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-03', '2022-03-03', 'Dokumen anda lengkap', '2022-03-02 18:41:30', '2022-03-02 18:59:32'),
+(2, 'percobaan3', '1212345645124589', 'Laki-laki', '1989-03-23', 'Kawin', 'WNI', 'Islam', 'PNS', 12, 168, 2160, 25821, 1, '001', '', '02/RT/2022', 'Meminta bantuan biaya modal', 'Perdagangan', '1648042174.png', '1648042174.png', '1648042174.png', '1648042174.png', 'Oiba3j1rkF1', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-03-23', '2022-03-23', 'ass', '2022-03-23 06:29:34', '2022-03-23 06:30:04'),
+(3, 'Testing', '32079813716371638186', 'Laki-laki', '1990-02-12', 'Kawin', 'WNI', 'Islam', 'Karyawan Swasta', 12, 168, 2160, 25821, 2, '001', '', 'RT.01 RW.02', 'melengkapi administrasi KUR', 'Dagang PL', '1648690639.jpg', '1648690639.jpg', '1648690639.jpg', '1648690639.jpg', 'NxgyhGTQvvo', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-31', '2022-04-11', '-', '2022-03-30 18:37:19', '2022-04-10 18:56:40'),
+(4, 'Percobaan6', '0009998887776666', 'Laki-laki', '1991-04-13', 'Belum Menikah', 'WNI', 'Islam', 'Wirausaha', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptamangunkusumo', '270/RT001/2022', 'Membuat surat usaha', 'Peternakan', '1649811371.png', '1649811371.png', '1649811371.png', '1649811371.png', 'Y45JSIZsInZ', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-13', '2022-04-13', 'Diterima', '2022-04-12 17:56:11', '2022-04-12 20:04:25');
 
 -- --------------------------------------------------------
 
@@ -90098,6 +90255,7 @@ CREATE TABLE `surat_tdk_mampu` (
   `subdis_id` bigint(20) UNSIGNED NOT NULL,
   `id_rw` bigint(20) UNSIGNED NOT NULL,
   `rt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jalan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `hubungan_keluarga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_kel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nik_kel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -90118,6 +90276,15 @@ CREATE TABLE `surat_tdk_mampu` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `surat_tdk_mampu`
+--
+
+INSERT INTO `surat_tdk_mampu` (`id`, `nama`, `nik`, `nomor_bdt`, `tempat_lahir`, `tanggal_lahir`, `untuk_persyaratan`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `rt`, `nama_jalan`, `hubungan_keluarga`, `nama_kel`, `nik_kel`, `tempat_kel`, `tanggal_lahir_kel`, `alamat`, `kk`, `surat_pengantar_rt_rw`, `surat_pernyataan_miskin`, `token`, `id_users`, `verifikasi`, `email`, `tanggal_buat_surat`, `tanggal_verifikasi`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, 'Coba Tidak Mampu', '131314246474674', '323523524634byyrdgg4t4', 'Serang', '1995-02-01', 'Melengkapi administrasi', 12, 168, 2160, 25821, 5, '010', '', 'Ayah Tiri', 'Coba Tidak Mampu', '131314246474674', 'Cianjur', '1945-03-17', 'Didieu', '1647567777.jpg', '1647567777.jpg', '1647567777.jpg', '9R9Uxvgn58W', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-18', '2022-03-18', '-', '2022-03-17 18:42:57', '2022-03-17 19:17:18'),
+(2, 'Omoh Hasanah', '3207014606560001', '-', 'Ciamis', '1956-06-06', 'Pengajuan Jamkesda', 12, 168, 2160, 25821, 3, '002', '', 'Suami', 'Omoh Hasanah', '3207014606560001', 'Ciamis', '1954-08-05', 'Lingkungan Kota Kulon RT.002 RW.003', '1648539634.jpg', '1648539634.jpg', '1648539634.jpg', 'STr523WNW3I', 1, 'Terverifikasi', 'bytheater@gmail.com', '2022-03-29', '2022-03-29', '-', '2022-03-29 00:40:34', '2022-03-29 00:42:38'),
+(3, 'Percobaan6', '9999988877766655', 'gsf/ggs17/2022', 'Ciamis', '1999-04-13', 'Untuk Bantuan Pendidikan', 12, 168, 2160, 25821, 1, '001', 'Jln. Ciptamangunkusumo', 'Ayah', 'Percobaan6', '9999988877766655', 'Ciamis', '1975-04-13', 'Jl. Pemuda No.1 RT/RW. 011/001\r\nKelurahan. Ciamis', '1649821606.png', '1649821606.png', '1649821606.png', 'JG7Th01a5ZQ', 1, 'Terverifikasi', 'galihpermana900@gmail.com', '2022-04-13', '2022-04-13', 'Diterima', '2022-04-12 20:46:47', '2022-04-12 20:48:22');
+
 -- --------------------------------------------------------
 
 --
@@ -90130,6 +90297,15 @@ CREATE TABLE `surat_tdk_mampu_terima` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `surat_tdk_mampu_terima`
+--
+
+INSERT INTO `surat_tdk_mampu_terima` (`id_skm_diterima`, `id_skm`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-03-17 19:17:19', '2022-03-17 19:17:19'),
+(2, 2, '2022-03-29 00:42:38', '2022-03-29 00:42:38'),
+(3, 3, '2022-04-12 20:48:22', '2022-04-12 20:48:22');
 
 -- --------------------------------------------------------
 
@@ -90174,9 +90350,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `role_name`, `avatar`, `prov_id`, `city_id`, `dis_id`, `subdis_id`, `id_rw`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'verifikator', 'verifikator@mail.com', '081999000223', 'Verifikator', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$fSw.GpATVtc4EEUaZ1sH9eaGIjSCzqaRCOI5gFnkrRWSVJ9LeEHnu', NULL, '2022-02-28 00:35:13', '2022-02-28 00:42:19'),
-(2, 'Admin RW 1', 'adminrw01@gmail.com', '081999000111', 'RW', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$sGNCLXBGdNxKbAGdsLqLiecWF1BvkgQmuIX1A1gsawQA7XD2gdVES', NULL, '2022-02-28 00:36:03', '2022-02-28 00:41:23'),
-(3, 'Lurah Ciamis', 'lurah@mail.com', '089888999999', 'Lurah', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$.YN7mvzmGK1AUyCuRNwSuOlnaMpzMCdtQznnivKucOqW7i.B6Rh.C', NULL, '2022-02-28 00:36:37', '2022-02-28 00:41:35');
+(1, 'verifikator', 'verifikator@mail.com', '081999000223', 'Verifikator', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$PFBe3.FML9B3y6.xiiOmz.dBP/cBFAA0Ggh1X8qfTuI75Zc020eRq', NULL, '2022-02-28 00:35:13', '2022-03-01 20:00:01'),
+(2, 'Admin RW 1', 'adminrw01@gmail.com', '081999000111', 'RW', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$bGY0LcQu1e5JK23i0Os.MO/iEobKpgdc8F9h8kqoA2EeAcdtG8p.i', NULL, '2022-02-28 00:36:03', '2022-03-01 20:05:16'),
+(3, 'Lurah Ciamis', 'lurah@mail.com', '089888999999', 'Lurah', NULL, 12, 168, 2160, 25821, 1, NULL, '$2y$10$seXCwglddlShf.RDqSvol.iKWieo5B05OOfqjwqZs.jal/1gqI/RW', NULL, '2022-02-28 00:36:37', '2022-03-01 20:02:16');
 
 -- --------------------------------------------------------
 
@@ -90626,13 +90802,13 @@ ALTER TABLE `agama_kepercayaan`
 -- AUTO_INCREMENT for table `bmr`
 --
 ALTER TABLE `bmr`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `bmr_diterima`
 --
 ALTER TABLE `bmr_diterima`
-  MODIFY `id_bmr_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bmr_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `bmr_ditolak`
@@ -90680,13 +90856,13 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `domisili_pt`
 --
 ALTER TABLE `domisili_pt`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `domisili_pt_terima`
 --
 ALTER TABLE `domisili_pt_terima`
-  MODIFY `id_domisili_pt_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_domisili_pt_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `domisili_pt_tolak`
@@ -90710,13 +90886,13 @@ ALTER TABLE `keluarga_berencana`
 -- AUTO_INCREMENT for table `kematian`
 --
 ALTER TABLE `kematian`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kematian_diterima`
 --
 ALTER TABLE `kematian_diterima`
-  MODIFY `id_kematian_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kematian_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kematian_ditolak`
@@ -90806,13 +90982,13 @@ ALTER TABLE `sarana`
 -- AUTO_INCREMENT for table `sbm`
 --
 ALTER TABLE `sbm`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sbm_diterima`
 --
 ALTER TABLE `sbm_diterima`
-  MODIFY `id_sbm_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sbm_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sbm_ditolak`
@@ -90830,7 +91006,7 @@ ALTER TABLE `sekolah`
 -- AUTO_INCREMENT for table `sku_diterima`
 --
 ALTER TABLE `sku_diterima`
-  MODIFY `id_sku_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sku_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sku_ditolak`
@@ -90848,13 +91024,13 @@ ALTER TABLE `subdistricts`
 -- AUTO_INCREMENT for table `surat_domisili`
 --
 ALTER TABLE `surat_domisili`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `surat_domisili_diterima`
 --
 ALTER TABLE `surat_domisili_diterima`
-  MODIFY `id_domisili_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_domisili_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `surat_domisili_ditolak`
@@ -90866,13 +91042,13 @@ ALTER TABLE `surat_domisili_ditolak`
 -- AUTO_INCREMENT for table `surat_duda`
 --
 ALTER TABLE `surat_duda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_duda_diterima`
 --
 ALTER TABLE `surat_duda_diterima`
-  MODIFY `id_duda_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_duda_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `surat_duda_ditolak`
@@ -90884,13 +91060,13 @@ ALTER TABLE `surat_duda_ditolak`
 -- AUTO_INCREMENT for table `surat_janda`
 --
 ALTER TABLE `surat_janda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_janda_diterima`
 --
 ALTER TABLE `surat_janda_diterima`
-  MODIFY `id_janda_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_janda_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_janda_ditolak`
@@ -90902,19 +91078,19 @@ ALTER TABLE `surat_janda_ditolak`
 -- AUTO_INCREMENT for table `surat_sku`
 --
 ALTER TABLE `surat_sku`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_tdk_mampu`
 --
 ALTER TABLE `surat_tdk_mampu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_tdk_mampu_terima`
 --
 ALTER TABLE `surat_tdk_mampu_terima`
-  MODIFY `id_skm_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skm_diterima` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_tdk_mampu_tolak`
