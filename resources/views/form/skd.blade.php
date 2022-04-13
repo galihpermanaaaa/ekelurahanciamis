@@ -145,7 +145,6 @@
                         <option value="Wirausaha">Wirausaha</option>
                         <option value="Buruh">Buruh</option>
                         <option value="Dokter">Dokter</option>
-                        <option value="Bidan">Bidan</option>
                         <option value="TNI">TNI</option>
                         <option value="Polisi">Polisi</option>
                         <option value="Petani">Petani</option>
@@ -154,7 +153,6 @@
                         <option value="Karyawan BUMN">Karyawan BUMN</option>
                         <option value="Karyawan BUMD">Karyawan BUMD</option>
                         <option value="Anggota DPRD">Anggota DPRD</option>
-                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
                         <option value="Mahasiswa">Mahasiswa</option>
                         <option value="Pelajar">Pelajar</option>
                         <option value="Belum Bekerja">Belum Bekerja</option>

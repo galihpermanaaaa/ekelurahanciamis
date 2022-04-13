@@ -326,7 +326,9 @@ class PembuatSKMController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
         
         $this->fpdf->Ln(3);
         $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
@@ -378,7 +380,7 @@ class PembuatSKMController extends Controller
         
         $this->fpdf->Cell(22,8,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(101,6,'Camat Ciamis',0,0);
+        $this->fpdf->Cell(99,6,'Camat Ciamis',0,0);
         $this->fpdf->Cell(10,6,'Lurah Ciamis',0,1);
    
 
@@ -387,7 +389,7 @@ class PembuatSKMController extends Controller
         $this->fpdf->SetFont('times','Bu',12);
         $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
+        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
         $this->fpdf->SetFont('times','',11);
         $this->fpdf->Cell(10,-20,'',0,0);
         $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001.',0,0);

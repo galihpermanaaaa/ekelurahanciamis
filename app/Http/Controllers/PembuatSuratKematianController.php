@@ -362,7 +362,7 @@ class PembuatSuratKematianController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');

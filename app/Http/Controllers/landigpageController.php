@@ -345,6 +345,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
             'nomor_surat_pengantar_rw_rt'   => 'required',
             'keperluan'                     => 'required',
             'bidang_usaha'                  => 'required',
@@ -392,6 +393,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                   = $request->nama_jalan;
 
         $form->nomor_surat_pengantar_rw_rt     = $request->nomor_surat_pengantar_rw_rt;
         $form->keperluan                       = $request->keperluan;
@@ -478,85 +480,81 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nama',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nama,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Nama',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->nama,0,1);
 
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'NIK',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'NIK',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->nik,0,1);
 
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Tanggal Lahir',0,0);
+        $this->fpdf->Cell(50,7,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->jk,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Jenis Kelamin',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->jk,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Status Perkawinan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->status_perkawinan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Status Perkawinan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->status_perkawinan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Kewarganegaraan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->status_kewarganegaraan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Kewarganegaraan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->status_kewarganegaraan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Agama',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->agama,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Agama',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->agama,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Pekerjaan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->pekerjaan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Pekerjaan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->pekerjaan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW '. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name.' '.'Kabupaten '. $p->cities->city_name,0,1);
-  
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Alamat',0,0);
+        $this->fpdf->Cell(50,7,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,7,'',0,0);
+        $this->fpdf->Cell(50,7,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
-        $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
+        $this->fpdf->write(8,'Berdasarkan surat pengantar dari RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw,0,1);
         $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'Dengan Nomor: .'. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha',0,1);
-        $this->fpdf->write(8,'dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk: '. $p->keperluan.'.',0,1);
+        $this->fpdf->write(8,'dengan nomor: '. $p->nomor_surat_pengantar_rw_rt. ' '. 'orang tersebut di atas adalah warga kami yang mempunyai kegiatan usaha'. ' dibidang : '. $p->bidang_usaha.'.'. ' Surat keterangan ini diperlukan untuk '. $p->keperluan.'.',0,1);
+        
         
         $this->fpdf->Ln();
         $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'dan dapat dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
 
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(37,6,'',0,0,'C');
-        $this->fpdf->Cell(82,6,'',0,0);
-        $this->fpdf->Cell(14,6,'Ciamis,',0,0);
-        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+        $this->fpdf->Cell(37,7,'',0,0,'C');
+        $this->fpdf->Cell(82,7,'',0,0);
+        $this->fpdf->Cell(14,7,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,7,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
-
-        $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->Cell(42,7,'',0,0,'C');
+        $this->fpdf->Cell(74,7,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
+        $this->fpdf->Cell(45,7,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
-        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
-
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
+ 
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 
@@ -582,6 +580,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                            => 'required',
 
             'hubungan_keluarga'             => 'required',
             'nama_kel'                      => 'required',
@@ -625,6 +624,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                           = $request->nama_jalan;
 
         $form->nik_kel                          = $request->nik;
         $form->nama_kel                         = $request->nama;
@@ -745,8 +745,9 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
-       
+        $this->fpdf->Cell(50,6,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,6,'',0,0);
+        $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
         
         $this->fpdf->Ln(3);
         $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
@@ -798,7 +799,7 @@ class landigpageController extends Controller
         
         $this->fpdf->Cell(22,8,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(101,6,'Camat Ciamis',0,0);
+        $this->fpdf->Cell(99,6,'Camat Ciamis',0,0);
         $this->fpdf->Cell(10,6,'Lurah Ciamis',0,1);
    
 
@@ -807,11 +808,12 @@ class landigpageController extends Controller
         $this->fpdf->SetFont('times','Bu',12);
         $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
+        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
         $this->fpdf->SetFont('times','',11);
         $this->fpdf->Cell(10,-20,'',0,0);
         $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001.',0,0);
         $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001.',0,1);
+
         $this->fpdf->Output();
         exit; 
         }
@@ -1029,7 +1031,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
@@ -1261,7 +1263,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
@@ -1293,6 +1295,7 @@ class landigpageController extends Controller
             'subdis_id'                     => 'required',
             'id_rw'                         => 'required',
             'rt'                            => 'required',
+            'nama_jalan'                    => 'required',
 
             'pengantar_dari'                => 'required',
             'melengkapi'                     => 'required',
@@ -1335,6 +1338,7 @@ class landigpageController extends Controller
         $form->subdis_id                   = $request->subdis_id;
         $form->id_rw                        = $request->id_rw;
         $form->rt                           = $request->rt;
+        $form->nama_jalan                   = $request->nama_jalan;
 
         $form->pengantar_dari               = $request->pengantar_dari;
         $form->melengkapi                       = $request->melengkapi;
@@ -1420,87 +1424,83 @@ class landigpageController extends Controller
 
         $this->fpdf->Ln();
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Nama',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nama,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Nama',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->nama,0,1);
 
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'NIK',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->nik,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'NIK',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->nik,0,1);
 
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Tanggal Lahir',0,0);
-        $this->fpdf->Cell(50,6,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Tanggal Lahir',0,0);
+        $this->fpdf->Cell(50,7,':  '.(tgl_indo($p->tanggal_lahir)),0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Jenis Kelamin',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->jk,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Jenis Kelamin',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->jk,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Status Perkawinan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->status_perkawinan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Status Perkawinan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->status_perkawinan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Kewarganegaraan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->status_kewarganegaraan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Kewarganegaraan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->status_kewarganegaraan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Agama',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->agama,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Agama',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->agama,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Pekerjaan',0,0);
-        $this->fpdf->Cell(50,6,':  '.$p->pekerjaan,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Pekerjaan',0,0);
+        $this->fpdf->Cell(50,7,':  '.$p->pekerjaan,0,1);
 
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->Cell(35,6,'Alamat',0,0);
-        $this->fpdf->Cell(50,6,':  '.'RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' '. 'Kecamatan '. $p->districts->dis_name. ' '.'Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(1,7,'',0,0);
+        $this->fpdf->Cell(35,7,'Alamat',0,0);
+        $this->fpdf->Cell(50,7,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,7,'',0,0);
+        $this->fpdf->Cell(50,7,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
-
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->Cell(10,7,'',0,0);
         $this->fpdf->write(8,'Berdasarkan surat pengantar '. 'RT. '. $p->rt. ' '. 'RW. '. $p->rw->nama_rw.', bahwa orang tersebut adalah warga kami yang berstatus Janda dan sampai sekarang belum menikah lagi.',0,1);
         $this->fpdf->Ln();
-        $this->fpdf->Cell(10,6,'',0,0);
+        $this->fpdf->Cell(10,7,'',0,0);
         $this->fpdf->write(8,'Surat keterangan ini diperlukan untuk persyaratan melengkapi '. $p->melengkapi,0,1);
         $this->fpdf->Ln();
 
-        $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(1,6,'',0,0);
-        $this->fpdf->write(8,'dan dapat dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->Cell(10,7,'',0,0);
+        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
         $this->fpdf->Ln();
         $this->fpdf->Ln();
 
 
         
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(37,6,'',0,0,'C');
-        $this->fpdf->Cell(82,6,'',0,0);
-        $this->fpdf->Cell(14,6,'Ciamis,',0,0);
-        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+        $this->fpdf->Cell(37,7,'',0,0,'C');
+        $this->fpdf->Cell(82,7,'',0,0);
+        $this->fpdf->Cell(14,7,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,7,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
-        $this->fpdf->Cell(42,6,'',0,0,'C');
-        $this->fpdf->Cell(77,6,'',0,0);
+        $this->fpdf->Cell(42,7,'',0,0,'C');
+        $this->fpdf->Cell(74,7,'',0,0);
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,6,'LURAH CIAMIS',0,1, 'C');
+        $this->fpdf->Cell(45,7,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
-        $this->fpdf->Cell(100,20,'',0,0);
+        $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(4,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
-
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
+ 
         $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(2,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
-       
-        exit; 
+        exit;
         }
         
     }
@@ -1714,7 +1714,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
@@ -1947,7 +1947,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
@@ -2238,7 +2238,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
@@ -2435,7 +2435,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
         $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,0,'C');
+        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
         $this->fpdf->SetFont('times','B',12);
         $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');

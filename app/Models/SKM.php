@@ -11,7 +11,7 @@ class SKM extends Model
     protected $table='surat_tdk_mampu';
     protected $primaryKey='id';
     protected $fillable = ['nama', 'tanggal_lahir', 'tempat_lahir', 'nomor_bdt', 'untuk_persyaratan',
-                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt',
+                            'prov_id', 'city_id', 'dis_id', 'subdis_id', 'id_rw', 'rt', 'nama_jalan',
                             'hubungan_keluarga','nama_kel', 'nik_kel', 'tempat_kel', 'tanggal_lahir_kel', 'alamat',
                             'kk', 'surat_pengantar_rt_rw', 'surat_pernyataan_miskin',
                             'token', 'id_users', 'verifikasi', 'email', 'tanggal_buat_surat', 'deskripsi', 'tanggal_verifikasi'];

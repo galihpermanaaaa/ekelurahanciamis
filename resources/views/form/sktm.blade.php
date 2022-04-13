@@ -212,6 +212,17 @@
                           </span>
                          @enderror
                     </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Nama Jalan/Nama Gang/Nama Lingkungan</label>
+                        <input type="text" class="form-control @error('nama_jalan') is-invalid @enderror" id="nama_jalan" name="nama_jalan" placeholder="Contoh: Jln. Ciptomangunkusumo" required />
+                        @error('nama_jalan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                        
+                    </div>
             </div>
 
 
