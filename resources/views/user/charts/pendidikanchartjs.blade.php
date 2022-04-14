@@ -102,16 +102,16 @@ Highcharts.chart('container1', {
   series: [{
     name: 'Pendidikan yang ditamatkan',
     data: [
-      ['Belum Sekolah', pendidikan1],
-      ['Belum Tamat SD', pendidikan2],
-      ['SD/MI', pendidikan3],
-      ['SMP/MTS', pendidikan4],
-      ['SMA/MA/SMK', pendidikan5],
-      ['DI', pendidikan6],
-      ['DII', pendidikan7],
-      ['DIII', pendidikan8],
-      ['SI', pendidikan9],
-      ['SII', pendidikan10]
+      ['Belum Sekolah', parseFloat(pendidikan1)],
+      ['Belum Tamat SD', parseFloat(pendidikan2)],
+      ['SD/MI', parseFloat(pendidikan3)],
+      ['SMP/MTS', parseFloat(pendidikan4)],
+      ['SMA/MA/SMK', parseFloat(pendidikan5)],
+      ['DI', parseFloat(pendidikan6)],
+      ['DII', parseFloat(pendidikan7)],
+      ['DIII', parseFloat(pendidikan8)],
+      ['SI', parseFloat(pendidikan9)],
+      ['SII', parseFloat(pendidikan10)]
     ],
     dataLabels: {
       enabled: true,

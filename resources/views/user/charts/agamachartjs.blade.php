@@ -89,13 +89,13 @@ series: [{
   allowPointSelect: true,
   keys: ['name', 'y', 'selected', 'sliced'],
   data: [
-    ['Kepercayaan', agama7, false],
-    ['Konghuchu', agama6, false],
-    ['Budha', agama5, false],
-    ['Hindu', agama4, false],
-    ['Katholik', agama3, false],
-    ['Kristen', agama2, false],
-    ['Islam', agama1, true, true]
+    ['Kepercayaan', parseFloat(agama7), false],
+    ['Konghuchu', parseFloat(agama6), false],
+    ['Budha', parseFloat(agama5), false],
+    ['Hindu', parseFloat(agama4), false],
+    ['Katholik', parseFloat(agama3), false],
+    ['Kristen', parseFloat(agama2), false],
+    ['Islam', parseFloat(agama1), true, true]
   ],
   showInLegend: true
 }]

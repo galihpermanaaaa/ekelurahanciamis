@@ -84,8 +84,8 @@ series: [{
   allowPointSelect: true,
   keys: ['name', 'y', 'selected', 'sliced'],
   data: [
-    ['Laki-laki', kk1, false],
-    ['perempuan', kk2, false],
+    ['Laki-laki', parseFloat(kk1), false],
+    ['perempuan', parseFloat(kk2), false],
   ],
   showInLegend: true
 }]

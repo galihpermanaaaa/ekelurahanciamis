@@ -114,47 +114,47 @@ Highcharts.chart('container5', {
       data: [
         {
           name: "LPM",
-          y: lem1,
+          y: parseFloat(lem1),
           drilldown: "LPM"
         },
         {
           name: "TP/PKK",
-          y: lem2,
+          y: parseFloat(lem2),
           drilldown: "TP/PKK"
         },
         {
           name: "BKM",
-          y: lem3,
+          y: parseFloat(lem3),
           drilldown: "BKM"
         },
         {
           name: "POKMAS",
-          y: lem4,
+          y: parseFloat(lem4),
           drilldown: "POKMAS"
         },
         {
           name: "Karang Taruna",
-          y: lem5,
+          y: parseFloat(lem5),
           drilldown: "Karang Taruna"
         },
         {
           name: "UPZ",
-          y:lem6,
+          y:parseFloat(lem6),
           drilldown: "UPZ"
         },
         {
           name: "BKMM",
-          y: lem7,
+          y: parseFloat(lem7),
           drilldown: "BKMM",
         },
         {
           name: "Pondok Pesantren",
-          y: lem8,
+          y: parseFloat(lem8),
           drilldown: "Pondok Pesantren",
         },
         {
           name: "MUI",
-          y: lem9,
+          y: parseFloat(lem9),
           drilldown: "MUI",
         }
       ]

@@ -98,11 +98,11 @@ Highcharts.chart('container7', {
   series: [{
     name: 'Keluarga Berencana',
     data: [
-      ['PUS', kb1],
-      ['Peserta KB Aktif', kb2],
-      ['Pra KS', kb3],
-      ['KS 1', kb4],
-      ['KS', kb5]
+      ['PUS', parseFloat(kb1)],
+      ['Peserta KB Aktif', parseFloat(kb2)],
+      ['Pra KS', parseFloat(kb3)],
+      ['KS 1', parseFloat(kb4)],
+      ['KS', parseFloat(kb5)]
     ],
     dataLabels: {
       enabled: true,

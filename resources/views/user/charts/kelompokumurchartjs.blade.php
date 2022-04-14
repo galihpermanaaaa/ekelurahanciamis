@@ -138,15 +138,15 @@ plotOptions: {
 
 series: [{
   name: 'Laki-laki',
-  data: [kelompok_umur1_lk, kelompok_umur2_lk, kelompok_umur3_lk, kelompok_umur4_lk, kelompok_umur5_lk, kelompok_umur6_lk,
-         kelompok_umur7_lk, kelompok_umur8_lk, kelompok_umur9_lk, kelompok_umur10_lk, kelompok_umur11_lk, kelompok_umur12_lk,
-         kelompok_umur13_lk, kelompok_umur14_lk, kelompok_umur15_lk, kelompok_umur16_lk],
+  data: [parseFloat(kelompok_umur1_lk), parseFloat(kelompok_umur2_lk), parseFloat(kelompok_umur3_lk), parseFloat(kelompok_umur4_lk), parseFloat(kelompok_umur5_lk), parseFloat(kelompok_umur6_lk),
+         parseFloat(kelompok_umur7_lk), parseFloat(kelompok_umur8_lk), parseFloat(kelompok_umur9_lk), parseFloat(kelompok_umur10_lk), parseFloat(kelompok_umur11_lk), parseFloat(kelompok_umur12_lk),
+         parseFloat(kelompok_umur13_lk), parseFloat(kelompok_umur14_lk), parseFloat(kelompok_umur15_lk), parseFloat(kelompok_umur16_lk)],
   stack: 'Laki-laki'
 }, {
   name: 'Perempuan',
-  data: [kelompok_umur1_pr, kelompok_umur2_pr, kelompok_umur3_pr, kelompok_umur4_pr, kelompok_umur5_pr, kelompok_umur6_pr,
-         kelompok_umur7_pr, kelompok_umur8_pr, kelompok_umur9_pr, kelompok_umur10_pr, kelompok_umur11_pr, kelompok_umur12_pr,
-         kelompok_umur13_pr, kelompok_umur14_pr, kelompok_umur15_pr, kelompok_umur16_pr],
+  data: [parseFloat(kelompok_umur1_pr), parseFloat(kelompok_umur2_pr), parseFloat(kelompok_umur3_pr), parseFloat(kelompok_umur4_pr), parseFloat(kelompok_umur5_pr), parseFloat(kelompok_umur6_pr),
+         parseFloat(kelompok_umur7_pr), parseFloat(kelompok_umur8_pr), parseFloat(kelompok_umur9_pr), parseFloat(kelompok_umur10_pr), parseFloat(kelompok_umur11_pr), parseFloat(kelompok_umur12_pr),
+         parseFloat(kelompok_umur13_pr), parseFloat(kelompok_umur14_pr), parseFloat(kelompok_umur15_pr), parseFloat(kelompok_umur16_pr)],
   stack: 'Perempuan'
 }]
 });

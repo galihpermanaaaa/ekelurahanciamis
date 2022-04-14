@@ -82,11 +82,11 @@ Highcharts.chart('container6', {
   series: [{
     name: '',
     data: [
-      ['Status Kepemilikan Sendiri', perum1],
-      ['Status Kepemilikan Sewa Kontrak', perum2],
-      ['Penyediaan Perumahan Perumnas', perum3],
-      ['Penyediaan Perumahan Developer swasta', perum4],
-      ['Penyediaan Perumahan Penyediaan Perseorangan', perum5]
+      ['Status Kepemilikan Sendiri', parseFloat(perum1)],
+      ['Status Kepemilikan Sewa Kontrak', parseFloat(perum2)],
+      ['Penyediaan Perumahan Perumnas', parseFloat(perum3)],
+      ['Penyediaan Perumahan Developer swasta', parseFloat(perum4)],
+      ['Penyediaan Perumahan Penyediaan Perseorangan', parseFloat(perum5)]
     ]
   }]
 });

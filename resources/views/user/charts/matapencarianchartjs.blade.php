@@ -120,77 +120,77 @@ Highcharts.chart('container2', {
       data: [
         {
           name: "PNS",
-          y: matapencarian1,
+          y: parseFloat(matapencarian1),
           drilldown: "PNS"
         },
         {
           name: "TNI/POLRI",
-          y: matapencarian2,
+          y: parseFloat(matapencarian2),
           drilldown: "TNI/POLRI"
         },
         {
           name: "BUMN/BUMD",
-          y: matapencarian3,
+          y: parseFloat(matapencarian3),
           drilldown: "BUMN/BUMD"
         },
         {
           name: "Pegawai Swasta",
-          y: matapencarian4,
+          y: parseFloat(matapencarian4),
           drilldown: "Pegawai Swasta"
         },
         {
           name: "Pertanian",
-          y: matapencarian5,
+          y: parseFloat(matapencarian5),
           drilldown: "Pertanian"
         },
         {
           name: "Perikanan",
-          y:matapencarian6,
+          y:parseFloat(matapencarian6),
           drilldown: "Perikanan"
         },
         {
           name: "Industri Pengolahan",
-          y: matapencarian7,
+          y: parseFloat(matapencarian7),
           drilldown: "Industri Pengolahan",
         },
         {
           name: "Perdagangan",
-          y: matapencarian8,
+          y: parseFloat(matapencarian8),
           drilldown: "Perdagangan",
         },
         {
           name: "Angkutan",
-          y: matapencarian9,
+          y: parseFloat(matapencarian9),
           drilldown: "Angkutan",
         },
         {
           name: "Jasa-jasa",
-          y: matapencarian10,
+          y: parseFloat(matapencarian10),
           drilldown: "Jasa-jasa",
         },
         {
           name: "Buruh Pertukangan",
-          y: matapencarian11,
+          y: parseFloat(matapencarian11),
           drilldown: "Buruh Pertukangan",
         },
         {
           name: "Buruh Pertanian",
-          y: matapencarian12,
+          y: parseFloat(matapencarian12),
           drilldown: "Buruh Pertanian",
         },
         {
           name: "Buruh Serabutan",
-          y: matapencarian13,
+          y: parseFloat(matapencarian13),
           drilldown: "Buruh Serabutan",
         },
         {
           name: "Pengangguran",
-          y: matapencarian14,
+          y: parseFloat(matapencarian14),
           drilldown: "Pengangguran",
         },
         {
           name: "Pensiunan",
-          y: matapencarian15,
+          y: parseFloat(matapencarian15),
           drilldown: "Pensiunan",
         }
       ]
