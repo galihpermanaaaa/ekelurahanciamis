@@ -358,19 +358,10 @@ class PembuatSKMController extends Controller
 
 
         $this->fpdf->Ln(3);
-        $this->fpdf->MultiCell(10,0.5,'',0,0);
-        $this->fpdf->MultiCell(190,7,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,'J',false);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,1,);
-        
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan. '.',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
- 
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,1);
+        $this->fpdf->MultiCell(170,7,'       Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,'J',false);
+        $this->fpdf->MultiCell(170,7,'       Surat keterangan ini diperlukan '. $p->untuk_persyaratan. '.',0,'J',false);
+        $this->fpdf->MultiCell(170,7,'     Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,'J',false);
         $this->fpdf->Ln(3);
-        $this->fpdf->Ln();
 
 
         
@@ -378,7 +369,7 @@ class PembuatSKMController extends Controller
         $this->fpdf->Cell(110,6,'',0,0,'C');
         $this->fpdf->Cell(5,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
-        $this->fpdf->Cell(30,6,(tgl_indo($p->tanggal_verifikasi)),0,1);
+        $this->fpdf->Cell(30,6,(tgl_indo(  $p->tanggal_verifikasi)),0,1);
 
         
         $this->fpdf->Cell(22,8,'',0,0);

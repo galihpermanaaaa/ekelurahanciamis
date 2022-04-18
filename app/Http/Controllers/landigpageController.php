@@ -703,7 +703,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(190,6,'Nomor: 140/'.'          '.'/Kel.'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
-        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->SetFont('times','',13);
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->write(8,'Yang bertanda tangan di bawah ini:',0,1);
 
@@ -711,7 +711,7 @@ class landigpageController extends Controller
 
         $this->fpdf->Cell(1,6,'',0,0);
         $this->fpdf->Cell(35,6,'Nama',0,0);
-        $this->fpdf->Cell(50,6,': WAHYU GHIFARY SETIAWAN, S.STP., MM.',0,1);
+        $this->fpdf->Cell(50,6,': WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
 
 
         $this->fpdf->Cell(1,6,'',0,0);
@@ -750,7 +750,7 @@ class landigpageController extends Controller
         $this->fpdf->Cell(50,6,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
         
         $this->fpdf->Ln(3);
-        $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'Dari:',0,1); 
+        $this->fpdf->write(8,'Hubungan Keluarga'.' '.$p->hubungan_keluarga.' '. 'dari:',0,1); 
         $this->fpdf->Ln();
 
         $this->fpdf->Cell(1,6,'',0,0);
@@ -776,21 +776,17 @@ class landigpageController extends Controller
         
 
 
+        $this->fpdf->SetFont('times','',13);
+        $this->fpdf->MultiCell(190,7,'       Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,'J',false, 0);
+        $this->fpdf->Ln(0.7);
+        $this->fpdf->MultiCell(190,7,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan. '.',0,'J',false, 0,1);
+        $this->fpdf->write(8,'             Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,1,'J',false);  
+       
         $this->fpdf->Ln(3);
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Surat keterangan ini diperlukan '. $p->untuk_persyaratan,0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,0.5,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,1);
-        $this->fpdf->Ln(3);
-        $this->fpdf->Ln();
 
 
         
-        $this->fpdf->SetFont('times','',12);
+        $this->fpdf->SetFont('times','',13);
         $this->fpdf->Cell(110,6,'',0,0,'C');
         $this->fpdf->Cell(5,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
@@ -798,22 +794,25 @@ class landigpageController extends Controller
 
         
         $this->fpdf->Cell(22,8,'',0,0);
-        $this->fpdf->SetFont('times','B',12);
+        $this->fpdf->SetFont('times','B',13);
         $this->fpdf->Cell(99,6,'Camat Ciamis',0,0);
         $this->fpdf->Cell(10,6,'Lurah Ciamis',0,1);
    
 
         $this->fpdf->Cell(5,25,'',0,0, 'C');
         $this->fpdf->Cell(1,30,'',0,0);
-        $this->fpdf->SetFont('times','Bu',12);
+        $this->fpdf->SetFont('times','Bu',13);
         $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
-        $this->fpdf->SetFont('times','BU',12);
+        $this->fpdf->SetFont('times','BU',13);
         $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
-        $this->fpdf->SetFont('times','',11);
+        $this->fpdf->SetFont('times','',12);
         $this->fpdf->Cell(10,-20,'',0,0);
-        $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001.',0,0);
-        $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001.',0,1);
+        $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001',0,0);
+        $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001',0,1);
 
+
+
+     
         $this->fpdf->Output();
         exit; 
         }
