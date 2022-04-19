@@ -355,18 +355,20 @@ class PembuatSKMController extends Controller
         $this->fpdf->Cell(35,6,'Alamat',0,0);
         $this->fpdf->Cell(50,6,':  '.$p->alamat,0,1);
         
-
-
+        $this->fpdf->Ln();
+        $this->fpdf->Cell(1,0.6,'',0,0);
+        $this->fpdf->MultiCell(191,7,'       Berdasarkan Surat Pengantar dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.','J',1,);
+        $this->fpdf->Cell(1,0.6,'',0,0);
+        $this->fpdf->MultiCell(191,7,'       Surat keterangan ini diperlukan '. $p->untuk_persyaratan. '.','J',1,);
+        $this->fpdf->Cell(1,0.6,'',0,0); 
+        $this->fpdf->MultiCell(191,7,'       Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.','J',1,);
         $this->fpdf->Ln(3);
-        $this->fpdf->MultiCell(170,7,'       Berdasarkan Surat Pengantar Keterangan dari Ketua RT.'. $p->rt. ' '. 'RW.'. $p->rw->nama_rw. ' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis benar bahwa orang tersebut di atas keadaan ekonominya kurang mampu dan pemutakhiran data pada Basis Data Terpadu (BDT) '. $p->nomor_bdt. '.',0,'J',false);
-        $this->fpdf->MultiCell(170,7,'       Surat keterangan ini diperlukan '. $p->untuk_persyaratan. '.',0,'J',false);
-        $this->fpdf->MultiCell(170,7,'     Demikian Surat Keterangan ini kami buat dengan sesungguhnya untuk dipergunakan sebagaimana mestinya.',0,'J',false);
-        $this->fpdf->Ln(3);
+        
 
 
         
         $this->fpdf->SetFont('times','',13);
-        $this->fpdf->Cell(110,6,'',0,0,'C');
+        $this->fpdf->Cell(110,8,'',0,0,'C');
         $this->fpdf->Cell(5,6,'',0,0);
         $this->fpdf->Cell(14,6,'Ciamis,',0,0);
         $this->fpdf->Cell(30,6,(tgl_indo(  $p->tanggal_verifikasi)),0,1);
@@ -381,13 +383,14 @@ class PembuatSKMController extends Controller
         $this->fpdf->Cell(5,25,'',0,0, 'C');
         $this->fpdf->Cell(1,30,'',0,0);
         $this->fpdf->SetFont('times','Bu',13);
-        $this->fpdf->Cell(87,30,' Drs. DEDY MUDYANA, M.Si',0,0);
+        $this->fpdf->Cell(87,33,' Drs. DEDY MUDYANA, M.Si',0,0);
         $this->fpdf->SetFont('times','BU',13);
-        $this->fpdf->Cell(150,30,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
+        $this->fpdf->Cell(150,33,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,1);
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(10,-20,'',0,0);
-        $this->fpdf->Cell(102,-20,'NIP. 19670610 198609 1 001',0,0);
-        $this->fpdf->Cell(100,-20,'NIP. 19921107 201507 1 001',0,1);
+        $this->fpdf->Cell(10,-23,'',0,0);
+        $this->fpdf->Cell(102,-23,'NIP. 19670610 198609 1 001',0,0);
+        $this->fpdf->Cell(100,-23,'NIP. 19921107 201507 1 001',0,1);
+
 
 
 
