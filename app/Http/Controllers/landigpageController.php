@@ -109,7 +109,7 @@ class landigpageController extends Controller
     
 
     public function apk()
-    {
+    {   
         $filepath = public_path('apk/ekelurahan.apk');
         return Response::download($filepath); 
     }
