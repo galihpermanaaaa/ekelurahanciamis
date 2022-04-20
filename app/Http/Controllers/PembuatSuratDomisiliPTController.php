@@ -246,7 +246,7 @@ class PembuatSuratDomisiliPTController extends Controller
           
         $this->fpdf = new Fpdf;
         $this->fpdf->SetFont('times', 'B', 15);
-        $this->fpdf->AddPage(['P','mm','a4']);
+        $this->fpdf->AddPage(['P','mm','F4']);
         $this->fpdf->image('assets/img/logocms.png',14,10,16,25);
         // $this->fpdf->Text(10, 10, $p->nama);
         
@@ -275,64 +275,61 @@ class PembuatSuratDomisiliPTController extends Controller
 
         $this->fpdf->Cell(190,6,'SURAT KETERANGAN DOMISILI',0,1,'C');
         $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(190,6,'Nomor: 140/'.'        '.'/Kel.'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
+        $this->fpdf->Cell(190,6,'Nomor: 140/'.'          '.'/Kel.'.date("Y", strtotime($p->tanggal_buat_surat)),0,1,'C');
         $this->fpdf->Ln();
 
-        $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(10,6,'',0,0);
-        $this->fpdf->write(8,'Yang bertanda tangan dibawah ini Lurah Ciamis Kecamatan Ciamis Kabupaten Ciamis menerangkan dengan sebenarnya bahwa :',0,1);
-
-        $this->fpdf->Ln();
+        $this->fpdf->SetFont('times','',13);
+        $this->fpdf->Cell(1,6,'',0,0);
+        $this->fpdf->MultiCell(189,8,'Yang bertanda tangan di bawah ini Lurah Ciamis Kecamatan Ciamis Kabupaten Ciamis menerangkan dengan sebenarnya bahwa:',0,'J',false);
 
         $this->fpdf->Cell(1,7,'',0,0);
         $this->fpdf->Cell(35,7,'Nama Lembaga',0,0);
         $this->fpdf->Cell(50,7,':  '.$p->nama_lembaga,0,1);
 
-        $this->fpdf->Cell(1,7,'',0,0);
-        $this->fpdf->Cell(35,7,'Alamat',0,0);
-        $this->fpdf->Cell(50,7,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
-        $this->fpdf->Cell(39,7,'',0,0);
-        $this->fpdf->Cell(50,7,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
+        $this->fpdf->Cell(1,8,'',0,0);
+        $this->fpdf->Cell(35,8,'Alamat',0,0);
+        $this->fpdf->Cell(50,8,':  '. $p->nama_jalan.'  RT/RW.'. $p->rt. '/'. $p->rw->nama_rw. ' '. 'Kelurahan '. $p->subdistricts->subdis_name. ' ',0,1);
+        $this->fpdf->Cell(39,8,'',0,0);
+        $this->fpdf->Cell(50,8,'Kecamatan '. $p->districts->dis_name.' Kabupaten '. $p->cities->city_name,0,1);
 
-        $this->fpdf->Cell(1,7,'',0,0);
-        $this->fpdf->Cell(35,7,'NPWP Perusahaan',0,0);
-        $this->fpdf->Cell(50,7,':  '.$p->npwp_pt,0,1);
+        $this->fpdf->Cell(1,8,'',0,0);
+        $this->fpdf->Cell(35,8,'NPWP Perusahaan',0,0);
+        $this->fpdf->Cell(50,8,':  '.$p->npwp_pt,0,1);
 
-        $this->fpdf->Cell(1,7,'',0,0); 
-        $this->fpdf->Cell(35,7,'Pimpinan',0,0);
-        $this->fpdf->Cell(50,7,':  '.$p->pimpinan,0,1);
+        $this->fpdf->Cell(1,8,'',0,0); 
+        $this->fpdf->Cell(35,8,'Pimpinan',0,0);
+        $this->fpdf->Cell(50,8,':  '.$p->pimpinan,0,1);
 
-        $this->fpdf->Cell(10,7,'',0,0);
-        $this->fpdf->write(8,'Berdasarkan Surat Keterangan dari '. $p->surat_keterangan_dari.' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, bahwa '.$p->nama_lembaga.' berdomisili pada alamat tersebut di atas.',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Cell(10,7,'',0,0);
-        $this->fpdf->write(8,'Demikian Surat Keterangan ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya.',0,1);
-        $this->fpdf->Ln();
-        $this->fpdf->Ln();
+        $this->fpdf->SetFont('times','',13);
+        $this->fpdf->Cell(1,0.6,'',0,0);
+        $this->fpdf->MultiCell(189,8,'       Berdasarkan Surat Pengantar dari '. $p->surat_keterangan_dari.' Kelurahan Ciamis Kecamatan Ciamis Kabupaten Ciamis, bahwa '.$p->nama_lembaga.' berdomisili pada alamat tersebut di atas.','J',1,);
+        $this->fpdf->Cell(1,0.6,'',0,0); 
+        $this->fpdf->MultiCell(189,8,'       Demikian Surat Pengantar ini dibuat dengan sebenarnya agar yang berwenang menjadi maklum dan dapat dipergunakan sebagaimana mestinya. ','J',1,);
+        $this->fpdf->Ln(3);
 
 
         
-        $this->fpdf->SetFont('times','',12);
-        $this->fpdf->Cell(37,7,'',0,0,'C');
-        $this->fpdf->Cell(82,7,'',0,0);
-        $this->fpdf->Cell(14,7,'Ciamis,',0,0);
-        $this->fpdf->Cell(30,7,(tgl_indo($p->tanggal_verifikasi)),0,1);
+        $this->fpdf->SetFont('times','',13);
+        $this->fpdf->Cell(37,8,'',0,0,'C');
+        $this->fpdf->Cell(82,8,'',0,0);
+        $this->fpdf->Cell(14,8,'Ciamis,',0,0);
+        $this->fpdf->Cell(30,8,(tgl_indo($p->tanggal_verifikasi)),0,1);
 
 
 
-        $this->fpdf->Cell(42,7,'',0,0,'C');
-        $this->fpdf->Cell(74,7,'',0,0);
-        $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(45,7,'LURAH CIAMIS',0,1, 'C');
+        $this->fpdf->Cell(42,8,'',0,0,'C');
+        $this->fpdf->Cell(74,8,'',0,0);
+        $this->fpdf->SetFont('times','B',13);
+        $this->fpdf->Cell(48,3,'LURAH CIAMIS',0,1, 'C');
         
 
         $this->fpdf->Cell(40,20,'',0,0, 'C');
         $this->fpdf->Cell(98,20,'',0,0);
-        $this->fpdf->SetFont('times','BU',12);
-        $this->fpdf->Cell(1,35,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
+        $this->fpdf->SetFont('times','BU',13);
+        $this->fpdf->Cell(1,44,'WAHYU GHIFARY SETIAWAN, S.STP., M.M.',0,0,'C');
  
-        $this->fpdf->SetFont('times','B',12);
-        $this->fpdf->Cell(1,44,'NIP. 19921107 201507 1 001',0,1,'C');
+        $this->fpdf->SetFont('times','B',13);
+        $this->fpdf->Cell(1,54,'NIP. 19921107 201507 1 001',0,1,'C');
         $this->fpdf->Output();
        
         exit; 
