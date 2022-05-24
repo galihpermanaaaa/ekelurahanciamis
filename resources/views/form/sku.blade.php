@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="modal-body">
 
@@ -23,7 +23,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="modal-body">
 
@@ -54,7 +54,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Surat Keterangan Usaha</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="modal-body">
             <form action="{{ route('save_sku') }}" method="POST" enctype="multipart/form-data">
@@ -172,9 +172,6 @@
                         <option value="Karyawan BUMN">Karyawan BUMN</option>
                         <option value="Karyawan BUMD">Karyawan BUMD</option>
                         <option value="Anggota DPRD">Anggota DPRD</option>
-                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                        <option value="Mahasiswa">Mahasiswa</option>
-                        <option value="Pelajar">Pelajar</option>
                         <option value="Belum Bekerja">Belum Bekerja</option>
                         </select>
                         @error('pekerjaan')
@@ -269,17 +266,6 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Nama Jalan/Nama Gang/Nama Lingkungan</label>
-                        <input type="text" class="form-control @error('nama_jalan') is-invalid @enderror" id="nama_jalan" name="nama_jalan" placeholder="Contoh: Jln. Ciptomangunkusumo" required />
-                        @error('nama_jalan')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                     </div>
             </div>
 

@@ -18,7 +18,7 @@
           <div class="d-lg-flex">
 
             <a href="#services" class="btn-get-started scrollto">Pelayanan Surat</a>
-            <a href="https://www.youtube.com/watch?v=RHpyMoMMXKQ" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
 
         </div>
@@ -64,126 +64,139 @@
 </script>
 <noscript><a href="https://www.livechatinc.com/chat-with/13529715/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
 <!-- End of LiveChat code -->
-
-<section id="services" class="services section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Pelayanan Surat Online</h2>
-        {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-      </div>
-
-      {{-- message --}}
-
-
-    <script>
-    @if(count($errors) > 0)
-        @foreach($errors->all() as $error)
-            toastr.error("{{ $error }}");
-        @endforeach
-    @endif
-    </script>
-
-      <div class="row">
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-file"></i></div>
-                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
-              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
+<section id="services" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <script>
+                @if(count($errors) > 0)
+                    @foreach($errors->all() as $error)
+                        toastr.error("{{ $error }}");
+                    @endforeach
+                @endif
+                </script>
+            <!-- Section Title -->
+            <div class="title-wrap mb-5" data-aos="fade-up">
+                <h2 class="section-title">
+                    Pelayanan Surat Online
+                </h2>
+                {{-- <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p> --}}
             </div>
-          </div>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Features Holder-->
+                <div class="col-md-10 offset-md-1 features-holder">
+                    <div class="row">
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center mt-4">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="bx bx-file fs-40"></i>
+                                </div>
+                                <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKU_menu">Surat Keterangan Usaha</a></h4>
+                                <p></p>
+                            </div>
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="bx bx-file fs-40"></i>
+                                </div>
+                                <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKTM_menu">Surat Keterangan Tidak Mampu</a></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <!-- End of Feature Item -->
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="bx bx-file fs-40"></i>
+                                </div>
+                                <h4><a href="" data-bs-toggle="modal" data-bs-target="#modaldomisili_menu">Surat Keterangan Domisili</a></h4>
+                                <p></p>
+                            </div>
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="bx bx-file fs-40"></i>
+                                </div>
+                                <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalduda_menu">Surat Keterangan Duda</a></h4>
+                                <p> </p>
+                            </div>
+                        </div>
+                        <!-- End of Feature Item -->
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-file"></i></div>
-
-                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalSKTM_menu">Surat Keterangan Tidak Mampu</a> </h4>
-
-            {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
-          </div>
+<!-- Features Item -->
+<div class="col-md-4 col-sm-12 text-center mt-4">
+    <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+        <div class="my-4">
+            <i class="bx bx-file fs-40"></i>
         </div>
-
-
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-file"></i></div>
-            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaldomisili_menu">Surat Keterangan Domisili</a></h4>
-            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-file"></i></div>
-            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalduda_menu">Surat Keterangan Duda</a></h4>
-            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
-          </div>
-        </div>
-
-      </div>
-      <br>
-      <div class="row">
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-file"></i></div>
-
-                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modaljanda_menu">Surat Keterangan Janda</a></h4>
-              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
-            </div>
-          </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-file"></i></div>
-                <center>  <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a> </h4>
-
-            {{-- <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> --}}
-          </div>
-        </div>
-
-
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><center><i class="bx bx-file"></i></div>
-            <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
-            {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-file"></i></div>
-              <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
-              {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> --}}
-            </div>
-          </div>
-
-      </div>
-      <br>
-
-
-      <div class="row">
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><center><i class="bx bx-file"></i></div>
-
-                <center><h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkdp_menu">Surat Keterangan Domisili Perusahaan</a></h4>
-              {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> --}}
-            </div>
-          </div>
-
-
-
-      </div>
-
+        <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbmr_menu">Surat Keterangan Belum Memiliki Rumah</a></h4>
+        <p> </p>
     </div>
+    <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+        <div class="my-4">
+            <i class="bx bx-file fs-40"></i>
+        </div>
+        <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkematian_menu">Surat Keterangan Kematian</a></h4>
+        <p> </p>
+    </div>
+</div>
+<!-- End of Feature Item -->
+                    </div>
+                </div>
+                <!-- End of Features Holder-->
+            </div>
+            <div class="row">
+                <!-- Features Holder-->
+                <div class="col-md-10 offset-md-1 features-holder">
+                    <div class="row">
+ <!-- Features Item -->
+ <div class="col-md-4 col-sm-12 text-center mt-4">
+  <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+      <div class="my-4">
+          <i class="bx bx-file fs-40"></i>
+      </div>
+      <h4><a href="" data-bs-toggle="modal" data-bs-target="#modaljanda_menu">Surat Keterangan Janda</a></h4>
+      <p> </p>
+  </div>
 
-  </section><!-- End Services Section -->
+</div>
+<!-- End of Feature Item -->
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="bx bx-file fs-40"></i>
+                                </div>
+                                <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalkdp_menu">Surat Keterangan Domisili Perusahaan</a></h4>
+                                <p> </p>
+                            </div>
+
+                        </div>
+                        <!-- End of Feature Item -->
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center">
+                        <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                          <div class="my-4">
+                              <i class="bx bx-file fs-40"></i>
+                          </div>
+                          <h4><a href="" data-bs-toggle="modal" data-bs-target="#modalbm_menu">Surat Keterangan Belum Menikah</a></h4>
+                          <p> </p>
+                      </div>
+                        </div>
+                        <!-- End of Feature Item -->
+                    </div>
+                </div>
+                <!-- End of Features Holder-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about ">
       <div class="container" data-aos="fade-up">
@@ -864,7 +877,7 @@
 
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <div id="preloader"></div>
+
 
   <!-- Vendor JS Files -->
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>

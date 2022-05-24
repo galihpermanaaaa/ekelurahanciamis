@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="modal-body">
 
@@ -25,7 +25,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="modal-body">
 
@@ -36,6 +36,7 @@
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary btn-pill" value="Lihat Surat">
+
                     </div>
                 </form>
 
@@ -52,7 +53,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalSKTM">Surat Keterangan Tidak Mampu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
             <div class="modal-body">
@@ -211,17 +212,6 @@
                           <strong>{{ $message }}</strong>
                           </span>
                          @enderror
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Nama Jalan/Nama Gang/Nama Lingkungan</label>
-                        <input type="text" class="form-control @error('nama_jalan') is-invalid @enderror" id="nama_jalan" name="nama_jalan" placeholder="Contoh: Jln. Ciptomangunkusumo" required />
-                        @error('nama_jalan')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                     </div>
             </div>
 
