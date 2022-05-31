@@ -116,7 +116,7 @@
               <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
               <li><a href="{{ route('monografi_geografis') }}">Monografi Geografis</a></li>
               <li><a href="{{ route('monografi') }}">Monografi Pemerintahan & Kependudukan</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=com.ciamis.ekelv1" target="_blank">Download Aplikasi E-Kelurahan Berbasis Mobile</a></li>
+              <li><a href="{{ URL::to('apk/ekelurahan.apk') }} " target="_blank">Download Aplikasi E-Kelurahan Berbasis Mobile</a></li>
               <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
